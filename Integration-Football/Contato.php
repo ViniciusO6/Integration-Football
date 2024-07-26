@@ -1,75 +1,73 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Fale Conosco</title>
-    <link rel="stylesheet" href="css/Login.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap" rel="stylesheet"/>
-    <link rel="icon" href="Imagens/icon.jpeg" type="image/jpeg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap" rel="stylesheet">
-    
+<?php 
+
+//Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
+//Basta colocar os links
+  $imports =[
+    "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+    "https://fonts.gstatic.com/",
+    "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
+  ];
+  $titulo = 'Login';
+  $pageCSS = ["Contato.css"];
+  $pageJS = ["Login.js"];
+
+  include_once('./templetes/index.php');
+
   
-  </head>
-<body>
+
+?>
  <!--NAVBAR-->
- <header>
-  <div id="menu" class="menu">
-  
-    <li><a href="home.html">Página Inicial </a></li>
-    <li><a href="Projetos.html">Projetos </a></li>
-    <li><a href="Unidades.html">Unidades</a></li>
-    <li><a href="SobreNos.html">Sobre-nós</a></li>
-    <li><a href="Contato.html">Contato </a></li>
-  </div>
-  
-  <div class="header" id="header">
-
-
-    <div  class="menu_bar">
-      <img onclick="FadeMenu()"src="imagens/menu-svgrepo-com.svg" alt="">
-    </div>
-    
-        
-    <div class="icone">
-      <a href="home.html"><img src="imagens/logonova.png" alt="Logo" /></a>
-    </div>
-
-    <div class="navigation_header">
-      <li class="login"><a href="#">Login</a></li>
-      <li class="matricula"><a href="Cadastro.html">Matricule-se</a></li>
-    </div>
-
-  </div>
-</header>
-
 
 
 
 <div class="content">
-      
-  <form action="">
-    <div class="entrada">
-        <img src="imagens/noun-account-5154619.png" alt="imagem Login" />
-      <br />
-      <p>E-mail <span>*</span></p>
-      <input type="email" /><br /> 
-      <p>Senha <span>*</span> </p>
-      <input type="password" /><br />
-      <a href="#">Esqueceu a senha? Redefine-a agora</a><br />
-      <button><strong>Entrar</strong></button>
+
+<!-- PLUG-IN LIBRAS-->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+  </div>
+  
+  <!--TÍTULO-->
+  <p class="bloco01">CONTATE-NOS</p>
+
+  <!--CARDS-->
+  <section class="contato">
+    <div class="row">
+      <div class="card orange" style="height: 200px;">
+        <a href="Duvidas.html">
+          <font color=black>
+          <p>DÚVIDAS</p>
+          <p>FEEDBACKS</p>
+          <img class="image" src="Imagens/noun-feedback-5289654.png" alt="money" />
+            </font>
+        </a>
+      </div>
+      <div class="card blue">
+        <a href="Patrocinio.html">
+          <font color=black>
+          <p>SEJA UM</p>
+          <p>PATROCINADOR</p>
+          <img class="image" src="Imagens/noun-teamwork-3995328.png" alt="settings" />
+          </font>
+        </a>
+      </div>
+      <div class="card orange">
+        <a href="Doacoes.html">
+          <font color=black>
+          <p>DOAÇÕES</p>
+          <p>CONTRIBUIÇÕES</p>
+          <img class="image" src="Imagens/noun-donations-6165623.png" alt="article" />
+          </font>
+        </a>
+      </div>
     </div>
-  </form>
-</div><br><br><br>
-
-
-
-
-
-
+   
+  </section>
+</div>
   <!--FOOTER-->
   <br><br>
   <footer>
