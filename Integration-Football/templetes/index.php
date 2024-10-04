@@ -13,7 +13,7 @@
     <?php 
     if (isset($pageJS) && is_array($pageJS)) {
         foreach ($pageJS as $jsFile) {
-            echo '<script src="' . $jsFile . '" defer></script>';
+            echo '<script src="css/' . $jsFile . '" defer></script>';
         }
     }
     ?>
