@@ -8,10 +8,10 @@
     "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
   ];
   $titulo = 'HomePage';
-  $pageCSS = ["index.css"];
-  $pageJS = ["index.js"];
+  $pageCSS = ["home.css"];
+  $pageJS = ["menu.js"];
 
-  include_once('./templetes/index.php');
+  include_once('./templetes/menu.php');
 
 ?>
 
