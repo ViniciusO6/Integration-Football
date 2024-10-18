@@ -28,10 +28,10 @@ include_once('./templetes/index.php');
   <div class="interface">
     <div class="flex">
     <div class="img-topo-site">
-      <img src="./Imagens/power_soccer1.jpg" alt="Power_Soccer1">
+      <img src="./Imagens/Power_Soccer/power_soccer1.jpg" alt="Power_Soccer1">
       </div><!--img-topo-site-->
         <div class="txt-topo-site">
-          <h1>Power Soccer <img id="icon-card" src="./Imagens/jogador.png" alt=""></h1>
+          <h1>Power Soccer <img id="icon-card" src="./Imagens/Power_Soccer/jogador.png" alt=""></h1>
           <p>Futebol em Cadeira de Rodas</p><br>
           <p>Power Soccer, também conhecido como Futebol em Cadeira de Rodas, é um esporte adaptado para pessoas com deficiência motora que utilizam cadeiras de rodas motorizadas. Jogando em quadras internas, os atletas controlam suas cadeiras equipadas com escudos frontais para chutar e passar a bola. As partidas são disputadas por dois times de quatro jogadores, com regras semelhantes ao futebol tradicional, como gols, passes e dribles.</p>
         </div><!--txt-topo-site-->
@@ -45,7 +45,7 @@ include_once('./templetes/index.php');
   <div class="interface-video">
     <div class="flex1">
         <div class="txt-topo-site">
-          <h2>Como começou o Power Soccer? <img id="icon-card" srcPower="./Imagens/jogador.png" alt=""></h2>
+          <h2>Como começou o Power Soccer? <img id="icon-card" srcPower="./Imagens/Power_Soccer/jogador.png" alt=""></h2>
           <p> O primeiro torneio foi realizado em 1982, e rapidamente ganhou popularidade, levando à formação de ligas e competições. O esporte combina estratégia, habilidades técnicas e trabalho em equipe, promovendo não apenas a inclusão, mas também a competição saudável. Desde então, o Power Soccer se espalhou pelo mundo, transformando vidas e desafiando estereótipos sobre a capacidade dos atletas.</p><br>
           </div><!--txt-topo-site-->
           <div class="video-topo-site">
@@ -65,18 +65,18 @@ include_once('./templetes/index.php');
   
 
   <div class="gallery">
-        <img src="imagens/foto1.jpg" alt="Foto 1">
-        <img src="imagens/foto2.jpg" alt="Foto 2">
-        <img src="imagens/foto3.jpg" alt="Foto 3">
-        <img src="imagens/foto4.jpg" alt="Foto 4">
-        <img src="imagens/foto5.jpg" alt="Foto 5">
-        <img src="imagens/foto6.png" alt="Foto 6">
+        <img src="imagens/Power_Soccer/foto1.jpg" alt="Foto 1">
+        <img src="imagens/Power_Soccer/foto2.jpg" alt="Foto 2">
+        <img src="imagens/Power_Soccer/foto3.jpg" alt="Foto 3">
+        <img src="imagens/Power_Soccer/foto4.jpg" alt="Foto 4">
+        <img src="imagens/Power_Soccer/foto5.jpg" alt="Foto 5">
+        <img src="imagens/Power_Soccer/foto6.png" alt="Foto 6">
       </div><!--gallery-->
   </div><!--fundo-azul-->
 </div>
         
 <div class="img-inscrever"> 
-    <img src="imagens/img-inscrever.jpg" alt="">
+    <img src="imagens/Power_Soccer/img-inscrever.jpg" alt="">
     <div class="text-inscrever">
         <h1>SE INTERESSOU? NÃO PERCA TEMPO E SE INCREVA.</h1>
         <button id="btn-saiba-mais" type="button">INSCREVA-SE</button>
