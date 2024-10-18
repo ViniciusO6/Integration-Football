@@ -1,0 +1,51 @@
+.container{
+    width: 100vw;
+    margin-top: 80px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+#consulta{
+    width: 100%;
+
+}
+
+#input-professor{
+    border: none;
+    border: solid 2px #2092c2;
+    border-radius: 3px;
+    height: 30px;
+    width: 1279px;
+}
+
+#input-data{
+    border: none;
+    border: solid 2px #2092c2;
+    border-radius: 3px;
+    height: 30px;
+    width: 1279px;
+}
+
+#input-justificativa{
+    border: none;
+    border: solid 2px #2092c2;
+    border-radius: 3px;
+    height: 30px;
+    width: 1279px;
+}
+
+#input-arquivo{
+    border: none;
+    border: solid 2px #2092c2;
+    border-radius: 3px;
+    height: 30px;
+    width: 1279px;
+}
+
+#btn-enviar{
+    border: none;
+    border: solid 2px #2092c2;
+    border-radius: 3px;
+    height: 30px;
+    width: 1279px;
+}
+
