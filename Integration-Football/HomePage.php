@@ -3,12 +3,11 @@
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
   $imports =[
-    "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap",
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
     "https://fonts.gstatic.com/",
     "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
   ];
-  $titulo = 'Home Page';
+  $titulo = 'HomePage';
   $pageCSS = ["index.css"];
   $pageJS = ["index.js"];
 
@@ -20,7 +19,7 @@
 
 <div class="container">
 
-
+  <!-- CARROSSEL -->
 <section class="carrosel">
   <div class="carrosel-content">
     <input name="carrosel-radio" type="radio" id="radio1">
@@ -42,8 +41,7 @@
       <img class="img-desktop" src="./Imagens/Carrosel-img/Slide-3.jpg" alt="Slide 1">
       <img class="img-mobile" src="./Imagens/Carrosel-img/Slide-Mobile-3.jpg" alt="Slide 1">
     </div>
-    
-
+  
     <div class="nav-auto">
       <div class="auto-btn1"></div>
       <div class="auto-btn2"></div>
@@ -61,9 +59,11 @@
       <div id="seta-direita"><img onclick="avancar()" src="./Imagens/seta-direita.svg" alt=""></div>
     </div>
     <div id="text-carrosel">
-      <h1>Lorem ipsum is simply dummy text of the printing.</h1>
-      <p>Lorem ipsum is simply dummy text of the printing Lorem ipsum is simply dummy text of Lorem Ipsun</p>
-      <button id="btn-saiba-mais" type="button">Saiba Mais</button>
+      <h1>CONHEÇA ALGUMAS DE NOSSAS AÇÕES</h1>
+          <p>Aqui acreditamos que o esporte é uma poderosa ferramenta de integração, superação e empoderamento.</p>
+          <button id="btn-saiba-mais" type="button" onclick="window.location.href='#modalidades';">
+            Saiba Mais
+          </button>
     </div> 
 
   </div>
@@ -71,6 +71,8 @@
   <div id="triangulo"></div>
 </section>
 
+  
+<!-- BLOCO DE MODALIDADES -->
 <div id="modalidades">
     
   <div id="titulo">
@@ -85,7 +87,7 @@
     <div class="content">
         <h2>Power Soccer <img id="icon-card" src="./Imagens/icon-player.png" alt="">   </h2>
         <div class="divider"></div>
-        <p>Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of Lorem Ipsum Lorem Ipsum is</p>
+        <p>É uma modalidade de futebol adaptado para cadeirantes. Jogadores utilizam cadeiras de rodas motorizadas para competir, focando na habilidade, estratégia e trabalho em equipe.</p>    
     </div>
   </div>
 
@@ -95,7 +97,7 @@
     <div class="content">
         <h2>Futebol de 5 <img id="icon-card" src="./Imagens/icon-mask.png" alt="">   </h2>
         <div class="divider"></div>
-        <p>Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of Lorem Ipsum Lorem Ipsum is</p>
+        <p>É uma modalidade adaptada para pessoas com deficiência visual. Jogadores usam vendas para garantir a igualdade e contam com um guia que orienta durante a partida. </p>
     </div>
   </div>
 
@@ -103,15 +105,16 @@
   <img class="image-placeholder" src="./Imagens/walking-football.jpg">
     <div class="vertical-line"></div>
     <div class="content">
-        <h2>walking Football <img id="icon-card" src="./Imagens/icon-person.png" alt="">   </h2>
+        <h2>Walking Football <img id="icon-card" src="./Imagens/icon-person.png" alt="">   </h2>
         <div class="divider"></div>
-        <p>Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of Lorem Ipsum Lorem Ipsum is</p>
+        <p>É uma versão adaptada do futebol, projetada para jogadores mais velhos ou com mobilidade reduzida. As regras proíbem correr, incentivando uma prática mais segura e social.</p>
     </div>
   </div>
 </div>
 
-</div>
+</div> <!-- DIVISÃO -->
 
+  <!-- BLOCO DO VÍDEO -->
   <div id="content-info">
     <div id="curva"></div>
 
@@ -156,7 +159,7 @@
          </div>
     </div>
 
-    
+    <!-- AVALIAÇÕES -->
     <div id="avaliacoes">
 
       <div id="comentario">
