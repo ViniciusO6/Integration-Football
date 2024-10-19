@@ -1,0 +1,445 @@
+
+.imagem-left {
+  width: 100%;              /* Define a largura da imagem como 100% do container pai */
+  height: auto;             /* Mantém a proporção da imagem, ajustando a altura automaticamente */
+  border-radius: 25px 25px 25px 25px;      /* Arredonda os cantos da imagem com um raio de 20 pixels */
+  margin-top: 150px;        /* Adiciona um espaço de 150 pixels entre a imagem e o topo da página */
+  margin-left: 80px;       /* Adiciona um espaço de 180 pixels à esquerda da imagem */
+  max-width: 450px;         /* Define a largura máxima da imagem em 450 pixels */
+}
+
+#titulo_power {
+  color: #000;              /* Define a cor do texto como preto */
+  text-align: justify;      /* Alinha o texto de forma justificada */
+  margin-left: 40%;      /* Adiciona um espaço de 420 pixels à esquerda do título */
+  display: flex;            /* Define o layout do título como flexível */
+  padding-left: 10px;
+  line-height: 1.5;     /* Altura da linha será 1.5 vezes o tamanho da fonte */
+
+}
+
+section.conteudo-power {
+  display: grid;            /* Define o layout do container como grid */
+  place-items: center;      /* Centraliza os itens dentro da grid, tanto horizontal quanto verticalmente */
+  padding: 0;               /* Remove qualquer padding interno do container */
+  margin: 0;
+}
+
+.conteudo {
+  width: 100%;              /* Define a largura do container de conteúdo como 100% do pai */
+  max-width: 1170px;       /* Define a largura máxima do container de conteúdo em 1170 pixels */
+  display: grid;            /* Define o layout do conteúdo como grid */
+  grid-template-columns: repeat(2, 1fr); /* Cria duas colunas de igual largura */
+  grid-gap: 100px 90px;     /* Define um espaço de 50 pixels entre as linhas e 30 pixels entre as colunas */
+
+}
+
+.conteudo .imagem-left {
+  overflow: hidden;         /* Esconde qualquer conteúdo que ultrapasse o container */
+}
+
+.conteudo .imagem-left img {
+  border: 25px;             /* Define uma borda com 25 pixels de raio (deve ser usado border-radius) */
+  width: 100%;              /* Define a largura da imagem como 100% do container */
+  height: 100%;             /* Define a altura da imagem como 100% do container */
+  object-fit: cover;        /* Faz com que a imagem cubra o espaço do container, mantendo a proporção */
+}
+
+.conteudo .texto-right {
+  display: flex;            /* Define o layout do texto como flexível */
+  align-items: center;      /* Alinha verticalmente os itens dentro do container ao centro */
+  
+}
+
+.conteudo .texto-right .content-texto {
+  padding-left: 20px;      /* Adiciona um espaço de 20 pixels à esquerda do texto */
+}
+
+.conteudo .texto-right .content-texto p {
+  font-size: 25px;         /* Define o tamanho da fonte do parágrafo como 25 pixels */
+  line-height: 26px;       /* Define o espaçamento entre linhas como 26 pixels */
+  color: black;            /* Define a cor do texto como preto */
+  font-family: "Open Sans", sans-serif; /* Aplica a fonte Open Sans ao texto */
+}
+
+/* Aplicando a fonte ao corpo da página */
+#titulo_power {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Define a família da fonte do título */
+  margin-right: 10px;      /* Adiciona um espaço de 20 pixels à margem direita do título */
+  margin-top: 100px;        /* Adiciona um espaço de 20 pixels ao topo do título */
+  margin-left: -23px;       /* Move o título 50 pixels para a direita */
+  font-size: 30px;         /* Define o tamanho da fonte do título como 40 pixels */
+  height: auto;            /* Mantém a altura automática */
+  
+}
+
+
+/*PARTE DOIS*/
+
+.imagem-right {
+  width: 100%;              /* Define a largura da imagem como 100% do container pai */
+  height: auto;             /* Mantém a proporção da imagem, ajustando a altura automaticamente */
+  border-radius: 25px 25px 25px 25px;      /* Arredonda os cantos da imagem com um raio de 20 pixels */
+  margin-top: 150px;        /* Adiciona um espaço de 150 pixels entre a imagem e o topo da página */
+  margin-left: 80px;       /* Adiciona um espaço de 180 pixels à esquerda da imagem */
+  max-width: 450px;         /* Define a largura máxima da imagem em 450 pixels */
+}
+
+#comeco_power {
+  color: #000;              /* Define a cor do texto como preto */
+  text-align: justify;      /* Alinha o texto de forma justificada */
+  margin-left: 400px;      /* Adiciona um espaço de 420 pixels à esquerda do título */
+  display: flex;            /* Define o layout do título como flexível */
+  padding-left: 10px;
+  line-height: 1.5;     /* Altura da linha será 1.5 vezes o tamanho da fonte */
+
+}
+
+section.conteudo-power2 {
+  display: grid;            /* Define o layout do container como grid */
+  place-items: center;      /* Centraliza os itens dentro da grid, tanto horizontal quanto verticalmente */
+  padding: 0;               /* Remove qualquer padding interno do container */
+  line-height: 2.6;     /* Altura da linha será 1.5 vezes o tamanho da fonte */
+
+}
+
+.conteudo1 {
+  width: 100%;              /* Define a largura do container de conteúdo como 100% do pai */
+  max-width: 1170px;       /* Define a largura máxima do container de conteúdo em 1170 pixels */
+  display: grid;            /* Define o layout do conteúdo como grid */
+  grid-template-columns: repeat(2, 1fr); /* Cria duas colunas de igual largura */
+  grid-gap: 100px 90px;     /* Define um espaço de 50 pixels entre as linhas e 30 pixels entre as colunas */
+
+}
+
+.conteudo1 .imagem-right {
+  overflow: hidden;         /* Esconde qualquer conteúdo que ultrapasse o container */
+}
+
+.conteudo1 .imagem-right img {
+  border: 25px;             /* Define uma borda com 25 pixels de raio (deve ser usado border-radius) */
+  width: 100%;              /* Define a largura da imagem como 100% do container */
+  height: 100%;             /* Define a altura da imagem como 100% do container */
+  object-fit: cover;        /* Faz com que a imagem cubra o espaço do container, mantendo a proporção */
+}
+
+.conteudo1 .texto-left {
+  display: flex;            /* Define o layout do texto como flexível */
+  align-items: center;      /* Alinha verticalmente os itens dentro do container ao centro */
+  
+}
+
+.conteudo1 .texto-left .content-texto1 {
+  padding-left: 20px;      /* Adiciona um espaço de 20 pixels à esquerda do texto */
+}
+
+.conteudo1 .texto-left .content-texto1 p {
+  font-size: 25px;         /* Define o tamanho da fonte do parágrafo como 25 pixels */
+  line-height: 26px;       /* Define o espaçamento entre linhas como 26 pixels */
+  color: black;            /* Define a cor do texto como preto */
+  font-family: "Open Sans", sans-serif; /* Aplica a fonte Open Sans ao texto */
+}
+
+/* Aplicando a fonte ao corpo da página */
+#titulo_power {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Define a família da fonte do título */
+  margin-right: 10px;      /* Adiciona um espaço de 20 pixels à margem direita do título */
+  margin-top: 100px;        /* Adiciona um espaço de 20 pixels ao topo do título */
+  padding: 20px;           /* Adiciona um espaço interno de 20 pixels ao redor do texto */
+  margin-left: -23px;       /* Move o título 50 pixels para a direita */
+  font-size: 40px;         /* Define o tamanho da fonte do título como 40 pixels */
+  height: auto;            /* Mantém a altura automática */
+  margin-left: 50px;       /* Move o título 50 pixels para a direita */
+
+  
+}
+
+#comeco_power{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Define a família da fonte do título */
+  margin-right: 10px;      /* Adiciona um espaço de 20 pixels à margem direita do título */
+  margin-top: 100px;        /* Adiciona um espaço de 20 pixels ao topo do título */
+  margin-left: -23px;       /* Move o título 50 pixels para a direita */
+  font-size: 40px;         /* Define o tamanho da fonte do título como 40 pixels */
+  height: auto;            /* Mantém a altura automática */
+  
+}
+
+
+@media screen and (max-width: 940px) {
+ 
+ 
+  .conteudo {
+      display: flex;                /* Muda o layout para flexível */
+      flex-direction: column-reverse;       /* Organiza os elementos em uma coluna */
+      align-items: center;          /* Centraliza os itens horizontalmente */
+      order: 1;                    /* Define a ordem da imagem para aparecer primeiro */
+      width: 80%;                 /* Garante que a imagem use a largura total */
+      max-width: none;             /* Remove a largura máxima para garantir que ocupe 100% */
+      margin-bottom: 20px;     /* Adiciona espaço abaixo da imagem */
+  }
+ 
+}
+
+/*ESTILO PRIMEIRA-PARTE*/
+section.primeira-parte {
+  padding: 40px 4%;
+}
+
+.flex, .flex1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;  /* Um espaço entre os elementos */
+}
+
+.primeira-parte h1{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Define a família da fonte do título */
+  font-size: 60px;        /* Define o tamanho da fonte do título como 40 pixels */
+  margin-top: 15%;        /* Adiciona um espaço de 150 pixels entre a imagem e o topo da página */
+  }
+
+  .primeira-parte .txt-topo-site p{
+    font-size: 25px;         /* Define o tamanho da fonte do parágrafo como 25 pixels */
+    line-height: 30px;       /* Define o espaçamento entre linhas como 26 pixels */
+    color: black;          /* Define a cor do texto como preto */
+    font-family: "Open Sans", sans-serif; /* Aplica a fonte Open Sans ao texto */
+    margin: 15px 0px;  
+    max-width: 550px;       /* Define a largura máxima do container de conteúdo em 1170 pixels */
+
+  }
+
+  .primeira-parte  .img-topo-site img{
+    margin-top: 10%;        /* Adiciona um espaço de 150 pixels entre a imagem e o topo da página */
+    margin-left: 5%;       /* Adiciona um espaço de 180 pixels à esquerda da imagem */
+    max-width: 550px;         /* Define a largura máxima da imagem em 450 pixels */
+    border-radius: 25px 25px 25px 25px;      /* Arredonda os cantos da imagem com um raio de 20 pixels */
+
+    position: relative;
+  }
+
+
+
+
+     /*ESTILO SEGUNDAA-PARTE*/
+
+     .segunda-parte{
+      margin-bottom: 8%;
+     }
+
+    .segunda-parte h2{
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Define a família da fonte do título */
+      font-size: 60px;         /* Define o tamanho da fonte do título como 40 pixels */
+      margin-top: 15%;        /* Adiciona um espaço de 150 pixels entre a imagem e o topo da página */
+      line-height: 1;     /* Altura da linha será 1.5 vezes o tamanho da fonte */
+      margin-bottom: 20px;    /* Espaço abaixo do título */
+      }
+
+    .segunda-parte .txt-topo-site{
+      font-size: 25px;         /* Define o tamanho da fonte do parágrafo como 25 pixels */
+      line-height: 30px;       /* Define o espaçamento entre linhas como 26 pixels */
+      color: black;          /* Define a cor do texto como preto */
+      font-family: "Open Sans", sans-serif; /* Aplica a fonte Open Sans ao texto */
+      margin: 15px 0px;  
+      max-width: 550px;       /* Define a largura máxima do container de conteúdo em 1170 pixels */
+      margin-left: 5%;       /* Adiciona um espaço de 180 pixels à esquerda da imagem */
+
+    }
+
+    .segunda-parte  .video-topo-site iframe{
+      margin-top: 12%;        /* Adiciona um espaço de 150 pixels entre a imagem e o topo da página */
+      max-width: 560px;         /* Define a largura máxima da imagem em 450 pixels */
+      border-radius: 25px 25px 25px 25px;      /* Arredonda os cantos da imagem com um raio de 20 pixels */
+      border: 5px solid #0033ff; /* Cor e espessura da borda */
+      margin: 5% 0; /* Margem vertical para afastar do texto */
+    }
+
+    /*PARTE BLOCO AZUL*/
+
+    .triangulo{
+      background: url(../Imagens/triangulo-carrosel.png) no-repeat;
+      background-size: 100% 60px;
+      bottom: -150px;
+      content: "";
+      height: 214px;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      width: 100%;
+    } 
+
+    .fundo-azul{
+      position: relative;
+      max-width: 100%;
+      display: flex;
+      background-color: #000853;
+      padding: 80px;
+      margin-bottom: 30px;
+      font-size: 4rm ;
+
+    } 
+
+    
+    .fundo-azul h1{
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Define a família da fonte do título */
+      color:#FFF;
+      text-align: center; /* Centraliza o texto */
+      font-size: 3.9rem; /* Tamanho da letra */
+      margin-bottom: 40px; /* Espaço entre o título e a galeria */
+    }
+    
+    .curva{
+      position: absolute;
+      left: 0;
+      top: -73px;
+      width: 0;
+      height: 0;
+      border-left: 0px solid transparent;
+      border-right: 100vw solid transparent;
+      border-bottom: 74px solid #000853;
+    }
+
+    .fundo-azul .gallery img{
+      width: 31%; /* Faz as imagens ocuparem toda a célula */
+      height: auto; /* Mantém a proporção da imagem */
+      border-radius: 15px; /* Bordas arredondadas */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para as imagens */
+      box-sizing: border-box; /* Inclui padding e border nas dimensões totais */
+      border: 3px solid  #FFF; /* Define a borda: largura, estilo e cor */
+      margin: 10px; /* Adiciona espaço ao redor de cada imagem */
+      justify-content: center; /* Centraliza verticalmente */
+      gap: 20px; /* Espaço entre as imagens */
+      margin-bottom: 3%;
+    }
+
+    /*PARTE DE INSCREVER-SE*/
+    .img-inscrever img{
+      display: flex; /* Define o contêiner como flex */
+      flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */  
+      margin-top: 5%;
+      width: 100%; /* Faz as imagens ocuparem toda a célula */
+      position: relative; /* Define a posição do contêiner como relativa */
+      margin-bottom: 5%;
+    }
+
+    .tex-inscrever{
+      width: 50%;
+      position: absolute;
+      margin-left: 9%;
+      font-family: 'Barlow', sans-serif;
+    }
+
+    #btn-saiba-mais{
+      background-color: transparent;
+      color: white;
+      font-weight: 600;
+      font-size: 30px;
+      border: 2px solid white;
+      border-radius: 10px;
+      padding: 10px 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .text-inscrever {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Define a família da fonte do título */
+      position: relative; /* Posiciona o conteúdo sobre a imagem */
+      transform: translate(-50%, -50%); /* Ajusta para o centro */
+      text-align: center; /* Centraliza o texto */
+      color: white; /* Cor do texto */
+      top: 380%; /* Centraliza verticalmente */
+      left: 50%; /* Centraliza horizontalmente */
+      font-size: 50px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra do texto */
+      width: 1500px; /* Define uma largura fixa para o parágrafo */
+      animation: mover-titulo 45s ease-in-out infinite; /* Aplica a animação */
+
+
+  }
+
+  @keyframes mover-titulo {
+    0% {
+      transform: translateX(-100%); /* Começa fora da tela à esquerda */
+  }
+  40% {
+      transform: translateX(-50%); /* Para no centro */
+  }
+  55% {
+      transform: translateX(80%); /* Mantém a posição no centro */
+  }
+  100% {
+      transform: translateX(100%); /* Move para fora da tela à direita */
+  }
+  }
+
+
+
+
+  /*RESPONSIVIDADE*/
+
+  @media screen and (max-width: 1200px) {
+    /*PRIMEIRA PARTE*/
+    .primeira-parte h1, .segunda-parte h2 {
+      margin-top: -10%; /* Ajuste para um valor menor */
+    }
+
+    .flex{
+      flex-direction: column;
+      position: center;
+      place-items: center; /* Centraliza vertical e horizontalmente */
+    }
+
+    .flex1{
+      flex-direction: column-reverse;
+      position: center;
+      place-items: center; /* Centraliza vertical e horizontalmente */
+    }
+
+    .primeira-parte .img-topo-site img{
+      max-width: auto;         /* Define a largura máxima da imagem em 450 pixels */
+      height: auto; /* Mantém a proporção da imagem */
+      margin-bottom: -30px; /* Ajusta a distância abaixo da imagem */
+      animation: none;
+      margin: none;
+
+      place-items: center; /* Centraliza vertical e horizontalmente */
+    }
+
+    /*SEGUNDA PARTE*/
+    .segunda-parte .video-topo-site iframe{
+      height: 50%; /* Mantém a proporção da imagem */
+      margin-bottom: 0%; /* Ajusta a distância abaixo da imagem */
+      animation: none;
+      place-items: center; /* Centraliza vertical e horizontalmente */
+      width: 100%; /* Ajusta a largura para 100% do contêiner pai */
+    }
+
+    .segunda-parte .txt-topo-site h2{
+      margin-bottom: 5%;    /* Espaço abaixo do título */
+    }
+
+    /*PARTE BLOCO AZUL*/
+    .curva{
+      display: none;
+    }
+
+    .text-inscrever h1{
+      font-size: 10px;
+      animation: none;
+    }
+
+    .gallery img{
+      flex: 100%; /* As imagens ocuparão 100% da largura em telas menores */
+      width: 50%; /* Faz as imagens ocuparem toda a célula */
+      top: 770%; /* Centraliza verticalmente */
+      left: 50%; /* Centraliza horizontalmente */
+     
+    }
+
+
+
+  }
+
+  
+
+
+
