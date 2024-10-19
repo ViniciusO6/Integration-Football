@@ -12,7 +12,7 @@
   $pageCSS = ["consulta.css"];
   $pageJS = ["Login.js"];
 
-  include_once('./templetes/index.php');
+  include_once('./templetes/menu.php');
 
 ?>
 
@@ -20,9 +20,11 @@
 
 <div class="container">
   <div id="consulta">
-    <h1>JUSTIFICAR FALTAS</h1>
+    
 
-    <form action="">
+    <form id="form" action="">
+        <h1>JUSTIFICAR FALTAS</h1>
+
         <p>Escolha o(a) professor(a)</p>
         <input id="input-professor" type="text">
 
@@ -33,7 +35,7 @@
         <textarea name="justiticativa" id="input-justificativa"></textarea>
         
         <p>Atestado</p>
-        <input id="input-arquivo"  type="file">
+        <input id="input-arquivo" type="file">
 
 
         <button id="btn-enviar" type="submit">Enviar</button>

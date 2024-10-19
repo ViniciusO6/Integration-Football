@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="templetes/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="templetes/index.js" defer></script>
+    <script src="templetes/menu.js" defer></script>
     <title><?= $titulo ?></title>
 
     <?php 

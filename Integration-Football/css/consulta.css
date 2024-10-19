@@ -6,7 +6,14 @@
 
 #consulta{
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
+#form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
 }
 
 #input-professor{
@@ -14,7 +21,7 @@
     border: solid 2px #2092c2;
     border-radius: 3px;
     height: 30px;
-    width: 1279px;
+    width: 100%;
 }
 
 #input-data{
@@ -22,15 +29,15 @@
     border: solid 2px #2092c2;
     border-radius: 3px;
     height: 30px;
-    width: 1279px;
+    width: 30%;
 }
 
 #input-justificativa{
     border: none;
     border: solid 2px #2092c2;
     border-radius: 3px;
-    height: 30px;
-    width: 1279px;
+    height: 200px;
+    width: 100%;
 }
 
 #input-arquivo{
@@ -38,7 +45,7 @@
     border: solid 2px #2092c2;
     border-radius: 3px;
     height: 30px;
-    width: 1279px;
+    width: 100%;
 }
 
 #btn-enviar{
@@ -46,6 +53,6 @@
     border: solid 2px #2092c2;
     border-radius: 3px;
     height: 30px;
-    width: 1279px;
+    width: 100%;
 }
 

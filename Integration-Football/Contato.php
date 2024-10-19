@@ -12,7 +12,7 @@
   $pageCSS = ["Contato.css"];
   $pageJS = ["Login.js"];
 
-  include_once('./templetes/index.php');
+  include_once('./templetes/menu.php');
 
   
 
