@@ -314,14 +314,14 @@
 #bloco2 .divider {
   width: 192px;
   height: 3px;
-  background-color: #0083C3;
+  background-color:#000853;
   margin: 10px 0;
 }
 
 #bloco2 .vertical-line {
 width: 3px;
   height: 150px;
-  background-color: #0083C3;
+  background-color:#000853;
   margin-right: 20px;
 }
 
@@ -726,8 +726,5 @@ width: 3px;
       text-align: center;
       width: 95%;
     }
-    
-    
 
   }
-
