@@ -35,18 +35,30 @@
     display: none;
   }
 
-  #btn-saiba-mais{
-    background-color: transparent;
-    color: white;
-    font-weight: 600;
-    font-size: 20px;
-    border: 2px solid white;
-    border-radius: 10px;
-    padding: 10px 15px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  #btn-saiba-mais {
+    background-color:  transparent;
+    color: white; /* Cor do texto */
+    border:  2px solid white; /* Remove bordas padrão */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    border-radius: 10px; /* Bordas arredondadas */
+    cursor: pointer; /* Seta de cursor ao passar o mouse */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     font-family: 'Barlow Condensed', sans-serif;
-  }
+}
 
+/* Efeito ao passar o mouse */
+#btn-saiba-mais:hover {
+    background-color:  #cf702c; /* Cor de fundo mais escura ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o botão */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Efeito de clique */
+#btn-saiba-mais:active {
+    transform: scale(0.95); /* Reduz ligeiramente o tamanho ao clicar */
+    background-color:   #cf702c; /* Cor de fundo ainda mais escura ao clicar */
+}
   #text-carrosel{
     width: 40%;
     position: absolute;
@@ -190,6 +202,43 @@
     font-style: normal;
     font-size: 30px;
   }
+/* Faz as divs serem clicáveis */
+.bloco {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  border-radius: 15px; /* Bordas arredondadas */
+  overflow: hidden; /* Garante que o conteúdo da div siga a borda arredondada */
+  background-color: #ffffff; /* Cor de fundo padrão */
+}
+
+/* Animação de zoom in ao passar o mouse com cor */
+.bloco:hover {
+  transform: scale(1.05);
+  background-color: #f0f8ff; /* Cor de fundo ao passar o mouse (azul claro) */
+}
+
+/* Transição suave nas imagens */
+.bloco img {
+  transition: transform 0.3s ease-in-out;
+  border-radius: 15px; /* Bordas arredondadas nas imagens */
+}
+
+/* Zoom da imagem ao passar o mouse */
+.bloco:hover img {
+  transform: scale(1.1);
+  border-radius: 15px; /* Mantém a borda arredondada durante a animação */
+}
+
+/* Estilização adicional para o conteúdo */
+.bloco .content {
+  transition: color 0.3s ease-in-out;
+}
+
+/* Mudança de cor no texto ao passar o mouse */
+.bloco:hover .content {
+  color: #333; /* Cor do texto ao passar o mouse */
+}
+
 
   #bloco1{
     display: flex;
