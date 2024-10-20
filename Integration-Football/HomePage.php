@@ -81,7 +81,7 @@
 
   <div id="blocos">
 
-  <div id="bloco1">
+  <div id="bloco1" class="bloco" onclick="window.location.href='Power_Soccer.php'">
   <img class="image-placeholder" src="./Imagens/power-soccer.png">
     <div class="vertical-line"></div>
     <div class="content">
@@ -91,7 +91,7 @@
     </div>
   </div>
 
-  <div id="bloco2">
+  <div id="bloco2" class="bloco" onclick="window.location.href='Futebol5.php'">
   <img class="image-placeholder" src="./Imagens/futebol-de-5.jpeg">
     <div class="vertical-line"></div>
     <div class="content">
@@ -101,7 +101,7 @@
     </div>
   </div>
 
-  <div id="bloco3">
+  <div id="bloco3" class="bloco" onclick="window.location.href='Walking_Football.php'">>
   <img class="image-placeholder" src="./Imagens/walking-football.jpg">
     <div class="vertical-line"></div>
     <div class="content">
