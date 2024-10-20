@@ -36,30 +36,27 @@
             </div>            
         </div>
 
-        <div id="table-professores">
+        <!-- TABLE -->
+
+        <div id="table">
             <div id="nomes-professores">
                 <div id="tr-nome">
-                    <p>Vinicius Augusto Rodrigues da Silva</p>
+                    <p>Lucas Henrique Pereira Souza</p>
                     <div class="separador-horizontal"></div>
                 </div>
 
                 <div id="tr-nome">
-                    <p>Vinicius Augusto Rodrigues da Silva</p>
+                    <p>Ana Beatriz Mendes Ferreira</p>
                     <div class="separador-horizontal"></div>
                 </div>
 
                 <div id="tr-nome">
-                    <p>Vinicius Augusto Rodrigues da Silva</p>
+                    <p>Gabriel Eduardo Ramos Oliveira</p>
                     <div class="separador-horizontal"></div>
                 </div>
 
                 <div id="tr-nome">
-                    <p>Vinicius Augusto Rodrigues da Silva</p>
-                    <div class="separador-horizontal"></div>
-                </div>
-
-                <div id="tr-nome">
-                    <p>Vinicius Augusto Rodrigues da Silva</p>
+                    <p>Pedro Lucas Marins Golçalves</p>
                     <div class="separador-horizontal"></div>
                 </div>
             </div>
@@ -68,41 +65,96 @@
 
             <div id="contato-professores">
             <div id="tr-nome">
-                    <p>Vinicius Augusto Rodrigues da Silva</p>
+                    <p>Lucas Henrique Pereira Souza</p>
                     <div class="separador-horizontal"></div>
                 </div>
 
                 <div id="tr-nome">
-                    <p>Vinicius Augusto Rodrigues da Silva</p>
+                    <p>Ana Beatriz Mendes Ferreira</p>
                     <div class="separador-horizontal"></div>
                 </div>
 
                 <div id="tr-nome">
-                    <p>Vinicius Augusto Rodrigues da Silva</p>
+                    <p>Gabriel Eduardo Ramos Oliveira</p>
                     <div class="separador-horizontal"></div>
                 </div>
 
                 <div id="tr-nome">
-                    <p>Vinicius Augusto Rodrigues da Silva</p>
-                    <div class="separador-horizontal"></div>
-                </div>
-
-                <div id="tr-nome">
-                    <p>Vinicius Augusto Rodrigues da Silva</p>
+                    <p>Pedro Lucas Marins Golçalves</p>
                     <div class="separador-horizontal"></div>
                 </div>
             </div>
 
         </div>
 
-    </form>
-    
+        <br><br>
+
+        <h1 id="titulo">ALUNOS</h1>
+
+
+        <div id="th">
+            <div id="th-esquerda">
+                <h3>Professor/Organizador</h3>
+            </div>
+
+            <div class="separador-vertical"></div>
+
+            <div id="th-direita">
+                <h3>E-mail para contato</h3>
+            </div>            
+        </div>
+
+        <div id="table">
+            <div id="nomes-professores">
+            <div id="tr-nome">
+                    <p>Lucas Henrique Pereira Souza</p>
+                    <div class="separador-horizontal"></div>
+                </div>
+
+                <div id="tr-nome">
+                    <p>Ana Beatriz Mendes Ferreira</p>
+                    <div class="separador-horizontal"></div>
+                </div>
+
+                <div id="tr-nome">
+                    <p>Gabriel Eduardo Ramos Oliveira</p>
+                    <div class="separador-horizontal"></div>
+                </div>
+
+                <div id="tr-nome">
+                    <p>Pedro Lucas Marins Golçalves</p>
+                    <div class="separador-horizontal"></div>
+                </div>
+            </div>
+            
+            <div class="separador-vertical"></div>
+
+            <div id="contato-professores">
+            <div id="tr-nome">
+                    <p>Lucas Henrique Pereira Souza</p>
+                    <div class="separador-horizontal"></div>
+                </div>
+
+                <div id="tr-nome">
+                    <p>Ana Beatriz Mendes Ferreira</p>
+                    <div class="separador-horizontal"></div>
+                </div>
+
+                <div id="tr-nome">
+                    <p>Gabriel Eduardo Ramos Oliveira</p>
+                    <div class="separador-horizontal"></div>
+                </div>
+
+                <div id="tr-nome">
+                    <p>Pedro Lucas Marins Golçalves</p>
+                    <div class="separador-horizontal"></div>
+                </div>
+            </div>
+        </div>      
+    </form>   
   </div>
 
-
-  <br>
-
-
+<br><br><br><br><br>
     
 </div>
 

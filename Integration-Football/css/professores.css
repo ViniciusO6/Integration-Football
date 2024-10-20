@@ -8,6 +8,13 @@
     margin-bottom: 20px;
 }
 
+h3{
+    font-size: 100%;
+}
+
+p{
+    font-size: 100%;
+}
 input{
     margin-bottom: 15px;
 }
@@ -37,7 +44,7 @@ input{
 .separador-vertical{
     width: 1px;
     background-color: black;
-    height: 70%;
+    height: 90%;
 }
 
 .separador-horizontal{
@@ -46,7 +53,7 @@ input{
     height: 1px;
 }
 
-#table-professores{
+#table{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -79,10 +86,6 @@ input{
     width: 100%;
 }
 
-p{
-    font-size: 18px;
-}
-
 #consulta{
     width: 100%;
     display: flex;
@@ -93,6 +96,7 @@ p{
     display: flex;
     flex-direction: column;
     width: 55%;
+    min-width: 650px;
     margin-top: 25px;
 }
 
@@ -220,6 +224,25 @@ p{
     }
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 700px) {
+    #consulta{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 
+    #form{
+        width: 85%;
+        min-width: initial;
+        margin-top: 0;
+    }
+
+    #form p{
+        font-size: 13px;
+        text-align: center;
+    }
+
+    #form h3{
+        font-size: 13px;
+    }
 }
