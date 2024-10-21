@@ -1,0 +1,125 @@
+.container{
+    width: 100vw;
+    margin-top: 80px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+#conteudo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    margin-top: 25px;
+}
+
+#dia-semana{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#calendario{
+}
+
+#header-calendario{
+    display: flex;
+    justify-content: space-between;
+    width: 585px;
+}
+
+#btns{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#btns img{
+    width: 20px;
+    cursor: pointer;
+}
+
+#semanas{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 600px;
+    margin-bottom: 13px;
+}
+
+#semanas p{
+    width: calc(600px / 7);
+}
+
+#dias{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 582px;
+    gap: 14px;
+}
+
+#pricipal-calendario{
+    width: 600px;
+    margin: 0 auto;
+}
+
+#dia{
+    width: calc(400px / 7);
+    height: calc(400px / 7);
+    margin: 5px;
+    margin-bottom: 0px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+.inactive{
+    color: #ccc;
+}
+
+.active{
+    border: 2px solid black !important; 
+    background-color: #2092c2;
+    display: none;
+}
+
+.active p{
+    color: rgb(255, 255, 255);
+}
+
+
+
+@media screen and (max-width: 992px) {
+
+}
+
+@media screen and (max-width: 865px) {
+    #consulta{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #form{
+        width: 85%;
+        margin-top: 0;
+    }
+
+    #titulo{
+        margin-bottom: 0px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+
+}
