@@ -1,0 +1,192 @@
+/* Reset de padding e margens */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Teko', sans-serif;
+}
+
+.card h1 {
+    font-size: 33px; /* Tamanho padrão do título */
+    color: #000000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; /* Peso correto */
+    text-align: center; /* Centraliza o texto */
+    margin: 0; /* Remove margens que podem afetar a centralização */
+}
+
+.card {
+    min-height: 600px; 
+    margin: 10% auto; /* Centraliza o card */
+    padding: 80px 50px; /* Ajuste do padding */
+    max-width: 890px;
+    width: 90%;
+    height: 1120px;
+    background-color: white;
+    border-radius: 25px;
+    border: 5px solid #236baf;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex; /* Ativa o Flexbox no contêiner card */
+    flex-direction: column; /* Alinha os filhos na vertical */
+    align-items: center; /* Centraliza os filhos horizontalmente */
+}
+
+.image-container {
+    display: flex; /* Ativa o Flexbox no contêiner da imagem */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 140px; /* Garante que ocupe toda a largura disponível */
+    height: auto; /* Deixa a altura ajustada ao conteúdo */
+}
+
+.image-container2 {
+    display: flex; /* Ativa o Flexbox no contêiner da imagem */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 110px; /* Garante que ocupe toda a largura disponível */
+    height: auto; /* Deixa a altura ajustada ao conteúdo */
+}
+
+.image-container3 {
+    display: flex; /* Ativa o Flexbox no contêiner da imagem */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 140px; /* Garante que ocupe toda a largura disponível */
+    height: auto; /* Deixa a altura ajustada ao conteúdo */
+}
+
+.image-container4 {
+    display: flex; /* Ativa o Flexbox no contêiner da imagem */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 140px; /* Garante que ocupe toda a largura disponível */
+    height: auto; /* Deixa a altura ajustada ao conteúdo */
+}
+
+.input-container {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column; /* Coloca os inputs em coluna */
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+
+label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1em;
+    color: #000000;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, select {
+    padding: 15px 60px; /* Ajustado para melhor aparência */
+    border-radius: 7px;
+    margin-bottom: 16px;
+    border: 2px solid #026799;
+    font-size: 1.1em;
+    background-color: #ffffff;
+    transition: border 0.3s;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centraliza o botão */
+}
+
+#proximo {
+    align-items: center;
+    font-size: 1em;
+    padding: 15px 70px;
+    border-radius: 5px;
+    border: 2px solid #0083C3;
+    background-color: #0083C3;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+    max-width: 100%; /* Garante que o botão não exceda a largura do contêiner */
+    margin-top:30px;
+}
+
+#proximo:hover {
+    transform: scale(1.05);
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
+    justify-content: center;
+    gap: 90px; /* Aumenta o espaço entre os cards */
+}
+
+.mini-card {
+    margin-top: 70px;
+    margin-bottom: -60px;
+    background-color: #ffffff;
+    padding: 30px; /* Aumenta o padding interno */
+    border: 3px solid #236baf;
+    border-radius: 13px;
+    width: calc(42% - 20px); /* Ajusta para aumentar a largura e garantir dois cards por linha */
+    height: 310px; /* Aumenta a altura dos cards */
+    text-align: center;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mini-card h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; /* Peso correto */
+}
+
+.mini-card button {
+    background-color: #236baf;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    border: 1px solid #236baf;
+    cursor: pointer;
+    width: 130px; /* Aumenta a largura do botão */
+    height: 60px; /* Ajusta a altura do botão */
+    margin-top: 20px; /* Mantém o espaçamento superior */
+    padding: 10px 0; /* Centraliza verticalmente o texto dentro do botão */
+}
+
+.mini-card button:hover {
+    background-color: #03468d;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centraliza o botão */
+
+}
+
+#proximo {
+margin-top: 60px;
+    align-items: center;
+    font-size: 1.1em;
+    padding: 15px 90px;
+    border-radius: 5px;
+    border: 2px solid #0083C3;
+    background-color: #236baf;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#proximo:hover{
+    transform: scale(1.05);
+}
+

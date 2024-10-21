@@ -1,0 +1,148 @@
+/* Reset de padding e margens */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Teko', sans-serif;
+}
+
+.card h1 {
+    font-size: 33px; /* Tamanho padrão do título */
+    color: #000000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; /* Peso correto */
+    text-align: center; /* Centraliza o texto */
+    margin: 0; /* Remove margens que podem afetar a centralização */
+}
+.card h2 {
+    font-size: 20px; /* Tamanho padrão do título */
+    color: #000000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 530; /* Peso correto */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 20px;
+
+}
+.card h3 {
+    font-size: 20px; /* Tamanho padrão do título */
+    color: #000000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 530; /* Peso correto */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 40px;
+}
+
+.card h4 {
+    font-size: 20px; /* Tamanho padrão do título */
+    color: #000000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 530; /* Peso correto */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 40px;
+}
+
+
+.card {
+    min-height: 600px; 
+    margin: 10% auto; /* Centraliza o card */
+    padding: 80px 50px; /* Ajuste do padding */
+    max-width: 890px;
+    width: 90%;
+    height: 1000px;
+    background-color: white;
+    border-radius: 25px;
+    border: 5px solid #236baf;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex; /* Ativa o Flexbox no contêiner card */
+    flex-direction: column; /* Alinha os filhos na vertical */
+    align-items: center; /* Centraliza os filhos horizontalmente */
+}
+
+
+.input-container {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column; /* Coloca os inputs em coluna */
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+
+label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1em;
+    color: #000000;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, select {
+    padding: 15px 60px; /* Ajustado para melhor aparência */
+    border-radius: 7px;
+    margin-bottom: 16px;
+    border: 2px solid #026799;
+    font-size: 1.1em;
+    background-color: #ffffff;
+    transition: border 0.3s;
+}
+
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
+    justify-content: center;
+    gap: 90px; /* Aumenta o espaço entre os cards */
+}
+
+.image-container {
+    display: flex; /* Ativa o Flexbox no contêiner da imagem */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 50%; /* Garante que ocupe toda a largura do card */
+    height: auto; /* Deixa a altura ajustada ao conteúdo */
+    margin-top: 20px; /* Adiciona espaço acima */
+}
+
+.image-container img {
+    max-width: 80%; /* Limita a largura máxima a 100% do contêiner */
+    height: auto; /* Mantém a proporção da altura */
+    max-height: 110px; /* Ajuste aqui para definir a altura máxima da imagem */
+    display: block; /* Garante que a imagem se comporte como bloco */
+    margin: 0 auto; /* Centraliza a imagem dentro do contêiner */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centraliza o botão */
+    margin-top: 50px;
+
+}
+
+#Voltar {
+    align-items: center;
+    font-size: 1.1em;
+    padding: 15px 70px;
+    border-radius: 5px;
+    border: 2px solid #0083C3;
+    background-color: #0083C3;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+    max-width: 100%; /* Garante que o botão não exceda a largura do contêiner */
+}
+#Voltar:hover{
+    transform: scale(1.05);
+}
+
+
+
+
