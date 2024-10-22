@@ -1,0 +1,40 @@
+.container{
+    width: 100vw;
+    margin-top: 80px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+#consulta{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    margin-top: 25px;
+}
+
+@media screen and (max-width: 992px) {
+
+}
+
+@media screen and (max-width: 865px) {
+    #consulta{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #form{
+        width: 85%;
+        margin-top: 0;
+    }
+
+}
+
+@media screen and (max-width: 490px) {
+
+}
