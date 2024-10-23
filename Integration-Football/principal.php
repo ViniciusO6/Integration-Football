@@ -41,25 +41,56 @@
                 <p>Quinta</p>
                 <p>Sexta</p>
                 <p>Sabádo</p>
-
             </div>
-
             <div id="dias">
-                
-               
-
                 </div>
             </div>
-
         </div>
 
-
-        <br><br><br><br><br><br><br><br><br><br><br>
 
 
         <h1 id="titulo">ATIVIDADES</h1>
 
-    
+        <div id="atividade" class="atividade">     
+          <div id="card-atividade" class="card-atividade" onclick="abrirPrevia('atividade', 'card-arquivo')">
+            <div class="bloco1">
+              <div class="icone-atividade">
+                <img src="./Imagens/checklist.png" alt="">
+              </div>
+              
+            </div>
+
+            <div class="bloco2">
+              <div class="titulo-atividade">
+                <h3>ATIVIDADE AVALIATIVA - TEÓRICA</h3>
+              </div>
+            
+              <div class="data-entrega">
+                <img src="./Imagens/Time-Circle.png" alt=""><p>16h30 ás 18h15</p> 
+              </div>
+            </div>
+
+            <div class="bloco3">
+            <img src="./Imagens/arrow.png" alt="">
+            <h3>DATA: 21/10</h3>
+            
+          </div>
+     
+     
+        </div>
+      
+      <div id="card-arquivo" class="card-arquivo fechado">
+            <div class="arquivo">
+              <div class="previa-arquivo">
+                <img src="./Imagens/pdfIcon.png" alt="">
+                <p>Arquivo 1- "Histotia do Power Soccer"</p>
+              </div>
+              <button>Baixar Arquivos</button>
+              
+            </div>
+          </div>
+      </div>
+         
 
     </form>
     

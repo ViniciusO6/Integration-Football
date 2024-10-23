@@ -44,3 +44,12 @@ prevNextIcon.forEach(icon => {
         renderCalendar();
     });
 });
+
+
+function abrirPrevia(IDAtividade, IDCard){   
+    const DivAtividade = document.querySelector("#"+IDAtividade)
+    const DivCardArquivo = document.querySelector("#"+IDCard)
+
+        DivAtividade.classList.toggle("atividade-aberto") 
+        DivCardArquivo.classList.toggle("aberto") 
+}

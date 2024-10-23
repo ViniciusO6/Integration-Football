@@ -67,6 +67,7 @@
 #pricipal-calendario{
     width: 600px;
     margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 #dia{
@@ -95,6 +96,151 @@
 
 .active p{
     color: rgb(255, 255, 255);
+}
+
+/* RETIRAR */
+/* #pricipal-calendario {
+    display: none;
+} */
+
+.atividade{
+    display: flex;
+    flex-direction: column;
+    height: 37%;
+    transition: 0.5s;
+}
+
+.card-atividade{
+    width: 100%;
+    height: 120px;
+    background-color: #73bad9;
+    display: flex; 
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.card-atividade:hover{
+    transform: scale(1.02);
+
+}
+
+.card-atividade p, h3{
+    color: white;
+}
+
+.bloco1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    margin-left: 15px;
+}
+
+.bloco2{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+
+}
+
+.titulo-atividade{
+
+}
+
+.data-entrega{
+    display: flex;
+    align-items: center;
+}
+
+.data-entrega img{
+    width: 25px;
+    height: 25px;
+}
+
+.data-entrega p{
+    margin-left: 10px;
+}
+
+.bloco3{
+    width: 107px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    min-width: 107px;
+    margin-right: 15px;
+}
+
+.bloco3 img{
+    width: 40px; 
+}
+
+.bloco1 img{
+    width: 65%;
+}
+
+.icone-atividade{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    
+}
+
+.card-arquivo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    transition: 0.5s;
+    height: 0%;
+    overflow: hidden;
+}
+
+.card-arquivo button{
+    border: solid 1px #2092c2;
+    background-color: transparent;
+    border-radius: 10px;
+    width: 150px;
+    height: 45px;
+    font-weight: bold;
+    float: right;
+    margin-right: 30px;
+    margin-bottom: 15px;
+}
+
+.arquivo{
+    width: 90%;
+    border: solid 2px rgb(145, 145, 145);
+    border-radius: 0 0 10px 10px;
+}
+
+.previa-arquivo{
+    display: flex;
+    align-items: center;
+    margin: 15px 15px;
+}
+
+.previa-arquivo img{
+    width: 65px;
+}
+
+.previa-arquivo p{
+    margin-left: 8px;
+}
+
+.atividade-aberto{
+    height: 100%;
+}
+
+.aberto{
+    height: 55%;
 }
 
 
