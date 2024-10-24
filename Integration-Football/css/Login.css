@@ -1,0 +1,173 @@
+/* Importa a fonte Barlow Condensed do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;600&display=swap');
+
+/* Reseta padding e margens de todos os elementos */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Inclui o padding e a borda nas dimensões do elemento */
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #ffffff; /* Cor de fundo azul */
+  color: #ffffff; /* Cor do texto */
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: flex-start; /* Alinha ao topo verticalmente */
+  height: 100vh; /* Altura da viewport */
+  margin: 0; /* Remove a margem do body */
+}
+
+header {
+  position: fixed;
+  top: 0;
+  background-color: #ffffff;
+  width: 100%;
+  height: 90px; /* Altura do cabeçalho */
+  display: flex;
+  box-shadow: 0px 0px 4px #1c1c1c;
+  z-index: 10;
+  user-select: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  min-height: 100vh; /* Altura mínima da tela */
+}
+
+.card {
+  margin: 10% auto; /* Margem automática nas laterais e 10% no topo */
+  max-width: 520px; /* Largura máxima do card */
+  width: 90%; /* Largura responsiva, ocupa 90% da tela */
+  padding: 40px; /* Adiciona um padding interno ao card */
+  background-color: white; /* Fundo do card */
+  border-radius: 25px; /* Bordas arredondadas */
+  border: 5px solid #236baf; /* Cor e largura da borda */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para efeito de profundidade */
+  margin-top: 140px; /* Aumenta o espaço entre o card e o cabeçalho */
+}
+
+@media (max-width: 600px) {
+  .card {
+    margin: 10px; /* Margens menores em telas pequenas */
+    margin-top: 160px; /* Aumenta ainda mais o espaço superior em telas menores */
+    padding: 20px; /* Padding reduzido */
+  }
+}
+
+.card h2 {
+  font-size: 65px;
+  color: #000000;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px; /* Distância das labels */
+  font-family: 'Barlow Condensed', sans-serif; /* Aplica a fonte ao h2 */
+  font-weight: 600; /* Peso correto */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin-inline: 13px;
+
+  color: #1c1c1c;
+  display: block;
+  font-weight: 400; /* Peso normal */
+  margin-bottom: 5px;
+}
+
+input {
+  width: calc(100% - 50px); /* Mantém a largura responsiva */
+  padding: 15px 60px; /* Aumenta o padding interno */
+  margin-inline: 13px;
+  border-radius: 7px;
+  margin-bottom: 15px;
+  border: 1px solid #0083C3;
+  font-size: 1em; /* Tamanho de fonte normal */
+  background-color: #ffffff;
+  box-sizing: border-box; /* Garante que o padding não afete a largura total */
+}
+
+.label-esqueceu-senha {
+  color: rgb(21, 19, 161);
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.label-esqueceu-senha:hover {
+  transform: scale(1.05);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+#entrar {
+  font-size: 1em;
+  margin-top: 15px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  border: 2px solid #0083C3;
+  background-color: #0555af;
+  color: #ffffff;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 70%; /* Largura total */
+  max-width: 400px; /* Limita a largura máxima do botão */
+}
+
+#entrar:hover {
+  background-color: #006699;
+  transform: scale(1.05);
+}
+
+.inscricao-label {
+  color: rgb(10, 8, 124);
+  font-size: 15px; /* Ajuste este valor conforme necessário */
+  text-align: center;
+  cursor: pointer;
+  margin-top: 25px; /* Aumente este valor para mover mais para baixo */
+}
+
+.inscricao-label a {
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+.inscricao-label:hover {
+  color: rgb(10, 8, 124);
+  transform: scale(1.05);
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* Mantém o layout em coluna */
+  min-height: 100vh; /* Garante que o container ocupe a altura total da tela */
+  width: 100%; /* Garante que o container ocupe 100% da largura */
+}
+
+/* Media queries para ajustar em telas menores */
+@media (max-width: 300px) {
+  .card {
+    margin: 5px; /* Margem ainda menor em telas muito pequenas */
+    margin-top: 120px; /* Espaço superior ajustado */
+    padding: 10px; /* Padding ainda mais reduzido */
+  }
+  
+  .card h2 {
+    font-size: 1.2em; /* Tamanho do título ainda menor */
+  }
+  
+  input {
+    padding: 8px; /* Padding reduzido */
+  }
+}

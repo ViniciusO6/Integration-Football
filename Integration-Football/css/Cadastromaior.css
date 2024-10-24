@@ -1,0 +1,194 @@
+/* Reseta padding e margens de todos os elementos */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Inclui o padding e a borda nas dimensões do elemento */
+}
+
+header {
+  position: fixed;
+  top: 0;
+  background-color: #ffffff;
+  width: 100%;
+  height: 90px; /* Altura do cabeçalho */
+  display: flex;
+  box-shadow: 0px 0px 4px #1c1c1c;
+  z-index: 10;
+  user-select: none;
+}
+
+/* BODY STYLES */
+body {
+  background-color: #ffffff; /* Cor de fundo */
+  font-family: 'Teko', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  min-height: auto; /* Altura mínima da tela */
+}
+
+/* CONTENT */
+.content {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: flex-start; /* Alinha os itens ao topo */
+}
+
+.card {
+  display: flex; /* Permite que os itens sejam dispostos lado a lado */
+  margin: 11% auto;
+  padding: 40px; /* Ajuste conforme necessário */
+  max-width: 1000px;
+  height: 1000px;
+  width: 90%;
+  background-color: white;
+  border-radius: 25px;
+  border: 5px solid #236baf;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.left-section {
+  flex: 1; /* Permite que essa seção ocupe o espaço disponível */
+  padding: 20px; /* Adiciona um pouco de padding */
+}
+
+.right-section {
+  display: flex;
+  padding: 20px; /* Adiciona um pouco de padding */
+}
+
+/* Adicione outros estilos conforme necessário */
+
+.card h1 {
+  margin-top: 10px; /* Se preferir, adicione margem superior na imagem */
+  font-size: 38px; /* Tamanho padrão do título */
+  color: #000000;
+  text-align: right; /* Alinhamento à esquerda */
+  margin-right: -270px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; /* Peso correto */
+}
+
+/* STYLES */
+.input-container {
+  display: flex;
+  flex-direction: column; /* Coloca os elementos em coluna */
+}
+
+input, select {
+  width: 65%; /* Ajusta a largura do input e select para 80% do contêiner pai */
+  padding: 12px; /* Padding padrão */
+  border-radius: 7px;
+  border: 1px solid #0083C3;
+  font-size: 1.1em; /* Tamanho da fonte */
+  background-color: #ffffff;
+  margin-bottom: 10px;
+  transition: border 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #005f8d; /* Altera a cor da borda no foco */
+}
+
+label {
+  font-family: 'Barlow', sans-serif;
+  font-size: 1em; /* Tamanho padrão do label */
+  color: #000000;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.input-image {
+  margin-top: 90px; /* Se preferir, adicione margem superior na imagem */
+  width: 290px; /* Largura total para responsividade */
+  max-width: 100%; /* A imagem não excede a largura do contêiner */
+  height: auto; /* Mantém a proporção da imagem */
+  max-height: 350px; /* Limita a altura máxima da imagem */
+  object-fit: contain; /* Mantém a proporção da imagem dentro do contêiner */
+}
+
+
+/* Botão e outros estilos não alterados */
+.button-container {
+  display: flex; /* Usar flexbox para o contêiner */
+  justify-content:end; /* Centraliza o conteúdo horizontalmente */
+  margin-top: 80px; /* Espaço acima do botão, se necessário */
+  width: 100%; /* Garante que o contêiner ocupe toda a largura disponível */
+}
+
+#proximo {
+  font-size: 1em;
+  padding: 10px 80px; /* Padding do botão */
+  border-radius: 5px;
+  border: 2px solid #0083C3;
+  background-color: #0083C3;
+  color: #ffffff;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 320px; /* Largura do botão */
+  max-width: 100%; /* Limita a largura máxima do botão */
+  margin: 0; /* Remove margens para manter o botão centralizado */
+}
+
+
+
+/* Media Queries para telas menores */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column; /* Muda para coluna em telas menores */
+    padding: 40px; /* Reduz padding em telas menores */
+  }
+
+  .card h1 {
+    font-size: 28px; /* Ajusta o tamanho do título */
+    margin: 0; /* Remove margens */
+  }
+
+  input, select {
+    padding: 10px; /* Reduz padding do input */
+    font-size: 1em; /* Ajusta tamanho da fonte */
+  }
+
+  label {
+    font-size: 0.9em; /* Ajusta tamanho da fonte do label */
+  }
+
+  #proximo {
+    padding: 10px 40px; /* Ajusta padding do botão */
+  }
+
+  .input-image {
+    max-width: 60%; /* Aumenta a responsividade da imagem */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 20px; /* Reduz ainda mais o padding */
+  }
+
+  .card h1 {
+    font-size: 24px; /* Tamanho do título ainda menor */
+  }
+
+  input, select {
+    padding: 8px; /* Reduz padding do input */
+    font-size: 0.9em; /* Ajusta tamanho da fonte do input */
+    width: 90%; /* Ajusta a largura do input para 90% em telas menores */
+  }
+
+    #proximo {
+      padding: 8px 20px; /* Ajusta padding do botão */
+      font-size: 0.9em; /* Tamanho da fonte do botão */
+      width: 100%; /* Botão ocupa toda a largura disponível */
+    }
+  
+
+  .input-image {
+      max-width: 60%; /* Aumenta a responsividade da imagem */
+    }  
+}
+

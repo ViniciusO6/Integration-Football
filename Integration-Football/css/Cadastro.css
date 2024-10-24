@@ -1,0 +1,291 @@
+/* Reseta padding e margens de todos os elementos */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Inclui o padding e a borda nas dimensões do elemento */
+}
+
+header {
+  position: fixed;
+  top: 0;
+  background-color: #ffffff;
+  width: 100%;
+  height: 90px; /* Altura do cabeçalho */
+  display: flex;
+  box-shadow: 0px 0px 4px #1c1c1c;
+  z-index: 10;
+  user-select: none;
+}
+
+/* BODY STYLES */
+body {
+  background-color: #ffffff; /* Cor de fundo */
+  font-family: 'Teko', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  min-height: auto; /* Altura mínima da tela */
+}
+
+/* CONTENT */
+.content {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+.card {
+  margin: 15% auto; /* Margem automática nas laterais e 10% no topo */
+  padding: 80px 100px; /* Padding ajustado */
+  height: 760px; /* Altura fixa */
+  max-width: 960px; /* Largura máxima do card */
+  width: 90%; /* Largura responsiva, ocupa 90% da tela */
+  background-color: white; /* Fundo do card */
+  border-radius: 25px; /* Bordas arredondadas */
+  border: 5px solid #236baf; /* Cor e largura da borda */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para efeito de profundidade */
+  margin-top: 140px; /* Aumenta o espaço entre o card e o cabeçalho */
+}
+
+.card h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  color: #000000;
+  margin-left: -68px;
+  margin-top: -25px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .card h1 {
+    font-size: 28px; /* Tamanho do título para telas menores */
+    margin-left: -40px; /* Ajusta a margem esquerda */
+  }
+}
+
+@media (max-width: 480px) {
+  .card h1 {
+    font-size: 24px; /* Tamanho do título ainda menor */
+    margin-left: -20px; /* Ajusta a margem esquerda */
+  }
+}
+
+
+/* STYLES */
+input {
+  width: 100%; /* Largura total do input */
+  padding: 13px 50px; /* Padding padrão */
+  border-radius: 7px;
+  margin-bottom: 15px;
+  border: 1px solid #0083C3;
+  margin-left: 20px;
+  font-size: 1.1em; /* Tamanho da fonte */
+  background-color: #ffffff;
+}
+
+label {
+  margin-left: 20px;
+
+  font-family: 'Barlow', sans-serif;
+  font-size: 1em; /* Tamanho padrão do label */
+  color: #000000;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-image {
+  align-items: center;
+  margin-right: 40px; /* Mantém a margem direita da imagem */
+  height: auto; /* Permite que a altura se ajuste automaticamente */
+  max-height: 270px; /* Limita a altura máxima da imagem */
+  width: 100%; /* Largura total para responsividade */
+  max-width: 40%; /* Limita a largura máxima da imagem */
+}
+
+input:focus + label {
+  color: var(--color-input);
+  font-weight: bold;
+}
+
+.option {
+  display: flex; /* Use flexbox para alinhar os elementos */
+  align-items: center; /* Alinha verticalmente */
+  margin-bottom: 24px; /* Espaço entre as opções */
+}
+
+.form-check-input {
+  margin-top: 10px;
+  transform: scale(1.2); /* Aumenta o tamanho do botão de rádio */
+  margin-right: -48%; /* Reduz o espaço entre o botão e o texto do label */
+}
+
+@media (max-width: 768px) {
+  .form-check-input {
+    transform: scale(1); /* Ajusta o tamanho do botão de rádio */
+    margin-right: 5px; /* Menos espaço em telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .form-check-input {
+    transform: scale(0.9); /* Reduz ainda mais o tamanho do botão de rádio */
+    margin-right: 5px; /* Ajusta o espaço entre o botão e o texto do label */
+  }
+}
+
+
+.form-check-label {
+  font-family: 'Barlow', sans-serif;
+  font-size: 1em; /* Tamanho padrão do label */
+  color: #000000;
+  white-space: nowrap; /* Impede quebra de linha */
+}
+
+.button-container {
+  display: flex; /* Usar flexbox para o contêiner */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  margin-top: 40px; /* Espaço acima do botão, se necessário */
+}
+
+#proximo {
+  font-size: 1em;
+  margin: 0 auto; /* Centraliza o botão horizontalmente */
+  padding: 10px 80px; /* Padding do botão */
+  border-radius: 5px;
+  border: 2px solid #0083C3;
+  background-color: #0083C3;
+  color: #ffffff;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 320px; /* Largura do botão */
+  max-width: 1000px; /* Limita a largura máxima do botão */
+}
+
+#proximo:hover{
+  transform: scale(1.05);
+}
+
+/* Media Queries para telas menores */
+
+
+@media (max-width: 860px) {
+  .card {
+    padding: 40px; /* Reduz padding em telas menores */
+  }
+
+  .card h1 {
+    font-size: 28px; /* Ajusta o tamanho do título */
+  }
+
+
+  }
+
+
+
+@media (max-width: 768px) {
+  .card {
+    padding: 40px; /* Reduz padding em telas menores */
+  }
+
+  .card h1 {
+    font-size: 22px; /* Ajusta o tamanho do título */
+  }
+
+  input {
+    padding: 5px; /* Reduz padding do input */
+    font-size: 1em; /* Ajusta tamanho da fonte */
+  }
+
+  label {
+    font-size: 0.9em; /* Ajusta tamanho da fonte do label */
+  }
+
+  #proximo {
+    padding: 10px 40px; /* Ajusta padding do botão */
+  }
+
+  .input-image {
+    max-width: 30%; /* Aumenta a responsividade da imagem */
+  }
+
+  .form-check-input {
+    transform: scale(1); /* Ajusta o tamanho do botão de rádio */
+    margin-right: 10px; /* Menos espaço em telas menores */
+
+  }
+}
+
+@media (max-width: 715px) {
+  .card {
+    padding: 40px; /* Reduz padding em telas menores */
+  }
+
+  .card h1 {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 22px; /* Ajusta o tamanho do título */
+  }
+
+  input {
+    padding: 5px; /* Reduz padding do input */
+    font-size: 1em; /* Ajusta tamanho da fonte */
+  }
+
+  label {
+    font-size: 0.9em; /* Ajusta tamanho da fonte do label */
+  }
+
+  #proximo {
+    padding: 10px 40px; /* Ajusta padding do botão */
+  }
+
+  .input-image {
+    max-width: 30%; /* Aumenta a responsividade da imagem */
+  }
+
+  .form-check-input {
+    transform: scale(1); /* Ajusta o tamanho do botão de rádio */
+    margin-right: -20px; /* Menos espaço em telas menores */
+
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 20px; /* Reduz ainda mais o padding */
+  }
+
+  .card h1 {
+    font-size: 24px; /* Tamanho do título ainda menor */
+  }
+
+  input {
+    padding: 8px; /* Reduz padding do input */
+    font-size: 0.9em; /* Ajusta tamanho da fonte do input */
+  }
+
+  #proximo {
+    padding: 8px 20px; /* Ajusta padding do botão */
+    font-size: 0.9em; /* Tamanho da fonte do botão */
+    width: 100%; /* Botão ocupa toda a largura disponível */
+  }
+
+  .input-image {
+    max-width: 50%; /* Reduz a largura máxima da imagem ainda mais */
+  }
+
+  .form-check-input {
+    transform: scale(0.9); /* Reduz ainda mais o tamanho do botão de rádio */
+    margin-right: 5px; /* Menos espaço em telas menores */
+
+  }
+}

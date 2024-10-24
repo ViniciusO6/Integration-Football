@@ -1,0 +1,201 @@
+/* Reset de padding e margens */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Teko', sans-serif;
+}
+
+.card h1 {
+    margin-left: 30px;
+    margin-top: -20px; /* Se preferir, adicione margem superior na imagem */
+    font-size: 36px; /* Tamanho padrão do título */
+    color: #000000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; /* Peso correto */
+    white-space: nowrap; /* Impede quebra de linha */
+
+    
+}
+
+
+.container {
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: flex-start; /* Alinha ao topo */
+    min-height: 100vh; /* Garante que ocupe a altura total da tela */
+}
+
+.card {
+    min-height: 600px; 
+    margin: 10% auto; /* Centraliza o card */
+    padding: 80px 20px; /* Ajuste do padding */
+    max-width: 1000px;
+    width: 90%;
+    background-color: white;
+    border-radius: 25px;
+    border: 5px solid #236baf;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+}
+
+.image-container {
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 100%; /* Garante que ocupe toda a largura disponível */
+    height: auto; /* Deixa a altura ajustada ao conteúdo */
+    padding: 0;
+}
+
+.image-container img {
+    max-width: 300px;
+    height: auto; /* Mantém a proporção da imagem */
+    margin-left: -170px;
+    margin-top:50px;
+    display: block; /* Assegura que a imagem seja tratada como um bloco para centralizar */
+}
+
+
+
+
+
+
+.input-container {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    justify-content: space-between; /* Distribui espaço entre as seções */
+}
+
+.left-section{
+    width: 100%; /* Garante que as seções ocupem toda a largura */
+    display: flex;
+    flex-direction: column; /* Mantém os inputs em coluna */
+    align-items: center; /* Centraliza os itens */
+    margin-bottom: 10px; /* Espaço entre seções */
+    margin-top: 90px;
+    margin-left: -300px;
+}
+
+.right-section {
+    width: 100%; /* Garante que as seções ocupem toda a largura */
+    display: flex;
+    flex-direction: column; /* Mantém os inputs em coluna */
+    align-items: center; /* Centraliza os itens */
+    margin-bottom: 10px; /* Espaço entre seções */
+    margin-top: 40px;
+    margin-left: 5px;
+}
+
+
+
+.input {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column; /* Coloca os inputs em coluna */
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+
+.input1 {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column; /* Coloca os inputs em coluna */
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+
+input, select {
+    margin-right: 150px;
+    padding: 15px 60px; /* Ajustado para melhor aparência */
+    border-radius: 7px;
+    margin-bottom: 16px;
+    border: 1px solid #0083C3;
+    font-size: 1.1em;
+    background-color: #ffffff;
+    transition: border 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #005f8d;
+}
+
+label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1em;
+    color: #000000;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centraliza o botão */
+    margin-top: 30px;
+    margin-left: -410px;
+
+}
+
+#proximo {
+    align-items: center;
+    font-size: 1em;
+    padding: 15px 70px;
+    border-radius: 5px;
+    border: 2px solid #0083C3;
+    background-color: #0083C3;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+    max-width: 100%; /* Garante que o botão não exceda a largura do contêiner */
+}
+#proximo:hover{
+    transform: scale(1.05);
+}
+
+/* Media Queries para telas menores */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        padding: 40px;
+    }
+
+    .input-container {
+        flex-direction: column; /* Muda para coluna em telas menores */
+        align-items: center; /* Centraliza os itens */
+    }
+
+    .left-section {
+        margin-right: 0; /* Remove a margem à direita */
+    }
+
+    .input-image {
+        max-width: 60%;
+    }
+
+    .right-section {
+        width: 100%; /* Garante que ocupe a largura total */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 20px;
+    }
+
+    input, select {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    #proximo {
+        padding: 8px 20px;
+        font-size: 0.9em;
+        width: 100%;
+    }
+
+    .input-image {
+        max-width: 50%;
+    }
+}
