@@ -47,7 +47,6 @@
 
             <div id="navbar-part-1">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="Projetos.html">Projetos</a></li>
                     <li><a href="Unidades.html">Unidades</a></li>
                     <li><a href="SobreNos.html">Sobre-nós</a></li>
                     <li><a href="Contato.php">Contato</a></li>
