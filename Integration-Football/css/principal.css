@@ -42,6 +42,7 @@
 #btns img{
     width: 20px;
     cursor: pointer;
+    user-select: none;
 }
 
 #semanas{
@@ -54,6 +55,7 @@
 
 #semanas p{
     width: calc(600px / 7);
+    user-select: none;
 }
 
 #dias{
@@ -82,6 +84,7 @@
     align-items: center;
     cursor: pointer; 
     transition: 0.1s;
+    user-select: none;
 }
 
 #dia:hover{
@@ -113,6 +116,7 @@
     flex-direction: column;
     height: 14%;
     transition: 0.5s;
+    user-select: none;
 }
 
 .card-atividade{
@@ -271,6 +275,38 @@
     }
 }
 
+@media screen and (max-width: 710px) {
+    #pricipal-calendario {
+        width: initial;
+        margin:initial;
+        margin-bottom: 50px;
+        transform: scale(0.8);
+        transform-origin: top;
+ 
+    }
+}
+
 @media screen and (max-width: 490px) {
+    #pricipal-calendario {
+        width: initial;
+        margin:initial;
+        margin-bottom: 50px;
+        transform: scale(0.6);
+        transform-origin: top;
+ 
+    }
+
+}
+
+
+@media screen and (max-width: 375px) {
+    #pricipal-calendario {
+        width: initial;
+        margin:initial;
+        margin-bottom: 50px;
+        transform: scale(0.5);
+        transform-origin: top;
+ 
+    }
 
 }

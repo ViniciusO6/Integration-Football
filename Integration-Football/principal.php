@@ -23,16 +23,16 @@
     <form id="form" action="">
 
         <div id="pricipal-calendario">
+            <br>
+
+            <div id="dia-semana">
             <div id="header-calendario">
                 <h1 id="mes-ano">JANEIRO 2024</h1>
                 <div id="btns">
                     <img src="./Imagens/seta-esquerda-black.svg" alt="" id="prev">
                     <img src="./Imagens/seta-direita-black.svg" alt="" id="next">
                 </div>
-            </div><br>
-
-            <div id="dia-semana">
-
+            </div>
             <div id="semanas">
                 <p>Domingo</p>
                 <p>Segunda</p>
