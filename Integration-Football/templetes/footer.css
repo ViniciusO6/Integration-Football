@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet'>);
 
 /* Reseta as margens e o padding de todos os elementos */
 * {
@@ -18,7 +18,7 @@ footer {
     margin-top: 100px;   
     background-color: #115089; /* Cor de fundo do rodapé */
     padding: 50px 0; /* Espaçamento interno do rodapé */
-    font-family: 'Poppins', sans-serif; /* Fonte utilizada no rodapé */
+    font-family: 'Barlow Condensed', sans-serif; /* Fonte utilizada no rodapé */
     width: 100%; /* Garante que o rodapé ocupe 100% da largura */
     position: relative; /* Permite posicionar o rodapé corretamente */
 }
@@ -83,7 +83,7 @@ footer {
     padding: 10px; /* Adiciona padding interno */
     border: 1px solid #000000; /* Borda leve */
     border-radius: 5px; /* Borda arredondada */
-    font-family: 'Poppins', sans-serif; /* Fonte utilizada */
+    font-family: 'Barlow Condensed', sans-serif; /* Fonte utilizada */
     font-size: 16px; /* Tamanho da fonte */
     width: 360px;
     margin-bottom: 10px; /* Margem inferior para espaçamento com o botão */
