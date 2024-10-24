@@ -6,7 +6,7 @@ $imports =[
   ];
 $titulo = 'Página de login';
 $pageCSS = ["Login.css"];
-include_once('./templetes/index.php');
+include_once('./templetes/menu.php');
 ?>
 <div class="container">
     <div class="card">
