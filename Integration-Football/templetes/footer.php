@@ -43,6 +43,6 @@
         </div>
     </div>
     <div class="direitos">
-        <p><strong>2° Desenvolvimento de Sistemas - AMS (ETEC ZONA LESTE).</strong> Todos os direitos reservados &copy; 2023</p>
+        <p><strong>2° Desenvolvimento de Sistemas - AMS (ETEC ZONA LESTE).</strong> Todos os direitos reservados &copy; 2024</p>
     </div>
 </footer>
