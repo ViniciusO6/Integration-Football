@@ -71,7 +71,6 @@
 
         <div id="menu-navigation">
             <li><a href="">Home</a></li>
-            <li><a href="">Projetos</a></li>
             <li><a href="">Unidades</a></li>
             <li><a href="">Sobre-nós</a></li>
             <li><a href="Contato.php">Contato</a></li>
