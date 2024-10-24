@@ -32,12 +32,6 @@
 
                     </form>
                 </div>
-                <div class="medias-sociais">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class= "fa fa-whatsapp"></i></a>
-                </div>
             </div>
             <!-- end footer col -->
         </div>
