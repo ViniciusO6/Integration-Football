@@ -80,9 +80,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    
+    cursor: pointer; 
+    transition: 0.1s;
 }
+
+#dia:hover{
+    border: 2px solid #2092c2;
+}
+
 
 .inactive{
     color: #ccc;
@@ -106,7 +111,7 @@
 .atividade{
     display: flex;
     flex-direction: column;
-    height: 37%;
+    height: 14%;
     transition: 0.5s;
 }
 
