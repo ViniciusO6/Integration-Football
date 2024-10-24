@@ -9,7 +9,7 @@
   ];
   $titulo = 'HomePage';
   $pageCSS = ["home.css"];
-  $pageJS = ["menu.js"];
+  $pageJS = ["index.js"];
 
   include_once('./templetes/menu.php');
 
