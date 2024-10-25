@@ -1,40 +1,197 @@
-.container{
-    width: 100vw;
-    margin-top: 80px;
-    font-family: 'Poppins', sans-serif;
-  }
-
-#consulta{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.container {
+  width: 100vw;
+  margin-top: 80px;
+  font-family: "Poppins", sans-serif;
 }
 
-#form{
-    display: flex;
-    flex-direction: column;
-    width: 55%;
-    margin-top: 25px;
+#consulta {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#conteudo {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  margin-top: 25px;
+}
+
+.ComboBox {
+  width: 50%;
+}
+
+.ComboBox p {
+  font-weight: bold;
+}
+
+.Pesquisar {
+  display: flex;
+  width: 100%;
+  gap: 10%;
+  margin-top: 20px;
+}
+
+select {
+  width: 90%;
+  height: 60%;
+  border: 2px solid #07cb65;
+  border-radius: 5px;
+}
+
+select:focus {
+  outline: none; /* Remove a borda de foco padrão */
+  border: 2px solid #07cb65; /* Mantém a borda verde ao focar */
+}
+
+form {
+  height: 150px;
+}
+
+.cards {
+  display: flex;
+  background-color: #84c88880;
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.cards:hover {
+  transform: scale(1.05);
+}
+
+.cards.ativo {
+  transform: scale(1.05);
+}
+
+.imagem img {
+  height: 75%;
+}
+
+.imagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 20%;
+}
+
+.informacao {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55%;
+}
+
+.informacao p {
+  margin-left: 5%;
+  font-weight: bold;
+}
+
+.botoes {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 25%;
+}
+
+#aprovado {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#aprovado.clicado {
+  opacity: 100%;
+}
+
+#reprovado {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#reprovado.clicado {
+  opacity: 100%;
+}
+
+textarea {
+  padding: 5px;
+  width: 90%;
+  resize: none;
+  height: 250px;
+  font-family: "Poppins", sans-serif;
+}
+
+textarea:disabled {
+  background-color: #f1f1f1; /* Cor de fundo diferente quando desabilitado */
+  color: #000000; /* Cor do texto quando desabilitado */
+  background-color: transparent;
+  border: none;
+}
+
+button {
+  background: none;
+  border: none;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.15);
+}
+
+.justificativa {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s ease;
+}
+
+.justificativa.aberto {
+  height: 400px;
+}
+
+.conteudo-justificativa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  overflow: hidden;
+  height: 350px;
+  width: 90%;
+  border: 3px, solid, #07cb65;
+  border-radius: 5px;
+}
+
+.titulo {
+  display: flex;
+  width: 100%;
+}
+
+.titulo p {
+  margin-left: 05%;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 992px) {
-
 }
 
 @media screen and (max-width: 865px) {
-    #consulta{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+  #consulta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-    #form{
-        width: 85%;
-        margin-top: 0;
-    }
-
+  #form {
+    width: 85%;
+    margin-top: 0;
+  }
 }
 
 @media screen and (max-width: 490px) {
-
 }

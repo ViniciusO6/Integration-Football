@@ -10,7 +10,7 @@
   ];
   $titulo = 'Consulta | Professor';
   $pageCSS = ["consultaprofessor.css"];
-  $pageJS = [""];
+  $pageJS = ["consultarprofessor.js"];
 
   include_once('./templetes/menu.php');
 
@@ -20,27 +20,91 @@
   <div id="consulta">
     
 
-    <form id="form" action="">
-        <h1 id="titulo">JUSTIFICAR FALTAS</h1>
+    <div id="conteudo">
+      <form action="">
+        <h1 id="titulo">ANALISE DE FALTAS</h1>
 
-        <p>Escolha o(a) professor(a)</p>
-        <input id="input-professor" type="text">
+        <p>Verifique as justificativas de ausência dos alunos da instituição </p>
 
-        <p>Defina a data de ausência:</p>
-        <input id="input-data" type="date">
+          <div class="Pesquisar">
+            <div class="ComboBox">
+              <p>Escolha a modalidade:</p>
+              <select id="inserir_dados">
+                  <option value="" disabled selected hidden></option>
+                  <option>Modalidade 1</option>
+                  <option>Modalidade 2</option>
+                  <option>Modalidade 3</option>
+                  <option>Modalidade 4</option>
+              </select>
+            </div>
 
-        <p>Justificativa:</p>
-        <textarea name="justiticativa" id="input-justificativa" placeholder="Escreva uma justificatica de até 255 caracteres."></textarea>
-        
-        <p>Atestado</p>
-        <div id="btns">   
-          <button id="input-arquivo" type="button">Escolher arquivo</button>
-          <input id="files" type="file">
-          <button id="btn-enviar" type="submit">Enviar</button>  
+            <div class="ComboBox">  
+              <p>Escolha a turma:</p>
+              <select id="inserir_dados">
+                  <option value="" disabled selected hidden></option>
+                  <option>Turma 1</option>
+                  <option>Turma 2</option>
+                  <option>Turma 3</option>
+                  <option>Turma 4</option>
+              </select>
+            </div>
+          </div>
+
+
+        </form>
+
+        <div class="cards" onclick="AbrirJustificativa(this)">
+          <div class="imagem">
+            <img src="Imagens/FotoPerfil.svg" alt="" draggable="false">
+          </div>
+
+          <div class="informacao">
+           <p>Cássio Egipcio Gomes</p>
+           <p>26/02/2008</p>
+          </div>
+          
+          <div class="botoes">
+            <button id="aprovado" onclick="event.stopPropagation();">
+              <img src="Imagens/aprovar.svg" alt="" draggable="false">
+            </button>
+            
+            <button id="reprovado" onclick="event.stopPropagation();">
+              <img src="Imagens/cancelar.svg" alt="" draggable="false">
+            </button>
+          </div>
         </div>
-        <label id="file-text" for="input-arquivo"></label>
 
-    </form>
+        <div class="cards" onclick="AbrirJustificativa(this)">
+          <div class="imagem">
+            <img src="Imagens/FotoPerfil.svg" alt="" draggable="false">
+          </div>
+
+          <div class="informacao">
+           <p>Cássio Egipcio Gomes</p>
+           <p>26/02/2008</p>
+          </div>
+          
+          <div class="botoes">
+            <button id="aprovado1" onclick="event.stopPropagation();">
+              <img src="Imagens/aprovar.svg" alt="" draggable="false">
+            </button>
+            
+            <button id="reprovado1" onclick="event.stopPropagation();">
+              <img src="Imagens/cancelar.svg" alt="" draggable="false">
+            </button>
+          </div>
+        </div>
+
+
+        <div class="justificativa" id="card-justificativa">
+          <div class="conteudo-justificativa">
+            <div class="titulo">
+              <p>Justificativa:</p>
+            </div>
+          <textarea name="justiticativa" id="input-justificativa" disabled >"Este é um exemplo de texto que contém exatamente duzentos e cinquenta e cinco caracteres, incluindo espaços e pontuação. Ele foi gerado para demonstrar como atender a requisitos específicos de contagem de caracteres em diferentes contextos, como testes e aplicações educacionais."</textarea>
+          </div>
+        </div>
+    </div>
     
   </div>
 
