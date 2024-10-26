@@ -1,5 +1,6 @@
 <?php
 session_start(); // Inicie a sessão
+
 $imports = [
     "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap",
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
@@ -12,14 +13,14 @@ $pageCSS = ["Cadastro.css"];
 include_once('./templetes/index.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Captura os dados do formulário
+    // Captura os dados do formulário e armazena na sessão
     $_SESSION['nome_inscrito'] = $_POST['nome_inscrito'];
     $_SESSION['email_inscrito'] = $_POST['email_inscrito'];
     $_SESSION['telefone_inscrito'] = $_POST['telefone_inscrito'];
     $_SESSION['idade'] = $_POST['idade'];
 
     // Debugging: Verifica os valores capturados
-    var_dump($_SESSION['nome_inscrito'], $_SESSION['email_inscrito'], $_SESSION['telefone_inscrito']);
+    // var_dump($_SESSION['nome_inscrito'], $_SESSION['email_inscrito'], $_SESSION['telefone_inscrito']);
 
     // Redireciona baseado na seleção de idade
     header("Location: " . ($_SESSION['idade'] === 'maior' ? "cadastromaior.php" : "cadastromenor.php"));
@@ -52,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <br /><br />
 
                 <div class="option">
-                    <input class="form-check-input" type="radio" value="maior" id="maior" name="idade">
+                    <input class="form-check-input" type="radio" value="maior" id="maior" name="idade" required>
                     <label class="form-check-label" for="maior">Sou maior de idade (18 anos ou mais)</label>
                 </div>
                

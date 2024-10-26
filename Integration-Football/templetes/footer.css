@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'>);
 
 /* Reseta as margens e o padding de todos os elementos */
 * {
@@ -18,7 +18,7 @@ footer {
     margin-top: 100px;   
     background-color: #115089; /* Cor de fundo do rodapé */
     padding: 50px 0; /* Espaçamento interno do rodapé */
-    font-family: 'Poppins', sans-serif; /* Fonte utilizada no rodapé */
+    font-family: 'Barlow Condensed', sans-serif; /* Fonte utilizada no rodapé */
     width: 100%; /* Garante que o rodapé ocupe 100% da largura */
     position: relative; /* Permite posicionar o rodapé corretamente */
 }
@@ -49,7 +49,7 @@ footer {
     margin-bottom: 20px; /* Margem abaixo do título */
     font-weight: 500; /* Peso da fonte */
     text-transform: uppercase; /* Transforma texto em maiúsculas */
-    font-family: 'Teko', sans-serif; /* Fonte específica para o título */
+    font-family: 'Barlow Condensed', sans-serif; /* Fonte específica para o título */
 }
 
 /* Estilo para as listas dentro das colunas */
@@ -61,6 +61,7 @@ footer {
 /* Estilo para cada item da lista */
 .footer-col ul li {
     margin-bottom: 10px; /* Margem entre os itens da lista */
+    font-size: 17px;
 }
 
 .footer-col ul li a {
@@ -78,34 +79,36 @@ footer {
     flex-direction: column; /* Mantém a estrutura vertical */
 }
 
-.form-sub input[type="email"] {
+#emailInput {
+    margin-left: 2px;
     padding: 10px; /* Adiciona padding interno */
     border: 1px solid #000000; /* Borda leve */
     border-radius: 5px; /* Borda arredondada */
-    font-family: 'Poppins', sans-serif; /* Fonte utilizada */
+    font-family: 'Barlow Condensed', sans-serif; /* Fonte utilizada */
     font-size: 16px; /* Tamanho da fonte */
+    width: 500px;
     margin-bottom: 10px; /* Margem inferior para espaçamento com o botão */
 }
 
-.form-sub button {
+#subscribeButton{
     width: 100%; /* Faz o botão ocupar toda a largura do container */
     padding: 10px; /* Adiciona padding interno */
     background-color: #005f99; /* Cor de fundo do botão */
     color: white; /* Cor do texto do botão */
     border: none; /* Remove borda */
     cursor: pointer; /* Muda o cursor para pointer */
-    font-family: 'Poppins', sans-serif; /* Fonte utilizada */
+    font-family: 'Barlow Condensed', sans-serif; /* Fonte utilizada */
     font-size: 16px; /* Tamanho da fonte */
     transition: background-color 0.3s; /* Transição na cor de fundo */
 }
 
-.form-sub button:hover {
+#subscribeButton:hover  {
     background-color: #007bbf; /* Cor do botão ao passar o mouse */
 }
 
 .direitos {
     color: #f0f0f0;
-    margin-left: 10px;
+    text-align: center;
 }
 
 /* Media Queries para responsividade */

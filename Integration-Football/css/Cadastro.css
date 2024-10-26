@@ -170,8 +170,14 @@ input:focus + label {
   max-width: 1000px; /* Limita a largura máxima do botão */
 }
 
+#proximo:hover{
+  transform: scale(1.05);
+}
+
 /* Media Queries para telas menores */
-@media (max-width: 768px) {
+
+
+@media (max-width: 860px) {
   .card {
     padding: 40px; /* Reduz padding em telas menores */
   }
@@ -180,8 +186,22 @@ input:focus + label {
     font-size: 28px; /* Ajusta o tamanho do título */
   }
 
+
+  }
+
+
+
+@media (max-width: 768px) {
+  .card {
+    padding: 40px; /* Reduz padding em telas menores */
+  }
+
+  .card h1 {
+    font-size: 22px; /* Ajusta o tamanho do título */
+  }
+
   input {
-    padding: 10px; /* Reduz padding do input */
+    padding: 5px; /* Reduz padding do input */
     font-size: 1em; /* Ajusta tamanho da fonte */
   }
 
@@ -194,12 +214,47 @@ input:focus + label {
   }
 
   .input-image {
-    max-width: 60%; /* Aumenta a responsividade da imagem */
+    max-width: 30%; /* Aumenta a responsividade da imagem */
   }
 
   .form-check-input {
     transform: scale(1); /* Ajusta o tamanho do botão de rádio */
-    margin-right: 5px; /* Menos espaço em telas menores */
+    margin-right: 10px; /* Menos espaço em telas menores */
+
+  }
+}
+
+@media (max-width: 715px) {
+  .card {
+    padding: 40px; /* Reduz padding em telas menores */
+  }
+
+  .card h1 {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 22px; /* Ajusta o tamanho do título */
+  }
+
+  input {
+    padding: 5px; /* Reduz padding do input */
+    font-size: 1em; /* Ajusta tamanho da fonte */
+  }
+
+  label {
+    font-size: 0.9em; /* Ajusta tamanho da fonte do label */
+  }
+
+  #proximo {
+    padding: 10px 40px; /* Ajusta padding do botão */
+  }
+
+  .input-image {
+    max-width: 30%; /* Aumenta a responsividade da imagem */
+  }
+
+  .form-check-input {
+    transform: scale(1); /* Ajusta o tamanho do botão de rádio */
+    margin-right: -20px; /* Menos espaço em telas menores */
 
   }
 }

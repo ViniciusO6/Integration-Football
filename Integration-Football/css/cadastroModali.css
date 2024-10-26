@@ -11,182 +11,135 @@ body {
 }
 
 .card h1 {
-    font-size: 33px; /* Tamanho padrão do título */
+    margin-bottom: 40px;
+    font-size: 33px;
     color: #000000;
     font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 600; /* Peso correto */
-    text-align: center; /* Centraliza o texto */
-    margin: 0; /* Remove margens que podem afetar a centralização */
+    font-weight: 600;
+    text-align: center;
 }
 
 .card {
-    min-height: 600px; 
-    margin: 10% auto; /* Centraliza o card */
-    padding: 80px 50px; /* Ajuste do padding */
+    min-height: 600px;
+    margin: 10% auto;
+    padding: 80px 50px;
     max-width: 890px;
     width: 90%;
-    height: 1120px;
     background-color: white;
     border-radius: 25px;
     border: 5px solid #236baf;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex; /* Ativa o Flexbox no contêiner card */
-    flex-direction: column; /* Alinha os filhos na vertical */
-    align-items: center; /* Centraliza os filhos horizontalmente */
-}
-
-.image-container {
-    display: flex; /* Ativa o Flexbox no contêiner da imagem */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    width: 140px; /* Garante que ocupe toda a largura disponível */
-    height: auto; /* Deixa a altura ajustada ao conteúdo */
-}
-
-.image-container2 {
-    display: flex; /* Ativa o Flexbox no contêiner da imagem */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    width: 110px; /* Garante que ocupe toda a largura disponível */
-    height: auto; /* Deixa a altura ajustada ao conteúdo */
-}
-
-.image-container3 {
-    display: flex; /* Ativa o Flexbox no contêiner da imagem */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    width: 140px; /* Garante que ocupe toda a largura disponível */
-    height: auto; /* Deixa a altura ajustada ao conteúdo */
-}
-
-.image-container4 {
-    display: flex; /* Ativa o Flexbox no contêiner da imagem */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    width: 140px; /* Garante que ocupe toda a largura disponível */
-    height: auto; /* Deixa a altura ajustada ao conteúdo */
-}
-
-.input-container {
     display: flex;
-    align-items: baseline;
-    width: 100%;
-    margin-top: 30px;
-}
-
-.input {
-    display: flex;
-    flex-direction: column; /* Coloca os inputs em coluna */
-    width: 100%; /* Ocupa toda a largura disponível */
-}
-
-label {
-    font-family: 'Barlow', sans-serif;
-    font-size: 1em;
-    color: #000000;
-    margin-bottom: 5px;
-    display: block;
-}
-
-input, select {
-    padding: 15px 60px; /* Ajustado para melhor aparência */
-    border-radius: 7px;
-    margin-bottom: 16px;
-    border: 2px solid #026799;
-    font-size: 1.1em;
-    background-color: #ffffff;
-    transition: border 0.3s;
-}
-
-.button-container {
-    display: flex;
-    justify-content: center; /* Centraliza o botão */
-}
-
-#proximo {
+    flex-direction: column;
     align-items: center;
-    font-size: 1em;
-    padding: 15px 70px;
-    border-radius: 5px;
-    border: 2px solid #0083C3;
-    background-color: #0083C3;
-    color: #ffffff;
-    cursor: pointer;
-    transition: 0.3s;
-    max-width: 100%; /* Garante que o botão não exceda a largura do contêiner */
-    margin-top:30px;
-}
-
-#proximo:hover {
-    transform: scale(1.05);
 }
 
 .card-container {
     display: flex;
     flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
     justify-content: center;
-    gap: 90px; /* Aumenta o espaço entre os cards */
+    gap: 20px; /* Espaçamento entre os cards */
 }
 
 .mini-card {
-    margin-top: 70px;
-    margin-bottom: -60px;
     background-color: #ffffff;
-    padding: 30px; /* Aumenta o padding interno */
+    padding: 30px;
     border: 3px solid #236baf;
     border-radius: 13px;
-    width: calc(42% - 20px); /* Ajusta para aumentar a largura e garantir dois cards por linha */
-    height: 310px; /* Aumenta a altura dos cards */
+    width: calc(42% - 20px); /* Dois cards por linha */
+    height: 310px;
     text-align: center;
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 .mini-card h3 {
     margin-bottom: 10px;
     font-size: 20px;
     font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 600; /* Peso correto */
+    font-weight: 600;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 100%; /* Ocupa toda a largura do mini-card */
+    height: 150px; /* Altura fixa para a imagem */
+    margin-bottom: 10px; /* Espaçamento abaixo da imagem */
+}
+
+/* Estilos para imagens específicas */
+.image-1 img {
+    max-width: 60%; /* A imagem ocupa 80% da largura do contêiner */
+
+}
+
+.image-2 img {
+    max-width: 40%; /* A imagem ocupa 90% da largura do contêiner */
+}
+
+.image-3 img {
+    max-width: 60%; /* A imagem ocupa 85% da largura do contêiner */
+    filter: grayscale(50%); /* Efeito em preto e branco */
+}
+
+.image-4 img {
+    max-width: 40%; /* A imagem ocupa 95% da largura do contêiner */
+    transition: transform 0.3s; /* Efeito de transição */
+}
+
+.image-4 img:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
 }
 
 .mini-card button {
     background-color: #236baf;
     color: #fff;
     border: none;
+    align-items: center;
     border-radius: 8px;
-    border: 1px solid #236baf;
     cursor: pointer;
-    width: 130px; /* Aumenta a largura do botão */
-    height: 60px; /* Ajusta a altura do botão */
-    margin-top: 20px; /* Mantém o espaçamento superior */
-    padding: 10px 0; /* Centraliza verticalmente o texto dentro do botão */
+    width: 130px; /* Largura do botão */
+    height: 40px; /* Altura do botão */
+    margin-top: 20px; /* Espaçamento superior do botão */
+    transition: background-color 0.3s; /* Transição suave ao passar o mouse */
 }
 
 .mini-card button:hover {
-    background-color: #03468d;
+    background-color: #03468d; /* Cor ao passar o mouse */
 }
+.mini-card button.selected {
+    background-color: #00dbf8; /* Cor quando selecionado */
+    color: #fff; /* Mantém o texto branco */
+}
+
+
 
 .button-container {
     display: flex;
-    justify-content: center; /* Centraliza o botão */
-
+    justify-content: center;
 }
 
-#proximo {
-margin-top: 60px;
-    align-items: center;
-    font-size: 1.1em;
-    padding: 15px 90px;
-    border-radius: 5px;
-    border: 2px solid #0083C3;
-    background-color: #236baf;
+.btn-proximo {
+    font-size: 1em;
+    margin-top: 60px;
+    padding: 10px 80px; /* Padding do botão */
+    border-radius: 10px;
+    border: 4px solid ;
+    background-color: #005d8b;
     color: #ffffff;
     cursor: pointer;
     transition: 0.3s;
+    height: 50px;
+    width: 340px; /* Largura do botão */
+    max-width: 100%; /* Limita a largura máxima do botão */
 }
-#proximo:hover{
-    transform: scale(1.05);
+
+.btn-proximo:hover {
+    background-color: #0991d4; /* Cor de fundo ao passar o mouse */
 }
+
+
 

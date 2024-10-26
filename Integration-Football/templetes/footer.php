@@ -27,21 +27,16 @@
                 <h4>Se inscreva!</h4>
                 <div class="form-sub">
                     <form>
-                        <input type="email"  placeholder="Digite seu email:" required>
-                        <button type="submit">Subscrever</button>
+                    <input type="email" name="input6" id="emailInput" placeholder="Digite seu email:" required>
+<button type="submit" id="subscribeButton">Subscrever</button>
+
                     </form>
-                </div>
-                <div class="medias-sociais">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class= "fa fa-whatsapp"></i></a>
                 </div>
             </div>
             <!-- end footer col -->
         </div>
     </div>
     <div class="direitos">
-        <p><strong>2° Desenvolvimento de Sistemas - AMS (ETEC ZONA LESTE).</strong> Todos os direitos reservados &copy; 2023</p>
+        <p><strong>2° Desenvolvimento de Sistemas - AMS (ETEC ZONA LESTE).</strong> Todos os direitos reservados &copy; 2024</p>
     </div>
 </footer>
