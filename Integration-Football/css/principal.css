@@ -13,7 +13,7 @@
 #form{
     display: flex;
     flex-direction: column;
-    width: 55%;
+    width: 635px;
     margin-top: 25px;
 }
 
@@ -22,9 +22,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-#calendario{
 }
 
 #header-calendario{
@@ -68,8 +65,9 @@
 
 #pricipal-calendario{
     width: 600px;
-    margin: 0 auto;
-    margin-bottom: 50px;
+    margin: 0px auto;
+    margin-bottom: 100px;
+    transform: scale(1.09);
 }
 
 #dia{
@@ -85,6 +83,11 @@
     cursor: pointer; 
     transition: 0.1s;
     user-select: none;
+}
+
+#dia {
+    outline: none; /* Remove qualquer contorno de foco residual */
+    -webkit-tap-highlight-color: transparent; /* Remove o destaque em dispositivos móveis */
 }
 
 #dia:hover{
@@ -116,7 +119,10 @@
     flex-direction: column;
     height: 14%;
     transition: 0.5s;
+    margin-bottom: 35px;
     user-select: none;
+    outline: none; /* Remove qualquer contorno de foco residual */
+    -webkit-tap-highlight-color: transparent; /* Remove o destaque em dispositivos móveis */
 }
 
 .card-atividade{
@@ -131,7 +137,6 @@
 
 .card-atividade:hover{
     transform: scale(1.02);
-
 }
 
 .card-atividade p, h3{
@@ -208,7 +213,7 @@
     justify-content: center;
     width: 100%;
     transition: 0.5s;
-    height: 0%;
+    height: 0px;
     overflow: hidden;
 }
 
@@ -245,17 +250,29 @@
 }
 
 .atividade-aberto{
-    height: 100%;
+    height: 280px !important;
 }
 
 .aberto{
-    height: 55%;
+    height: 160px;
 }
 
 
 
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 1920px) {
+    #pricipal-calendario{
+        width: 600px;
+        margin: 50px auto;
+        margin-bottom: 150px;
+        transform: scale(1.3);
+    }
 
+    #form{
+        display: flex;
+        flex-direction: column;
+        width: 751px;
+        margin-top: 25px;
+    }
 }
 
 @media screen and (max-width: 865px) {
@@ -266,12 +283,16 @@
     }
 
     #form{
-        width: 85%;
+        width: 630px;
         margin-top: 0;
     }
 
     #titulo{
         margin-bottom: 0px;
+    }
+
+    .card-atividade {
+        width: 100%;
     }
 }
 
@@ -279,23 +300,64 @@
     #pricipal-calendario {
         width: initial;
         margin:initial;
-        margin-bottom: 50px;
+        margin-bottom: -50px;
         transform: scale(0.8);
         transform-origin: top;
- 
+    }
+
+    #titulo{
+        transform: scale(0.822);
+        transform-origin: top left;
+    }
+
+    #form{
+        width: 470px;
+        margin-top: 0;
+    }
+
+    .atividade {
+        width: 566px;
+        height: 120px;
+        transform: scale(0.822);
+        transform-origin: top left;
+        margin-bottom: 0;
+    }
+
+    .atividade-aberto{ 
+         margin-bottom: -30px;
     }
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 520px) {
     #pricipal-calendario {
         width: initial;
         margin:initial;
-        margin-bottom: 50px;
+        margin-bottom: -180px;
         transform: scale(0.6);
         transform-origin: top;
- 
     }
 
+    .atividade {
+        width: 566px;
+        height: 120px;
+        transform: scale(0.636);
+        transform-origin: top left;
+        margin-bottom: -30px;
+    }
+
+    #form{
+        width: 360px;
+        margin-top: 0;
+    }
+
+    #titulo{
+        transform: scale(0.636);
+        transform-origin: top left;
+    }
+
+    .atividade-aberto{ 
+         margin-bottom: -90px;
+    }
 }
 
 
@@ -303,10 +365,30 @@
     #pricipal-calendario {
         width: initial;
         margin:initial;
-        margin-bottom: 50px;
+        margin-bottom: -220px;
         transform: scale(0.5);
         transform-origin: top;
- 
+    }
+
+    .atividade {
+        width: 566px;
+        transform: scale(0.532);
+        transform-origin: top left;
+        margin-bottom: -40px;
+    }
+
+    #form{
+        width: 300px;
+        margin-top: 0;
+    }
+
+    #titulo{
+        transform: scale(0.532);
+        transform-origin: top left;
+    }
+
+     .atividade-aberto{ 
+         margin-bottom: -115px;
     }
 
 }
