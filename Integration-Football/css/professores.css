@@ -59,6 +59,7 @@ input{
     justify-content: space-between;
     border: solid 2px #2092c2;
     border-radius: 5px;
+    min-height: 219px;
 }
 
 #nomes-professores{

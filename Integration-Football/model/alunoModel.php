@@ -113,7 +113,7 @@ class Aluno {
         while($aluno = $result->fetch_assoc()){ 
             $alunos[] = $aluno; // Adiciona cada pessoa ao array
         }
-        return $aluno;
+        return $alunos;
     }
 
     public function delete($id){
