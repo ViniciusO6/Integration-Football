@@ -1,6 +1,6 @@
 <?php
-echo $_SERVER['DOCUMENT_ROOT'];
-require_once $_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/controller/conexao.php";
+
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/controller/conexao.php";
 
 
 // Definição da classe Aluno
