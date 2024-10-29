@@ -175,7 +175,7 @@ CREATE TABLE `unidade` (
 INSERT INTO `unidade` (`id`, `nome_unidade`, `cep`, `telefone`, `email`, `endereco`, `numero`, `latitude`, `longitude`, `cidade`, `estado`) VALUES
 (1, 'Itaim Bibi', 4104021, 20481510, 'integration@footbal.itaimbibi.gov.br', ' Rua Apeninos ', 1063, '-23.576759747532595', '-46.63932097270229', 'Sao paulo', 'Sao paulo'),
 (2, 'Santana', 2013040, 20484567, 'integration@football.santana.sp.gov.br', 'Rua Embaixador Joao Neves da Fountoura ', 645, '-23.502261707123992', '-46.63374347491796', 'São paulo', 'São paulo');
-
+(3, 'Av. Itaquera', 8295001, 1196577075, 'integration@football.itaquera.sp.gov.br', 'Av. Itaquera', 7986, 0, 0, 'São Paulo', 'São paulo');
 --
 -- Índices para tabelas despejadas
 --
