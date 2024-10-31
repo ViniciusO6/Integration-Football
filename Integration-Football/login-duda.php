@@ -1,12 +1,12 @@
 <?php
-$imports =[
+$imports = [
+    "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap",
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
-    "https://fonts.gstatic.com/",
-    "https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-  ];
+    "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
+];
 $titulo = 'Página de login';
 $pageCSS = ["Login.css"];
-include_once('./templetes/menu.php');
+include_once('./templetes/index.php');
 ?>
 <div class="container">
     <div class="card">
@@ -41,7 +41,7 @@ include_once('./templetes/menu.php');
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         include('config.php');
         $usuario = $_POST["usuario"];
-        $senha = md5($_POST["senha"]); // Hashing the password using MD5
+        $senha = ($_POST["senha"]); // Hashing the password using MD5
 
         // Determina o tipo de acesso com base no domínio do usuário
         if (strpos($usuario, '@aluno') !== false) {
@@ -50,7 +50,7 @@ include_once('./templetes/menu.php');
         } else if (strpos($usuario, '@professor') !== false) {
             $table = 'professores';
             $emailField = 'email_professor';
-        } else if (strpos($usuario, '@futebol') !== false) {
+        } else if (strpos($usuario, '@football') !== false) {
             $table = 'instituicao';
             $emailField = 'email_instituicao';
         } else {

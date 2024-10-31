@@ -20,13 +20,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['genero_inscrito'] = $_POST['genero_inscrito'] ?? '';
     $_SESSION['deficiencia'] = $_POST['deficiencia'] ?? '';
     $_SESSION['deficiencia_qual'] = $_POST['deficiencia_qual'] ?? '';
-    $_SESSION['telefone_inscrito'] = $_POST['telefone_inscrito'] ?? ''; // Alterado para telefone_inscrito
+
+    // Hashear a senha antes de armazená-la na sessão
+    if (!empty($_POST['senha_inscrito'])) {
+        $_SESSION['senha_inscrito'] = password_hash($_POST['senha_inscrito'], PASSWORD_DEFAULT);
+    }
 
     // Redireciona para a página cadastroUnidade.php
     header("Location: cadastroUnidade.php");
     exit; // Garante que o script seja encerrado após o redirecionamento
 }
 ?>
+
+<!-- O restante do HTML permanece o mesmo -->
 
 <div class="container">
     <div class="card">
@@ -64,8 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="text" id="deficiencia_qual" name="deficiencia_qual" placeholder="Especifique" style="display:none;" />
                     <br /><br />
 
-                    <label for="telefone_inscrito">Telefone para contato <span id="point">*</span></label>
-                    <input type="tel" id="telefone_inscrito" name="telefone_inscrito" required />
+                    <label for="senha_inscrito">Senha:<span id="point">*</span></label>
+                    <input type="password" id="senha_inscrito" name="senha_inscrito" required />
                 </div>
 
                 <div class="button-container">
@@ -79,28 +85,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const telefoneContatoInput = document.getElementById('telefone_inscrito');
-            const deficienciaSelect = document.getElementById('deficiencia');
-            const deficienciaQualInput = document.getElementById('deficiencia_qual');
+    document.addEventListener('DOMContentLoaded', function() {
+        const deficienciaSelect = document.getElementById('deficiencia');
+        const deficienciaQualInput = document.getElementById('deficiencia_qual');
 
-            // Máscara de telefone
-            telefoneContatoInput.addEventListener('input', function () {
-                const inputValue = this.value.replace(/\D/g, '');
-                const maskedValue = inputValue.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3').replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
-                this.value = maskedValue;
-            });
-
-            // Exibe o campo de especificação de deficiência se "Sim" for selecionado
-            deficienciaSelect.addEventListener('change', function () {
-                if (this.value === 'sim') {
-                    deficienciaQualInput.style.display = 'block';
-                } else {
-                    deficienciaQualInput.style.display = 'none';
-                    deficienciaQualInput.value = ''; // Limpa o campo se "Não" for selecionado
-                }
-            });
+        // Exibe o campo de especificação de deficiência se "Sim" for selecionado
+        deficienciaSelect.addEventListener('change', function () {
+            if (this.value === 'sim') {
+                deficienciaQualInput.style.display = 'block'; // Mostra o campo
+            } else {
+                deficienciaQualInput.style.display = 'none'; // Oculta o campo
+                deficienciaQualInput.value = ''; // Limpa o campo se "Não" for selecionado
+            }
         });
+    });
+</script>
+
     </script>
 
     <?php include_once('./templetes/footer.php'); ?>

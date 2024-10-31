@@ -2,6 +2,8 @@
 
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
+require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/controller/alunocontroller.php';
+
   $imports =[
     "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap",
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
@@ -13,6 +15,11 @@
   $pageJS = ["perfilAluno.js"];
 
   include_once('./templetes/menu.php');
+
+  $id = 1;
+
+  $alunocontroller = new alunocontroller();
+  $aluno = $alunocontroller->buscarPorId($id);
 
 ?>
 
@@ -28,10 +35,10 @@
             <div id="bloco1">
                 
                 <label for="input-matricula">Matricula</label>
-                <input id="input-matricula" type="text" name="matricula" disabled>
+                <input id="input-matricula" type="text" name="matricula" value="<?= $aluno['id_aluno'] ?>" disabled>
 
                 <label for="input-nome">Nome</label>
-                <input id="input-nome" type="text" name="nome" disabled>
+                <input id="input-nome" type="text" name="nome" value="<?= $aluno['nome_aluno'] ?>" disabled>
 
                 <div id="modalidade-turma">
                     <div id="modalidade">
@@ -51,10 +58,10 @@
                 <input id="input-professor" type="text" disabled>
 
                 <label for="input-email">E-mail</label>
-                <input id="input-email" type="text">
+                <input id="input-email" type="text" value="<?= $aluno['email_aluno'] ?>">
 
                 <label for="input-senha">Senha</label>
-                <input id="input-senha" type="text">
+                <input id="input-senha" type="text" value="<?= $aluno['senha'] ?>">
 
                 <button id="btn-enviar" type="submit">Editar Dados</button>
             </div>

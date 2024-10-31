@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $pesquisa = $conn->real_escape_string($_POST['pesquisa']); // Evitar injeção de SQL
 
             // Consulta ao banco de dados
-            $sql = "SELECT nome_unidade, endereco, telefone, email FROM unidade WHERE cep = '$pesquisa'";
+            $sql = "SELECT nome_unidade, endereco, telefone, email, numero FROM unidade WHERE cep = '$pesquisa'";
             $result = $conn->query($sql);
             
             if ($result && $result->num_rows > 0) {
@@ -58,7 +58,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     case '4104021':
                         $mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d914.1906301032527!2d-46.6400505339505!3d-23.576971162166057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce599ae3fa0d51%3A0x63d03abb22ac44f5!2sR.%20Apeninos%2C%201063%20-%20Vila%20Mariana%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004104-021!5e0!3m2!1spt-BR!2sbr!4v1729697246404!5m2!1spt-BR!2sbr";
                         break;
-                    // Adicione mais casos para outros CEPs
+
+                        case '8295001':
+                            $mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.735533298416!2d-46.46043862454678!3d-23.542012660881873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce66bf869da9d5%3A0x4b2ab095d41e700b!2sAv.%20Itaquera%2C%207986%20-%20Vila%20Carmosina%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2008295-001!5e0!3m2!1spt-BR!2sbr!4v1730211559937!5m2!1spt-BR!2sbr" ;
+                            break;
+
+
+                            case '8790610':
+                                $mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.131023496558!2d-46.166621199999966!3d-23.527789450000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd9adf9b36cb1%3A0xb1e83032fa8eba63!2sR.%20Mariana%20Najar%2C%20601%20-%20Vila%20Oliveira%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008790-610!5e0!3m2!1spt-BR!2sbr!4v1730316573253!5m2!1spt-BR!2sbr";
+                                break;
+
                     default:
                         $mapUrl = ""; // URL padrão ou deixe vazio
                 }
@@ -114,9 +123,10 @@ $conn->close(); // Fechar a conexão
 
             <?php if ($mostrarCard): ?> 
                 <div class="mini-card">
-                    <h3><?php echo htmlspecialchars($unidade['nome_unidade'] ?? 'Nome não disponível'); ?></h3>
+                    <h3><?php echo htmlspecialchars($unidade['nome_unidade'] ??  'Nome não disponível');  ?> <br></h3>
                     <h4>
-                        Endereço: <?php echo htmlspecialchars($unidade['endereco'] ?? 'Endereço não disponível'); ?><br><br>
+                        Endereço: <?php echo htmlspecialchars($unidade['endereco'] ?? 'Endereço não disponível'); ?>
+                     , <?php echo htmlspecialchars($unidade['numero'] ?? 'Telefone não disponível'); ?><br><br>
                         Telefone: <?php echo htmlspecialchars($unidade['telefone'] ?? 'Telefone não disponível'); ?><br><br>
                         E-mail: <?php echo htmlspecialchars($unidade['email'] ?? 'E-mail não disponível'); ?>
                     </h4>

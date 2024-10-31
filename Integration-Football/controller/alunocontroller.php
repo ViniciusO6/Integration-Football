@@ -4,7 +4,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/model/alunoModel.php';
 
 
-class PessoaController {
+class AlunoController {
     // Propriedade para armazenar um objeto Aluno
     private $aluno;
 
@@ -72,6 +72,6 @@ class PessoaController {
 }
 }
 // Cria uma instância da classe PessoaController para acionar a inserção de uma nova pessoa
-new PessoaController();
+new AlunoController();
 
 ?>

@@ -36,11 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['escolha'])) {
     $_SESSION['modalidadeInscrito'] = $_POST['escolha'];
 }
 
-// Captura os dados da sessão
 // Captura os dados da sessão com valores padrão
 $nome_inscrito = $_SESSION['nome_inscrito'] ?? ''; // Continua vazio se não definido
 $email_inscrito = $_SESSION['email_inscrito'] ?? ''; // Continua vazio se não definido
-$telefone_inscrito = $_SESSION['telefone_inscrito'] ?? ''; // Continua vazio se não definido
 $cpf_inscrito = $_SESSION['Cpf_inscrito'] ?? '00000000000'; // Atribui um valor padrão
 $rg_inscrito = $_SESSION['RG_inscrito'] ?? '000000000'; // Atribui um valor padrão
 $data_nasc = $_SESSION['data_nasc'] ?? ''; // Continua vazio se não definido
@@ -54,14 +52,17 @@ $telefoneresponsavel = $_SESSION['telResponsavel'] ?? ''; // Continua vazio se n
 $modalidadeInscrito = $_SESSION['modalidadeInscrito'] ?? ''; // Continua vazio se não definido
 $unidade = $_SESSION['unidadeInscrito'] ?? ''; // Continua vazio se não definido
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proximo'])) {
     // Verifica se a modalidade foi escolhida
     if (empty($modalidadeInscrito)) {
         echo "Por favor, escolha uma modalidade antes de continuar.";
     } else {
+        // Captura a senha e a hasheia
+        $senha_inscrito = $_POST['senha_inscrito'] ?? ''; // Captura a senha do formulário
+        $senha_hash = password_hash($senha_inscrito, PASSWORD_DEFAULT); // Hasheia a senha
+
         // Prepara a instrução SQL para inserir os dados no banco
-        $stmt = $conn->prepare("INSERT INTO inscricao (nome_inscrito, email_inscrito, telefone_inscrito, Cpf_inscrito, RG_inscrito, data_nasc, genero_inscrito, deficiencia, nomeResponsavel, CpfResponsavel, RgReponsavel, emailResponsavel, telResponsavel, modalidadeInscrito, unidadeInscrito) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO inscricao (nome_inscrito, email_inscrito, senha_inscrito, Cpf_inscrito, RG_inscrito, data_nasc, genero_inscrito, deficiencia, nomeResponsavel, CpfResponsavel, RgReponsavel, emailResponsavel, telResponsavel, modalidadeInscrito, unidadeInscrito) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         if (!$stmt) {
             die("Erro ao preparar a declaração: " . $conn->error);
         }
@@ -70,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proximo'])) {
         $params = [
             $nome_inscrito,
             $email_inscrito,
-            $telefone_inscrito,
+            $senha_hash, // Insere o hash da senha
             $cpf_inscrito,
             $rg_inscrito,
             $data_nasc,
@@ -144,7 +145,4 @@ function chooseModalidade(modalidade) {
 }
 </script>
 
-
-
-<input type="hidden" id="modalidadeEscolhida" name="modalidadeEscolhida" value="">
 <?php include_once('./templetes/footer.php'); ?>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Out-2024 às 16:53
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.2.0
+-- Tempo de geração: 30/10/2024 às 21:04
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `alunos`
+-- Estrutura para tabela `alunos`
 --
 
 CREATE TABLE `alunos` (
@@ -38,7 +38,7 @@ CREATE TABLE `alunos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `alunos`
+-- Despejando dados para a tabela `alunos`
 --
 
 INSERT INTO `alunos` (`id_aluno`, `data_nasc`, `cpf_aluno`, `telefone_aluno`, `nome_aluno`, `email_aluno`, `senha`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `alunos` (`id_aluno`, `data_nasc`, `cpf_aluno`, `telefone_aluno`, `n
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `inscricao`
+-- Estrutura para tabela `inscricao`
 --
 
 CREATE TABLE `inscricao` (
@@ -66,25 +66,22 @@ CREATE TABLE `inscricao` (
   `telResponsavel` varchar(15) NOT NULL,
   `unidadeInscrito` varchar(55) NOT NULL,
   `modalidadeInscrito` varchar(55) NOT NULL,
-  `email_inscrito` varchar(55) NOT NULL
+  `email_inscrito` varchar(55) NOT NULL,
+  `senha_inscrito` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `inscricao`
+-- Despejando dados para a tabela `inscricao`
 --
 
-INSERT INTO `inscricao` (`id`, `nome_inscrito`, `telefone_inscrito`, `Cpf_inscrito`, `RG_inscrito`, `data_nasc`, `genero_inscrito`, `deficiencia`, `nomeResponsavel`, `CpfResponsavel`, `RgReponsavel`, `emailResponsavel`, `telResponsavel`, `unidadeInscrito`, `modalidadeInscrito`, `email_inscrito`) VALUES
-(18, 'duda', 1197755, '444444', '444444444', '0444-04-04', 'masculino', 'nao', '4444444444', '4333333333', '21323', 'leiva@gmail.com', '454', '', '', 'monetriop@xn--gmail-1ra.com'),
-(28, 'dudinha', 2147483647, '52781908800', '8769107832', '2006-02-14', 'feminino', 'sim', 'antonia', '87681078315', '4218808800', 'leiva@gmail.com', '11960132488', 'Santana', 'FUTEBOL DE 5', 'dudinha@gmail.com'),
-(30, '', 0, '00000000000', '000000000', '0000-00-00', '', '', 'Nome PadrÃ£o', '00000000000', '000000000', '', '', '', 'POWER SOCCER 2', ''),
-(31, '', 0, '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', ''),
-(32, '', 0, '00000000000', '000000000', '0000-00-00', '', '', 'Nome PadrÃ£o', '00000000000', '000000000', '', '', 'Itaim Bibi', 'POWER SOCCER', ''),
-(33, '', 0, '00000000000', '000000000', '0000-00-00', '', '', 'Nome PadrÃ£o', '00000000000', '000000000', '', '', '', 'POWER SOCCER', '');
+INSERT INTO `inscricao` (`id`, `nome_inscrito`, `telefone_inscrito`, `Cpf_inscrito`, `RG_inscrito`, `data_nasc`, `genero_inscrito`, `deficiencia`, `nomeResponsavel`, `CpfResponsavel`, `RgReponsavel`, `emailResponsavel`, `telResponsavel`, `unidadeInscrito`, `modalidadeInscrito`, `email_inscrito`, `senha_inscrito`) VALUES
+(18, 'duda', 1197755, '444444', '444444444', '0444-04-04', 'masculino', 'nao', '4444444444', '4333333333', '21323', 'leiva@gmail.com', '454', '', '', 'monetriop@xn--gmail-1ra.com', ''),
+(28, 'dudinha', 2147483647, '52781908800', '8769107832', '2006-02-14', 'feminino', 'sim', 'antonia', '87681078315', '4218808800', 'leiva@gmail.com', '11960132488', 'Santana', 'FUTEBOL DE 5', 'dudinha@gmail.com', '');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `instituicao`
+-- Estrutura para tabela `instituicao`
 --
 
 CREATE TABLE `instituicao` (
@@ -97,16 +94,17 @@ CREATE TABLE `instituicao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `instituicao`
+-- Despejando dados para a tabela `instituicao`
 --
 
 INSERT INTO `instituicao` (`id`, `cnpj_instituicao`, `telefone_instituicao`, `nome_instituicao`, `email_instituicao`, `senha`) VALUES
-(1, 0, 0, 'Integration Football', 'integration@football.sp.gov.br', '1234');
+(1, 0, 0, 'Integration Football', 'integration@football.sp.gov.br', '1234'),
+(3, 0, 0, 'Itaim bibi', 'integrationitaimbibi@football.sp.gov.br', '12345');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `modalidade`
+-- Estrutura para tabela `modalidade`
 --
 
 CREATE TABLE `modalidade` (
@@ -116,7 +114,7 @@ CREATE TABLE `modalidade` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `modalidade`
+-- Despejando dados para a tabela `modalidade`
 --
 
 INSERT INTO `modalidade` (`id`, `nome_modalidade`, `descricao`) VALUES
@@ -128,7 +126,7 @@ INSERT INTO `modalidade` (`id`, `nome_modalidade`, `descricao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `professores`
+-- Estrutura para tabela `professores`
 --
 
 CREATE TABLE `professores` (
@@ -142,7 +140,7 @@ CREATE TABLE `professores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `professores`
+-- Despejando dados para a tabela `professores`
 --
 
 INSERT INTO `professores` (`id`, `nome_professor`, `cpf_professor`, `data_nasc`, `email_professor`, `senha`, `telefone_professor`) VALUES
@@ -151,7 +149,7 @@ INSERT INTO `professores` (`id`, `nome_professor`, `cpf_professor`, `data_nasc`,
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `unidade`
+-- Estrutura para tabela `unidade`
 --
 
 CREATE TABLE `unidade` (
@@ -169,55 +167,57 @@ CREATE TABLE `unidade` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Extraindo dados da tabela `unidade`
+-- Despejando dados para a tabela `unidade`
 --
 
 INSERT INTO `unidade` (`id`, `nome_unidade`, `cep`, `telefone`, `email`, `endereco`, `numero`, `latitude`, `longitude`, `cidade`, `estado`) VALUES
-(1, 'Itaim Bibi', 4104021, 20481510, 'integration@footbal.itaimbibi.gov.br', ' Rua Apeninos ', 1063, '-23.576759747532595', '-46.63932097270229', 'Sao paulo', 'Sao paulo'),
-(2, 'Santana', 2013040, 20484567, 'integration@football.santana.sp.gov.br', 'Rua Embaixador Joao Neves da Fountoura ', 645, '-23.502261707123992', '-46.63374347491796', 'São paulo', 'São paulo');
+(1, 'Itaim Bibi', 4104021, 20481510, 'integrationItaimbibi@football.sp.gov.br', ' Rua Apeninos ', 1063, '-23.576759747532595', '-46.63932097270229', 'Sao paulo', 'Sao paulo'),
+(2, 'Santana', 2013040, 20484567, 'integrationSantana@football.sp.gov.br', 'Rua Embaixador Joao Neves da Fountoura ', 645, '-23.502261707123992', '-46.63374347491796', 'São paulo', 'São paulo'),
+(3, 'Av. Itaquera', 8295001, 1196577075, 'integrationItaquera@football.sp.gov.br', 'Av. Itaquera', 7986, '', '', 'São paulo', 'São paulo'),
+(4, 'Mogi das Cruzes', 8790610, 1196770996, 'IntegrationMogi@football.sp.gov.br', 'R. Mariana Najar - Vila Oliveira,', 599, '', '', 'Mogi das Cruzes', 'São Paulo');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `alunos`
+-- Índices de tabela `alunos`
 --
 ALTER TABLE `alunos`
   ADD PRIMARY KEY (`id_aluno`);
 
 --
--- Índices para tabela `inscricao`
+-- Índices de tabela `inscricao`
 --
 ALTER TABLE `inscricao`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `instituicao`
+-- Índices de tabela `instituicao`
 --
 ALTER TABLE `instituicao`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `modalidade`
+-- Índices de tabela `modalidade`
 --
 ALTER TABLE `modalidade`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `professores`
+-- Índices de tabela `professores`
 --
 ALTER TABLE `professores`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `unidade`
+-- Índices de tabela `unidade`
 --
 ALTER TABLE `unidade`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
@@ -230,13 +230,13 @@ ALTER TABLE `alunos`
 -- AUTO_INCREMENT de tabela `inscricao`
 --
 ALTER TABLE `inscricao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de tabela `instituicao`
 --
 ALTER TABLE `instituicao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `modalidade`
@@ -254,7 +254,7 @@ ALTER TABLE `professores`
 -- AUTO_INCREMENT de tabela `unidade`
 --
 ALTER TABLE `unidade`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
