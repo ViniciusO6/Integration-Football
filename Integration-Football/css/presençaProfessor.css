@@ -1,0 +1,253 @@
+.container {
+  width: 100vw;
+  margin-top: 80px;
+  font-family: "Poppins", sans-serif;
+}
+
+/*Códigos referentes ao ComboBox */
+.ComboBox {
+  width: 50%;
+}
+
+.ComboBox p {
+  font-weight: bold;
+  text-align: start;
+}
+
+.Pesquisar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.Form1 {
+  text-align: center;
+}
+
+select {
+  height: 30px;
+  width: 90%;
+  border: 2px solid #07cb65;
+  border-radius: 5px;
+}
+
+select:focus {
+  outline: none; /* Remove a borda de foco padrão */
+  border: 2px solid #07cb65; /* Mantém a borda verde ao focar */
+}
+/*Fim */
+
+/* Começo da tabela */
+#th {
+  display: flex;
+  justify-content: space-between;
+  border: solid 2px #2092c2;
+  border-radius: 5px;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 25px;
+}
+
+#th-direita {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#th-esquerda {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.separador-vertical {
+  width: 1px;
+  background-color: black;
+  height: 90%;
+}
+
+.separador-horizontal {
+  width: 85%;
+  background-color: black;
+  height: 1px;
+}
+
+#table {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 2px #07cb65;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#nomes-alunos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#checklist {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 100%;
+}
+
+.input-checkbox {
+  outline: none;
+}
+
+#tr-nome {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+#tr-contatos {
+  width: 100%;
+}
+/* Fim da tabela */
+
+#titulo {
+  margin-bottom: 20px;
+}
+
+.titulo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#consulta {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  margin-top: 25px;
+}
+
+#input-data {
+  border: none;
+  border: solid 2px #07cb65;
+  border-radius: 5px;
+  height: 30px;
+  width: 30%;
+  font-size: 18px;
+  padding: 0 5px;
+  margin-bottom: 20px;
+}
+
+#input-descricao {
+  resize: none;
+  height: 150px;
+  border: 2px solid #07cb65;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+
+#input-arquivo {
+  cursor: pointer;
+  background-color: #ffffff;
+  border: solid 2px #2092c2;
+  height: 30px;
+  width: 140px;
+  border-radius: 5px;
+}
+
+#files {
+  display: none;
+}
+
+#btn-enviar {
+  cursor: pointer;
+  border: none;
+  border: solid 2px #07cb65;
+  background-color: #07cb65;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 0px;
+  border-radius: 3px;
+  height: 40px;
+  width: 140px;
+}
+
+.btns {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 865px) {
+  #consulta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #form {
+    width: 85%;
+    margin-top: 0;
+  }
+
+  input {
+    width: 96%;
+  }
+
+  #input-professor {
+    border: none;
+    border: solid 2px #2092c2;
+    border-radius: 5px;
+    height: 30px;
+    width: 96%;
+    font-size: 18px;
+    padding: 0 5px;
+  }
+
+  #input-data {
+    border: none;
+    border: solid 2px #2092c2;
+    border-radius: 5px;
+    height: 30px;
+    width: 135px;
+    font-size: 18px;
+    padding: 0 5px;
+  }
+
+  #input-justificativa {
+    font-family: "Poppins", sans-serif;
+    resize: none;
+    border: none;
+    border: solid 2px #2092c2;
+    border-radius: 5px;
+    font-size: 18px;
+    height: 200px;
+    width: 96%;
+    padding: 5px 5px;
+    margin-bottom: 15px;
+  }
+
+  #titulo {
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+}

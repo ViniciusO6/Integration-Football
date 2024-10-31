@@ -9,7 +9,7 @@ $imports = [
     "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
 ];
 $titulo = 'Professores';
-$pageCSS = ["turmasprofessores.css"];
+$pageCSS = ["professores.css"];
 $pageJS = ["consulta.js"];
 
 include_once('./templetes/menu.php');
