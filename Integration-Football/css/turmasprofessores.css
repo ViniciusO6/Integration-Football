@@ -22,7 +22,7 @@ input {
 #th {
   display: flex;
   justify-content: space-between;
-  border: solid 2px #2092c2;
+  border: solid 2px #07cb65;
   border-radius: 5px;
   align-items: center;
   height: 40px;
@@ -33,6 +33,12 @@ input {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+#th-centro {
+  display: flex;
+  justify-content: center;
+  width: 55%;
 }
 
 #th-esquerda {
@@ -57,7 +63,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: solid 2px #2092c2;
+  border: solid 2px #07cb65;
   border-radius: 5px;
 }
 
@@ -71,6 +77,12 @@ input {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+#Turma {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
 }
 
 #tr-nome {

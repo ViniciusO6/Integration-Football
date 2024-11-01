@@ -9,7 +9,7 @@ $imports = [
     "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
 ];
 $titulo = 'Professores';
-$pageCSS = ["professores.css"];
+$pageCSS = ["turmasprofessores.css"];
 $pageJS = ["consulta.js"];
 
 include_once('./templetes/menu.php');
@@ -34,6 +34,7 @@ include_once('./templetes/menu.php');
                 <div id="th-direita">
                     <h3>E-mail para contato</h3>
                 </div>
+
             </div>
 
             <!-- TABLE -->
@@ -94,13 +95,19 @@ include_once('./templetes/menu.php');
 
             <div id="th">
                 <div id="th-esquerda">
-                    <h3>Professor/Organizador</h3>
+                    <h3>Alunos</h3>
+                </div>
+
+                <div class="separador-vertical"></div>
+
+                <div id="th-centro">
+                    <h3>Turma</h3>
                 </div>
 
                 <div class="separador-vertical"></div>
 
                 <div id="th-direita">
-                    <h3>E-mail para contato</h3>
+                    <h3>E-mail</h3>
                 </div>
             </div>
 
@@ -123,6 +130,30 @@ include_once('./templetes/menu.php');
 
                     <div id="tr-nome">
                         <p>Pedro Lucas Marins Golçalves</p>
+                        <div class="separador-horizontal"></div>
+                    </div>
+                </div>
+
+                <div class="separador-vertical"></div>
+
+                <div id="Turma">
+                    <div id="tr-nome">
+                        <p>Turma A</p>
+                        <div class="separador-horizontal"></div>
+                    </div>
+
+                    <div id="tr-nome">
+                        <p>Turma B</p>
+                        <div class="separador-horizontal"></div>
+                    </div>
+
+                    <div id="tr-nome">
+                        <p>Turma C</p>
+                        <div class="separador-horizontal"></div>
+                    </div>
+
+                    <div id="tr-nome">
+                        <p>Turma D</p>
                         <div class="separador-horizontal"></div>
                     </div>
                 </div>
