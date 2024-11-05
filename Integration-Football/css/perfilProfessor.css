@@ -1,173 +1,177 @@
-.container{
-    width: 100vw;
-    margin-top: 80px;
-    font-family: 'Poppins', sans-serif;
-  }
-
-#perfil{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.container {
+  width: 100vw;
+  margin-top: 80px;
+  font-family: "Poppins", sans-serif;
 }
 
-#form{
-    display: flex;
-    flex-direction: column;
-    width: 55%;
-    min-width: 650px;
-    margin-top: 25px;
+#perfil {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-#titulo{
-    margin-bottom: 30px;
+#form {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  min-width: 650px;
+  margin-top: 25px;
 }
 
-#informacoes{
-    display: flex;
+#titulo {
+  margin-bottom: 30px;
 }
 
-#bloco1{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+#informacoes {
+  display: flex;
 }
 
-#bloco2{
-    width: 70%;
-    display: flex;
-    justify-content: center;
+#bloco1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-#foto-perfil{
-    position: relative;
-    margin-top: 80px;
-    background-image: url(../Imagens/user.png);   
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat; 
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-        
+#bloco2 {
+  width: 70%;
+  display: flex;
+  justify-content: center;
 }
 
-#btn-editar-foto{
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    background-color:#2092c2;
-    border: 2px solid white;
-    border-radius: 50%;
-    position: absolute;
-    top: 165px;
-    right: 15px;
+#foto-perfil {
+  position: relative;
+  margin-top: 80px;
+  background-image: url(../Imagens/user.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
 }
 
-#btn-editar-foto img{
-    width: 22px;
-    height: 22px;
+#btn-editar-foto {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-color: #07cb65;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 165px;
+  right: 15px;
 }
 
-#modalidade-turma{
-    width: 96%;
-    display: flex;
-    justify-content: space-between;
+#btn-editar-foto img {
+  width: 22px;
+  height: 22px;
 }
 
-#input-modalidade{
-    width: 100%;
-    display: flex;
+#modalidade-turma {
+  width: 96%;
+  display: flex;
+  justify-content: space-between;
 }
 
-#modalidade{
-    width: 60%;
+#input-modalidade {
+  width: 100%;
+  display: flex;
 }
 
-#turma{
-    width: 30%;
+#modalidade {
+  width: 60%;
 }
 
-#input-turma{
-    width: 100%;
-    display: flex;
+#turma {
+  width: 30%;
 }
 
-#input-matricula{
-    width: 30%;
+#input-turma {
+  width: 100%;
+  display: flex;
 }
 
-input{
-    border: none;
-    border: solid 2px #2092c2;
-    border-radius: 5px;
-    height: 30px;
-    width: 96%;
-    font-size: 18px;
-    padding: 0 5px;
-    margin-bottom: 15px;
+#input-matricula {
+  width: 30%;
 }
 
-#btn-enviar{
-    margin: 10px auto;
-    cursor: pointer;
-    border: none;
-    border: solid 2px #2092c2;
-    background-color: #2092c2;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 5px;
-    height: 30px;
-    width: 140px;
+#select {
+  border: none;
+  border: solid 2px #07cb65;
+  border-radius: 5px;
+  height: 30px;
+  width: 96%;
+  font-size: 18px;
+  outline: none;
+  padding: 0 5px;
+  margin-bottom: 15px;
 }
 
+input {
+  border: none;
+  border: solid 2px #07cb65;
+  border-radius: 5px;
+  height: 30px;
+  width: 96%;
+  font-size: 18px;
+  padding: 0 5px;
+  margin-bottom: 15px;
+}
 
-
-
-
+#btn-enviar {
+  margin: 10px auto;
+  cursor: pointer;
+  border: none;
+  border: solid 2px #07cb65;
+  background-color: #07cb65;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px;
+  height: 30px;
+  width: 140px;
+}
 
 @media screen and (max-width: 992px) {
-
 }
 
 @media screen and (max-width: 865px) {
-    #consulta{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+  #consulta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-    #form{
-        width: 85%;
-        margin-top: 0;
-    }
+  #form {
+    width: 85%;
+    margin-top: 0;
+  }
 }
 
 @media screen and (max-width: 700px) {
-    #consulta{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+  #consulta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-    #informacoes{
-        display: flex;
-        flex-direction: column-reverse;
-    }
+  #informacoes {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 
-    #bloco2{
-        width: 100%;
-        margin-bottom: 30px;
-    }
+  #bloco2 {
+    width: 100%;
+    margin-bottom: 30px;
+  }
 
-    #foto-perfil{
-        margin-top: 0;
-    }
+  #foto-perfil {
+    margin-top: 0;
+  }
 
-    #form{
-        width: 85%;
-        min-width: initial;
-        margin-top: 0;
-    }
-
+  #form {
+    width: 85%;
+    min-width: initial;
+    margin-top: 0;
+  }
 }

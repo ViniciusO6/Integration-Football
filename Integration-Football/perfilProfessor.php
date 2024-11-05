@@ -8,7 +8,7 @@ $imports = [
   "https://fonts.gstatic.com/",
   "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
 ];
-$titulo = 'Meu Perfil';
+$titulo = 'Meu Perfil | Professor';
 $pageCSS = ["perfilProfessor.css"];
 $pageJS = ["perfilAluno.js"];
 
@@ -21,7 +21,7 @@ include_once('./templetes/menu.php');
 
 
     <form id="form" action="">
-      <h1 id="titulo">Meu Perfil</h1>
+      <h1 id="titulo">Bem Vindo(a)!</h1>
       <div id="informacoes">
 
 
@@ -36,12 +36,24 @@ include_once('./templetes/menu.php');
           <div id="modalidade-turma">
             <div id="modalidade">
               <label for="input-modalidade">Modalidade</label>
-              <input id="input-modalidade" type="text" disabled>
+              <select id="select">
+                <option value="" disabled selected hidden></option>
+                <option>Modalidade 1</option>
+                <option>Modalidade 2</option>
+                <option>Modalidade 3</option>
+                <option>Modalidade 4</option>
+              </select>
             </div>
 
             <div id="turma">
               <label for="input-turma">Turma</label>
-              <input id="input-turma" type="text" disabled>
+              <select id="select">
+                <option value="" disabled selected hidden></option>
+                <option>Turma 1</option>
+                <option>Turma 2</option>
+                <option>Turma 3</option>
+                <option>Turma 4</option>
+              </select>
             </div>
 
 

@@ -21,14 +21,9 @@
   width: 50%;
 }
 
-.Form1 {
-  text-align: center;
-}
-
 .ComboBox p {
   font-weight: bold;
   text-align: start;
-  margin-left: 15px;
 }
 
 .Pesquisar {
