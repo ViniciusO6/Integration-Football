@@ -233,7 +233,7 @@ h3 {
   transition: transform 0.3s ease;
 }
 
-.card-arquivo button:hover {
+#publicar:hover {
   transform: scale(1.05);
 }
 
@@ -252,7 +252,7 @@ h3 {
 .titulos {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 15px;
 }
 
 .titulos p {
@@ -267,13 +267,18 @@ h3 {
 
 .inputs input {
   margin-left: 5%;
-  height: 16px;
+  height: 22px;
+  border: solid 2px black;
+  border-radius: 5px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  padding-left: 5px;
 }
 
 #input-arquivo {
   cursor: pointer;
   background-color: #ffffff;
-  border: solid 2px #2092c2;
+  border: solid 2px #07cb65;
   height: 30px;
   width: 140px;
   border-radius: 5px;
@@ -281,6 +286,13 @@ h3 {
   color: black;
   font-weight: normal;
   font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+#input-arquivo:hover {
+  transform: scale(1.05);
+  background-color: #07cb65;
+  color: #ffffff;
 }
 
 #files {
@@ -300,7 +312,7 @@ h3 {
 }
 
 .aberto {
-  height: 220px;
+  height: 65%;
 }
 
 @media screen and (min-width: 1920px) {
