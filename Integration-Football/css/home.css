@@ -484,14 +484,14 @@ width: 3px;
 
 }
 #foto1{
-  background-image: url('../Imagens/Perfil-img/sketista.png');
+  background-image: url('../Imagens/HomePage/Perfil-img/sketista.png');
   background-size: cover;   /* Ajusta para cobrir todo o contêiner */
   background-position: center; /* Centraliza a imagem */
   background-repeat: no-repeat; /* Evita a repetição da imagem */
 }
 
 #foto2{
-  background-image: url('../Imagens/Perfil-img/mulher.png');
+  background-image: url('../Imagens/HomePage/Perfil-img/mulher.png');
   background-size: cover;   /* Ajusta para cobrir todo o contêiner */
   background-position: center; /* Centraliza a imagem */
   background-repeat: no-repeat; /* Evita a repetição da imagem */
@@ -499,21 +499,21 @@ width: 3px;
 
 
 #foto3{
-  background-image: url('../Imagens/Perfil-img/homem.png');
+  background-image: url('../Imagens/HomePage/Perfil-img/homem.png');
   background-size: cover;   /* Ajusta para cobrir todo o contêiner */
   background-position: center; /* Centraliza a imagem */
   background-repeat: no-repeat; /* Evita a repetição da imagem */
 }
 
 #foto4{
-  background-image: url('../Imagens/Perfil-img/cachorro.png');
+  background-image: url('../Imagens/HomePage/Perfil-img/cachorro.png');
   background-size: cover;   /* Ajusta para cobrir todo o contêiner */
   background-position: center; /* Centraliza a imagem */
   background-repeat: no-repeat; /* Evita a repetição da imagem */
 }
 
 #foto5{
-  background-image: url('../Imagens/Perfil-img/mulher2.png');
+  background-image: url('../Imagens/HomePage/Perfil-img/mulher2.png');
   background-size: cover;   /* Ajusta para cobrir todo o contêiner */
   background-position: center; /* Centraliza a imagem */
   background-repeat: no-repeat; /* Evita a repetição da imagem */
