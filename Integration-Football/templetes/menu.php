@@ -46,7 +46,7 @@
                 <img id="logo" src="templetes/logonova.png" alt="">
 
             <div id="navbar-part-1">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="HomePage.php">Home</a></li>
                     <li><a href="Unidades.html">Unidades</a></li>
                     <li><a href="SobreNos.html">Sobre-nós</a></li>
                     <li><a href="Contato.php">Contato</a></li>
@@ -69,7 +69,7 @@
     <div id="menu-lateral">
 
         <div id="menu-navigation">
-            <li><a href="">Home</a></li>
+            <li><a href="HomePage.php">Home</a></li>
             <li><a href="">Unidades</a></li>
             <li><a href="">Sobre-nós</a></li>
             <li><a href="Contato.php">Contato</a></li>
