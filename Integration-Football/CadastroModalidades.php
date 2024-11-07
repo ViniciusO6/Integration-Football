@@ -10,8 +10,8 @@ $imports = [
     "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
 ];
 $titulo = 'Página Escolha de Modalidade';
-$pageCSS = ["cadastroModali.css"];
-include_once('./templetes/index.php');
+$pageCSS = ["cadastroModalidades.css"];
+include_once('./templetes/menu.php');
 
 // Conexão com o banco de dados
 $servername = "localhost";
@@ -25,10 +25,10 @@ if ($conn->connect_error) {
 
 // Array de modalidades
 $modalidades = [
-    "POWER SOCCER" => ["imagem" => "Imagens/PowerSoccer.png", "classe" => "image-1"],
-    "WALKING FOOTBALL" => ["imagem" => "Imagens/WalkingFootball.png", "classe" => "image-2"],
-    "FUTEBOL DE 5" => ["imagem" => "Imagens/PowerSoccer.png", "classe" => "image-3"],
-    "POWER SOCCER 2" => ["imagem" => "Imagens/WalkingFootball.png", "classe" => "image-4"]
+    "POWER SOCCER" => ["imagem" => "Imagens/Cadastro/PowerSoccer.png", "classe" => "image-1"],
+    "WALKING FOOTBALL" => ["imagem" => "Imagens/Cadastro/person.png", "classe" => "image-2"],
+    "FUTEBOL DE 5" => ["imagem" => "Imagens/Cadastro/cego.png", "classe" => "image-3"],
+    "MULHERES NO ESPORTE" => ["imagem" => "Imagens/Cadastro/girl.png", "classe" => "image-4"]
 ];
 
 // Verifica se a modalidade foi escolhida
