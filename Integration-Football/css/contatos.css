@@ -1,0 +1,124 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo h1 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 80px;
+    margin-left: 120px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+.imagens{
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    margin-bottom: 50px;
+}
+
+.imagens img{
+    display: inline-block;
+    border-radius: 25px 25px 25px 25px;
+    width: 260px;
+    height: 260px;
+    margin-top: 20px;
+    margin: 30px 50px 0px 0px;
+    text-align: center;
+}
+
+.imagens h2 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 50px;
+    margin-bottom: 20px;
+    max-width: 300px;
+    color: #115089;
+    gap: 130px;
+    text-align: center;
+}
+
+.imagens p{
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 20px;
+    color: black;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 15px 0px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .container .imagens{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0px;
+    }
+
+    .imagens{
+        display: flex;
+        justify-content: center;
+        gap: 80px;
+        margin-bottom: 50px;
+    }
+
+    .imagens img{
+        width: 200px;
+        height: 200px;
+        margin-bottom: 10px;
+        margin-left: 40px;
+    }
+
+    .imagens p{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .container h1{
+        margin-top: 80px;
+        font-size: 3rem;
+        margin-left: 20px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    .container .imagens{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0px;
+    }
+
+    .imagens{
+        display: flex;
+        justify-content: center;
+        gap: 80px;
+        margin-bottom: 30px;
+    }
+
+    .imagens p{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .container h1{
+        margin-top: 80px;
+        font-size: 4rem;
+        margin-left: 20px;
+        text-align: center;
+    }
+}
