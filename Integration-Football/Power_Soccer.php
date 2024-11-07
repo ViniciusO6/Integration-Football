@@ -60,18 +60,18 @@ include_once('./templetes/index.php');
       <h1>Por dentro do Power Soccer! <img id="icon-card" alt=""></h1>
 
       <div class="gallery">
-        <img src="imagens/Power_Soccer/foto1.jpg" alt="Foto 1">
-        <img src="imagens/Power_Soccer/foto2.jpg" alt="Foto 2">
-        <img src="imagens/Power_Soccer/foto3.jpg" alt="Foto 3">
-        <img src="imagens/Power_Soccer/foto4.jpg" alt="Foto 4">
-        <img src="imagens/Power_Soccer/foto5.jpg" alt="Foto 5">
-        <img src="imagens/Power_Soccer/foto6.png" alt="Foto 6">
+        <img src="Imagens/Power_Soccer/foto1.jpg" alt="Foto 1">
+        <img src="Imagens/Power_Soccer/foto2.jpg" alt="Foto 2">
+        <img src="Imagens/Power_Soccer/foto3.jpg" alt="Foto 3">
+        <img src="Imagens/Power_Soccer/foto4.jpg" alt="Foto 4">
+        <img src="Imagens/Power_Soccer/foto5.jpg" alt="Foto 5">
+        <img src="Imagens/Power_Soccer/foto6.png" alt="Foto 6">
       </div><!--gallery-->
     </div><!--txt-topo-site-->
   </div><!--fundo-azul-->
 
   <div class="img-inscrever"> 
-    <img src="imagens/Power_Soccer/img-inscrever.jpg" alt="">
+    <img src="Imagens/Power_Soccer/img-inscrever.jpg" alt="">
     <div class="text-inscrever">
       <h1>SE INTERESSOU? NÃO PERCA TEMPO E SE INCREVA.</h1>
       <button id="btn-saiba-mais" type="button">INSCREVA-SE</button>
