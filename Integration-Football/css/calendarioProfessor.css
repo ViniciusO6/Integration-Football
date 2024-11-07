@@ -160,9 +160,6 @@ h3 {
   margin-left: 10px;
 }
 
-.titulo-atividade {
-}
-
 .data-entrega {
   display: flex;
   align-items: center;
@@ -214,9 +211,6 @@ h3 {
   overflow: hidden;
 }
 
-.card-arquivo button {
-}
-
 #publicar {
   background-color: #07cb65;
   border-radius: 10px;
@@ -253,9 +247,6 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 15px;
-}
-
-.titulos p {
 }
 
 .inputs {
