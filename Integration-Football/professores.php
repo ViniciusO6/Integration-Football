@@ -3,6 +3,7 @@
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/alunocontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/professorcontroller.php';
 
 $imports = [
     "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap",
@@ -43,12 +44,12 @@ include_once('./templetes/menu.php');
             <div id="table">
                 <div id="nomes-professores">
                     <?php
-                    $alunocontroller = new alunocontroller();
-                    $alunos = $alunocontroller->listar();
-                    foreach ($alunos as $aluno) {
+                    $professorcontroller = new professorcontroller();
+                    $professores = $professorcontroller->listar();
+                    foreach ($professores as $professor) {
                     ?>
                         <div id="tr-nome">
-                            <p><?= $aluno['nome_aluno']; ?></p>
+                            <p><?= $professor['nome_professor']; ?></p>
                             <div class="separador-horizontal"></div>
                         </div>
                     <?php } ?>
@@ -61,12 +62,10 @@ include_once('./templetes/menu.php');
 
 
                     <?php
-                    $alunocontroller = new alunocontroller();
-                    $alunos = $alunocontroller->listar();
-                    foreach ($alunos as $aluno) {
+                    foreach ($professores as $professor) {
                     ?>
                         <div id="tr-nome">
-                            <p><?= $aluno['email_aluno']; ?></p>
+                            <p><?= $professor['email_professor']; ?></p>
                             <div class="separador-horizontal"></div>
                         </div>
                     <?php } ?>
