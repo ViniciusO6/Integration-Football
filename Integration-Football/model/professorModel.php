@@ -123,7 +123,7 @@ class Professor
 
     public function buscarPorId($id)
     {
-        $sql = "SELECT * FROM professores WHERE id_professor = ?";
+        $sql = "SELECT * FROM professores WHERE id = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('i', $id); // Usa o parâmetro $id para vinculação
         $stmt->execute();

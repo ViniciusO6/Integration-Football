@@ -3,6 +3,9 @@
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
 require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/controller/alunocontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/controller/professorcontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/controller/turmacontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/controller/modalidadecontroller.php';
 
   $imports =[
     "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap",
@@ -16,10 +19,22 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Footba
 
   include_once('./templetes/menu.php');
 
-  $id = 1;
+  $id = 4;
 
   $alunocontroller = new alunocontroller();
   $aluno = $alunocontroller->buscarPorId($id);
+
+  $turmacontroller = new TurmaController();
+  $turma = $turmacontroller->buscarPorId($aluno['id_turma']);
+
+  $professorcontroller = new ProfessorController();
+  $professor = $professorcontroller->buscarPorId($turma['id_professor']);
+
+  $modalidadecontroller = new ModalidadeController();
+  $modalidade = $modalidadecontroller->buscarPorId($turma['id_modalidade']);
+
+
+
 
 ?>
 
@@ -43,19 +58,19 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Footba
                 <div id="modalidade-turma">
                     <div id="modalidade">
                         <label for="input-modalidade">Modalidade</label>
-                        <input id="input-modalidade" type="text" disabled>
+                        <input id="input-modalidade" type="text" disabled  value="<?= $modalidade['nome_modalidade'] ?>">
                     </div>
 
                     <div id="turma">
                         <label for="input-turma">Turma</label>
-                        <input id="input-turma" type="text" disabled>
+                        <input id="input-turma" type="text" value="<?= $turma['nome_turma'] ?>" disabled>
                     </div>
                     
                     
                 </div>
 
                 <label for="input-professor">Professor Correspondente</label>
-                <input id="input-professor" type="text" disabled>
+                <input id="input-professor"  type="text" value="<?= $professor['nome_professor'] ?>"  disabled>
 
                 <label for="input-email">E-mail</label>
                 <input id="input-email" type="text" value="<?= $aluno['email_aluno'] ?>">
