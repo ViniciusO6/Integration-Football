@@ -27,7 +27,7 @@ include_once('./templetes/index.php');
     <div class="card">
         <h1>UNIDADES</h1>
         <p>Busque a unidade Integration Football mais próxima de você, fornecendo uma ou mais das informações a seguir:</p>
-        <img src="imagens/Power_Soccer/globo-terrestre.png">
+        <img src="Imagens/Power_Soccer/globo-terrestre.png">
         <div class="buscar">
             <p>Digite o nome da rua, CEP, Bairro ou Cidade que deseja encontrar a unidade mais próxima:</p>
             <input type="text" class="text-input" placeholder="Digite aqui..." />
