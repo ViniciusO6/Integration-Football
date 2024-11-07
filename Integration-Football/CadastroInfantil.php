@@ -1,15 +1,14 @@
 <?php 
-session_start(); // Inicia sessão no início do arquivo
+session_start();
+$imports =[
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+    "https://fonts.gstatic.com/",
+    "https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  ];
 
-$imports = [ 
-    "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap", 
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", 
-    "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap" 
-]; 
-
-$titulo = 'Página de Cadastromenor'; 
-$pageCSS = ["Cadastromenor.css"]; 
-include_once('./templetes/index.php'); 
+$titulo = 'Página de Cadastro'; 
+$pageCSS = ["cadastroInfantil.css"]; 
+include_once('./templetes/menu.php'); 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
     // Captura os dados do formulário e armazena na sessão
@@ -38,16 +37,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['emailResponsavel'] = $emailResponsavel; 
     $_SESSION['telResponsavel'] = $telResponsavel; 
 
-    // Redireciona para a página cadastroUnidade.php 
-    header("Location: cadastroUnidade.php"); 
-    exit; // Garantir que o script seja encerrado após o redirecionamento 
+    // Redireciona para a próxima página
+    header("Location: cadastroUnidades.php"); 
+    exit;
 } 
 ?> 
 
 <div class="container"> 
     <div class="card"> 
-        <h1 class="card-title">2. Dados pessoais</h1> 
-        <form action="cadastromenor.php" method="POST"> 
+        <h1 class="card-title">2. DADOS PESSOAIS</h1> 
+
+        <div class="image-container"> 
+            <img src="Imagens/Cadastro/cadastroMaior.png" alt="Imagem de Cadastro" class="input-image" /> 
+        </div>
+
+        <form action="CadastroInfantil.php" method="POST"> 
             <div class="input-container"> 
                 <div class="left-section"> 
                     <div class="input"> 
@@ -81,32 +85,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="text" id="deficiencia_qual" name="deficiência_qual" placeholder="Especifique a deficiência" style="display: none;" /> 
                     </div> 
                 </div> 
-                <div class="image-container"> 
-                    <img src="Imagens/cadastroMaior.png" alt="Imagem de Cadastro" class="input-image" /> 
-                </div> 
+
                 <div class="right-section"> 
-                    <div class="input1"> 
+                    <div class="input"> 
                         <label for="nome_responsavel">Nome do Responsável: <span id="point">*</span></label> 
                         <input type="text" id="nome_responsavel" name="nome_responsavel" required /> 
                     </div> 
-                    <div class="input1"> 
+                    <div class="input"> 
                         <label for="cpf_responsavel">CPF do Responsável: <span id="point">*</span></label> 
                         <input type="text" id="cpf_responsavel" name="cpf_responsavel" required /> 
                     </div> 
-                    <div class="input1"> 
+                    <div class="input"> 
                         <label for="rg_responsavel">RG do Responsável: <span id="point">*</span></label> 
                         <input type="text" id="rg_responsavel" name="rg_responsavel" required /> 
                     </div> 
-                    <div class="input1"> 
+                    <div class="input"> 
                         <label for="email_responsavel">E-mail do Responsável: <span id="point">*</span></label> 
                         <input type="email" id="email_responsavel" name="email_responsavel" required /> 
                     </div> 
-                    <div class="input1"> 
+                    <div class="input"> 
                         <label for="telefone_responsavel">Telefone do Responsável: <span id="point">*</span></label> 
                         <input type="tel" id="telefone_responsavel" name="telefone_responsavel" required /> 
                     </div> 
                 </div> 
             </div> 
+
             <div class="button-container"> 
                 <button type="submit" id="proximo">Próximo</button> 
             </div> 
