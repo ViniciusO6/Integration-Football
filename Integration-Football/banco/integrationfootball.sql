@@ -43,8 +43,8 @@ CREATE TABLE `alunos` (
 --
 
 INSERT INTO `alunos` (`id_aluno`, `data_nasc`, `cpf_aluno`, `telefone_aluno`, `nome_aluno`, `email_aluno`, `senha`, `id_turma`) VALUES
-(1, '0000-00-00', 0, 0, 'maria eduarda', 'maria@aluno.sp.gov.br', '1234', 1),
-(4, '2007-06-13', 390111080, 968080107, 'Vinicius Augusto rodrigues', 'vinicius.silva2029@etec.sp.gov.br', 'vinicius123', 1);
+(1, '0000-00-00', 0, 0, 'Maria Eduarda', 'maria@aluno.sp.gov.br', '1234', 1),
+(4, '2007-06-13', 390111080, 968080107, 'Vinicius Augusto Rodrigues', 'vinicius.silva2029@etec.sp.gov.br', 'vinicius123', 1);
 
 -- --------------------------------------------------------
 

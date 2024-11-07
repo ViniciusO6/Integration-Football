@@ -389,11 +389,11 @@ width: 3px;
 }
 
 #content-info h1{
-  font-size: 2vw;
+  font-size: 2.4vw;
 }
 
 #content-info p{
-  font-size: 1vw;
+  font-size: 1.3vw;
 }
 
 #video{
@@ -479,7 +479,6 @@ width: 3px;
 #foto1, #foto2, #foto3, #foto4, #foto5{
   width: 100px;
   height: 100px;
-  background-color: aqua;
   border-radius: 100%;
   position: relative;
 
@@ -527,6 +526,14 @@ width: 3px;
 
   /* Tablets */
   @media screen and (max-width: 992px) {
+
+    #content-info h1{
+      font-size: 26px;
+    }
+
+    #content-info p{
+      font-size: 18px;
+    }
 
     #text-carrosel{
       width: 55%;
@@ -586,11 +593,11 @@ width: 3px;
     }
 
     #content-info h1{
-      font-size: 18px;
+      font-size: 26px;
     }
 
     #content-info p{
-      font-size: 13px;
+      font-size: 18px;
     }
 
     #btn-saiba-mais{
@@ -666,7 +673,7 @@ width: 3px;
       height: 0;
       border-left: 0px solid transparent;
       border-right: 100vw solid transparent;
-      border-bottom: 28px solid #000853;
+      border-bottom: 28px solid #115089;
     }
 
     #texto-info img{
