@@ -7,175 +7,161 @@
 
 body {
     background-color: #ffffff;
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'Teko', sans-serif;
 }
 
-.card h1 { 
+.card h1 {
+    margin-bottom: 40px;
+    font-size: 33px;
     color: #000000;
     font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 600; 
-    text-align: center; 
-    font-size: 30px;
-    margin-top: 10px;
+    font-weight: 600;
+    text-align: center;
 }
 
 .card {
-    min-height: 600px; 
-    margin: 10% auto; 
-    padding: 20px;
-    max-width: 600px;
+    min-height: 600px;
+    margin: 10% auto;
+    padding: 80px 50px;
+    max-width: 890px;
     width: 90%;
     background-color: white;
     border-radius: 25px;
-    border: 5px solid #236baf;
+    border: 5px solid #115089;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-    margin-top:8%;
-}
-
-.image-container {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    width: 100%; 
-    margin-top: 20px; 
-}
-
-.image-container img{
-    max-width: 200px;
-}
-
-.input-container {
-    display: flex;
-    align-items: baseline;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.input {
-    display: flex;
-    flex-direction: column; 
-    width: 100%; 
-}
-
-label {
-    text-align: center;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1em;
-    color: #000000;
-    margin-bottom: 5px;
-}
-
-/* Estilo do input */
-.input-cep {
-    width: 100%;  /* Garantindo que o input ocupe 100% da largura do contêiner */
-    max-width: 450px;  /* Largura máxima para o input */
-    padding: 10px;
-    border-radius: 7px;
-    margin-bottom: 16px;
-    border: 2px solid #026799;
-    font-size: 1em;
-    background-color: #ffffff;
-    transition: border 0.3s;
-    font-family: 'Barlow Condensed', sans-serif;
-    margin-top: 20px;
-}
-
-.button-container {
-    display: flex;
-    justify-content: center; 
-}
-
-#Buscar {
-    margin-top: 15px;
-    margin-bottom: 90px;
-    font-size: 1em;
-    padding: 10px 60px;
-    border-radius: 5px;
-    border: 2px solid #115089;
-    background-color: #115089;
-    color: #ffffff;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#Buscar:hover {
-    transform: scale(1.05);
-}
-
-.results-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centraliza verticalmente também */
-    margin-top: 15px; /* Espaço acima dos resultados */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre os cards */
 }
 
 .mini-card {
     background-color: #ffffff;
-    padding: 20px; 
-    border: 3px solid #236baf;
+    padding: 30px;
+    border: 3px solid #115089;
     border-radius: 13px;
-    width: 340px; /* Largura fixa */
-    max-width: 90%; /* Permite que o card seja responsivo */
+    width: calc(42% - 20px); /* Dois cards por linha */
+    height: 310px;
     text-align: center;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    margin: 0 auto; /* Centraliza o card horizontalmente */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: all 0.3s ease-in-out; /* Transição suave para redimensionamento */
 }
 
 .mini-card h3 {
-    font-size: 30px;
+    margin-bottom: 10px;
+    font-size: 20px;
     font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 600; 
-    margin-bottom: 10px; 
+    font-weight: 600;
 }
 
-.mini-card h4 {
-    font-size: 15px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 300; 
-    text-align: justify;
+.image-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 100%; /* Ocupa toda a largura do mini-card */
+    height: 150px; /* Altura fixa para a imagem */
+    margin-bottom: 10px; /* Espaçamento abaixo da imagem */
+}
+
+/* Estilos para imagens específicas */
+.image-1 img {
+    max-width: 60%; /* A imagem ocupa 60% da largura do contêiner */
+}
+
+.image-2 img {
+    max-width: 60%; /* A imagem ocupa 60% da largura do contêiner */
+}
+
+.image-3 img {
+    max-width: 60%; /* A imagem ocupa 60% da largura do contêiner */
+    filter: grayscale(50%); /* Efeito em preto e branco */
+}
+
+.image-4 img {
+    max-width: 40%; /* A imagem ocupa 40% da largura do contêiner */
+    transition: transform 0.3s; /* Efeito de transição */
+}
+
+.image-4 img:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
 }
 
 .mini-card button {
-    background-color: #236baf;
+    background-color: #115089;
     color: #fff;
     border: none;
+    align-items: center;
     border-radius: 8px;
     cursor: pointer;
-    width: 100px; 
-    height: 40px; 
-    margin-top: 15px; 
+    width: 130px; /* Largura do botão */
+    height: 40px; /* Altura do botão */
+    font-family: 'Barlow Condensed', sans-serif;
+    margin-top: 20px; /* Espaçamento superior do botão */
+    transition: background-color 0.3s; /* Transição suave ao passar o mouse */
 }
 
 .mini-card button:hover {
-    background-color: #03468d;
+    background-color: #115089; /* Cor ao passar o mouse */
 }
 
-.mapBox {
-    width: 100%; 
-    height: 250px; /* Ajuste a altura conforme necessário */
-    background: #fff;
-    margin-top: 20px; /* Espaço acima do mapa */
+.mini-card button.selected {
+    background-color: #00dbf8; /* Cor quando selecionado */
+    color: #fff; /* Mantém o texto branco */
 }
 
-.mapBox iframe {
-    width: 100%; 
-    height: 100%; 
+.button-container {
+    display: flex;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
 }
 
-/* Media query para telas menores */
+.btn-proximo {
+    font-size: 1em;
+    margin-top: 60px;
+    padding: 10px 80px; /* Padding do botão */
+    border-radius: 10px;
+    border: 4px solid ;
+    background-color: #115089;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+    height: 50px;
+    width: 340px; /* Largura do botão */
+    max-width: 100%; /* Limita a largura máxima do botão */
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.btn-proximo:hover {
+    background-color: #115089; /* Cor de fundo ao passar o mouse */
+}
+
+/* Media query para telas pequenas (menos de 768px) */
 @media (max-width: 768px) {
-    .input-cep {
-        max-width: 100%;  /* Input vai ocupar 100% da largura em telas pequenas */
+    /* Card container com cards enfileirados */
+    .card-container {
+        flex-direction: column; /* Empilhar os cards verticalmente */
+        align-items: center;
+    }
+
+    /* Ajustando o tamanho dos mini-cards */
+    .mini-card {
+        width: 80%; /* Cards ocupam 80% da largura */
+        height: auto; /* Altura automática para ajustar o conteúdo */
+        margin-bottom: 20px; /* Espaçamento entre os cards */
+    }
+
+    /* Ajustando as imagens para que encolham */
+    .image-container img {
+        max-width: 60%; /* Imagem ocupa toda a largura do contêiner */
+        height: auto; /* Ajuste de altura proporcional */
     }
 }
 
-button{
-    font-family: 'Barlow Condensed', sans-serif;
-}
