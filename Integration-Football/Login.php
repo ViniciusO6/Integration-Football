@@ -1,17 +1,16 @@
 <?php
 $imports = [
-    "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap",
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
-    "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
+    "https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
 ];
 $titulo = 'Página de login';
-$pageCSS = ["Login.css"];
-include_once('./templetes/index.php');
+$pageCSS = ["login.css"];
+include_once('./templetes/menu.php');
 ?>
 <div class="container">
     <div class="card">
         <h2 class="card-title">LOGIN</h2>
-        <form id="loginForm" method="POST" action="login-duda.php" autocomplete="off">
+        <form id="loginForm" method="POST" action="Login.php" autocomplete="off">
             <div class="form-group">
                 <label for="username">Usuário:</label>
                 <input type="text" name="usuario" id="username" required autocomplete="off">
@@ -88,12 +87,12 @@ include_once('./templetes/index.php');
             } else {
                 // Senha incorreta
                 echo "<script>alert('Usuário e/ou senha incorreta(s)');</script>";
-                echo "<script>location.href='login-duda.php';</script>";
+                echo "<script>location.href='Login.php';</script>";
             }
         } else {
             // Usuário não encontrado
             echo "<script>alert('Usuário e/ou senha incorreta(s)');</script>";
-            echo "<script>location.href='login-duda.php';</script>";
+            echo "<script>location.href='Login.php';</script>";
         }
     }
     ?>
@@ -126,3 +125,17 @@ include_once('./templetes/index.php');
         }
     });
     </script>
+    <!-- PLUG-IN LIBRAS-->
+        <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <!--JAVA LIBRAS-->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+ 
