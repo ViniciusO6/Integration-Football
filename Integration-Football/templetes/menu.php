@@ -49,7 +49,7 @@
                     <li><a href="HomePage.php">Home</a></li>
                     <li><a href="Unidades.php">Unidades</a></li>
                     <li><a href="SobreNos.html">Sobre-nós</a></li>
-                    <li><a href="Contato.php">Contato</a></li>
+                    <li><a href="Contatos.php">Contato</a></li>
 
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div id="part-2">
             <div id="navbar-part-2">
                 <button onclick="redirecionar('Login.php')" style="cursor: pointer;" id="login"><li><a>Login</a></li></button>
-                <button onclick="redirecionar('Cadastro.html')" style="cursor: pointer;" id="Matricule-se"><li><a>Matricule-se</a></li></button>
+                <button onclick="redirecionar('Cadastro.php')" style="cursor: pointer;" id="Matricule-se"><li><a>Matricule-se</a></li></button>
                 
             </div>
 
@@ -72,7 +72,7 @@
             <li><a href="HomePage.php">Home</a></li>
             <li><a href="Unidades.php">Unidades</a></li>
             <li><a href="">Sobre-nós</a></li>
-            <li><a href="Contato.php">Contato</a></li>
+            <li><a href="Contatos.php">Contato</a></li>
         </div>
 
     </div>
