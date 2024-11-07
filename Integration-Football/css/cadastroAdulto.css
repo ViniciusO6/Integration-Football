@@ -1,0 +1,209 @@
+/* BODY STYLES */
+body {
+  background-color: #ffffff; /* Cor de fundo */
+  font-family: 'Barlow Condensed', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  min-height: 100vh; /* Ocupa toda a altura da tela */
+  padding: 20px;
+}
+
+/* CARD STYLES */
+.card {
+  display: flex; /* Flex para organizar o conteúdo do card */
+  flex-direction: column;
+  align-items: center; /* Centraliza o conteúdo */
+  background-color: #ffffff;
+  border: 5px solid #115087;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  margin-top: 110px;
+}
+
+.card h1 {
+  font-size: 36px; /* Tamanho do título */
+  margin-left: 20px;
+  font-weight: 600;
+  text-align: left; /* Centraliza o título */
+  width: 100%;
+  margin-bottom: 30px;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+/* INPUT CONTAINER */
+.inputs-wrapper {
+  display: flex; /* Flexbox para os inputs */
+  justify-content: space-between; /* Distribui os inputs em duas colunas */
+  width: 100%;
+  gap: 30px; /* Espaçamento entre os inputs */
+  margin-bottom: 30px; /* Espaço abaixo dos inputs */
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column; /* Coloca os inputs na vertical */
+  width: 48%; /* Cada container ocupa 48% da largura */
+}
+
+input {
+  width: 100%; /* Faz com que os inputs ocupem toda a largura disponível */
+  padding: 12px; /* Padding do input */
+  border-radius: 7px;
+  border: 1px solid #115087;
+  font-size: 1em;
+  background-color: #ffffff;
+  margin-bottom: 15px; /* Espaço entre os inputs */
+  font-family: 'Barlow Condensed', sans-serif;
+  width: 400px;
+}
+
+select {
+  width: 100%; /* Faz com que os inputs ocupem toda a largura disponível */
+  padding: 12px; /* Padding do input */
+  border-radius: 7px;
+  border: 1px solid #115087;
+  font-size: 1em;
+  background-color: #ffffff;
+  margin-bottom: 15px; /* Espaço entre os inputs */
+  font-family: 'Barlow Condensed', sans-serif;
+  width: 440px;
+}
+input:focus, select:focus {
+  border-color: #005f8d; /* Muda a cor da borda ao focar */
+}
+
+label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1em;
+  color: #000000;
+  margin-bottom: 8px;
+  display: block;
+}
+
+#deficiencia_qual {
+  display: none;
+  margin-bottom: 15px; /* Espaço abaixo do campo de deficiência */
+}
+
+/* IMAGEM CENTRALIZADA */
+.input-image {
+  width: 100%; /* A largura da imagem será 100% do seu contêiner */
+  max-width: 200px; /* Limita o tamanho máximo da imagem */
+  height: auto; /* Ajusta a altura proporcionalmente */
+  margin-bottom: 30px; /* Espaço abaixo da imagem */
+  display: block; /* Garante que a imagem ocupe toda a largura do container */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* BOTÃO CONTAINER */
+.button-container {
+  display: flex;
+  justify-content: center; /* Centraliza o botão */
+  width: 100%;
+}
+
+#proximo {
+  font-size: 1.2em;
+  padding: 12px 100px;
+  border-radius: 5px;
+  border: 2px solid #115087;
+  background-color: #115087;
+  color: #ffffff;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 320px; /* Largura do botão */
+  max-width: 100%;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+#proximo:hover {
+  background-color: #004c7d; /* Altera a cor do botão ao passar o mouse */
+}
+
+/* Media Queries para telas menores */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .card h1 {
+    font-size: 28px;
+  }
+
+  .inputs-wrapper {
+    flex-direction: column; /* Coloca os inputs em uma coluna para telas pequenas */
+    align-items: center;
+    gap: 15px; /* Menor espaço entre os inputs */
+  }
+
+  .input-container {
+    width:40%; /* Cada input ocupará 100% da largura */
+  }
+
+  input, select {
+    padding: 10px;
+    font-size: 1em;
+    max-width: 340px;
+  }
+
+  #proximo {
+    padding: 12px 40px;
+    width: 100%; /* O botão ocupa toda a largura disponível */
+  }
+
+  .input-image {
+    max-width: 160px; /* Ajusta o tamanho máximo da imagem */
+    width: 100%; /* A largura da imagem será 100% do seu contêiner */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 20px;
+  }
+
+  .card h1 {
+    font-size: 24px; /* Tamanho ainda menor para o título */
+  }
+
+  input, select {
+    font-size: 0.9em;
+    padding: 8px;
+    max-width: 270px;
+  }
+
+  #proximo {
+    padding: 8px 20px;
+    font-size: 1em;
+    width: 100%; /* O botão ocupa toda a largura disponível */
+  }
+
+  .input-image {
+    max-width: 160px; /* Ajusta o tamanho máximo da imagem */
+    width: 100%;
+ }
+}
+
+@media (max-width: 330px) {
+  input, select {
+    font-size: 0.9em;
+    padding: 8px;
+    max-width: 190px;
+  }
+  .input-image {
+    max-width: 160px; /* Ajusta o tamanho máximo da imagem */
+    width: 100%; /* A largura da imagem será 100% do seu contêiner */
+  } 
+}
+
