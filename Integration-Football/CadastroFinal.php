@@ -7,16 +7,16 @@ $imports = [
     "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
 ];
 $titulo = 'Página Final';
-$pageCSS = ["cadastrofinal.css"];
+$pageCSS = ["cadastroFinal.css"];
 
-include_once('./templetes/index.php');
+include_once('./templetes/menu.php');
 ?>
 <div class="container">
     <div class="card">
         <h1 class="card-title">SUA INSCRIÇÃO ESTÁ EM ANÁLISE</h1>
         <form action="cadastroFinal.php" method="POST"> <!-- Usar POST -->
             <div class="card-container">
-            <img src="Imagens/cadastroFinal.png" alt="Imagem de Cadastro" class="image-container" />
+            <img src="Imagens/Cadastro/cadastroFinal.png" alt="Imagem de Cadastro" class="image-container" />
         </div>
             <h2 class="card-title2">Bem-vindo à nossa página de ánalise de inscrição!!</h2>
 
@@ -26,7 +26,7 @@ include_once('./templetes/index.php');
 
 
            <div class="button-container">
-    <button type="button" id="Voltar" onclick="window.location.href='cadastro.php'">Voltar à página principal</button>
+    <button type="button" id="Voltar" onclick="window.location.href='HomePage.php'">Voltar à página principal</button>
 </div>
 
 
