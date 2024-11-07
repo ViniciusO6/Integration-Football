@@ -28,18 +28,18 @@
     
 
     <div class="carrosel-box primary ">
-      <img class="img-desktop" src="./Imagens/Carrosel-img/Slide-1.jpg" alt="Slide 1">
-      <img class="img-mobile" src="./Imagens/Carrosel-img/Slide-Mobile-1.jpg" alt="Slide 1">
+      <img class="img-desktop" src="Imagens/HomePage/Carrossel/Slide-1.jpg" alt="Slide 1">
+      <img class="img-mobile" src="Imagens/HomePage/Carrossel/Slide-Mobile-1.jpg" alt="Slide 1">
     </div>
 
     <div class="carrosel-box ">
-      <img class="img-desktop" src="./Imagens/Carrosel-img/Slide-2.jpg" alt="Slide 1">
-      <img class="img-mobile" src="./Imagens/Carrosel-img/Slide-Mobile-2.jpg" alt="Slide 1">
+      <img class="img-desktop" src="Imagens/HomePage/Carrossel/Slide-2.jpg" alt="Slide 1">
+      <img class="img-mobile" src="Imagens/HomePage/Carrossel/Slide-Mobile-2.jpg" alt="Slide 1">
     </div>
 
     <div class="carrosel-box ">
-      <img class="img-desktop" src="./Imagens/Carrosel-img/Slide-3.jpg" alt="Slide 1">
-      <img class="img-mobile" src="./Imagens/Carrosel-img/Slide-Mobile-3.jpg" alt="Slide 1">
+      <img class="img-desktop" src="Imagens/HomePage/Carrossel/Slide-3.jpg" alt="Slide 1">
+      <img class="img-mobile" src="Imagens/HomePage/Carrossel/Slide-Mobile-3.jpg" alt="Slide 1">
     </div>
   
     <div class="nav-auto">
@@ -55,8 +55,8 @@
     </div>
 
     <div id="setas">
-      <div id="seta-esquerda"><img onclick="voltar()" src="./Imagens/seta-esquerda.svg" alt=""></div>
-      <div id="seta-direita"><img onclick="avancar()" src="./Imagens/seta-direita.svg" alt=""></div>
+      <div id="seta-esquerda"><img onclick="voltar()" src="Imagens/HomePage/Carrossel/seta-esquerda.svg" alt=""></div>
+      <div id="seta-direita"><img onclick="avancar()" src="Imagens/HomePage/Carrossel/seta-direita.svg" alt=""></div>
     </div>
     <div id="text-carrosel">
       <h1>CONHEÇA ALGUMAS DE NOSSAS AÇÕES</h1>
@@ -82,30 +82,30 @@
   <div id="blocos">
 
   <div id="bloco1" class="bloco" onclick="window.location.href='Power_Soccer.php'">
-  <img class="image-placeholder" src="./Imagens/power-soccer.png">
+  <img class="image-placeholder" src="Imagens/HomePage/Modalidades/power-soccer.png">
     <div class="vertical-line"></div>
     <div class="content">
-        <h2>Power Soccer <img id="icon-card" src="./Imagens/icon-player.png" alt="">   </h2>
+        <h2>Power Soccer <img id="icon-card" src="Imagens/HomePage/Modalidades/icon-player.png" alt="">   </h2>
         <div class="divider"></div>
         <p>É uma modalidade de futebol adaptado para cadeirantes. Jogadores utilizam cadeiras de rodas motorizadas para competir, focando na habilidade, estratégia e trabalho em equipe.</p>    
     </div>
   </div>
 
-  <div id="bloco2" class="bloco" onclick="window.location.href='Futebol5.php'">
-  <img class="image-placeholder" src="./Imagens/futebol-de-5.jpeg">
+  <div id="bloco2" class="bloco" onclick="window.location.href='Futebol_5.php'">
+  <img class="image-placeholder" src="Imagens/HomePage/Modalidades//futebol-de-5.jpeg">
     <div class="vertical-line"></div>
     <div class="content">
-        <h2>Futebol de 5 <img id="icon-card" src="./Imagens/icon-mask.png" alt="">   </h2>
+        <h2>Futebol de 5 <img id="icon-card" src="Imagens/HomePage/Modalidades/icon-mask.png" alt="">   </h2>
         <div class="divider"></div>
         <p>É uma modalidade adaptada para pessoas com deficiência visual. Jogadores usam vendas para garantir a igualdade e contam com um guia que orienta durante a partida. </p>
     </div>
   </div>
 
   <div id="bloco3" class="bloco" onclick="window.location.href='Walking_Football.php'">
-  <img class="image-placeholder" src="./Imagens/walking-football.jpg">
+  <img class="image-placeholder" src="Imagens/HomePage/Modalidades/walking-football.jpg">
     <div class="vertical-line"></div>
     <div class="content">
-        <h2>Walking Football <img id="icon-card" src="./Imagens/icon-person.png" alt="">   </h2>
+        <h2>Walking Football <img id="icon-card" src="Imagens/HomePage/Modalidades/icon-person.png" alt="">   </h2>
         <div class="divider"></div>
         <p>É uma versão adaptada do futebol, projetada para jogadores mais velhos ou com mobilidade reduzida. As regras proíbem correr, incentivando uma prática mais segura e social.</p>
     </div>
@@ -126,7 +126,7 @@
     </div>
 
     <div id="block-text1">
-      <div><img src="./Imagens/strong.png" alt=""></div>
+      <div><img src="Imagens/HomePage/Bloco_Video/strong.png" alt=""></div>
       <div>
         <h1>Saúde Física</h1>
         <p>Esportes ajudam a fortalecer os músculos, melhorar a resistência cardiovascular, aumentar a flexibilidade e manter um peso saudável.</p>
@@ -134,7 +134,7 @@
     </div>
 
     <div id="block-text2">
-      <div><img src="./Imagens/calm.png" alt=""></div>
+      <div><img src="Imagens/HomePage/Bloco_Video/calm.png" alt=""></div>
       <div>
         <h1>Saúde Mental</h1>
         <p> Atividades físicas liberam endorfinas, que são hormônios responsáveis pela sensação de bem-estar.</p>
@@ -142,7 +142,7 @@
     </div>
 
     <div id="block-text3">
-      <div><img src="./Imagens/community.png" alt=""></div>
+      <div><img src="Imagens/HomePage/Bloco_Video/community.png" alt=""></div>
       <div>
         <h1>Desenvolvimento Social</h1>
         <p>A prática de esporte melhora as habilidades sociais, como comunicação, trabalho em equipe e liderança. Além disso, habilidades como foco, disciplina e empatia também são desenvolvidas.</p>
@@ -169,7 +169,7 @@
 
 
      <div id="estrelas">
-        <img src="./Imagens/Perfil-img/estrelas.png" alt="">
+        <img src="Imagens/HomePage/Perfil-img/estrelas.png" alt="">
       </div>
 
       <div id="carrosel-perfil">
