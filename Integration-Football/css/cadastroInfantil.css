@@ -1,0 +1,177 @@
+/* Reset de padding e margens */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+/* Estilo do título */
+.card h1 {
+    margin: 0;
+    padding: 20px;
+    font-size: 36px;
+    color: #000000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.card-title h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+/* Card */
+.card {
+    max-width: 800px;
+    width: 90%;
+    background-color: white;
+    border-radius: 25px;
+    border: 5px solid #115089;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Barlow Condensed', sans-serif;
+    align-items: flex-start;
+}
+
+/* Imagem de cadastro */
+.image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.image-container img {
+    max-width: 190px;
+    height: auto;
+}
+
+/* Container de inputs */
+.input-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 10px; /* Espaço na lateral esquerda */
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.left-section, .right-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+/* Estilo dos inputs */
+input, select {
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid #115089;
+    font-size: 1.1em;
+    width: 100%;
+    margin-left: 10px; /* Espaço adicional na lateral esquerda de cada input */
+    transition: border 0.3s;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+input:focus, select:focus {
+    border-color: #115089;
+}
+
+label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1em;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+/* Botão Próximo */
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+#proximo {
+    font-size: 1em;
+    padding: 15px 70px;
+    border-radius: 5px;
+    border: 2px solid #115089;
+    background-color: #115089;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+    max-width: 100%;
+    font-family: 'Barlow Condensed', sans-serif;
+    align-items: center;
+    margin-left: 35px ;
+}
+
+#proximo:hover {
+    transform: scale(1.05);
+}
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .card {
+        padding: 20px;
+    }
+
+    .input-container {
+        flex-direction: column;
+    }
+
+    .left-section, .right-section {
+        width: 100%; /* Ocupa toda a largura do card */
+        padding-left: 0; /* Remove o padding esquerdo */
+    }
+
+    input, select {
+        margin-left: 0; /* Remove o espaço à esquerda dos inputs */
+    }
+
+    .image-container img {
+        max-width: 70%;
+    }
+
+    #proximo {
+        padding: 10px 40px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-container img {
+        max-width: 100%;
+    }
+
+    input, select {
+        padding: 8px;
+        font-size: 1em;
+    }
+
+    #proximo {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+    }
+}
