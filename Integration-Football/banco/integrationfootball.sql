@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30/10/2024 às 21:04
+-- Tempo de geração: 07/11/2024 às 07:23
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -34,15 +34,17 @@ CREATE TABLE `alunos` (
   `telefone_aluno` int(11) NOT NULL,
   `nome_aluno` varchar(255) NOT NULL,
   `email_aluno` varchar(255) NOT NULL,
-  `senha` varchar(255) NOT NULL
+  `senha` varchar(255) NOT NULL,
+  `id_turma` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `alunos`
 --
 
-INSERT INTO `alunos` (`id_aluno`, `data_nasc`, `cpf_aluno`, `telefone_aluno`, `nome_aluno`, `email_aluno`, `senha`) VALUES
-(1, '0000-00-00', 0, 0, 'maria eduarda', 'maria@aluno.sp.gov.br', '1234');
+INSERT INTO `alunos` (`id_aluno`, `data_nasc`, `cpf_aluno`, `telefone_aluno`, `nome_aluno`, `email_aluno`, `senha`, `id_turma`) VALUES
+(1, '0000-00-00', 0, 0, 'maria eduarda', 'maria@aluno.sp.gov.br', '1234', 1),
+(4, '2007-06-13', 390111080, 968080107, 'Vinicius Augusto rodrigues', 'vinicius.silva2029@etec.sp.gov.br', 'vinicius123', 1);
 
 -- --------------------------------------------------------
 
@@ -144,7 +146,29 @@ CREATE TABLE `professores` (
 --
 
 INSERT INTO `professores` (`id`, `nome_professor`, `cpf_professor`, `data_nasc`, `email_professor`, `senha`, `telefone_professor`) VALUES
-(1, 'roberto', 0, '0000-00-00', 'roberto@professor.sp.gov.br', '12345', 0);
+(1, 'roberto', 0, '0000-00-00', 'roberto@professor.sp.gov.br', '12345', 0),
+(5, 'Carlos Alberto', 461294790, '1970-11-14', 'carlosalberto@gmail.com', 'carlos1234', 1196808010);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `turma`
+--
+
+CREATE TABLE `turma` (
+  `id_turma` int(10) UNSIGNED NOT NULL,
+  `nome_turma` varchar(50) DEFAULT NULL,
+  `id_professor` int(11) DEFAULT NULL,
+  `id_instituicao` int(11) DEFAULT NULL,
+  `id_modalidade` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `turma`
+--
+
+INSERT INTO `turma` (`id_turma`, `nome_turma`, `id_professor`, `id_instituicao`, `id_modalidade`) VALUES
+(1, 'A', 5, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -184,7 +208,8 @@ INSERT INTO `unidade` (`id`, `nome_unidade`, `cep`, `telefone`, `email`, `endere
 -- Índices de tabela `alunos`
 --
 ALTER TABLE `alunos`
-  ADD PRIMARY KEY (`id_aluno`);
+  ADD PRIMARY KEY (`id_aluno`),
+  ADD KEY `fk_alunos_turma` (`id_turma`);
 
 --
 -- Índices de tabela `inscricao`
@@ -211,6 +236,15 @@ ALTER TABLE `professores`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices de tabela `turma`
+--
+ALTER TABLE `turma`
+  ADD PRIMARY KEY (`id_turma`),
+  ADD KEY `id_professor` (`id_professor`),
+  ADD KEY `id_instituicao` (`id_instituicao`),
+  ADD KEY `fk_modalidade_turma` (`id_modalidade`);
+
+--
 -- Índices de tabela `unidade`
 --
 ALTER TABLE `unidade`
@@ -224,7 +258,7 @@ ALTER TABLE `unidade`
 -- AUTO_INCREMENT de tabela `alunos`
 --
 ALTER TABLE `alunos`
-  MODIFY `id_aluno` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_aluno` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `inscricao`
@@ -248,13 +282,37 @@ ALTER TABLE `modalidade`
 -- AUTO_INCREMENT de tabela `professores`
 --
 ALTER TABLE `professores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `turma`
+--
+ALTER TABLE `turma`
+  MODIFY `id_turma` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `unidade`
 --
 ALTER TABLE `unidade`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `alunos`
+--
+ALTER TABLE `alunos`
+  ADD CONSTRAINT `fk_alunos_turma` FOREIGN KEY (`id_turma`) REFERENCES `turma` (`id_turma`);
+
+--
+-- Restrições para tabelas `turma`
+--
+ALTER TABLE `turma`
+  ADD CONSTRAINT `fk_modalidade_turma` FOREIGN KEY (`id_modalidade`) REFERENCES `modalidade` (`id`),
+  ADD CONSTRAINT `turma_ibfk_1` FOREIGN KEY (`id_professor`) REFERENCES `professores` (`id`),
+  ADD CONSTRAINT `turma_ibfk_2` FOREIGN KEY (`id_instituicao`) REFERENCES `instituicao` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
