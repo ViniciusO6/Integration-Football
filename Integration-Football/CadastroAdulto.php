@@ -1,15 +1,14 @@
 <?php
 session_start(); // Inicie a sessão no início do arquivo
-
-$imports = [
-    "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap",
+$imports =[
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
-    "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
-];
+    "https://fonts.gstatic.com/",
+    "https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  ];
 
-$titulo = 'Página de Cadastro2';
-$pageCSS = ["Cadastromaior.css"];
-include_once('./templetes/index.php');
+$titulo = 'Página de Cadastro para Responsáveis';
+$pageCSS = ["cadastroAdulto.css"];
+include_once('./templetes/menu.php');
 
 // Verifique se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -27,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Redireciona para a página cadastroUnidade.php
-    header("Location: cadastroUnidade.php");
+    header("Location: CadastroUnidade.php");
     exit; // Garante que o script seja encerrado após o redirecionamento
 }
 ?>
@@ -36,8 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="container">
     <div class="card">
-        <div class="left-section">
             <h1 class="card-title">2. DADOS PESSOAIS</h1>
+              <img src="Imagens/Cadastro/cadastroMaior.png" alt="Imagem de Cadastro" class="input-image" />
             <form action="" method="POST"> <!-- Ação deve ser a própria página -->
                 <div class="input-container">
                     <label for="cpf">CPF : <span id="point">*</span></label>
@@ -79,9 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </form>
         </div>
-        <div class="right-section">
-            <img src="Imagens/cadastroMaior.png" alt="Imagem de Cadastro" class="input-image" />
-        </div>
+       
     </div>
 
     <script>
