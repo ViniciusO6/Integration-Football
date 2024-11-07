@@ -6,16 +6,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nome_unidade'])) {
     $_SESSION['unidadeInscrito'] = $_POST['nome_unidade']; // Armazena a unidade na sessão
     exit(); // Finaliza a execução do script sem retornar mensagem
 }
-
-$imports = [
-    "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap",
+$imports =[
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
-    "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
-];
-$titulo = 'Página Escolha de unidade';
-$pageCSS = ["cadastrounidade.css"];
+    "https://fonts.gstatic.com/",
+    "https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  ];
 
-include_once('./templetes/index.php');
+$titulo = 'Seleção de Instituição';
+$pageCSS = ["cadastroUnidades.css"];
+
+include_once('./templetes/menu.php');
 
 // Conexão com o banco de dados
 $servername = "localhost"; // Ajuste conforme necessário
@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if ($conn->query($sqlInscricao) === TRUE) {
                 // Sucesso, redirecionar
-                header('Location: cadastroModalidade.php'); // Altere para sua página de sucesso
+                header('Location: cadastroModalidades.php'); // Altere para sua página de sucesso
                 exit();
             } else {
                 $erroMensagem = 'Erro ao inscrever unidade: ' . $conn->error;
@@ -103,11 +103,11 @@ $conn->close(); // Fechar a conexão
         <h1 class="card-title">3. ESCOLHA A UNIDADE</h1>
         <form action="" method="POST" id="unidadeForm">
             <div class="image-container">
-                <img src="Imagens/cadastrounidade.png" alt="Imagem de Cadastro" class="input-image" />
+                <img src="Imagens/Cadastro/cadastrounidade.png" alt="Imagem de Cadastro" class="input-image" />
             </div>
             <div class="input-container">
                 <div class="input">
-                    <label for="pesquisa">Digite o seu CEP para encontrar a unidade mais próxima: <span id="point">*</span></label>
+                    <label for="pesquisa">Digite o seu CEP para encontrar a unidade mais próxima: <span id="point"></span></label>
                     <input type="text" id="pesquisa" name="pesquisa" class="input-cep" required />
                 </div>
             </div>
@@ -166,7 +166,7 @@ function escolherUnidade(nomeUnidade) {
             // Unidade escolhida com sucesso, você pode adicionar lógica se necessário
             console.log('Unidade escolhida: ' + nomeUnidade);
             // Opcional: redirecionar após escolher a unidade
-            window.location.href = 'cadastroModalidade.php';
+            window.location.href = 'cadastroModalidades.php';
         }
     };
     xhr.send('nome_unidade=' + encodeURIComponent(nomeUnidade));
