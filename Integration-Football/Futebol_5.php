@@ -11,7 +11,7 @@ $imports = [
 ];
 
 // Variáveis que armazenam o título da página, os arquivos CSS e JS específicos da página
-$titulo = 'Power Soccer'; // Título da página
+$titulo = 'Futebol de 5'; // Título da página
 
 $pageCSS = ["index.css"]; // Arquivo CSS específico da página
 $pageJS = ["index.js"]; // Arquivo JS específico da página
@@ -27,13 +27,12 @@ include_once('./templetes/index.php');
     <div class="interface">
       <div class="flex">
         <div class="img-topo-site">
-          <img src="./Imagens/Power_Soccer/power_soccer1.jpg" alt="Power_Soccer1">
+          <img src="./Imagens/Futebol_5/imagemPrincipal.jpg" alt="Power_Soccer1">
         </div><!--img-topo-site-->
         <div class="txt-topo-site">
-          <h1>Power Soccer <img id="icon-card" src="./Imagens/Power_Soccer/jogador.png" alt=""></h1>
-          <p>Futebol em Cadeira de Rodas</p><br>
-          <p>Power Soccer, também conhecido como Futebol em Cadeira de Rodas, é um esporte adaptado para pessoas com deficiência motora que utilizam cadeiras de rodas motorizadas. Jogando em quadras internas, os atletas controlam suas cadeiras equipadas com escudos frontais para chutar e passar a bola. As partidas são disputadas por dois times de quatro jogadores, com regras semelhantes ao futebol tradicional, como gols, passes e dribles.</p>
-        </div><!--txt-topo-site-->
+          <h1>Futebol de 5 <img id="icon-card" src="./Imagens/Futebol_5/visual.png" alt=""></h1>
+          <p>Futebol para Cegos</p><br>
+          <p>O Futebol de 5, também conhecido como Futebol Para Cegos, é um esporte adaptado para pessoas com deficiência visual. As partidas são realizadas em quadras fechadas e os jogadores, usando vendas nos olhos, contam com a ajuda de guias e de uma bola que emite som. Cada equipe é composta por cinco atletas, sendo um goleiro e quatro jogadores de linha. As regras são semelhantes às do futebol convencional, com objetivos de passes, dribles e gols, promovendo inclusão e competitividade entre os participantes.</p>        </div><!--txt-topo-site-->
       </div><!--flex-->
     </div><!--interface-->
   </section><!--primeira-parte-->
@@ -43,12 +42,10 @@ include_once('./templetes/index.php');
     <div class="interface-video">
       <div class="flex1">
         <div class="txt-topo-site">
-          <h2>Como começou o Power Soccer? </h2>
-          <p> O primeiro torneio foi realizado em 1982, e rapidamente ganhou popularidade, levando à formação de ligas e competições. O esporte combina estratégia, habilidades técnicas e trabalho em equipe, promovendo não apenas a inclusão, mas também a competição saudável. Desde então, o Power Soccer se espalhou pelo mundo, transformando vidas e desafiando estereótipos sobre a capacidade dos atletas.</p><br>
-        </div><!--txt-topo-site-->
+          <h2>Como começou o Futebol para 5? </h2>
+          <p>O Futebol de 5 foi introduzido na década de 1990 e rapidamente ganhou popularidade, levando à criação de ligas e competições em todo o mundo. Com uma mistura de habilidades técnicas, estratégia e trabalho em equipe, o esporte promove a inclusão de atletas com deficiência visual e estimula uma competição saudável. Desde então, tem transformado vidas e desafiado estereótipos sobre as capacidades dos atletas.</p><br>        </div><!--txt-topo-site-->
         <div class="video-topo-site">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/OWhY7C64ILc?si=Ge2wSUPVtBJphFEI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>      
-        </div><!--video-topo-site-->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/RMfqlJmAOhE?si=z28NTXu_j3q4U1dA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        </div><!--video-topo-site-->
       </div><!--flex-->
     </div><!--interface-->
     <div class="triangulo"></div> <!-- Elemento decorativo (triângulo) -->
@@ -57,21 +54,21 @@ include_once('./templetes/index.php');
   <div class="fundo-azul">
     <div class="curva"></div>
     <div class="txt-topo-site1"> 
-      <h1>Por dentro do Power Soccer! <img id="icon-card" alt=""></h1>
+      <h1>Por dentro do Futebol de 5! <img id="icon-card" alt=""></h1>
 
       <div class="gallery">
-        <img src="Imagens/Power_Soccer/foto1.jpg" alt="Foto 1">
-        <img src="Imagens/Power_Soccer/foto2.jpg" alt="Foto 2">
-        <img src="Imagens/Power_Soccer/foto3.jpg" alt="Foto 3">
-        <img src="Imagens/Power_Soccer/foto4.jpg" alt="Foto 4">
-        <img src="Imagens/Power_Soccer/foto5.jpg" alt="Foto 5">
-        <img src="Imagens/Power_Soccer/foto6.png" alt="Foto 6">
+        <img src="Imagens/Futebol_5/foto1.jpg" alt="Foto 1">
+        <img src="Imagens/Futebol_5/foto2.jpg" alt="Foto 2">
+        <img src="Imagens/Futebol_5/foto3.jpg" alt="Foto 3">
+        <img src="Imagens/Futebol_5/foto4.jpg" alt="Foto 4">
+        <img src="Imagens/Futebol_5/foto5.jpg" alt="Foto 5">
+        <img src="Imagens/Futebol_5/foto6.jpg" alt="Foto 6">
       </div><!--gallery-->
     </div><!--txt-topo-site-->
   </div><!--fundo-azul-->
 
   <div class="img-inscrever"> 
-    <img src="Imagens/Power_Soccer/img-inscrever.jpg" alt="">
+    <img src="Imagens/Futebol_5/img-inscrever.jpg" alt="">
     <div class="text-inscrever">
       <h1>SE INTERESSOU? NÃO PERCA TEMPO E SE INCREVA.</h1>
       <button id="btn-saiba-mais" type="button">INSCREVA-SE</button>
