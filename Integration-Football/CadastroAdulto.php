@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Redireciona para a página cadastroUnidade.php
-    header("Location: CadastroUnidade.php");
+    header("Location: CadastroUnidades.php");
     exit; // Garante que o script seja encerrado após o redirecionamento
 }
 ?>
