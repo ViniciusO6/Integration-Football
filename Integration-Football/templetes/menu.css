@@ -36,7 +36,7 @@ header li, header li a{
 #login{
     padding: 5px 8px;
     border-radius: 10px;
-    border: #2092c2 solid;
+    border: #115089 solid;
     transition: 0.5s;
     background: transparent;
 }
@@ -44,8 +44,8 @@ header li, header li a{
 #Matricule-se{
     padding: 5px;
     border-radius: 10px;
-    background-color:   #2092c2;
-    border:  #2092c2 solid 2px;
+    background-color:  #115089;
+    border:  #115089 solid 2px;
     transition: 0.5s;
 }
 
@@ -66,7 +66,7 @@ header li, header li a{
     content: " ";
     width: 0;
     height: 2px;
-    background-color:  #2092c2;
+    background-color:  #115089;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -179,7 +179,7 @@ header li, header li a{
     list-style: none;
     line-height: 40px;
     color: #000000;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-weight: 600;
 }
 
