@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // var_dump($_SESSION['nome_inscrito'], $_SESSION['email_inscrito'], $_SESSION['telefone_inscrito']);
 
     // Redireciona baseado na seleção de idade
-    header("Location: " . ($_SESSION['idade'] === 'maior' ? "CadastroInfantil.php" : "CadastroAdulto.php"));
+    header("Location: " . ($_SESSION['idade'] === 'maior' ? "CadastroAdulto.php" : "CadastroInfantil.php"));
     exit();
 }
 ?>
