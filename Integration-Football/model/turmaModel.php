@@ -3,7 +3,8 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/controller/conexao.php";
 
 // Definição da classe Turma
-class Turma {
+class Turma
+{
     // Propriedades da classe Turma
     private $id_turma;
     private $nome_turma;
@@ -12,47 +13,57 @@ class Turma {
     private $conexao;
 
     // Métodos getters para obter os valores das propriedades
-    public function getId() {
+    public function getId()
+    {
         return $this->id_turma;
     }
 
-    public function getNome() {
+    public function getNome()
+    {
         return $this->nome_turma;
     }
 
-    public function getIdProfessor() {
+    public function getIdProfessor()
+    {
         return $this->id_professor;
     }
 
-    public function getIdInstituicao() {
+    public function getIdInstituicao()
+    {
         return $this->id_instituicao;
     }
 
     // Métodos setters para definir os valores das propriedades
-    public function setId($id_turma) {
+    public function setId($id_turma)
+    {
         $this->id_turma = $id_turma;
     }
 
-    public function setNome($nome_turma) {
+    public function setNome($nome_turma)
+    {
         $this->nome_turma = $nome_turma;
     }
 
-    public function setIdProfessor($id_professor) {
+    public function setIdProfessor($id_professor)
+    {
         $this->id_professor = $id_professor;
     }
 
-    public function setIdInstituicao($id_instituicao) {
+    public function setIdInstituicao($id_instituicao)
+    {
         $this->id_instituicao = $id_instituicao;
     }
 
     // Construtor da classe Turma
-    public function __construct() {
+    public function __construct()
+    {
         // Cria uma nova instância da classe Conexao para gerenciar a conexão com o banco de dados
         $this->conexao = new Conexao();
     }
 
     // Método para inserir um novo registro na tabela 'turma'
-    public function inserir() {
+    public function inserir()
+    {
         // SQL para inserir os dados na tabela 'turma'
         $sql = "INSERT INTO turma (`nome_turma`, `id_professor`, `id_instituicao`) VALUES (?,?,?)";
         // Prepara a SQL para execução
@@ -64,7 +75,8 @@ class Turma {
     }
 
     // Método para buscar uma turma por ID
-    public function buscarPorId($id) {
+    public function buscarPorId($id)
+    {
         $sql = "SELECT * FROM turma WHERE id_turma = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('i', $id);
@@ -76,8 +88,27 @@ class Turma {
         return $turma;
     }
 
+    // Método para buscar uma turma por Professor
+    public function buscarProfessor($id)
+    {
+        $sql = "SELECT id_turma FROM turma WHERE id_professor = ?";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $turmas = []; // Inicializa o array para armazenar os resultados
+
+        // Utilize uma variável auxiliar para armazenar o resultado de fetch_assoc()
+        while ($turma = $result->fetch_assoc()) {
+            $turmas[] = $turma; // Adiciona cada turma ao array
+        }
+        return $turmas;
+    }
+
+
     // Método para atualizar uma turma
-    public function update($id) {
+    public function update($id)
+    {
         $sql = "UPDATE turma SET `nome_turma` = ?, `id_professor` = ?, `id_instituicao` = ? WHERE `id_turma` = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('siii', $this->nome_turma, $this->id_professor, $this->id_instituicao, $id);
@@ -85,7 +116,8 @@ class Turma {
     }
 
     // Método para listar todas as turmas
-    public function listar() {
+    public function listar()
+    {
         $sql = "SELECT * FROM turma";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->execute();
@@ -100,11 +132,11 @@ class Turma {
     }
 
     // Método para deletar uma turma
-    public function delete($id) {
+    public function delete($id)
+    {
         $sql = "DELETE FROM turma WHERE id_turma = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('i', $id);
         $stmt->execute();
     }
 }
-?>
