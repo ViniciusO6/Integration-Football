@@ -1,24 +1,19 @@
 <?php
 // Os imports são usados para adicionar links de fontes e bibliotecas externas no HTML
 $imports = [
-  "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap", // Importando fonte "Poppins"
   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", // Importando ícones do Font Awesome
   "https://fonts.gstatic.com/", // Link necessário para funcionar fontes do Google
-  "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap", // Importando fontes adicionais
-  "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap",
   "https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
 
 ];
 
 // Variáveis que armazenam o título da página, os arquivos CSS e JS específicos da página
 $titulo = 'Futsal'; // Título da página
-
-$pageCSS = ["index.css"]; // Arquivo CSS específico da página
 $pageJS = ["index.js"]; // Arquivo JS específico da página
 $pageCSS = ["paginas_modalidades.css"]; // Arquivo CSS dos Cards
 
 // Inclui o arquivo index.php que contém a estrutura base da página
-include_once('./templetes/index.php');
+include_once('./templetes/menu.php');
 ?>
 
 <!--TOPO PRIMEIRA PARTE(FOTO E EXPLICAÇÃO)-->
@@ -58,21 +53,21 @@ include_once('./templetes/index.php');
       <h1>Por dentro do Futsal! <img id="icon-card" alt=""></h1>
 
       <div class="gallery">
-        <img src="Imagens/Futsal/foto1.jpg" alt="Foto 1">
-        <img src="Imagens/Futsal/foto2.png" alt="Foto 2">
-        <img src="Imagens/Futsal/foto3.jpg" alt="Foto 3">
-        <img src="Imagens/Futsal/foto4.jpg" alt="Foto 4">
-        <img src="Imagens/Futsal/foto5.jpg" alt="Foto 5">
-        <img src="Imagens/Futsal/foto6.png" alt="Foto 6">
+        <img src="imagens/Futsal/foto1.jpg" alt="Foto 1">
+        <img src="imagens/Futsal/foto2.png" alt="Foto 2">
+        <img src="imagens/Futsal/foto3.jpg" alt="Foto 3">
+        <img src="imagens/Futsal/foto4.jpg" alt="Foto 4">
+        <img src="imagens/Futsal/foto5.jpg" alt="Foto 5">
+        <img src="imagens/Futsal/foto6.png" alt="Foto 6">
       </div><!--gallery-->
     </div><!--txt-topo-site-->
   </div><!--fundo-azul-->
 
   <div class="img-inscrever"> 
-    <img src="Imagens/Futsal/img-inscrever.jpg" alt="">
+    <img src="imagens/Futsal/img-inscrever.jpg" alt="">
     <div class="text-inscrever">
-      <h1>SE INTERESSOU? NÃO PERCA TEMPO E SE INCREVA.</h1>
-      <button id="btn-saiba-mais" type="button">INSCREVA-SE</button>
+      <h1>SE INTERESSOU? NÃO PERCA TEMPO.</h1>
+      <button id="btn-saiba-mais" type="button" onclick="window.location.href='Cadastro.php';">INSCREVA-SE</button>
     </div><!-- text-inscrever -->
   </div><!-- img-inscrever -->
 </div><!--container-->
