@@ -25,7 +25,7 @@ footer {
 
 .container-footer {
     max-width: 100%; /* Faz o container ocupar 100% da largura da tela */
-    margin: 0; /* Remove margens laterais */
+    margin-left: 20px; /* Remove margens laterais */
     padding: 0 15px; /* Adiciona padding lateral para responsividade */
 }
 
@@ -80,14 +80,13 @@ footer {
 }
 
 #emailInput {
-    margin-left: 2px;
-    padding: 10px; /* Adiciona padding interno */
+   padding: 10px; /* Adiciona padding interno */
     border: 1px solid #000000; /* Borda leve */
     border-radius: 5px; /* Borda arredondada */
     font-family: 'Barlow Condensed', sans-serif; /* Fonte utilizada */
     font-size: 16px; /* Tamanho da fonte */
-    /* width: 500px; */
     margin-bottom: 10px; /* Margem inferior para espaçamento com o botão */
+    width: 94%;
 }
 
 #subscribeButton{
