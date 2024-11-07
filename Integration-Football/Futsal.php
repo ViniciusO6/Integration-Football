@@ -58,18 +58,18 @@ include_once('./templetes/index.php');
       <h1>Por dentro do Futsal! <img id="icon-card" alt=""></h1>
 
       <div class="gallery">
-        <img src="imagens/Futsal/foto1.jpg" alt="Foto 1">
-        <img src="imagens/Futsal/foto2.png" alt="Foto 2">
-        <img src="imagens/Futsal/foto3.jpg" alt="Foto 3">
-        <img src="imagens/Futsal/foto4.jpg" alt="Foto 4">
-        <img src="imagens/Futsal/foto5.jpg" alt="Foto 5">
-        <img src="imagens/Futsal/foto6.png" alt="Foto 6">
+        <img src="Imagens/Futsal/foto1.jpg" alt="Foto 1">
+        <img src="Imagens/Futsal/foto2.png" alt="Foto 2">
+        <img src="Imagens/Futsal/foto3.jpg" alt="Foto 3">
+        <img src="Imagens/Futsal/foto4.jpg" alt="Foto 4">
+        <img src="Imagens/Futsal/foto5.jpg" alt="Foto 5">
+        <img src="Imagens/Futsal/foto6.png" alt="Foto 6">
       </div><!--gallery-->
     </div><!--txt-topo-site-->
   </div><!--fundo-azul-->
 
   <div class="img-inscrever"> 
-    <img src="imagens/Futsal/img-inscrever.jpg" alt="">
+    <img src="Imagens/Futsal/img-inscrever.jpg" alt="">
     <div class="text-inscrever">
       <h1>SE INTERESSOU? NÃO PERCA TEMPO E SE INCREVA.</h1>
       <button id="btn-saiba-mais" type="button">INSCREVA-SE</button>
