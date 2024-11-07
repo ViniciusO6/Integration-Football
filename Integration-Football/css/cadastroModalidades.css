@@ -1,0 +1,181 @@
+/* Reset de padding e margens */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.card h1 { 
+    color: #000000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; 
+    text-align: center; 
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.card {
+    min-height: 600px; 
+    margin: 10% auto; 
+    padding: 20px;
+    max-width: 600px;
+    width: 90%;
+    background-color: white;
+    border-radius: 25px;
+    border: 5px solid #236baf;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    margin-top:8%;
+}
+
+.image-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+    margin-top: 20px; 
+}
+
+.image-container img{
+    max-width: 200px;
+}
+
+.input-container {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column; 
+    width: 100%; 
+}
+
+label {
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1em;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+/* Estilo do input */
+.input-cep {
+    width: 100%;  /* Garantindo que o input ocupe 100% da largura do contêiner */
+    max-width: 450px;  /* Largura máxima para o input */
+    padding: 10px;
+    border-radius: 7px;
+    margin-bottom: 16px;
+    border: 2px solid #026799;
+    font-size: 1em;
+    background-color: #ffffff;
+    transition: border 0.3s;
+    font-family: 'Barlow Condensed', sans-serif;
+    margin-top: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; 
+}
+
+#Buscar {
+    margin-top: 15px;
+    margin-bottom: 90px;
+    font-size: 1em;
+    padding: 10px 60px;
+    border-radius: 5px;
+    border: 2px solid #115089;
+    background-color: #115089;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#Buscar:hover {
+    transform: scale(1.05);
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centraliza verticalmente também */
+    margin-top: 15px; /* Espaço acima dos resultados */
+}
+
+.mini-card {
+    background-color: #ffffff;
+    padding: 20px; 
+    border: 3px solid #236baf;
+    border-radius: 13px;
+    width: 340px; /* Largura fixa */
+    max-width: 90%; /* Permite que o card seja responsivo */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin: 0 auto; /* Centraliza o card horizontalmente */
+}
+
+.mini-card h3 {
+    font-size: 30px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; 
+    margin-bottom: 10px; 
+}
+
+.mini-card h4 {
+    font-size: 15px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 300; 
+    text-align: justify;
+}
+
+.mini-card button {
+    background-color: #236baf;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100px; 
+    height: 40px; 
+    margin-top: 15px; 
+}
+
+.mini-card button:hover {
+    background-color: #03468d;
+}
+
+.mapBox {
+    width: 100%; 
+    height: 250px; /* Ajuste a altura conforme necessário */
+    background: #fff;
+    margin-top: 20px; /* Espaço acima do mapa */
+}
+
+.mapBox iframe {
+    width: 100%; 
+    height: 100%; 
+}
+
+/* Media query para telas menores */
+@media (max-width: 768px) {
+    .input-cep {
+        max-width: 100%;  /* Input vai ocupar 100% da largura em telas pequenas */
+    }
+}
+
+button{
+    font-family: 'Barlow Condensed', sans-serif;
+}
