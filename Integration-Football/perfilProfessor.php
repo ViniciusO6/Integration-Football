@@ -25,9 +25,11 @@ $id = 5;
 $professorController = new ProfessorController;
 $professor = $professorController->buscarPorId($id);
 
+$turmaController = new TurmaController;
+$id_turmas = $turmaController->buscarProfessor($id);
 
 $modalidadeController = new ModalidadeController;
-$modalidade;
+$modalidade = $modalidadeController->buscarPorId($id);
 
 ?>
 
@@ -49,38 +51,34 @@ $modalidade;
           <input id="input-nome" type="text" name="nome" value="<?= $professor['nome_professor']; ?>" disabled>
 
           <div id="modalidade-turma">
-            <div id="modalidade">
-              <label for="input-modalidade">Modalidade</label>
-              <select id="select">
-                <option value="" disabled selected hidden></option>
-                <option>Modalidade 1</option>
-                <option>Modalidade 2</option>
-                <option>Modalidade 3</option>
-                <option>Modalidade 4</option>
-              </select>
-            </div>
 
             <div id="turma">
               <label for="input-turma">Turma</label>
               <select id="select">
                 <option value="" disabled selected hidden></option>
                 <?php
-                $turmaController = new TurmaController;
-                $id_turmas = $turmaController->buscarProfessor($id);
-                print_r($id_turmas);
-
-                foreach ($id_turmas as $id_turma) { ?>
-
-                  <?php $turma = $turmaController->buscarPorId($id_turma);
-
-                  ?>
-                  <option>Turma <?= $turma['nome_turma'] ?></option>
-
-                <?php $turma = 0;
-                } ?>
+                // Itera sobre o array $id_turmas, que agora já contém informações completas das turmas
+                foreach ($id_turmas as $turma) {
+                  // A variável $turma agora é um array com 'id_turma' e 'nome_turma'
+                  echo "<option value='" . $turma['id_turma'] . "'>Turma " . htmlspecialchars($turma['nome_turma']) . "</option>";
+                }
+                ?>
 
               </select>
             </div>
+
+            <div id="modalidade">
+              <label for="input-modalidade">Modalidade</label>
+              <select id="select">
+                <option value="" disabled selected hidden></option>
+                <?php
+
+                ?>
+                <option>Modalidade 1</option>
+              </select>
+            </div>
+
+
 
 
           </div>
