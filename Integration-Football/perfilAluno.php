@@ -17,7 +17,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Footba
   $pageCSS = ["perfilAluno.css"];
   $pageJS = ["perfilAluno.js"];
 
-  include_once('./templetes/menu.php');
+  include_once('./templetes/headerAluno.php');
 
   $id = 4;
 

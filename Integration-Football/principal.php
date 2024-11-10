@@ -12,7 +12,7 @@
   $pageCSS = ["principal.css"];
   $pageJS = ["principal.js"];
 
-  include_once('./templetes/menu.php');
+  include_once('./templetes/headerAluno.php');
 
 ?>
 

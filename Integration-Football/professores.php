@@ -15,7 +15,7 @@ $titulo = 'Professores';
 $pageCSS = ["professores.css"];
 $pageJS = ["consulta.js"];
 
-include_once('./templetes/menu.php');
+include_once('./templetes/headerAluno.php');
 
 ?>
 
