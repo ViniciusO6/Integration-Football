@@ -12,7 +12,7 @@ $titulo = 'Consulta';
 $pageCSS = ["presençaProfessor.css"];
 $pageJS = ["presençaProfessor.js"];
 
-include_once('./templetes/menu.php');
+include_once('./templetes/headerProfessor.php');
 
 ?>
 

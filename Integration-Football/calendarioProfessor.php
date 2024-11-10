@@ -12,7 +12,7 @@ $titulo = 'Calendário | Professor';
 $pageCSS = ["calendarioProfessor.css"];
 $pageJS = ["principal.js"];
 
-include_once('./templetes/menu.php');
+include_once('./templetes/headerProfessor.php');
 
 ?>
 
