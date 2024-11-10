@@ -68,10 +68,10 @@
     <div id="menu-lateral">
 
         <div id="menu-navigation">
-            <li><a href="HomePage.php">Home</a></li>
-            <li><a href="Unidades.php">Unidades</a></li>
-            <li><a href="">Sobre-nós</a></li>
-            <li><a href="Contatos.php">Contato</a></li>
+            <li><a href="calendarioProfessor.php">Calendário</a></li>
+            <li><a href="presencaProfessor.php">Diário</a></li>
+            <li><a href="consultaProfessor.php">Consulta</a></li>
+            <li><a href="turmasProfessor.php">Turmas</a></li>
         </div>
 
     </div>
