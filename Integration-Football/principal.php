@@ -38,11 +38,38 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Foot
     .dia".$atividade['data_entrega']."{
         border-color: rgba(217, 162, 42, 1) !important;
       }
+    
+    .evento".$atividade['data_entrega'].".tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+  
 
     ";
   } 
 ?>
 </style>
+
+<script>
+function carregarEventos() {
+  setTimeout(function() {
+    <?php  
+    foreach($atividades as $atividade){ 
+        // Aqui o PHP gera o JavaScript de configuração dos eventos
+        echo "document.getElementById('texto-evento" . $atividade['data_entrega'] . "').innerHTML = '" . $atividade['titulo_atividade'] . "';";
+    }
+    ?>
+    console.log('Eventos carregados');
+  }, 200); // Executa após 200ms
+}
+
+// Garante que o DOM está carregado antes de chamar a função
+document.addEventListener("DOMContentLoaded", carregarEventos);
+</script>
+
+
+
+
 
 
 
@@ -58,8 +85,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Foot
             <div id="header-calendario">
                 <h1 id="mes-ano">JANEIRO 2024</h1>
                 <div id="btns">
-                    <img src="./Imagens/seta-esquerda-black.svg" alt="" id="prev">
-                    <img src="./Imagens/seta-direita-black.svg" alt="" id="next">
+                    <img onclick="carregarEventos();" src="./Imagens/seta-esquerda-black.svg" alt="" id="prev">
+                    <img onclick="carregarEventos();" src="./Imagens/seta-direita-black.svg" alt="" id="next">
                 </div>
             </div>
             <div id="semanas">
@@ -134,9 +161,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Foot
             <div class="arquivo">
               <div class="previa-arquivo">
                 <img src="./Imagens/pdfIcon.png" alt="">
-                <p>Arquivo 1- "Histotia do Power Soccer"</p>
+                <p >Arquivo 1- "Histotia do Power Soccer"</p>
               </div>
-              <button>Baixar Arquivos</button>
+              <button style="cursor: pointer;" type="button" onclick="redirecionar('./download.php?file=roblox.png')">Baixar Arquivos</button>
               
             </div>
           </div>
@@ -144,12 +171,37 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Foot
 
       <?php }?>
 
-      
-
     </form>
     
   </div>
 </div>
+
+
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    font-size: 12px;
+    width: 150px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Posiciona o tooltip acima da div */
+    left: 50%;
+    margin-left: -75px; /* Ajusta para centralizar */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+</style>
 
 
 

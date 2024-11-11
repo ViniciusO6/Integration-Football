@@ -26,7 +26,7 @@ const renderCalendar = () => {
         let isToday = i === date.getDate() && currMonth === new Date().getMonth()
                     && currYear === new Date().getFullYear() ? "active" : "";
 
-        diaTag += `<div class="${isToday} dia${currYear}-${currMonthNumber}-${i}" id="dia"><p>${i}</p></div>`;  
+        diaTag += `<div class="${isToday} dia${currYear}-${currMonth +1}-${i} tooltip evento${currYear}-${currMonth +1}-${i}" "onmouseover="showTooltip(event)" onmouseout="hideTooltip(event)" id="dia"><p>${i}  <span id="texto-evento${currYear}-${currMonth +1}-${i}" class="tooltip-text">Atividade Pratica!</span>  </p></div>`;  
     }
 
     for(let i = lastDayofMonth; i < 6; i++){
@@ -56,7 +56,10 @@ prevNextIcon.forEach(icon => {
 function abrirPrevia(IDAtividade, IDCard){   
     const DivAtividade = document.querySelector("#"+IDAtividade)
     const DivCardArquivo = document.querySelector("#"+IDCard)
-
         DivAtividade.classList.toggle("atividade-aberto") 
         DivCardArquivo.classList.toggle("aberto") 
 }
+
+
+
+

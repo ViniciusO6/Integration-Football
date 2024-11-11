@@ -132,7 +132,7 @@ class Atividade {
     }
 
     public function buscarAtividades($id_turma) {
-        $sql = "SELECT * FROM atividade WHERE id_turma = ?";
+        $sql = "SELECT * FROM atividade WHERE id_turma = ? ORDER BY data_entrega ASC, hora_inicio ASC";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('i', $id_turma);
         $stmt->execute();
