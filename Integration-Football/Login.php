@@ -1,4 +1,6 @@
 <?php
+session_start(); 
+
 $imports = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
     "https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -7,6 +9,10 @@ $titulo = 'Página de login';
 $pageCSS = ["login.css"];
 include_once('./templetes/menu.php');
 ?>
+
+
+
+<body>
 <div class="container">
     <div class="card">
         <h2 class="card-title">LOGIN</h2>
@@ -31,16 +37,18 @@ include_once('./templetes/menu.php');
                 <label class="inscricao-label">
                     <a href="#">Não é inscrito? Inscreva-se!</a>
                 </label>
-            </div>
+                </div>
+</div>
+<?php include_once('./templetes/footer.php'); ?>
         </form>
-    </div> <!-- Fim do card -->
-    <?php
-    session_start(); // Inicia uma nova sessão ou retoma a existente
+
+</div>
+<?php
     // Verifica se o formulário foi enviado
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         include('config.php');
         $usuario = $_POST["usuario"];
-        $senha = ($_POST["senha"]); // Hashing the password using MD5
+        $senha = $_POST["senha"]; // Captura a senha do formulário
 
         // Determina o tipo de acesso com base no domínio do usuário
         if (strpos($usuario, '@aluno') !== false) {
@@ -76,11 +84,15 @@ include_once('./templetes/menu.php');
                 } else if ($table === 'instituicao') {
                     $_SESSION["nome"] = $row->nome_instituicao;
                 }
+                
+                // Debugging: Verifica as variáveis de sessão
+                var_dump($_SESSION);
+                
                 // Redireciona para a página correta com base no tipo de usuário
                 if ($table === 'alunos') {
-                    echo "<script>location.href='aluno.php';</script>";
+                    echo "<script>location.href='principal.php';</script>";
                 } else if ($table === 'professores') {
-                    echo "<script>location.href='professor.php';</script>";
+                    echo "<script>location.href='perfilProfessor.php';</script>";
                 } else if ($table === 'instituicao') {
                     echo "<script>location.href='instituicao.php';</script>";
                 }
@@ -95,9 +107,9 @@ include_once('./templetes/menu.php');
             echo "<script>location.href='Login.php';</script>";
         }
     }
-    ?>
-    <?php include_once('./templetes/footer.php'); ?>
-    <script>
+?>
+
+<script>
     // Limpa os campos de entrada ao carregar a página
     window.onload = function() {
         document.getElementById('username').value = '';
@@ -124,18 +136,23 @@ include_once('./templetes/menu.php');
             event.preventDefault();
         }
     });
-    </script>
-    <!-- PLUG-IN LIBRAS-->
-        <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
-    </div>
+</script>
+<!-- PLUG-IN LIBRAS-->
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+   
+</div>
 
-    <!--JAVA LIBRAS-->
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
- 
+<!--JAVA LIBRAS-->
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+</body>
+
+
+
+</html>
+
