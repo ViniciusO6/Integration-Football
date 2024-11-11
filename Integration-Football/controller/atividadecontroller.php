@@ -33,7 +33,8 @@ class AtividadeController
     {
         // Define os atributos da atividade com base nos dados recebidos via POST
         $this->atividade->setTituloAtividade($_POST['titulo_atividade']);
-        $this->atividade->setHoraEntrega($_POST['hora_entrega']);
+        $this->atividade->setHoraInicio($_POST['hora_inicio']);
+        $this->atividade->setHoraTermino($_POST['hora_termino']);
         $this->atividade->setDataEntrega($_POST['data_entrega']);
         $this->atividade->setCaminhoArquivo($_POST['caminho_arquivo']);
         $this->atividade->setIdTurma($_POST['id_turma']);
@@ -57,7 +58,7 @@ class AtividadeController
     // Método para deletar uma atividade
     public function deletar()
     {
-        $this->atividade->getIdAtividade($_POST['id']);
+        $this->atividade->setIdAtividade($_POST['id']);
         if ($this->atividade->delete($this->atividade->getIdAtividade())) {
             echo "Atividade deletada com sucesso!";
         } else {
@@ -73,7 +74,7 @@ class AtividadeController
 
     public function buscarAtividades($id)
     {
-        return $this->atividade->buscarAtividades($id); // Retorna a atividade encontrada pelo ID
+        return $this->atividade->buscarAtividades($id); // Retorna as atividades encontradas para a turma especificada
     }
 
     // Método para atualizar os dados de uma atividade
@@ -81,7 +82,8 @@ class AtividadeController
     {
         $this->atividade->setIdAtividade($_POST['id']);
         $this->atividade->setTituloAtividade($_POST['titulo_atividade']);
-        $this->atividade->setHoraEntrega($_POST['hora_entrega']);
+        $this->atividade->setHoraInicio($_POST['hora_inicio']);
+        $this->atividade->setHoraTermino($_POST['hora_termino']);
         $this->atividade->setDataEntrega($_POST['data_entrega']);
         $this->atividade->setCaminhoArquivo($_POST['caminho_arquivo']);
         $this->atividade->setIdTurma($_POST['id_turma']);

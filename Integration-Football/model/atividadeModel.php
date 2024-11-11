@@ -7,7 +7,8 @@ class Atividade {
     // Propriedades da classe Atividade (com os mesmos nomes dos campos do banco de dados)
     private $id_atividade;
     private $titulo_atividade;
-    private $hora_entrega;
+    private $hora_inicio;
+    private $hora_termino;
     private $data_entrega;
     private $caminho_arquivo;
     private $id_turma;
@@ -23,8 +24,12 @@ class Atividade {
         return $this->titulo_atividade;
     }
 
-    public function getHoraEntrega() {
-        return $this->hora_entrega;
+    public function getHoraInicio() {
+        return $this->hora_inicio;
+    }
+
+    public function getHoraTermino() {
+        return $this->hora_termino;
     }
 
     public function getDataEntrega() {
@@ -44,7 +49,6 @@ class Atividade {
     }
 
     // Métodos setters para definir os valores das propriedades
-
     public function setIdAtividade($id_atividade) {
         $this->id_atividade = $id_atividade;
     }
@@ -53,8 +57,12 @@ class Atividade {
         $this->titulo_atividade = $titulo_atividade;
     }
 
-    public function setHoraEntrega($hora_entrega) {
-        $this->hora_entrega = $hora_entrega;
+    public function setHoraInicio($hora_inicio) {
+        $this->hora_inicio = $hora_inicio;
+    }
+
+    public function setHoraTermino($hora_termino) {
+        $this->hora_termino = $hora_termino;
     }
 
     public function setDataEntrega($data_entrega) {
@@ -75,16 +83,15 @@ class Atividade {
 
     // Construtor da classe Atividade
     public function __construct() {
-        // Cria uma nova instância da classe Conexao para gerenciar a conexão com o banco de dados
         $this->conexao = new Conexao();
     }
 
     // Método para inserir um novo registro na tabela 'atividade'
     public function inserir() {
-        $sql = "INSERT INTO atividade (`titulo_atividade`, `hora_entrega`, `data_entrega`, `caminho_arquivo`, `id_turma`, `id_professor`) 
-                VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO atividade (`titulo_atividade`, `hora_inicio`, `hora_termino`, `data_entrega`, `caminho_arquivo`, `id_turma`, `id_professor`) 
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conexao->getConexao()->prepare($sql);
-        $stmt->bind_param('ssssii', $this->titulo_atividade, $this->hora_entrega, $this->data_entrega, $this->caminho_arquivo, $this->id_turma, $this->id_professor);
+        $stmt->bind_param('ssssiii', $this->titulo_atividade, $this->hora_inicio, $this->hora_termino, $this->data_entrega, $this->caminho_arquivo, $this->id_turma, $this->id_professor);
         return $stmt->execute();
     }
 
@@ -96,17 +103,17 @@ class Atividade {
         $stmt->execute();
 
         $result = $stmt->get_result();
-        $atividade = $result->fetch_assoc(); // Obtém apenas um único registro
+        $atividade = $result->fetch_assoc();
 
         return $atividade;
     }
 
     // Método para atualizar uma atividade
     public function update($id_atividade) {
-        $sql = "UPDATE atividade SET `titulo_atividade` = ?, `hora_entrega` = ?, `data_entrega` = ?, `caminho_arquivo` = ?, `id_turma` = ?, `id_professor` = ? 
+        $sql = "UPDATE atividade SET `titulo_atividade` = ?, `hora_inicio` = ?, `hora_termino` = ?, `data_entrega` = ?, `caminho_arquivo` = ?, `id_turma` = ?, `id_professor` = ? 
                 WHERE `id_atividade` = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
-        $stmt->bind_param('ssssiii', $this->titulo_atividade, $this->hora_entrega, $this->data_entrega, $this->caminho_arquivo, $this->id_turma, $this->id_professor, $id_atividade);
+        $stmt->bind_param('sssssiii', $this->titulo_atividade, $this->hora_inicio, $this->hora_termino, $this->data_entrega, $this->caminho_arquivo, $this->id_turma, $this->id_professor, $id_atividade);
         $stmt->execute();
     }
 
@@ -116,9 +123,8 @@ class Atividade {
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->execute();
         $result = $stmt->get_result();
-        $atividades = []; // Inicializa o array para armazenar os resultados
+        $atividades = [];
 
-        // Utilize uma variável auxiliar para armazenar o resultado de fetch_assoc()
         while ($atividade = $result->fetch_assoc()) {
             $atividades[] = $atividade;
         }
@@ -132,9 +138,8 @@ class Atividade {
         $stmt->execute();
 
         $result = $stmt->get_result();
-        $atividades = []; // Inicializa o array para armazenar os resultados
+        $atividades = [];
 
-        // Utilize uma variável auxiliar para armazenar o resultado de fetch_assoc()
         while ($atividade = $result->fetch_assoc()) {
             $atividades[] = $atividade;
         }

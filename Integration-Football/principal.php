@@ -29,11 +29,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Foot
   $atividadecontroller = new AtividadeController();
   $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
 
-  
-
-
-
-
 ?>
 
 
@@ -75,10 +70,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Foot
         <?php
         
         
+        $numeroAtividade = 1;
+        foreach ($atividades as $atividade) {
+        $numeroAtividade ++;
+          ?>
         
-        foreach ($atividades as $atividade) {?>
-        <div id="atividade" class="atividade">     
-          <div id="card-atividade" class="card-atividade" onclick="abrirPrevia('atividade', 'card-arquivo')">
+        <div id="atividade<?=$numeroAtividade?>" class="atividade">     
+          <div id="card-atividade" class="card-atividade" onclick="abrirPrevia('atividade<?=$numeroAtividade?>', 'card-arquivo<?=$numeroAtividade?>')">
             <div class="bloco1">
               <div class="icone-atividade">
                 <img src="./Imagens/checklist.png" alt="">
@@ -92,7 +90,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Foot
               </div>
             
               <div class="data-entrega">
-                <img src="./Imagens/Time-Circle.png" alt=""><p><?= $hora = substr($atividade['hora_entrega'],0,-6); ?>h<?= $minutos = substr($atividade['hora_entrega'],3,-3); ?></p> 
+                <img src="./Imagens/Time-Circle.png" alt=""><p><?= $hora = substr($atividade['hora_inicio'],0,-6); ?>h<?= $minutos = substr($atividade['hora_inicio'],3,-3); ?> ás <?= $hora = substr($atividade['hora_termino'],0,-6); ?>h<?= $minutos = substr($atividade['hora_termino'],3,-3); ?></p> 
               </div>
             </div>
 
@@ -118,7 +116,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Foot
      
         </div>
       
-      <div id="card-arquivo" class="card-arquivo fechado">
+      <div id="card-arquivo<?=$numeroAtividade?>" class="card-arquivo fechado">
             <div class="arquivo">
               <div class="previa-arquivo">
                 <img src="./Imagens/pdfIcon.png" alt="">
@@ -132,50 +130,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Foot
 
       <?php }?>
 
-      <div id="atividade2" class="atividade">     
-          <div id="card-atividade2" class="card-atividade" onclick="abrirPrevia('atividade2', 'card-arquivo2')">
-            <div class="bloco1">
-              <div class="icone-atividade">
-                <img src="./Imagens/checklist.png" alt="">
-              </div>
-              
-            </div>
-
-            <div class="bloco2">
-              <div class="titulo-atividade">
-                <h3>ATIVIDADE AVALIATIVA - TEÓRICA</h3>
-              </div>
-            
-              <div class="data-entrega">
-                <img src="./Imagens/Time-Circle.png" alt=""><p>16h30 ás 18h15</p> 
-              </div>
-            </div>
-
-            <div class="bloco3">
-            <img src="./Imagens/arrow.png" alt="">
-            <h3>DATA: 21/10</h3>
-            
-          </div>
-     
-     
-        </div>
       
-      <div id="card-arquivo2" class="card-arquivo">
-            <div class="arquivo">
-              <div class="previa-arquivo">
-                <img src="./Imagens/pdfIcon.png" alt="">
-                <p>Arquivo 1- "Histotia do Power Soccer"</p>
-              </div>
-              <button>Baixar Arquivos</button>
-              
-            </div>
-          </div>
-      </div>
 
     </form>
     
   </div>
 </div>
+
 
 
 

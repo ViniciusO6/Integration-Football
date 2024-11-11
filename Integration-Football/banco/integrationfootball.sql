@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07/11/2024 às 07:23
+-- Tempo de geração: 11/11/2024 às 06:26
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -43,8 +43,35 @@ CREATE TABLE `alunos` (
 --
 
 INSERT INTO `alunos` (`id_aluno`, `data_nasc`, `cpf_aluno`, `telefone_aluno`, `nome_aluno`, `email_aluno`, `senha`, `id_turma`) VALUES
-(1, '0000-00-00', 0, 0, 'Maria Eduarda', 'maria@aluno.sp.gov.br', '1234', 1),
-(4, '2007-06-13', 390111080, 968080107, 'Vinicius Augusto Rodrigues', 'vinicius.silva2029@etec.sp.gov.br', 'vinicius123', 1);
+(1, '0000-00-00', 0, 0, 'maria eduarda', 'maria@aluno.sp.gov.br', '1234', 1),
+(4, '2007-06-13', 390111080, 968080107, 'Vinicius Augusto rodrigues', 'vinicius.silva2029@etec.sp.gov.br', 'vinicius123', 1),
+(5, '2007-11-14', 11108019, 968080107, 'Arthur Oliveira', 'arthuroliveira@gmail.com', '123', 1),
+(6, '2007-04-20', 390108019, 968080107, 'Joana Silva', 'joanasilva@gmail.com', '1234', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `atividade`
+--
+
+CREATE TABLE `atividade` (
+  `id_atividade` int(10) UNSIGNED NOT NULL,
+  `titulo_atividade` varchar(80) NOT NULL,
+  `hora_inicio` time DEFAULT NULL,
+  `data_entrega` date NOT NULL,
+  `caminho_arquivo` varchar(255) NOT NULL,
+  `id_turma` int(10) UNSIGNED NOT NULL,
+  `id_professor` int(11) NOT NULL,
+  `hora_termino` time DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `atividade`
+--
+
+INSERT INTO `atividade` (`id_atividade`, `titulo_atividade`, `hora_inicio`, `data_entrega`, `caminho_arquivo`, `id_turma`, `id_professor`, `hora_termino`) VALUES
+(1, 'ATIVIDADE AVALIATIVA - TEÓRICA', '19:12:15', '2024-11-20', '', 1, 5, '20:17:03'),
+(2, 'Atividade Pratica - 1° Bimestre', '14:30:00', '2024-11-26', '', 1, 5, '15:30:59');
 
 -- --------------------------------------------------------
 
@@ -120,7 +147,7 @@ CREATE TABLE `modalidade` (
 --
 
 INSERT INTO `modalidade` (`id`, `nome_modalidade`, `descricao`) VALUES
-(1, 'power soccer\r\n', 'akjsxkjaskjxas'),
+(1, 'Power Soccer\r\n', ''),
 (2, 'walking football', ''),
 (3, 'walkin football', 'dfdf'),
 (4, 'poweer soccer', 'de');
@@ -147,7 +174,10 @@ CREATE TABLE `professores` (
 
 INSERT INTO `professores` (`id`, `nome_professor`, `cpf_professor`, `data_nasc`, `email_professor`, `senha`, `telefone_professor`) VALUES
 (1, 'roberto', 0, '0000-00-00', 'roberto@professor.sp.gov.br', '12345', 0),
-(5, 'Carlos Alberto', 461294790, '1970-11-14', 'carlosalberto@gmail.com', 'carlos1234', 1196808010);
+(5, 'Carlos Alberto', 461294790, '1970-11-14', 'carlosalberto@gmail.com', 'carlos1234', 1196808010),
+(6, 'Maria Silva', 2147483647, '1985-06-23', 'maria.silva@example.com', 'maria1234', 2147483647),
+(7, 'João Pereira', 2147483647, '1992-03-15', 'joao.pereira@example.com', 'joao1234', 2147483647),
+(8, 'Ana Oliveira', 2147483647, '1978-12-05', 'ana.oliveira@example.com', 'ana1234', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -168,7 +198,8 @@ CREATE TABLE `turma` (
 --
 
 INSERT INTO `turma` (`id_turma`, `nome_turma`, `id_professor`, `id_instituicao`, `id_modalidade`) VALUES
-(1, 'A', 5, 1, 1);
+(1, 'A', 5, 1, 1),
+(2, 'A', 5, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -210,6 +241,14 @@ INSERT INTO `unidade` (`id`, `nome_unidade`, `cep`, `telefone`, `email`, `endere
 ALTER TABLE `alunos`
   ADD PRIMARY KEY (`id_aluno`),
   ADD KEY `fk_alunos_turma` (`id_turma`);
+
+--
+-- Índices de tabela `atividade`
+--
+ALTER TABLE `atividade`
+  ADD PRIMARY KEY (`id_atividade`),
+  ADD KEY `id_turma` (`id_turma`),
+  ADD KEY `id_professor` (`id_professor`);
 
 --
 -- Índices de tabela `inscricao`
@@ -258,7 +297,13 @@ ALTER TABLE `unidade`
 -- AUTO_INCREMENT de tabela `alunos`
 --
 ALTER TABLE `alunos`
-  MODIFY `id_aluno` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_aluno` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de tabela `atividade`
+--
+ALTER TABLE `atividade`
+  MODIFY `id_atividade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `inscricao`
@@ -282,13 +327,13 @@ ALTER TABLE `modalidade`
 -- AUTO_INCREMENT de tabela `professores`
 --
 ALTER TABLE `professores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `turma`
 --
 ALTER TABLE `turma`
-  MODIFY `id_turma` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_turma` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `unidade`
@@ -305,6 +350,13 @@ ALTER TABLE `unidade`
 --
 ALTER TABLE `alunos`
   ADD CONSTRAINT `fk_alunos_turma` FOREIGN KEY (`id_turma`) REFERENCES `turma` (`id_turma`);
+
+--
+-- Restrições para tabelas `atividade`
+--
+ALTER TABLE `atividade`
+  ADD CONSTRAINT `atividade_ibfk_1` FOREIGN KEY (`id_turma`) REFERENCES `turma` (`id_turma`),
+  ADD CONSTRAINT `atividade_ibfk_2` FOREIGN KEY (`id_professor`) REFERENCES `professores` (`id`);
 
 --
 -- Restrições para tabelas `turma`
