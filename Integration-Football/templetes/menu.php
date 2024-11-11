@@ -48,7 +48,7 @@
             <div id="navbar-part-1">
                     <li><a href="HomePage.php">Home</a></li>
                     <li><a href="Unidades.php">Unidades</a></li>
-                    <li><a href="SobreNos.html">Sobre-nós</a></li>
+                    <li><a href="SobreNos.php">Sobre-nós</a></li>
                     <li><a href="Contatos.php">Contato</a></li>
 
             </div>
