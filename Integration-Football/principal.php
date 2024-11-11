@@ -1,4 +1,8 @@
 <?php 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/alunocontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/turmacontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/atividadecontroller.php';
+
 
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
@@ -13,6 +17,22 @@
   $pageJS = ["principal.js"];
 
   include_once('./templetes/headerAluno.php');
+
+  $id = 4;
+
+  $alunocontroller = new alunocontroller();
+  $aluno = $alunocontroller->buscarPorId($id);
+
+  $turmacontroller = new TurmaController();
+  $turma = $turmacontroller->buscarPorId($aluno['id_turma']);
+
+  $atividadecontroller = new AtividadeController();
+  $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
+
+  
+
+
+
 
 ?>
 
@@ -51,6 +71,12 @@
 
         <h1 id="titulo">ATIVIDADES</h1>
 
+
+        <?php
+        
+        
+        
+        foreach ($atividades as $atividade) {?>
         <div id="atividade" class="atividade">     
           <div id="card-atividade" class="card-atividade" onclick="abrirPrevia('atividade', 'card-arquivo')">
             <div class="bloco1">
@@ -62,18 +88,31 @@
 
             <div class="bloco2">
               <div class="titulo-atividade">
-                <h3>ATIVIDADE AVALIATIVA - TEÓRICA</h3>
+                <h3><?= $atividade['titulo_atividade'] ?></h3>
               </div>
             
               <div class="data-entrega">
-                <img src="./Imagens/Time-Circle.png" alt=""><p>16h30 ás 18h15</p> 
+                <img src="./Imagens/Time-Circle.png" alt=""><p><?= $hora = substr($atividade['hora_entrega'],0,-6); ?>h<?= $minutos = substr($atividade['hora_entrega'],3,-3); ?></p> 
               </div>
             </div>
 
             <div class="bloco3">
             <img src="./Imagens/arrow.png" alt="">
-            <h3>DATA: 21/10</h3>
-            
+            <h3>DATA: <?php
+              $data = $atividade['data_entrega'];
+              $data = explode('-', $data);
+              $dataDormatada = $data[2] . '/' . $data[1];
+              
+
+
+
+             ?>
+             <?=
+             $dataDormatada;
+             ?>
+             
+            </h3>
+          
           </div>
      
      
@@ -90,6 +129,8 @@
             </div>
           </div>
       </div>
+
+      <?php }?>
 
       <div id="atividade2" class="atividade">     
           <div id="card-atividade2" class="card-atividade" onclick="abrirPrevia('atividade2', 'card-arquivo2')">
