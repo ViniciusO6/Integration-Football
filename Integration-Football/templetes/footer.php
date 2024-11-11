@@ -27,7 +27,7 @@
                 <h4>Se inscreva!</h4>
                 <div class="form-sub">
                     <form>
-                    <input type="email" name="input6" id="emailInput" placeholder="Digite seu email:" required>
+                    <input type="email" name="input6" id="emailInput" placeholder="Digite seu email:">
 <button type="submit" id="subscribeButton">Subscrever</button>
 
                     </form>
