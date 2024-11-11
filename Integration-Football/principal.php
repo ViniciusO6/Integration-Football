@@ -28,8 +28,22 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Foot
 
   $atividadecontroller = new AtividadeController();
   $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
-
 ?>
+
+<style>
+<?php  
+  foreach($atividades as $atividade){ 
+    echo "
+    
+    .dia".$atividade['data_entrega']."{
+        border-color: rgba(217, 162, 42, 1) !important;
+      }
+
+    ";
+  } 
+?>
+</style>
+
 
 
 

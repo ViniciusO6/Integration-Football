@@ -6,6 +6,8 @@ prevNextIcon = document.querySelectorAll("#btns img");
 let date = new Date();
 currYear = date.getFullYear();
 currMonth = date.getMonth();
+currMonthNumber = date.getMonth() + 1;
+
 
 const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
@@ -24,7 +26,7 @@ const renderCalendar = () => {
         let isToday = i === date.getDate() && currMonth === new Date().getMonth()
                     && currYear === new Date().getFullYear() ? "active" : "";
 
-        diaTag += `<div class="${isToday}" id="dia"><p>${i}</p></div>`;  
+        diaTag += `<div class="${isToday} dia${currYear}-${currMonthNumber}-${i}" id="dia"><p>${i}</p></div>`;  
     }
 
     for(let i = lastDayofMonth; i < 6; i++){
@@ -35,12 +37,17 @@ const renderCalendar = () => {
     currentDate.innerText = `${months[currMonth]} ${currYear}`;
     daysTag.innerHTML = diaTag;
 }
-renderCalendar()
+renderCalendar()//anotação: passar por parametro os dias de atividade para adicionar como #id, e de alguma forma indicar o dia correto
 
 prevNextIcon.forEach(icon => {
     icon.addEventListener("click", () => {
         console.log(icon);
         currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+        if(currMonth > 11){
+            currMonth = 11;
+        }else if(currMonth < 1){
+            currMonth = 0;
+        }
         renderCalendar();
     });
 });
