@@ -36,21 +36,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['escolha'])) {
     $_SESSION['modalidadeInscrito'] = $_POST['escolha'];
 }
 
-// Captura os dados da sessão com valores padrão
-$nome_inscrito = $_SESSION['nome_inscrito'] ?? ''; // Continua vazio se não definido
-$email_inscrito = $_SESSION['email_inscrito'] ?? ''; // Continua vazio se não definido
-$cpf_inscrito = $_SESSION['Cpf_inscrito'] ?? '00000000000'; // Atribui um valor padrão
-$rg_inscrito = $_SESSION['RG_inscrito'] ?? '000000000'; // Atribui um valor padrão
-$data_nasc = $_SESSION['data_nasc'] ?? ''; // Continua vazio se não definido
-$genero_inscrito = $_SESSION['genero_inscrito'] ?? ''; // Continua vazio se não definido
-$deficiencia = $_SESSION['deficiencia'] ?? ''; // Continua vazio se não definido
-$nome_responsavel = $_SESSION['nomeResponsavel'] ?? 'Nome Padrão'; // Atribui um valor padrão
-$cpf_responsavel = $_SESSION['CpfResponsavel'] ?? '00000000000'; // Atribui um valor padrão
-$rg_responsavel = $_SESSION['RgReponsavel'] ?? '000000000'; // Atribui um valor padrão
-$email_responsavel = $_SESSION['emailResponsavel'] ?? ''; // Continua vazio se não definido
-$telefoneresponsavel = $_SESSION['telResponsavel'] ?? ''; // Continua vazio se não definido
+
+$nome_inscrito = $_SESSION['nome_inscrito'] ?? ''; 
+$email_inscrito = $_SESSION['email_inscrito'] ?? ''; 
+$telefone_inscrito = $_SESSION['telefone_inscrito'] ?? '';
+$Cpf_inscrito = $_SESSION['Cpf_inscrito'] ?? '0'; 
+$RG_inscrito = $_SESSION['RG_inscrito'] ?? '0';
+$data_nasc = $_SESSION['data_nasc'] ?? ''; 
+$genero_inscrito = $_SESSION['genero_inscrito'] ?? ''; 
+$deficiencia_qual = $_SESSION['deficiencia_qual'] ?? '0'; 
+$nome_responsavel = $_SESSION['nomeResponsavel'] ?? '0'; 
+$cpf_responsavel = $_SESSION['CpfResponsavel'] ?? '0'; 
+$rg_responsavel = $_SESSION['RgReponsavel'] ?? '0'; 
+$email_responsavel = $_SESSION['emailResponsavel'] ?? '0'; // Continua vazio se não definido
+$telefoneresponsavel = $_SESSION['telResponsavel'] ?? '0'; // Continua vazio se não definido
 $modalidadeInscrito = $_SESSION['modalidadeInscrito'] ?? ''; // Continua vazio se não definido
 $unidade = $_SESSION['unidadeInscrito'] ?? ''; // Continua vazio se não definido
+
+
+var_dump($_POST);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proximo'])) {
     // Verifica se a modalidade foi escolhida
@@ -62,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proximo'])) {
         $senha_hash = password_hash($senha_inscrito, PASSWORD_DEFAULT); // Hasheia a senha
 
         // Prepara a instrução SQL para inserir os dados no banco
-        $stmt = $conn->prepare("INSERT INTO inscricao (nome_inscrito, email_inscrito, senha_inscrito, Cpf_inscrito, RG_inscrito, data_nasc, genero_inscrito, deficiencia, nomeResponsavel, CpfResponsavel, RgReponsavel, emailResponsavel, telResponsavel, modalidadeInscrito, unidadeInscrito) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO inscricao (nome_inscrito, telefone_inscrito, email_inscrito, senha_inscrito, Cpf_inscrito, RG_inscrito, data_nasc, genero_inscrito, deficiencia, nomeResponsavel, CpfResponsavel, RgReponsavel, emailResponsavel, telResponsavel, modalidadeInscrito, unidadeInscrito) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         if (!$stmt) {
             die("Erro ao preparar a declaração: " . $conn->error);
         }
@@ -70,13 +74,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proximo'])) {
         // Determina a string de tipos
         $params = [
             $nome_inscrito,
+            $telefone_inscrito,
             $email_inscrito,
             $senha_hash, // Insere o hash da senha
-            $cpf_inscrito,
-            $rg_inscrito,
+            $Cpf_inscrito,
+            $RG_inscrito,
             $data_nasc,
             $genero_inscrito,
-            $deficiencia,
+            $deficiencia_qual,
             $nome_responsavel,
             $cpf_responsavel,
             $rg_responsavel,
