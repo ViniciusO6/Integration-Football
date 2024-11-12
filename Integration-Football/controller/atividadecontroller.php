@@ -21,7 +21,7 @@ class AtividadeController
                 $this->deletar();
             }
 
-            header("Location:" . "../principal.php"); // Redireciona para outra página após a operação
+            header("Location:" . "../calendarioProfessor.php"); // Redireciona para outra página após a operação
             exit; // Adicionado o exit para garantir que o código pare após o redirecionamento
         } else {
             $this->listar();
@@ -100,4 +100,3 @@ class AtividadeController
 
 // Instancia a classe AtividadeController
 new AtividadeController();
-?>

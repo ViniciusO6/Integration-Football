@@ -84,8 +84,81 @@ function abrirPrevia(IDAtividade, IDCard) {
   DivCardArquivo.classList.toggle("aberto");
 }
 
+<<<<<<< Updated upstream
 if (file) {
   document.getElementById("file-text").innerHTML = file.name;
 } else {
   document.getElementById("fileName").textContent = "";
 }
+=======
+// Código do Input
+
+document.getElementById("file-text").value = "";
+
+document.getElementById("input-arquivo").addEventListener("click", function () {
+  document.getElementById("files").click();
+});
+
+// Atualiza o campo de texto e exibe o botão "Cancelar" após selecionar um arquivo
+document.getElementById("files").addEventListener("change", function () {
+  var file = document.getElementById("files").files[0];
+  var fileText = document.getElementById("file-text");
+  var cancelarBtn = document.getElementById("cancelar");
+
+  if (file) {
+    fileText.value = file.name; // Exibe o nome do arquivo
+    fileText.style.width = "84%"; // Reduz a largura do campo para 80%
+    cancelarBtn.style.display = "flex"; // Exibe o botão "Cancelar"
+  }
+});
+
+// Limpa o campo de texto e oculta o botão "Cancelar" ao clicar no botão "Cancelar"
+document.getElementById("cancelar").addEventListener("click", function () {
+  var fileText = document.getElementById("file-text");
+  var cancelarBtn = document.getElementById("cancelar");
+
+  document.getElementById("files").value = ""; // Limpa o campo de arquivo
+  fileText.value = ""; // Limpa o campo de texto
+  fileText.style.width = "100%"; // Redefine a largura para 100%
+  cancelarBtn.style.display = "none"; // Oculta o botão "Cancelar"
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const dataEntregaInput = document.getElementById("data_entrega");
+
+  // Define as datas mínima e máxima
+  const hoje = new Date();
+  const anoAtual = hoje.getFullYear();
+  const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+  const dia = String(hoje.getDate()).padStart(2, "0");
+
+  // Ajuste do intervalo mínimo e máximo para hoje e o final do ano
+  const dataMin = `${anoAtual}-${mes}-${dia}`; // dataMin no formato yyyy-mm-dd
+  const dataMax = `${anoAtual}-12-31`; // dataMax no formato yyyy-mm-dd
+
+  // Aplica os valores de limite no campo de data
+  dataEntregaInput.min = dataMin;
+  dataEntregaInput.max = dataMax;
+
+  // Função para formatar a data de forma legível (para exibição)
+  const formatarData = (data) => {
+    const [ano, mes, dia] = data.split("-");
+    return `${dia}/${mes}/${ano}`; // Formato "dd/mm/aaaa"
+  };
+
+  // Adiciona o evento de verificação para quando o campo perde o foco
+  dataEntregaInput.addEventListener("blur", function () {
+    const dataSelecionada = this.value; // Obtém o valor como string no formato yyyy-mm-dd
+
+    // Compara as datas diretamente como strings (sem horas, minutos ou segundos)
+    if (dataSelecionada < dataMin || dataSelecionada > dataMax) {
+      this.value = ""; // Limpa o campo
+      alert(
+        `Data Inválida! Selecione uma data entre hoje (${formatarData(
+          dataMin
+        )}) e o final do ano (${formatarData(dataMax)}).`
+      );
+    }
+  });
+});
+>>>>>>> Stashed changes

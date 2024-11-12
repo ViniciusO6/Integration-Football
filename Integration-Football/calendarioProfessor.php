@@ -45,7 +45,7 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
     echo "
     
     .dia" . $atividade['data_entrega'] . "{
-        border-color: rgba(217, 162, 42, 1) !important;
+        border-color: #079b4e !important;
       }
     
     .evento" . $atividade['data_entrega'] . ".tooltip:hover .tooltip-text {
@@ -140,6 +140,7 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
 
         </div>
 
+        <!-- Formulario Postar Atividade -->
         <div id="card-arquivo" class="card-arquivo fechado">
           <div class="arquivo">
             <form action="controller/atividadecontroller.php" method="POST" name="formulario">
@@ -156,10 +157,18 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
 
                 <div class="inputs">
                   <input type="text" name="titulo_atividade" required>
-                  <input type="date" name="data_entrega" required>
+                  <input type="date" name="data_entrega" id="data_entrega" required>
                   <input type="time" name="hora_inicio" required>
                   <input type="time" name="hora_termino" required>
-                  <button id="input-arquivo" type="button" required>Escolher arquivo</button>
+
+                  <div class="opcoes-arquivos">
+                    <input type="text" id="file-text" for="input-arquivo" placeholder="Nenhum arquivo selecionado" disabled>
+
+                    <div id="cancelar">
+                      <img src="Imagens/buttonCancel.svg" alt="" draggable="false">
+                    </div>
+                  </div>
+
                   <input id="files" type="file" name="caminho_arquivo" value="">
 
                   <!-- hidden -->
@@ -169,10 +178,16 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
                 </div>
 
               </div>
-              <button type="submit" id="publicar">Publicar Evento</button>
+              <div class="botoes">
+                <button id="input-arquivo" type="button" required>Escolher arquivo</button>
+                <button type="submit" id="publicar">Publicar Evento</button>
+
+              </div>
             </form>
           </div>
         </div>
+        <!-- Fim -->
+
 
       </div>
       <h1 id="titulo-tarefas">ATIVIDADES ATRIBUIDAS</h1>

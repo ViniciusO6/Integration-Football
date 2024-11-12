@@ -213,17 +213,16 @@ h3 {
 
 #publicar {
   background-color: #07cb65;
-  border-radius: 10px;
-  width: 150px;
-  height: 40px;
+  border-radius: 5px;
+  width: 140px;
+  height: 30px;
   font-weight: bold;
   outline: none;
   border: none;
   float: right;
-  margin-right: 30px;
-  margin-bottom: 15px;
+  margin-right: 7%;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   transition: transform 0.3s ease;
 }
 
@@ -273,7 +272,7 @@ h3 {
   height: 30px;
   width: 140px;
   border-radius: 5px;
-  margin-left: 5%;
+  margin-left: 4%;
   color: black;
   font-weight: normal;
   font-size: 14px;
@@ -286,8 +285,51 @@ h3 {
   color: #ffffff;
 }
 
+.botoes {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.opcoes-arquivos {
+  display: flex;
+  width: 100%;
+  height: 30%;
+}
+
+#cancelar {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  background-color: #ab0303;
+  margin-left: 5px;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+#cancelar img {
+  width: 25px;
+}
+
+#cancelar:hover {
+  background-color: #750000;
+}
+
+#file-text {
+  width: 100%;
+}
+
 #files {
   display: none;
+}
+
+label {
+  margin-left: 5%;
+  font-size: 14px;
+  color: #999999;
 }
 
 .previa-arquivo img {
@@ -325,7 +367,7 @@ h3 {
 .cartao-tarefa {
   width: 100%;
   height: 120px;
-  background-color: #80c4859c;
+  background-color: #07cb66ce;
   display: flex;
   border-radius: 10px;
   cursor: pointer;
