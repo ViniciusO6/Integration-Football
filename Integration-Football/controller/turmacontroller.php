@@ -63,6 +63,12 @@ class TurmaController
         return $this->turma->buscarProfessor($id);
     }
 
+    //Método para buscar Turma
+    public function buscarTurma($idTurma)
+    {
+        return $this->turma->buscarTurma($idTurma);
+    }
+
     // Método para atualizar os dados de uma turma
     public function atualizar()
     {

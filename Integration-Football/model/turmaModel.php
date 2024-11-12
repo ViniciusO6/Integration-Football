@@ -91,9 +91,26 @@ class Turma
 
     public function buscarProfessor($id)
     {
-        $sql = "SELECT id_turma, nome_turma FROM turma WHERE id_professor = ?";
+        $sql = "SELECT id_turma, nome_turma, id_modalidade FROM turma WHERE id_professor = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $turmas = []; // Inicializa o array para armazenar os resultados
+
+        // Adiciona as turmas ao array
+        while ($turma = $result->fetch_assoc()) {
+            $turmas[] = $turma; // Adiciona cada turma ao array
+        }
+        return $turmas;
+    }
+
+
+    public function buscarTurma($idTurma)
+    {
+        $sql = "SELECT * FROM turma WHERE id_turma = ?";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $idTurma);
         $stmt->execute();
         $result = $stmt->get_result();
         $turmas = []; // Inicializa o array para armazenar os resultados

@@ -5,6 +5,7 @@ class ModalidadeController
 {
     private $modalidade;
 
+
     public function __construct()
     {
         // Instancia um objeto da classe Modalidade
@@ -67,6 +68,12 @@ class ModalidadeController
         return $this->modalidade->buscarPorId($id); // Retorna a modalidade encontrada pelo ID
     }
 
+    // Método para buscar um nome modalidade 
+    public function buscarNomeModalidade($idmodalidade)
+    {
+        return $this->modalidade->buscarNomeModalidade($idmodalidade); // Retorna a modalidade encontrada pelo ID
+    }
+
     // Método para atualizar os dados de uma modalidade
     public function atualizar()
     {
@@ -85,4 +92,3 @@ class ModalidadeController
 
 // Instancia a classe ModalidadeController
 new ModalidadeController();
-?>

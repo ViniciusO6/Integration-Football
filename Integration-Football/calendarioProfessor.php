@@ -10,7 +10,7 @@ $imports = [
 ];
 $titulo = 'Calendário | Professor';
 $pageCSS = ["calendarioProfessor.css"];
-$pageJS = ["principal.js"];
+$pageJS = ["calendarioProfessor.js"];
 
 include_once('./templetes/headerProfessor.php');
 
@@ -49,7 +49,7 @@ include_once('./templetes/headerProfessor.php');
 
 
 
-      <h1 id="titulo">ATIVIDADES</h1>
+      <h1 id="titulo">ATRIBUIR ATIVIDADE</h1>
 
       <div id="atividade" class="atividade">
         <div id="card-atividade" class="card-atividade" onclick="abrirPrevia('atividade', 'card-arquivo')">
@@ -111,7 +111,33 @@ include_once('./templetes/headerProfessor.php');
   </div>
 </div>
 
+<style>
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
 
+  .tooltip-text {
+    visibility: hidden;
+    font-size: 12px;
+    width: 150px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    /* Posiciona o tooltip acima da div */
+    left: 50%;
+    margin-left: -75px;
+    /* Ajusta para centralizar */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+</style>
 
 
 

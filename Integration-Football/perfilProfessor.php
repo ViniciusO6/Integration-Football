@@ -17,21 +17,41 @@ $imports = [
 ];
 $titulo = 'Meu Perfil | Professor';
 $pageCSS = ["perfilProfessor.css"];
-$pageJS = ["perfilAluno.js"];
+$pageJS = ["perfilProfessor.js"];
 
-include_once('./templetes/menu.php');
+include_once('./templetes/headerProfessor.php');
 
 $id = 5;
+$idModalidade;
+
 $professorController = new ProfessorController;
 $professor = $professorController->buscarPorId($id);
 
 $turmaController = new TurmaController;
-$id_turmas = $turmaController->buscarProfessor($id);
+$dados_turmas = $turmaController->buscarProfessor($id);
 
 $modalidadeController = new ModalidadeController;
 $modalidade = $modalidadeController->buscarPorId($id);
-
+$nomeModalidade = $modalidadeController->buscarNomeModalidade($dados_modalidade['id_modalidade']);
+print_r($nomeModalidade);
 ?>
+
+<script>
+  <?php
+  foreach ($dados_turmas as $dados_modalidade) {
+
+    echo $nomeModalidade;
+  ?>
+
+
+    <?php
+    echo "let nomeModalidade = " . $nomeModalidade;
+    ?>
+
+
+  <?php } ?>
+</script>
+
 
 <div class="container">
   <div id="perfil">
@@ -58,7 +78,7 @@ $modalidade = $modalidadeController->buscarPorId($id);
                 <option value="" disabled selected hidden></option>
                 <?php
                 // Itera sobre o array $id_turmas, que agora já contém informações completas das turmas
-                foreach ($id_turmas as $turma) {
+                foreach ($dados_turmas as $turma) {
                   // A variável $turma agora é um array com 'id_turma' e 'nome_turma'
                   echo "<option value='" . $turma['id_turma'] . "'>Turma " . htmlspecialchars($turma['nome_turma']) . "</option>";
                 }
@@ -69,13 +89,10 @@ $modalidade = $modalidadeController->buscarPorId($id);
 
             <div id="modalidade">
               <label for="input-modalidade">Modalidade</label>
-              <select id="select">
-                <option value="" disabled selected hidden></option>
-                <?php
+              <input id="input-modalidade" type="text" disabled value="<? ?>">
+              <?php
 
-                ?>
-                <option>Modalidade 1</option>
-              </select>
+              ?>
             </div>
 
 

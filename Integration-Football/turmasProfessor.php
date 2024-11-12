@@ -8,7 +8,7 @@ $imports = [
     "https://fonts.gstatic.com/",
     "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
 ];
-$titulo = 'Professores';
+$titulo = 'Turmas | Professor';
 $pageCSS = ["turmasprofessores.css"];
 $pageJS = ["consulta.js"];
 
