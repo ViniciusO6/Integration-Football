@@ -1,5 +1,8 @@
 <?php
-
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/alunocontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/professorcontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/turmacontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/modalidadecontroller.php';
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
 $imports = [
@@ -12,15 +15,139 @@ $titulo = 'Turmas | Professor';
 $pageCSS = ["turmasprofessores.css"];
 $pageJS = ["consulta.js"];
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $id_modalidade = $_POST['modalidade'];
+    $turmacontroller = new turmacontroller();
+    print_r($id_modalidade);
+}
+
+
 include_once('./templetes/headerProfessor.php');
 
+$id_professor = 5;
 ?>
+
+
+<script>
+
+function enviarModalidade() {
+            // Pega o valor da opção selecionada
+            var modalidade = document.getElementById("select-modalidade").value;
+            let tipo = "buscarTurmas";
+
+            // Cria um objeto XMLHttpRequest para enviar a requisição AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "ajax.php", true); // "processar.php" é o script PHP que processará o valor
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Cabeçalho para enviar dados do tipo POST
+
+            // Envia o valor do select (modalidade) para o PHP
+            xhr.send("modalidade=" + modalidade +"&tipo="+ tipo);
+
+            // Quando a requisição for completada, exibe a resposta recebida
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    document.getElementById("select-turma").innerHTML = xhr.responseText;
+                }
+            };
+        }
+
+        function filtrar() {
+            let tipo = "filtrar";
+            // Pega o valor da opção selecionada
+            var modalidade = document.getElementById("select-modalidade").value;
+            var turma = document.getElementById("select-turma").value;
+
+            // Cria um objeto XMLHttpRequest para enviar a requisição AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "ajax.php", true); // "processar.php" é o script PHP que processará o valor
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Cabeçalho para enviar dados do tipo POST
+
+            // Envia o valor do select (modalidade) para o PHP
+            xhr.send("modalidade=" + modalidade + "&turma=" +turma +"&tipo="+ tipo);
+
+            // Quando a requisição for completada, exibe a resposta recebida
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    document.getElementById("nomes-alunos").innerHTML = xhr.responseText;
+                }
+            };
+
+            setTimeout(function(){
+                tipo = "carregarEmail";
+
+                var modalidade = document.getElementById("select-modalidade").value;
+                var turma = document.getElementById("select-turma").value;
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "ajax.php", true); 
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+                xhr.send("modalidade=" + modalidade + "&turma=" +turma +"&tipo="+ tipo);
+
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        document.getElementById("contato-alunos").innerHTML = xhr.responseText;
+                    }
+                };
+
+            },1)
+
+            setTimeout(function(){
+            let tipo = "carregarNomeTurma";
+            // Cria um objeto XMLHttpRequest para enviar a requisição AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "ajax.php", true); // "processar.php" é o script PHP que processará o valor
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Cabeçalho para enviar dados do tipo POST
+
+            // Envia o valor do select (modalidade) para o PHP
+            xhr.send("modalidade=" + modalidade + "&turma=" +turma +"&tipo="+ tipo);
+
+            // Quando a requisição for completada, exibe a resposta recebida
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    document.getElementById("Turma").innerHTML = xhr.responseText;
+                }
+            };
+
+            },1)
+            
+            
+        }
+
+        function carregarNomeTurma() {
+            let tipo = "carregarNomeTurma";
+            // Cria um objeto XMLHttpRequest para enviar a requisição AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "ajax.php", true); // "processar.php" é o script PHP que processará o valor
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Cabeçalho para enviar dados do tipo POST
+
+            // Envia o valor do select (modalidade) para o PHP
+            xhr.send("modalidade=" + modalidade + "&turma=" +turma +"&tipo="+ tipo);
+
+            // Quando a requisição for completada, exibe a resposta recebida
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    document.getElementById("Turma").innerHTML = xhr.responseText;
+                }
+            };
+        }
+
+</script>
+
+<?php
+
+?>
+
+
+
+
+
 
 <div class="container">
     <div id="consulta">
 
 
-        <form id="form" action="">
+        <div id="form" action="">
             <h1 id="titulo">PROFESSORES</h1>
 
 
@@ -40,57 +167,66 @@ include_once('./templetes/headerProfessor.php');
             <!-- TABLE -->
 
             <div id="table">
-                <div id="nomes-professores">
-                    <div id="tr-nome">
-                        <p>Lucas Henrique Pereira Souza</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
-
-                    <div id="tr-nome">
-                        <p>Ana Beatriz Mendes Ferreira</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
-
-                    <div id="tr-nome">
-                        <p>Gabriel Eduardo Ramos Oliveira</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
-
-                    <div id="tr-nome">
-                        <p>Pedro Lucas Marins Golçalves</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
+                <div class="nomes-table " id="nomes-professores">
+                    <?php
+                    $professorcontroller = new professorcontroller();
+                    $professores = $professorcontroller->listar();
+                    foreach ($professores as $professor) {
+                    ?>
+                        <div id="tr-nome">
+                            <p><?= $professor['nome_professor']; ?></p>
+                            <div class="separador-horizontal"></div>
+                        </div>
+                    <?php } ?>
                 </div>
 
                 <div class="separador-vertical"></div>
 
-                <div id="contato-professores">
-                    <div id="tr-nome">
-                        <p>Lucas Henrique Pereira Souza</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
+                <div class="contatos" id="contato-professores">
 
-                    <div id="tr-nome">
-                        <p>Ana Beatriz Mendes Ferreira</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
 
-                    <div id="tr-nome">
-                        <p>Gabriel Eduardo Ramos Oliveira</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
 
-                    <div id="tr-nome">
-                        <p>Pedro Lucas Marins Golçalves</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
+                    <?php
+                    foreach ($professores as $professor) {
+                    ?>
+                        <div id="tr-nome">
+                            <p><?= $professor['email_professor']; ?></p>
+                            <div class="separador-horizontal"></div>
+                        </div>
+                    <?php } ?>
+
+
                 </div>
 
             </div>
 
             <br><br>
-
+            
+            
             <h1 id="titulo">ALUNOS</h1>
+            <form id="form-filtro">
+                <?php 
+                $modalidadecontroller = new modalidadecontroller();
+                $modalidades = $modalidadecontroller->listar();
+                ?>
+                <select require name="modalidade" id="select-modalidade" onChange="enviarModalidade()">
+                    <option value="" disabled selected hidden>Escolha uma modalidade</option>
+                    <?php
+                    $i = 0;
+                    foreach ($modalidades as $modalidade) {
+                    $i++;
+                    echo "<option id='".$i."' value='" . $modalidade['id'] . "'>" . htmlspecialchars($modalidade['nome_modalidade']) . "</option>";
+                    }
+                    ?>
+                </select>
+                <select require name="turma" id="select-turma" onChange="">
+                    <option value="0" disabled selected hidden>Escolha uma turma</option>
+                    
+                </select>
+                <button onclick="filtrar()" type="button">Filtrar</button>
+
+                 </form>
+                 <br>
 
 
             <div id="th">
@@ -111,76 +247,60 @@ include_once('./templetes/headerProfessor.php');
                 </div>
             </div>
 
+
             <div id="table">
-                <div id="nomes-professores">
-                    <div id="tr-nome">
-                        <p>Lucas Henrique Pereira Souza</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
-
-                    <div id="tr-nome">
-                        <p>Ana Beatriz Mendes Ferreira</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
-
-                    <div id="tr-nome">
-                        <p>Gabriel Eduardo Ramos Oliveira</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
-
-                    <div id="tr-nome">
-                        <p>Pedro Lucas Marins Golçalves</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
+                <!-- nome dos alunos -->
+                <div class="nomes-table " id="nomes-alunos">
+                <?php
+                    $alunocontroller = new alunocontroller();
+                    $alunos = $alunocontroller->listar();
+                    foreach ($alunos as $aluno) {
+                    ?>
+                        <div id="tr-nome">
+                            <p><?= $aluno['nome_aluno']; ?></p>
+                            <div class="separador-horizontal"></div>
+                        </div>
+                    <?php } ?>
                 </div>
 
                 <div class="separador-vertical"></div>
 
+                <!-- Nome da turma -->
                 <div id="Turma">
-                    <div id="tr-nome">
-                        <p>Turma A</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
+                <?php
+                    $turmacontroller = new TurmaController();
+                    $alunocontroller = new alunocontroller();
+                    $alunos = $alunocontroller->listar();
 
-                    <div id="tr-nome">
-                        <p>Turma B</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
 
-                    <div id="tr-nome">
-                        <p>Turma C</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
-
-                    <div id="tr-nome">
-                        <p>Turma D</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
+                    foreach ($alunos as $aluno) {
+                        $turma = $turmacontroller->buscarTurma($aluno['id_turma']);
+                    foreach($turma as $turmas){
+                    ?>
+                        <div id="tr-nome">
+                            <p><?= $turmas['nome_turma']; ?></p>
+                            <div class="separador-horizontal"></div>
+                        </div>
+                    <?php }} ?>
                 </div>
 
                 <div class="separador-vertical"></div>
 
-                <div id="contato-professores">
-                    <div id="tr-nome">
-                        <p>Lucas Henrique Pereira Souza</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
-
-                    <div id="tr-nome">
-                        <p>Ana Beatriz Mendes Ferreira</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
-
-                    <div id="tr-nome">
-                        <p>Gabriel Eduardo Ramos Oliveira</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
-
-                    <div id="tr-nome">
-                        <p>Pedro Lucas Marins Golçalves</p>
-                        <div class="separador-horizontal"></div>
-                    </div>
+                <div class="contatos" id="contato-alunos">
+                <div class="nomes-table " id="nomes-alunos">
+                <?php
+                    $alunocontroller = new alunocontroller();
+                    $alunos = $alunocontroller->listar();
+                    foreach ($alunos as $aluno) {
+                    ?>
+                        <div id="tr-nome">
+                            <p><?= $aluno['email_aluno']; ?></p>
+                            <div class="separador-horizontal"></div>
+                        </div>
+                    <?php } ?>
                 </div>
+                </div>
+
             </div>
         </form>
     </div>
@@ -188,6 +308,8 @@ include_once('./templetes/headerProfessor.php');
     <br><br><br><br><br>
 
 </div>
+
+
 
 
 

@@ -69,6 +69,17 @@ class TurmaController
         return $this->turma->buscarTurma($idTurma);
     }
 
+    public function buscarPorModalidade($modalidade, $id_professor)
+    {
+        return $this->turma->buscarPorModalidade($modalidade, $id_professor);
+    }
+
+    public function buscarTurmaPorModalidadeTurma($nomeTurma, $modalidade)
+    {
+        return $this->turma->buscarTurmaPorModalidadeTurma($nomeTurma, $modalidade);
+    }
+    
+
     // Método para atualizar os dados de uma turma
     public function atualizar()
     {

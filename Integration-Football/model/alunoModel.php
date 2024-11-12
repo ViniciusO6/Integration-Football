@@ -120,11 +120,11 @@ class Aluno
         $stmt->execute();
     }
 
-
-    public function listar()
+    public function listarAlunosPorTurma($id_turma)
     {
-        $sql = "SELECT * FROM alunos";
+        $sql = "SELECT nome_aluno, email_aluno FROM alunos WHERE id_turma = ? ORDER BY nome_aluno ASC";
         $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $id_turma); // Corrigido para usar $id em vez de $this->id
         $stmt->execute();
         $result = $stmt->get_result();
         $alunos = []; // Inicializa o array para armazenar os resultados
@@ -136,6 +136,20 @@ class Aluno
         return $alunos;
     }
 
+    public function listar()
+    {
+        $sql = "SELECT * FROM alunos ORDER BY nome_aluno ASC LIMIT 10 ";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $alunos = []; // Inicializa o array para armazenar os resultados
+
+        // Utilize uma variável auxiliar para armazenar o resultado de fetch_assoc()
+        while ($aluno = $result->fetch_assoc()) {
+            $alunos[] = $aluno; // Adiciona cada pessoa ao array
+        }
+        return $alunos;
+    }
 
     public function delete($id)
     {
