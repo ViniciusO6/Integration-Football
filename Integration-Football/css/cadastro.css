@@ -1,4 +1,4 @@
-/* Reseta padding e margens de todos os elementos */
+/* Reset de padding e margens de todos os elementos */
 * {
   padding: 0;
   margin: 0;
@@ -11,6 +11,7 @@ body {
   font-family: 'Barlow Condensed', sans-serif;
 }
 
+/* Estilo do container centralizado */
 .container {
   display: flex;
   justify-content: center; /* Centraliza horizontalmente */
@@ -18,26 +19,21 @@ body {
   min-height: auto; /* Altura mínima da tela */
 }
 
-/* CONTENT */
-.content {
-  display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-}
-
+/* Estilo do card */
 .card {
-  margin: 15% auto; /* Margem automática nas laterais e 10% no topo */
-  padding: 80px 100px; /* Padding ajustado */
-  height: 760px; /* Altura fixa */
-  max-width: 900px; /* Largura máxima do card */
-  width: 90%; /* Largura responsiva, ocupa 90% da tela */
-  background-color: white; /* Fundo do card */
-  border-radius: 25px; /* Bordas arredondadas */
-  border: 5px solid #115089; /* Cor e largura da borda */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para efeito de profundidade */
-  margin-top: 100px; /* Aumenta o espaço entre o card e o cabeçalho */
+  margin: 15% auto;
+  padding: 80px 100px;
+  height: 730px;
+  max-width: 800px;
+  width: 60%;
+  background-color: white;
+  border-radius: 25px;
+  border: 5px solid #115089;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
 }
 
+/* Estilo do título no card */
 .card h1 {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 600;
@@ -48,26 +44,11 @@ body {
   margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
-  .card h1 {
-    font-size: 28px; /* Tamanho do título para telas menores */
-    margin-left: -40px; /* Ajusta a margem esquerda */
-  }
-}
-
-@media (max-width: 480px) {
-  .card h1 {
-    font-size: 24px; /* Tamanho do título ainda menor */
-    margin-left: -20px; /* Ajusta a margem esquerda */
-  }
-}
-
-
-/* STYLES */
+/* Estilos gerais para inputs */
 input {
-  width: 100%; /* Responsivo */
-  max-width: 800px; /* Largura máxima do input */
-  padding: 10px 60px; /* Remove espaçamento interno lateral */
+  width: 100%;
+  max-width: 800px;
+  padding: 10px 60px;
   border-radius: 7px;
   margin-bottom: 15px;
   border: 1px solid #115089;
@@ -76,95 +57,342 @@ input {
   background-color: #ffffff;
 }
 
-
+/* Estilos de labels */
 label {
   margin-left: 20px;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.2em; /* Tamanho padrão do label */
+  font-size: 1.2em;
   color: #000000;
   margin-bottom: 5px;
   display: block;
 }
 
+/* Container para inputs com imagens */
 .input-container {
   display: flex;
   align-items: center;
+  margin: auto 20px;
 }
 
+/* Estilo da imagem dentro do input */
 .input-image {
-  align-items: center;
-  margin-right: 40px; /* Mantém a margem direita da imagem */
-  height: auto; /* Permite que a altura se ajuste automaticamente */
-  max-height: 270px; /* Limita a altura máxima da imagem */
-  width: 60%; /* Largura total para responsividade */
-  max-width: 35%; /* Limita a largura máxima da imagem */
+  margin-right: 40px;
+  height: auto;
+  max-height: 270px;
+  width: 60%;
+  max-width: 35%;
 }
 
-input:focus + label {
-  color: var(--color-input);
-  font-weight: bold;
-}
+
 
 .option {
-  display: flex; /* Use flexbox para alinhar os elementos */
-  align-items: center; /* Alinha verticalmente */
-  margin-bottom: 14px; /* Espaço entre as opções */
-  margin-left: 0px;
+  display: flex;
+  justify-content: flex-end;  /* Alinha os itens à direita */
+  align-items: center;        /* Alinha verticalmente */
+  gap: 10px;                  /* Ajusta o espaço entre o radio button e a label */
+  margin-bottom: 14px;
 }
 
+
+/* Ajuste do botão de rádio */
 .form-check-input {
-  margin-top: 10px;
-  transform: scale(1.2); /* Aumenta o tamanho do botão de rádio */
-  margin-right: -48%; /* Reduz o espaço entre o botão e o texto do label */
+  margin: 0;
+  padding: 0;
+  width: 15px;                /* Ajuste para definir um tamanho fixo para o botão de rádio */
+  height: 20px;               /* Define uma altura fixa */
+  vertical-align: middle;     /* Garante que o botão de rádio se alinha verticalmente com a label */
 }
 
-@media (max-width: 768px) {
-  .form-check-input {
-    transform: scale(1); /* Ajusta o tamanho do botão de rádio */
-    margin-right: 5px; /* Menos espaço em telas menores */
-  }
-}
-
-@media (max-width: 480px) {
-  .form-check-input {
-    transform: scale(0.9); /* Reduz ainda mais o tamanho do botão de rádio */
-    margin-right: 5px; /* Ajusta o espaço entre o botão e o texto do label */
-  }
-}
-
-
+/* Ajuste da label */
 .form-check-label {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1em; /* Tamanho padrão do label */
+  font-size: 1.1em;
   color: #000000;
-  white-space: nowrap; /* Impede quebra de linha */
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 20px;          /* Garante o alinhamento da label com o botão de rádio */
+  margin-left: 5px;           /* Ajusta o espaço entre o botão de rádio e a label */
 }
 
+
+
+
+/* Container do botão */
 .button-container {
-  display: flex; /* Usar flexbox para o contêiner */
-  justify-content: center; /* Centraliza o conteúdo horizontalmente */
-  margin-top: 40px; /* Espaço acima do botão, se necessário */
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
 }
 
+/* Estilo do botão */
 #proximo {
   font-size: 1.2em;
-  margin: 0 auto; /* Centraliza o botão horizontalmente */
-  padding: 10px 80px; /* Padding do botão */
+  margin: 0 auto;
+  padding: 10px 80px;
   border-radius: 5px;
   border: 2px solid #115089;
   background-color: #115089;
   color: #ffffff;
   cursor: pointer;
   transition: 0.3s;
-  width: 320px; /* Largura do botão */
-  max-width: 1000px; /* Limita a largura máxima do botão */
+  width: 320px;
+  max-width: 1000px;
   font-family: "Barlow Condensed", sans-serif;
 }
 
-#proximo:hover{
+#proximo:hover {
   transform: scale(1.05);
 }
 
+
+
+@media (max-width: 1100px) {
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input{
+    width: 220px;  /* Aumentando a largura do input */
+
+  }
+
+  .input-image {
+    margin-bottom: 20px;
+
+    margin-top: 10px;
+  }
+  .input-container {
+    align-items: center;
+    margin-top: 20px;
+    margin-left: -40px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 90px 200px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input{
+    width: 220px;  /* Aumentando a largura do input */
+
+  }
+  .input-image {
+    margin-bottom: 20px;
+    max-width: 45%;
+    margin-top: 10px;
+  }}
+
+  @media (max-width: 935px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card h1 {
+    font-size: 28px;
+    margin-left: -30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column; /* Coloca os inputs na vertical */
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .input-image {
+    margin-bottom: 20px;
+    max-width: 60%; /* Aumentando o tamanho máximo da imagem */
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;  /* Centraliza horizontalmente */
+    margin-right: auto; /* Centraliza horizontalmente */
+  }
+
+  input {
+    width: 80%;  /* Aumentando a largura do input */
+    max-width: 500px;  /* Limite para evitar que o input fique muito largo */
+    padding: 12px;
+    margin-left: 0;
+    text-align: center;
+    justify-content: center;
+  }
+
+  label {
+    margin-left: 0;
+  }
+
+  .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #proximo {
+    width: 90%;
+    max-width: 100%;
+    font-size: 1em;
+    padding: 10px;
+    text-align: center;
+  }
+}
+@media (max-width: 935px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card h1 {
+    font-size: 28px;
+    margin-left: -30px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column; /* Coloca os inputs na vertical */
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .input-image {
+    margin-bottom: 20px;
+    max-width: 60%; /* Aumentando o tamanho máximo da imagem */
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;  /* Centraliza horizontalmente */
+    margin-right: auto; /* Centraliza horizontalmente */
+  }
+
+  input {
+    width: 140%;  /* Aumentando a largura do input */
+    max-width: 500px;  /* Limite para evitar que o input fique muito largo */
+    padding: 12px;
+    margin-left: 0;
+    text-align: center;
+    justify-content: center;
+  }
+
+  label {
+    margin-left: 0;
+  }
+
+  .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #proximo {
+    width: 90%;
+    max-width: 100%;
+    font-size: 1em;
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+/* Responsividade para telas menores que 768px */
+@media (max-width: 768px) {
+  .card h1 {
+    font-size: 32px;
+    margin-left: -40px;
+  }
+
+  .form-check-input {
+    transform: scale(1);
+    text-align: center;
+    align-items: center;        /* Alinha verticalmente */
+    justify-content: flex-end;
+
+  }
+
+  input {
+    text-align: center;
+    justify-content: center;
+    width: 130%; /* Aumentando ainda mais a largura do input */
+    padding: 12px;
+  }
+}
+
+/* Responsividade para telas menores que 748px */
+@media (max-width: 748px) {
+  .card h1 {
+    font-size: 25px;
+    margin-left: -28px;
+  }
+
+  .card {
+    max-width: 550px;
+    min-height: 300px;
+  }
+
+  input {
+    width: 130%;  /* Aumentando a largura do input para telas ainda menores */
+  }
+}
+
+/* Responsividade para telas menores que 750px */
+@media (max-width: 750px) {
+  .card {
+    flex-direction: column;
+    max-width: 90%;
+    padding: 40px 20px;
+    margin: 15% auto;
+    height: auto;
+  }
+
+  .card h1 {
+    margin-left: -30px;
+    font-size: 28px;
+    margin-top: 10px;
+  }
+
+  .input-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input {
+    width: 120%;
+    padding: 12px;
+    max-width: 300px;
+    margin-left: 0;
+    transform: scale(0.9);
+    margin-right: 4px;
+  }
+
+}
+
+/* Responsividade para telas menores que 715px */
 @media (max-width: 715px) {
   .input-container {
     flex-direction: column;
@@ -178,23 +406,27 @@ input:focus + label {
 
   .card h1 {
     font-size: 24px;
-    text-align: center;
+    margin-left: 20px;
     margin-bottom: 20px;
   }
 
   input {
+    
     width: 90%;
-    padding: 8px;
-    font-size: 1em;
-    margin-left: 0; /* Remove o espaçamento à esquerda */
+    padding: 12px;
+    max-width: 300px;
+    margin-left: 0;
+    transform: scale(0.9);
+    margin-right: 4px;
   }
 
   label {
-    margin-left: 0; /* Remove o espaçamento à esquerda */
+    margin-left: 0;
   }
 
   .form-check-input {
     transform: scale(1);
+    margin-left: 10px;
   }
 
   #proximo {
@@ -202,39 +434,59 @@ input:focus + label {
     padding: 10px;
     font-size: 0.9em;
   }
+
+  .card {
+    padding: 100px;
+    flex-direction: column;
+  }
 }
 
-@media (max-width: 480px) {
-  .card {
-    padding: 20px;
-  }
-
-  .card h1 {
-    font-size: 20px;
-    margin-top: 25px;
+/* Responsividade para telas menores que 710px */
+@media (max-width: 710px) {
+  .input-container {
+    flex-direction: column;
+    align-items: center;
   }
 
   .input-image {
     max-width: 100%;
+    margin: 0 0 20px 0;
+  }
+
+  .card h1 {
+    font-size: 24px;  /* Mantendo o tamanho da fonte igual ao de 715px */
+    margin-left: 20px;
+    margin-bottom: 20px;
   }
 
   input {
-    width: 100%;
-    padding: 8px;
-    margin-left: 0; /* Remove o espaçamento à esquerda em telas ainda menores */
+    
+    width: 90%;
+    padding: 12px;
+    max-width: 300px;
+    margin-left: 0;
+    transform: scale(0.9);
+    margin-right: 4px;
   }
 
   label {
-    margin-left: 0; /* Remove o espaçamento à esquerda em telas ainda menores */
-  }
-
-  #proximo {
-    padding: 8px 20px;
-    width: 100%;
+    margin-left: 0;
+    font-size: 1em; 
   }
 
   .form-check-input {
-    transform: scale(0.9);
-    margin-right: 5px;
+    transform: scale(1);  
+    margin-left: 10px;
+  }
+
+  #proximo {
+    width: 100%;
+    padding: 9px; 
+    font-size: 0.85em;
+  }
+
+  .card {
+    padding: 80px 20px;
+    flex-direction: column;
   }
 }

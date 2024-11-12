@@ -12,7 +12,7 @@ body {
 
 /* Estilo do título */
 .card h1 {
-    margin: 0;
+    margin-right: 430px;
     padding: 20px;
     font-size: 36px;
     color: #000000;
@@ -23,19 +23,21 @@ body {
 /* Container principal */
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     font-family: 'Barlow Condensed', sans-serif;
 }
 
 .card-title h1 {
+    margin-right: 80px;
     font-family: 'Barlow Condensed', sans-serif;
 }
 /* Card */
 .card {
-    max-width: 800px;
+
+    max-width: 820px;
     width: 90%;
+    margin: 7% auto;
+
     background-color: white;
     border-radius: 25px;
     border: 5px solid #115089;
@@ -44,7 +46,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Barlow Condensed', sans-serif;
-    align-items: flex-start;
+    align-items: center;
 }
 
 /* Imagem de cadastro */
@@ -57,7 +59,7 @@ body {
 }
 
 .image-container img {
-    max-width: 190px;
+    max-width: 200px;
     height: auto;
 }
 
@@ -66,28 +68,32 @@ body {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    flex-wrap: wrap;
-    margin-left: 10px; /* Espaço na lateral esquerda */
+    padding: 0 30px; /* Espaço na lateral interna da .input-container */
+    gap: 70px; /* Espaço entre a coluna da esquerda e a da direita */
     font-family: 'Barlow Condensed', sans-serif;
 }
 
-.left-section, .right-section {
-    width: 50%;
+.left-section,
+.right-section {
+    width: calc(50% - 15px); /* Reduz a largura de cada coluna para incluir o gap */
     display: flex;
     flex-direction: column;
     gap: 15px;
-    padding-left: 20px;
     font-family: 'Barlow Condensed', sans-serif;
 }
 
+
 /* Estilo dos inputs */
 input, select {
+
     padding: 10px;
     border-radius: 7px;
     border: 1px solid #115089;
     font-size: 1.1em;
+    margin-bottom: 15px;
+
     width: 100%;
-    margin-left: 10px; /* Espaço adicional na lateral esquerda de cada input */
+    margin-left: -3px; /* Espaço adicional na lateral esquerda de cada input */
     transition: border 0.3s;
     font-family: 'Barlow Condensed', sans-serif;
 }
@@ -105,10 +111,10 @@ label {
 
 /* Botão Próximo */
 .button-container {
-    display: flex;
     justify-content: center;
     width: 100%;
     margin-top: 30px;
+    margin-left: -130px;
     font-family: 'Barlow Condensed', sans-serif;
 }
 
@@ -121,10 +127,10 @@ label {
     color: #ffffff;
     cursor: pointer;
     transition: 0.3s;
+    
     max-width: 100%;
     font-family: 'Barlow Condensed', sans-serif;
     align-items: center;
-    margin-left: 35px ;
 }
 
 #proximo:hover {

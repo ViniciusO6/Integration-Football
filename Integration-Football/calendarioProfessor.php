@@ -2,6 +2,12 @@
 
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
+
+require_once './controller/professorcontroller.php';
+require_once './controller/alunocontroller.php';
+require_once './controller/turmacontroller.php';
+require_once './controller/atividadecontroller.php';
+
 $imports = [
   "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap",
   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
@@ -14,13 +20,67 @@ $pageJS = ["calendarioProfessor.js"];
 
 include_once('./templetes/headerProfessor.php');
 
+
+$idprofessor = 5;
+$idaluno = 4;
+
+$professorcontroller = new ProfessorController();
+$professor = $professorcontroller->buscarPorId($idprofessor);
+
+$alunocontroller = new AlunoController();
+$aluno = $alunocontroller->buscarPorId($idaluno);
+
+$turmacontroller = new TurmaController();
+$turma = $turmacontroller->buscarPorId($aluno['id_turma']);
+
+$atividadecontroller = new AtividadeController();
+$atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
+
 ?>
 
+
+<style>
+  <?php
+  foreach ($atividades as $atividade) {
+    echo "
+    
+    .dia" . $atividade['data_entrega'] . "{
+        border-color: rgba(217, 162, 42, 1) !important;
+      }
+    
+    .evento" . $atividade['data_entrega'] . ".tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+  
+
+    ";
+  }
+  ?>
+</style>
+
+
+<script>
+  function carregarEventos() {
+    setTimeout(function() {
+      <?php
+      foreach ($atividades as $atividade) {
+        // Aqui o PHP gera o JavaScript de configuração dos eventos
+        echo "document.getElementById('texto-evento" . $atividade['data_entrega'] . "').innerHTML = '" . $atividade['titulo_atividade'] . "';";
+      }
+      ?>
+      console.log('Eventos carregados');
+    }, 200); // Executa após 200ms
+  }
+
+  // Garante que o DOM está carregado antes de chamar a função
+  document.addEventListener("DOMContentLoaded", carregarEventos);
+</script>
 
 
 <div class="container">
   <div id="conteudo">
-    <form id="form" action="">
+    <div id="form">
 
       <div id="pricipal-calendario">
         <br>
@@ -82,31 +142,98 @@ include_once('./templetes/headerProfessor.php');
 
         <div id="card-arquivo" class="card-arquivo fechado">
           <div class="arquivo">
-            <div class="previa-arquivo">
-              <div class="titulos">
-                <p>Título do Evento:</p>
-                <p>Data do Evento:</p>
-                <p>Horário:</p>
-                <p>Anexar Arquivos:</p>
+            <form action="controller/atividadecontroller.php" method="POST" name="formulario">
+              <div class="previa-arquivo">
+
+                <div class="titulos">
+                  <p>Título do Evento:</p>
+                  <p>Data do Evento:</p>
+                  <p>Horário de Inicio:</p>
+                  <p>Horário de Término:</p>
+                  <p>Anexar Arquivos:</p>
+
+                </div>
+
+                <div class="inputs">
+                  <input type="text" name="titulo_atividade" required>
+                  <input type="date" name="data_entrega" required>
+                  <input type="time" name="hora_inicio" required>
+                  <input type="time" name="hora_termino" required>
+                  <button id="input-arquivo" type="button" required>Escolher arquivo</button>
+                  <input id="files" type="file" name="caminho_arquivo" value="">
+
+                  <!-- hidden -->
+                  <input type="hidden" name="id_professor" value="5">
+                  <input type="hidden" name="id_turma" value="1">
+                  <input type="hidden" class="form-control" name="crud" value="INSERT" disable>
+                </div>
 
               </div>
-
-              <div class="inputs">
-                <input type="text">
-                <input type="date">
-                <input type="time">
-                <button id="input-arquivo" type="button">Escolher arquivo</button>
-                <input id="files" type="file">
-              </div>
-
-            </div>
-            <button id="publicar">Publicar Evento</button>
-
+              <button type="submit" id="publicar">Publicar Evento</button>
+            </form>
           </div>
         </div>
-      </div>
 
-    </form>
+      </div>
+      <h1 id="titulo-tarefas">ATIVIDADES ATRIBUIDAS</h1>
+
+      <?php
+      $numeroAtividade = 1;
+      foreach ($atividades as $atividade) {
+        $numeroAtividade++;
+      ?>
+
+        <!-- Estrutura repetida para cada atividade -->
+        <div id="tarefa<?= $numeroAtividade ?>" class="tarefa-item">
+          <div id="cartao-tarefa" class="cartao-tarefa" onclick="abrirPrevia('tarefa<?= $numeroAtividade ?>', 'cartao-arquivo<?= $numeroAtividade ?>')">
+            <div class="bloco-um">
+              <div class="icone-tarefa">
+                <img src="./Imagens/checklist.png" alt="">
+              </div>
+            </div>
+
+            <div class="bloco-dois">
+              <div class="titulo-tarefa">
+                <h3><?= $atividade['titulo_atividade'] ?></h3>
+              </div>
+
+              <div class="data-entrega">
+                <img src="./Imagens/Time-Circle.png" alt="">
+                <p>
+                  <?= $horaInicio = substr($atividade['hora_inicio'], 0, -6); ?>h
+                  <?= $minutosInicio = substr($atividade['hora_inicio'], 3, -3); ?> às
+                  <?= $horaTermino = substr($atividade['hora_termino'], 0, -6); ?>h
+                  <?= $minutosTermino = substr($atividade['hora_termino'], 3, -3); ?>
+                </p>
+              </div>
+            </div>
+
+            <div class="bloco-tres">
+              <img src="./Imagens/arrow.png" alt="">
+              <h3>DATA: <?php
+                        $data = $atividade['data_entrega'];
+                        $data = explode('-', $data);
+                        $dataFormatada = $data[2] . '/' . $data[1];
+                        echo $dataFormatada;
+                        ?></h3>
+            </div>
+          </div>
+
+          <div id="cartao-arquivo<?= $numeroAtividade ?>" class="cartao-arquivo fechado">
+            <div class="arquivo-conteudo">
+              <div class="previa-arquivo">
+                <img src="./Imagens/pdfIcon.png" alt="">
+                <p>Arquivo 1 - "História do Power Soccer"</p>
+              </div>
+              <button style="cursor: pointer;" type="button" onclick="redirecionar('./download.php?file=exemplo.pdf')">Baixar Arquivos</button>
+            </div>
+          </div>
+        </div>
+
+      <?php } ?>
+
+
+    </div> <!-- fim do form -->
 
   </div>
 </div>
