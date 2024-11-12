@@ -54,12 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="option">
                     <input class="form-check-input" type="radio" value="maior" id="maior" name="idade" required>
-                    <label class="form-check-label" for="maior">Sou maior de idade (18 anos ou mais)</label>
+                    <label class="form-check-label" for="maior">Sou maior de idade (menor de 18)</label>
                 </div>
                
                 <div class="option">
                     <input class="form-check-input" type="radio" value="menor" id="menor" name="idade" required>
-                    <label class="form-check-label" for="menor">Sou menor de idade (menos de 18)</label>
+                    <label class="form-check-label" for="menor">Sou menor de idade (menor de 18)    </label>
                 </div>
 
                 <div class="button-container">
