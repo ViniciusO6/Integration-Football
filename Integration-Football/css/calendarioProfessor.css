@@ -118,7 +118,7 @@
   flex-direction: column;
   height: 14%;
   transition: 0.5s;
-  margin-bottom: 35px;
+  margin-bottom: 35 px;
   user-select: none;
   outline: none; /* Remove qualquer contorno de foco residual */
   -webkit-tap-highlight-color: transparent; /* Remove o destaque em dispositivos móveis */
@@ -303,7 +303,153 @@ h3 {
 }
 
 .aberto {
-  height: 220px;
+  height: 260px;
+}
+
+/* Parte das atividades já postadas */
+
+/* Estilos principais */
+#titulo-tarefas {
+  font-family: "Poppins", sans-serif;
+  margin-top: 40px;
+}
+
+.tarefa-item {
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s;
+  margin-bottom: 35px;
+  user-select: none;
+}
+
+.cartao-tarefa {
+  width: 100%;
+  height: 120px;
+  background-color: #80c4859c;
+  display: flex;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.cartao-tarefa:hover {
+  transform: scale(1.02);
+}
+
+.cartao-tarefa p,
+h3 {
+  color: white;
+}
+
+/* Blocos da tarefa */
+.bloco-um {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  margin-left: 15px;
+}
+
+.bloco-dois {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.data-entrega {
+  display: flex;
+  align-items: center;
+}
+
+.data-entrega img {
+  width: 25px;
+  height: 25px;
+}
+
+.data-entrega p {
+  margin-left: 10px;
+}
+
+.bloco-tres {
+  width: 107px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  min-width: 107px;
+  margin-right: 15px;
+}
+
+.bloco-tres img {
+  width: 40px;
+}
+
+.bloco-um img {
+  width: 65%;
+}
+
+.icone-tarefa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+}
+
+/* Cartão de arquivo */
+.cartao-arquivo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  transition: 0.5s;
+  height: 0px;
+  overflow: hidden;
+}
+
+.cartao-arquivo button {
+  border: solid 1px #2092c2;
+  background-color: transparent;
+  border-radius: 10px;
+  width: 150px;
+  height: 45px;
+  font-weight: bold;
+  float: right;
+  margin-right: 30px;
+  margin-bottom: 15px;
+}
+
+.arquivo-conteudo {
+  width: 90%;
+  border: solid 2px rgb(145, 145, 145);
+  border-radius: 0 0 10px 10px;
+}
+
+.previa-arquivo {
+  display: flex;
+  align-items: center;
+  margin: 15px 15px;
+}
+
+.previa-arquivo img {
+  width: 65px;
+}
+
+.previa-arquivo p {
+  margin-left: 8px;
+}
+
+/* Estilos para tarefas abertas */
+.tarefa-item.atividade-aberta {
+  height: 280px !important;
+}
+
+.cartao-arquivo.aberto {
+  height: 160px;
 }
 
 @media screen and (min-width: 1920px) {
