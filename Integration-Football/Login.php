@@ -27,15 +27,13 @@ include_once('./templetes/menu.php');
                 <input type="password" name="senha" id="password" required autocomplete="off">
                 <span class="error" id="errorPassword" style="color:red; font-size: 12px;"></span>
             </div>
-            <div class="form-group">
-                <label class="label-esqueceu-senha" for="senha">Esqueceu a senha?</label>
-            </div>
+         
             <div class="button-container">
                 <button type="submit" id="entrar">Entrar</button>
             </div>
             <div class="form-group">
                 <label class="inscricao-label">
-                    <a href="#">Não é inscrito? Inscreva-se!</a>
+                    <a href="cadastro.php">Não é inscrito? Inscreva-se!</a>
                 </label>
                 </div>
 </div>
