@@ -471,22 +471,22 @@ label {
 
   label {
     margin-left: 0;
-    font-size: 1em;  /* Mantendo o tamanho da fonte igual ao de 715px */
+    font-size: 1em; 
   }
 
   .form-check-input {
-    transform: scale(1);  /* Mantendo o tamanho do botão de rádio igual ao de 715px */
+    transform: scale(1);  
     margin-left: 10px;
   }
 
   #proximo {
     width: 100%;
-    padding: 9px;  /* Ajustando o padding para manter o padrão */
-    font-size: 0.85em;  /* Mantendo o tamanho do botão igual ao de 715px */
+    padding: 9px; 
+    font-size: 0.85em;
   }
 
   .card {
-    padding: 80px 20px;  /* Ajustando o padding do card para ficar similar ao de 715px */
+    padding: 80px 20px;
     flex-direction: column;
   }
 }
