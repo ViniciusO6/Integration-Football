@@ -1,8 +1,5 @@
 <?php
 
-//Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
-//Basta colocar os links
-
 require_once './controller/professorcontroller.php';
 require_once './controller/alunocontroller.php';
 require_once './controller/turmacontroller.php';
@@ -20,7 +17,6 @@ $pageJS = ["calendarioProfessor.js"];
 
 include_once('./templetes/headerProfessor.php');
 
-
 $idprofessor = 5;
 $idaluno = 4;
 
@@ -35,48 +31,39 @@ $turma = $turmacontroller->buscarPorId($aluno['id_turma']);
 
 $atividadecontroller = new AtividadeController();
 $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
-
 ?>
-
 
 <style>
   <?php
   foreach ($atividades as $atividade) {
     echo "
-    
-    .dia" . $atividade['data_entrega'] . "{
+    .dia" . $atividade['data_entrega'] . " {
         border-color: #079b4e !important;
-      }
-    
-    .evento" . $atividade['data_entrega'] . ".tooltip:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
-}
-  
+    }
 
+    .evento" . $atividade['data_entrega'] . ".tooltip:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
     ";
   }
   ?>
 </style>
-
 
 <script>
   function carregarEventos() {
     setTimeout(function() {
       <?php
       foreach ($atividades as $atividade) {
-        // Aqui o PHP gera o JavaScript de configuração dos eventos
         echo "document.getElementById('texto-evento" . $atividade['data_entrega'] . "').innerHTML = '" . $atividade['titulo_atividade'] . "';";
       }
       ?>
       console.log('Eventos carregados');
-    }, 200); // Executa após 200ms
+    }, 200);
   }
 
-  // Garante que o DOM está carregado antes de chamar a função
   document.addEventListener("DOMContentLoaded", carregarEventos);
 </script>
-
 
 <div class="container">
   <div id="conteudo">
@@ -107,8 +94,6 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
         </div>
       </div>
 
-
-
       <h1 id="titulo">ATRIBUIR ATIVIDADE</h1>
 
       <div id="atividade" class="atividade">
@@ -130,17 +115,8 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
               <p>Sem horário</p>
             </div>
           </div>
-          <!-- 
-          <div class="bloco3">
-            <img src="./Imagens/arrow.png" alt="">
-            <h3>DATA: 21/10</h3>
-
-          </div> -->
-
-
         </div>
 
-        <!-- Formulario Postar Atividade -->
         <div id="card-arquivo" class="card-arquivo fechado">
           <div class="arquivo">
             <form action="controller/atividadecontroller.php" method="POST" name="formulario">
@@ -171,7 +147,6 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
 
                   <input id="files" type="file" name="caminho_arquivo" value="">
 
-                  <!-- hidden -->
                   <input type="hidden" name="id_professor" value="5">
                   <input type="hidden" name="id_turma" value="1">
                   <input type="hidden" class="form-control" name="crud" value="INSERT" disable>
@@ -181,13 +156,10 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
               <div class="botoes">
                 <button id="input-arquivo" type="button" required>Escolher arquivo</button>
                 <button type="submit" id="publicar">Publicar Evento</button>
-
               </div>
             </form>
           </div>
         </div>
-        <!-- Fim -->
-
 
       </div>
       <h1 id="titulo-tarefas">ATIVIDADES ATRIBUIDAS</h1>
@@ -198,7 +170,6 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
         $numeroAtividade++;
       ?>
 
-        <!-- Estrutura repetida para cada atividade -->
         <div id="tarefa<?= $numeroAtividade ?>" class="tarefa-item">
           <div id="cartao-tarefa" class="cartao-tarefa" onclick="abrirPrevia('tarefa<?= $numeroAtividade ?>', 'cartao-arquivo<?= $numeroAtividade ?>')">
             <div class="bloco-um">
@@ -247,7 +218,6 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
 
       <?php } ?>
 
-
     </div> <!-- fim do form -->
 
   </div>
@@ -271,18 +241,14 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
     padding: 5px;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
-    /* Posiciona o tooltip acima da div */
-    left: 50%;
-    margin-left: -75px;
-    /* Ajusta para centralizar */
+    top: -5px;
+    left: 110%;
     opacity: 0;
     transition: opacity 0.3s;
   }
+
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
 </style>
-
-
-
-<?php
-include_once('./templetes/footer.php');
-?>
