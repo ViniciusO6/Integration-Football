@@ -3,6 +3,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Foot
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/professorcontroller.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/turmacontroller.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/modalidadecontroller.php';
+
+
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
 $imports = [
@@ -31,19 +33,17 @@ $id_professor = 5;
 <script>
 
 function enviarModalidade() {
-            // Pega o valor da opção selecionada
+
             var modalidade = document.getElementById("select-modalidade").value;
             let tipo = "buscarTurmas";
 
-            // Cria um objeto XMLHttpRequest para enviar a requisição AJAX
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "ajax.php", true); // "processar.php" é o script PHP que processará o valor
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Cabeçalho para enviar dados do tipo POST
+            xhr.open("POST", "./ajax/ajax.php", true); 
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
 
-            // Envia o valor do select (modalidade) para o PHP
             xhr.send("modalidade=" + modalidade +"&tipo="+ tipo);
 
-            // Quando a requisição for completada, exibe a resposta recebida
+
             xhr.onload = function() {
                 if (xhr.status === 200) {
                     document.getElementById("select-turma").innerHTML = xhr.responseText;
@@ -53,19 +53,17 @@ function enviarModalidade() {
 
         function filtrar() {
             let tipo = "filtrar";
-            // Pega o valor da opção selecionada
+
             var modalidade = document.getElementById("select-modalidade").value;
             var turma = document.getElementById("select-turma").value;
 
-            // Cria um objeto XMLHttpRequest para enviar a requisição AJAX
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "ajax.php", true); // "processar.php" é o script PHP que processará o valor
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Cabeçalho para enviar dados do tipo POST
+            xhr.open("POST", "./ajax/ajax.php", true); 
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
 
             // Envia o valor do select (modalidade) para o PHP
             xhr.send("modalidade=" + modalidade + "&turma=" +turma +"&tipo="+ tipo);
 
-            // Quando a requisição for completada, exibe a resposta recebida
             xhr.onload = function() {
                 if (xhr.status === 200) {
                     document.getElementById("nomes-alunos").innerHTML = xhr.responseText;
@@ -79,7 +77,7 @@ function enviarModalidade() {
                 var turma = document.getElementById("select-turma").value;
 
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST", "ajax.php", true); 
+                xhr.open("POST", "./ajax/ajax.php", true); 
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
                 xhr.send("modalidade=" + modalidade + "&turma=" +turma +"&tipo="+ tipo);
@@ -94,15 +92,13 @@ function enviarModalidade() {
 
             setTimeout(function(){
             let tipo = "carregarNomeTurma";
-            // Cria um objeto XMLHttpRequest para enviar a requisição AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "ajax.php", true); // "processar.php" é o script PHP que processará o valor
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Cabeçalho para enviar dados do tipo POST
 
-            // Envia o valor do select (modalidade) para o PHP
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "./ajax/ajax.php", true); 
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
             xhr.send("modalidade=" + modalidade + "&turma=" +turma +"&tipo="+ tipo);
 
-            // Quando a requisição for completada, exibe a resposta recebida
             xhr.onload = function() {
                 if (xhr.status === 200) {
                     document.getElementById("Turma").innerHTML = xhr.responseText;
@@ -116,15 +112,12 @@ function enviarModalidade() {
 
         function carregarNomeTurma() {
             let tipo = "carregarNomeTurma";
-            // Cria um objeto XMLHttpRequest para enviar a requisição AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "ajax.php", true); // "processar.php" é o script PHP que processará o valor
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Cabeçalho para enviar dados do tipo POST
 
-            // Envia o valor do select (modalidade) para o PHP
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "./ajax/ajax.php", true); 
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
             xhr.send("modalidade=" + modalidade + "&turma=" +turma +"&tipo="+ tipo);
 
-            // Quando a requisição for completada, exibe a resposta recebida
             xhr.onload = function() {
                 if (xhr.status === 200) {
                     document.getElementById("Turma").innerHTML = xhr.responseText;

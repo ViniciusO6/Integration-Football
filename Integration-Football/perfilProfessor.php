@@ -72,6 +72,11 @@ print_r($nomeModalidade);
 
           <div id="modalidade-turma">
 
+          <div id="modalidade">
+              <label for="input-modalidade">Modalidade</label>
+              <input id="input-modalidade" type="text" disabled value="<? ?>">
+            </div>
+
             <div id="turma">
               <label for="input-turma">Turma</label>
               <select id="select">
@@ -87,13 +92,7 @@ print_r($nomeModalidade);
               </select>
             </div>
 
-            <div id="modalidade">
-              <label for="input-modalidade">Modalidade</label>
-              <input id="input-modalidade" type="text" disabled value="<? ?>">
-              <?php
-
-              ?>
-            </div>
+            
 
 
 
