@@ -83,18 +83,10 @@ function abrirPrevia(IDAtividade, IDCard) {
   DivAtividade.classList.toggle("atividade-aberto");
   DivCardArquivo.classList.toggle("aberto");
 }
-
-<<<<<<< Updated upstream
-if (file) {
-  document.getElementById("file-text").innerHTML = file.name;
-} else {
-  document.getElementById("fileName").textContent = "";
-}
-=======
-// Código do Input
-
+// Inicializa o campo file-text com o texto padrão
 document.getElementById("file-text").value = "";
 
+// Abrir seletor de arquivos ao clicar no botão "Escolher arquivo"
 document.getElementById("input-arquivo").addEventListener("click", function () {
   document.getElementById("files").click();
 });
@@ -107,8 +99,8 @@ document.getElementById("files").addEventListener("change", function () {
 
   if (file) {
     fileText.value = file.name; // Exibe o nome do arquivo
-    fileText.style.width = "84%"; // Reduz a largura do campo para 80%
-    cancelarBtn.style.display = "flex"; // Exibe o botão "Cancelar"
+    fileText.style.width = "80%"; // Reduz a largura do campo para 80%
+    cancelarBtn.style.display = "block"; // Exibe o botão "Cancelar"
   }
 });
 
@@ -154,11 +146,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (dataSelecionada < dataMin || dataSelecionada > dataMax) {
       this.value = ""; // Limpa o campo
       alert(
-        `Data Inválida! Selecione uma data entre hoje (${formatarData(
+        `Selecione uma data entre hoje (${formatarData(
           dataMin
         )}) e o final do ano (${formatarData(dataMax)}).`
       );
     }
   });
 });
->>>>>>> Stashed changes
