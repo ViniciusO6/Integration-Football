@@ -21,7 +21,7 @@ class ProfessorController
             } elseif ($_POST['crud'] == "DELETE") {
                 $this->deletar();
             }
-            header("Location:" . "../principal.php"); //Redireciona para outra pagina
+            header("Location:" . "../calendarioProfessor.php"); //Redireciona para outra pagina
         } else {
             $this->listar();
         }

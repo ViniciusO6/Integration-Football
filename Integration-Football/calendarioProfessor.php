@@ -3,7 +3,7 @@
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
 
-
+require_once './controller/professorcontroller.php';
 require_once './controller/alunocontroller.php';
 require_once './controller/turmacontroller.php';
 require_once './controller/atividadecontroller.php';
@@ -21,10 +21,14 @@ $pageJS = ["calendarioProfessor.js"];
 include_once('./templetes/headerProfessor.php');
 
 
-$id = 4;
+$idprofessor = 5;
+$idaluno = 4;
 
-$alunocontroller = new alunocontroller();
-$aluno = $alunocontroller->buscarPorId($id);
+$professorcontroller = new ProfessorController();
+$professor = $professorcontroller->buscarPorId($idprofessor);
+
+$alunocontroller = new AlunoController();
+$aluno = $alunocontroller->buscarPorId($idaluno);
 
 $turmacontroller = new TurmaController();
 $turma = $turmacontroller->buscarPorId($aluno['id_turma']);
