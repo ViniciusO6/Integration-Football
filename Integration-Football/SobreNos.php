@@ -22,7 +22,7 @@ include_once('./templetes/menu.php');
   <div class="titulo-correr"> </div>
   </div>
     <div class="imagem">   
-    <img src="./Imagens/Sobre_Nos/icon.jpeg" alt="Power_Soccer1">
+    <img src="./Imagens/Sobre_Nos/icon.jpeg" alt="Icon">
 
 </div>
 
