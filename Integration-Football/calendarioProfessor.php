@@ -211,14 +211,33 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
                 <img src="./Imagens/pdfIcon.png" alt="">
                 <p>Arquivo 1 - "História do Power Soccer"</p>
               </div>
-              <button style="cursor: pointer;" type="button" onclick="redirecionar('./download.php?file=exemplo.pdf')">Baixar Arquivos</button>
+
+              <div class="botoes-atividade">
+                <div class="deletar">
+                  <img src="./Imagens/delete.svg" alt="">
+                </div>
+                <button style="cursor: pointer;" id="baixar atividade" type="button" onclick="redirecionar('./download.php?file=exemplo.pdf')">Baixar Arquivos</button>
+              </div>
             </div>
           </div>
         </div>
 
       <?php } ?>
 
+
+      <div class="tela-deletar">
+        <p id="titulo-deletar">Deseja mesmo deletar esta atividade?</p>
+        <img src="./Imagens/lixeira.svg" alt="">
+        <p id="descricao-deletar">Uma vez que confirmar, não será possível restaurar a atividade e suas informações. Deseja mesmo deletar?</p>
+        <form action="" id="formulario-deletar">
+          <input type="submit" value="Sim" id="confirmar">
+          <input type="submit" value="Cancelar" id="Sair">
+        </form>
+      </div>
+
     </div> <!-- fim do form -->
+
+
 
   </div>
 </div>
@@ -252,3 +271,9 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
     opacity: 1;
   }
 </style>
+
+
+
+<?php
+include_once('./templetes/footer.php');
+?>

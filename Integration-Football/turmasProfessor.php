@@ -31,100 +31,98 @@ $id_professor = 5;
 
 
 <script>
+    function enviarModalidade() {
 
-function enviarModalidade() {
+        var modalidade = document.getElementById("select-modalidade").value;
+        let tipo = "buscarTurmas";
 
-            var modalidade = document.getElementById("select-modalidade").value;
-            let tipo = "buscarTurmas";
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./ajax/ajax.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "./ajax/ajax.php", true); 
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
-
-            xhr.send("modalidade=" + modalidade +"&tipo="+ tipo);
+        xhr.send("modalidade=" + modalidade + "&tipo=" + tipo);
 
 
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    document.getElementById("select-turma").innerHTML = xhr.responseText;
-                }
-            };
-        }
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                document.getElementById("select-turma").innerHTML = xhr.responseText;
+            }
+        };
+    }
 
-        function filtrar() {
-            let tipo = "filtrar";
+    function filtrar() {
+        let tipo = "filtrar";
+
+        var modalidade = document.getElementById("select-modalidade").value;
+        var turma = document.getElementById("select-turma").value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./ajax/ajax.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // Envia o valor do select (modalidade) para o PHP
+        xhr.send("modalidade=" + modalidade + "&turma=" + turma + "&tipo=" + tipo);
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                document.getElementById("nomes-alunos").innerHTML = xhr.responseText;
+            }
+        };
+
+        setTimeout(function() {
+            tipo = "carregarEmail";
 
             var modalidade = document.getElementById("select-modalidade").value;
             var turma = document.getElementById("select-turma").value;
 
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "./ajax/ajax.php", true); 
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
-
-            // Envia o valor do select (modalidade) para o PHP
-            xhr.send("modalidade=" + modalidade + "&turma=" +turma +"&tipo="+ tipo);
-
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    document.getElementById("nomes-alunos").innerHTML = xhr.responseText;
-                }
-            };
-
-            setTimeout(function(){
-                tipo = "carregarEmail";
-
-                var modalidade = document.getElementById("select-modalidade").value;
-                var turma = document.getElementById("select-turma").value;
-
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "./ajax/ajax.php", true); 
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-                xhr.send("modalidade=" + modalidade + "&turma=" +turma +"&tipo="+ tipo);
-
-                xhr.onload = function() {
-                    if (xhr.status === 200) {
-                        document.getElementById("contato-alunos").innerHTML = xhr.responseText;
-                    }
-                };
-
-            },1)
-
-            setTimeout(function(){
-            let tipo = "carregarNomeTurma";
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "./ajax/ajax.php", true); 
+            xhr.open("POST", "./ajax/ajax.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-            xhr.send("modalidade=" + modalidade + "&turma=" +turma +"&tipo="+ tipo);
+            xhr.send("modalidade=" + modalidade + "&turma=" + turma + "&tipo=" + tipo);
 
             xhr.onload = function() {
                 if (xhr.status === 200) {
-                    document.getElementById("Turma").innerHTML = xhr.responseText;
+                    document.getElementById("contato-alunos").innerHTML = xhr.responseText;
                 }
             };
 
-            },1)
-            
-            
-        }
+        }, 1)
 
-        function carregarNomeTurma() {
+        setTimeout(function() {
             let tipo = "carregarNomeTurma";
 
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "./ajax/ajax.php", true); 
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
-            xhr.send("modalidade=" + modalidade + "&turma=" +turma +"&tipo="+ tipo);
+            xhr.open("POST", "./ajax/ajax.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.send("modalidade=" + modalidade + "&turma=" + turma + "&tipo=" + tipo);
 
             xhr.onload = function() {
                 if (xhr.status === 200) {
                     document.getElementById("Turma").innerHTML = xhr.responseText;
                 }
             };
-        }
 
+        }, 1)
+
+
+    }
+
+    function carregarNomeTurma() {
+        let tipo = "carregarNomeTurma";
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./ajax/ajax.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("modalidade=" + modalidade + "&turma=" + turma + "&tipo=" + tipo);
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                document.getElementById("Turma").innerHTML = xhr.responseText;
+            }
+        };
+    }
 </script>
 
 <?php
@@ -194,11 +192,11 @@ function enviarModalidade() {
             </div>
 
             <br><br>
-            
-            
+
+
             <h1 id="titulo">ALUNOS</h1>
             <form id="form-filtro">
-                <?php 
+                <?php
                 $modalidadecontroller = new modalidadecontroller();
                 $modalidades = $modalidadecontroller->listar();
                 ?>
@@ -207,19 +205,19 @@ function enviarModalidade() {
                     <?php
                     $i = 0;
                     foreach ($modalidades as $modalidade) {
-                    $i++;
-                    echo "<option id='".$i."' value='" . $modalidade['id'] . "'>" . htmlspecialchars($modalidade['nome_modalidade']) . "</option>";
+                        $i++;
+                        echo "<option id='" . $i . "' value='" . $modalidade['id'] . "'>" . htmlspecialchars($modalidade['nome_modalidade']) . "</option>";
                     }
                     ?>
                 </select>
                 <select require name="turma" id="select-turma" onChange="">
                     <option value="0" disabled selected hidden>Escolha uma turma</option>
-                    
-                </select>
-                <button onclick="filtrar()" type="button">Filtrar</button>
 
-                 </form>
-                 <br>
+                </select>
+                <button class="filtrar" onclick="filtrar()" type="button">Filtrar</button>
+
+            </form>
+            <br>
 
 
             <div id="th">
@@ -244,7 +242,7 @@ function enviarModalidade() {
             <div id="table">
                 <!-- nome dos alunos -->
                 <div class="nomes-table " id="nomes-alunos">
-                <?php
+                    <?php
                     $alunocontroller = new alunocontroller();
                     $alunos = $alunocontroller->listar();
                     foreach ($alunos as $aluno) {
@@ -260,7 +258,7 @@ function enviarModalidade() {
 
                 <!-- Nome da turma -->
                 <div id="Turma">
-                <?php
+                    <?php
                     $turmacontroller = new TurmaController();
                     $alunocontroller = new alunocontroller();
                     $alunos = $alunocontroller->listar();
@@ -268,46 +266,47 @@ function enviarModalidade() {
 
                     foreach ($alunos as $aluno) {
                         $turma = $turmacontroller->buscarTurma($aluno['id_turma']);
-                    foreach($turma as $turmas){
+                        foreach ($turma as $turmas) {
                     ?>
-                        <div id="tr-nome">
-                            <p><?= $turmas['nome_turma']; ?></p>
-                            <div class="separador-horizontal"></div>
-                        </div>
-                    <?php }} ?>
+                            <div id="tr-nome">
+                                <p><?= $turmas['nome_turma']; ?></p>
+                                <div class="separador-horizontal"></div>
+                            </div>
+                    <?php }
+                    } ?>
                 </div>
 
                 <div class="separador-vertical"></div>
 
                 <div class="contatos" id="contato-alunos">
-                <div class="nomes-table " id="nomes-alunos">
-                <?php
-                    $alunocontroller = new alunocontroller();
-                    $alunos = $alunocontroller->listar();
-                    foreach ($alunos as $aluno) {
-                    ?>
-                        <div id="tr-nome">
-                            <p><?= $aluno['email_aluno']; ?></p>
-                            <div class="separador-horizontal"></div>
-                        </div>
-                    <?php } ?>
-                </div>
+                    <div class="nomes-table " id="nomes-alunos">
+                        <?php
+                        $alunocontroller = new alunocontroller();
+                        $alunos = $alunocontroller->listar();
+                        foreach ($alunos as $aluno) {
+                        ?>
+                            <div id="tr-nome">
+                                <p><?= $aluno['email_aluno']; ?></p>
+                                <div class="separador-horizontal"></div>
+                            </div>
+                        <?php } ?>
+                    </div>
                 </div>
 
             </div>
-        </form>
+            </form>
+        </div>
+
+        <br><br><br><br><br>
+
     </div>
 
-    <br><br><br><br><br>
-
-</div>
 
 
 
 
 
 
-
-<?php
-include_once('./templetes/footer.php');
-?>
+    <?php
+    include_once('./templetes/footer.php');
+    ?>

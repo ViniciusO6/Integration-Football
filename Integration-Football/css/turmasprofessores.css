@@ -19,6 +19,62 @@ input {
   margin-bottom: 15px;
 }
 
+/* Select Form */
+
+#form-filtro {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+}
+
+.filtrar {
+  width: 200px;
+  background-color: #07cb65;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.filtrar:focus {
+  outline: none;
+}
+
+.filtrar:hover {
+  transform: scale(1.05);
+}
+
+select {
+  width: 100%;
+  height: 38px;
+  font-size: 16px;
+}
+
+#select-professor:focus {
+  outline: none; /* Remove a borda de foco padrão */
+  border: 2px solid #07cb65; /* Mantém a borda verde ao focar */
+}
+
+#select-turma:focus {
+  outline: none; /* Remove a borda de foco padrão */
+  border: 2px solid #07cb65; /* Mantém a borda verde ao focar */
+}
+
+#select-modalidade {
+  border: 2px solid #07cb65;
+  border-radius: 5px;
+}
+
+#select-turma {
+  border: 2px solid #07cb65;
+  border-radius: 5px;
+}
+
+/* Form */
+
 #th {
   display: flex;
   justify-content: space-between;

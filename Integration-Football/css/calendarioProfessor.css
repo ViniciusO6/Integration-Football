@@ -444,6 +444,29 @@ h3 {
 }
 
 /* Cartão de arquivo */
+
+.botoes-atividade {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.botoes-atividade img {
+  width: 35px;
+}
+
+.deletar {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.deletar:hover {
+  transform: scale(1.15);
+}
+
 .cartao-arquivo {
   display: flex;
   justify-content: center;
@@ -454,15 +477,21 @@ h3 {
 }
 
 .cartao-arquivo button {
-  border: solid 1px #2092c2;
+  border: solid 2px #07cb65;
   background-color: transparent;
   border-radius: 10px;
   width: 150px;
   height: 45px;
   font-weight: bold;
   float: right;
-  margin-right: 30px;
-  margin-bottom: 15px;
+  margin-right: 20px;
+  transition: transform 0.3s ease;
+}
+
+.cartao-arquivo button:hover {
+  background-color: #07cb65;
+  color: white;
+  transform: scale(1.05);
 }
 
 .arquivo-conteudo {
@@ -492,6 +521,80 @@ h3 {
 
 .cartao-arquivo.aberto {
   height: 160px;
+}
+
+/* Tela Deletar Atividade */
+.tela-deletar {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  background-color: rgb(163, 163, 163);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#titulo-deletar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.tela-deletar img {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+#descricao-deletar {
+  margin-bottom: 10px;
+}
+
+#formulario-deletar {
+  display: flex;
+  gap: 35px;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#confirmar {
+  background-color: #06db6d;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+#confirmar:hover {
+  background-color: #07cb65;
+  transform: scale(1.05);
+}
+
+#Sair {
+  background-color: #ab0303;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  transform: transform 0.3s ease;
+  cursor: pointer;
+}
+
+#Sair:hover {
+  background-color: #750000;
+  transform: scale(1.05);
 }
 
 @media screen and (min-width: 1920px) {
