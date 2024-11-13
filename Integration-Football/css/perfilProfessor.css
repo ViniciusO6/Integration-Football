@@ -1,3 +1,6 @@
+body{
+}
+
 .container {
   width: 100vw;
   margin-top: 80px;
@@ -95,12 +98,30 @@
   width: 30%;
 }
 
-#select {
+#select-turma {
   border: none;
   border: solid 2px #07cb65;
   border-radius: 5px;
   height: 34px;
-  width: 96%;
+  width: 110%;
+  font-size: 18px;
+  outline: none;
+  padding: 0 5px;
+  margin-bottom: 15px;
+}
+
+#btns{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#input-modalidade {
+  border: none;
+  border: solid 2px #07cb65;
+  border-radius: 5px;
+  height: 34px;
+  width: 100%;
   font-size: 18px;
   outline: none;
   padding: 0 5px;
@@ -119,7 +140,6 @@ input {
 }
 
 #btn-enviar {
-  margin: 10px auto;
   cursor: pointer;
   border: none;
   border: solid 2px #07cb65;
@@ -131,6 +151,65 @@ input {
   height: 30px;
   width: 140px;
 }
+
+#redefinir-senha{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  width: 300px;
+  height: 300px;
+  padding: 50px;
+  border-radius: 5px;
+  z-index: 11;
+}
+
+#btns-redefinir{
+  display: flex;
+  justify-content: space-between
+  
+}
+
+#btn-confirmar{
+  cursor: pointer;
+  border: none;
+  border: solid 2px #07cb65;
+  background-color: #07cb65;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px;
+  height: 30px;
+  width: 140px;
+  margin-bottom: 15px;
+}
+
+#btn-cancelar{
+  cursor: pointer;
+  border: none;
+  border: solid 2px #07cb65;
+  background-color: #07cb65;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px;
+  height: 30px;
+  width: 140px;
+}
+
+#sombra{
+  display: flex;
+  width: 10000px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.397);
+  z-index: 10;
+}
+
 
 @media screen and (max-width: 992px) {
 }

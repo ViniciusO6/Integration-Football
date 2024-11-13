@@ -30,26 +30,31 @@ $professor = $professorController->buscarPorId($id);
 $turmaController = new TurmaController;
 $dados_turmas = $turmaController->buscarProfessor($id);
 
-$modalidadeController = new ModalidadeController;
-$modalidade = $modalidadeController->buscarPorId($id);
-$nomeModalidade = $modalidadeController->buscarNomeModalidade($dados_modalidade['id_modalidade']);
-print_r($nomeModalidade);
+
 ?>
 
 <script>
-  <?php
-  foreach ($dados_turmas as $dados_modalidade) {
+  function enviarModalidade() {
 
-    echo $nomeModalidade;
-  ?>
+var modalidade = document.getElementById("input-modalidade").value;
+let tipo = "buscarTurmas";
+
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "./ajax/perfilProfessorAjax.php", true); 
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
+
+xhr.send("modalidade=" + modalidade +"&tipo="+ tipo);
 
 
-    <?php
-    echo "let nomeModalidade = " . $nomeModalidade;
-    ?>
+xhr.onload = function() {
+    if (xhr.status === 200) {
+        document.getElementById("select-turma").innerHTML = xhr.responseText;
+    }
+};
 
 
-  <?php } ?>
+}
+
 </script>
 
 
@@ -74,41 +79,44 @@ print_r($nomeModalidade);
 
           <div id="modalidade">
               <label for="input-modalidade">Modalidade</label>
-              <input id="input-modalidade" type="text" disabled value="<? ?>">
-            </div>
+              <select id="input-modalidade" onChange="enviarModalidade()">
+              <?php
+                $modalidadecontroller = new modalidadecontroller();
+                $modalidades = $modalidadecontroller->listar();
+                echo '<option value="" disabled selected hidden>Modalidade</option>';
+                    $i = 0;
+                    foreach ($modalidades as $modalidade) {
+                    $i++;
+                    echo "<option id='".$i."' value='" . $modalidade['id'] . "'>" . htmlspecialchars($modalidade['nome_modalidade']) . "</option>";
+                    }
+                    ?>
 
-            <div id="turma">
-              <label for="input-turma">Turma</label>
-              <select id="select">
-                <option value="" disabled selected hidden></option>
-                <?php
-                // Itera sobre o array $id_turmas, que agora já contém informações completas das turmas
-                foreach ($dados_turmas as $turma) {
-                  // A variável $turma agora é um array com 'id_turma' e 'nome_turma'
-                  echo "<option value='" . $turma['id_turma'] . "'>Turma " . htmlspecialchars($turma['nome_turma']) . "</option>";
-                }
-                ?>
 
               </select>
             </div>
 
-            
+            <div id="turma">
+              <label for="input-turma">Turma</label>
+              <select id="select-turma">
+                
+                <option value="" disabled selected hidden>-</option>
 
-
-
-
+              </select>
+            </div>
           </div>
 
           <label for="input-professor">Cordenador Correspondente</label>
-          <input id="input-professor" type="text" disabled>
+          <input id="input-professor" type="text" value="<?= $professor['nome_coordenador']; ?>" disabled>
 
           <label for="input-email">E-mail</label>
-          <input id="input-email" type="text" value="<?= $professor['email_professor']; ?>">
+          <input id="input-email" type="text" value="<?= $professor['email_professor']; ?>" disabled>
 
           <label for="input-senha">Senha</label>
-          <input id="input-senha" type="text" value="<?= $professor['senha']; ?>">
-
-          <button id="btn-enviar" type="submit">Editar Dados</button>
+          <input id="input-senha" type="password" value="<?= $professor['senha']; ?>" disabled>
+          <div id="btns">
+          <button id="btn-enviar" type="submit">Alterar Email</button>
+          <button id="btn-enviar" type="submit">Redefinir Senha</button>
+        </div>
         </div>
 
         <div id="bloco2">
@@ -124,7 +132,30 @@ print_r($nomeModalidade);
 
   <br><br><br><br><br>
 
+
+<div id="redefinir-senha">
+  <form action="">
+    <h1>Redefinir Senha</h1>
+
+    <label for="input-senha">Digite sua senha atual</label>
+    <input id="input-senha" type="password" value="">
+
+    <label for="input-senha">Digite sua nova senha</label>
+    <input id="input-senha" type="password" value="">
+
+    <label for="input-senha">Confirme sua nova senha</label>
+    <input id="input-senha" type="password" value="">
+    <div id="btns-redefinir">
+      <button id="btn-confirmar" type="submit">Cancelar</button>
+      <button id="btn-cancelar" type="button">Redefinir Senha</button>
+    </div>
+  </form>
+
+</div><div id="sombra"></div>
 </div>
+
+
+
 
 
 
