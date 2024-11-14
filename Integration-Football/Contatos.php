@@ -38,8 +38,8 @@
 
                                 </div>
                             </div>
+                            <div class="card largura" onclick="window.location.href='https://web.whatsapp.com/';">
 
-                        <div class="card tamanho">
                             <div class="imagens">
                                 <img src="Imagens/Telefone.svg" alt="" draggable="false">
                             </div>
@@ -56,7 +56,7 @@
                         
 
 
-                        <div class="card largura"  onclick="redirecionar('Unidades.html')">
+                        <div class="card largura"  onclick="redirecionar('Unidades.php')">
                             <div class="imagens">
                                 <img src="Imagens/Mapa.svg" alt="" draggable="false">
                             </div>
