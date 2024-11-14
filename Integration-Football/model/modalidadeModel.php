@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/controller/conexao.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Integration-Football-main/Integration-Football-main/Integration-Football//controller/conexao.php";
 
 // Definição da classe Modalidade
 class Modalidade
