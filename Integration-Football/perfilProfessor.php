@@ -4,9 +4,9 @@
 //Basta colocar os links
 
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/professorcontroller.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/turmacontroller.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/modalidadecontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football-main/Integration-Football/controller/professorcontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football-main/Integration-Football/controller/turmacontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football-main/Integration-Football//controller/modalidadecontroller.php';
 
 
 $imports = [
