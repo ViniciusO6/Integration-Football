@@ -153,7 +153,7 @@ input {
 }
 
 #redefinir-senha{
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -164,11 +164,13 @@ input {
   padding: 50px;
   border-radius: 5px;
   z-index: 11;
+  
 }
 
 #btns-redefinir{
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  margin-top: 10px;
   
 }
 
@@ -209,6 +211,43 @@ input {
   background-color: rgba(0, 0, 0, 0.397);
   z-index: 10;
 }
+
+#icon-olho-1{
+  cursor: pointer;
+  position: absolute;
+  top: 128px;
+  left: 315px;
+
+}
+
+#icon-olho-2{
+  cursor: pointer;
+  position: absolute;
+  top: 200px;
+  left: 316px;
+
+}
+
+#icon-olho-3{
+  cursor: pointer;
+  position: absolute;
+  top: 272px;
+  left: 316px;
+}
+
+#erroSenha{
+  margin-top: -8px;
+  font-size: 12px;
+  display: none;
+}
+
+.invisivel{
+  display: none !important;
+}
+
+
+
+
 
 
 @media screen and (max-width: 992px) {

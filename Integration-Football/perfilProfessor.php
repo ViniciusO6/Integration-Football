@@ -21,7 +21,7 @@ $pageJS = ["perfilProfessor.js"];
 
 include_once('./templetes/headerProfessor.php');
 
-$id = 5;
+$id = 6;
 $idModalidade;
 
 $professorController = new ProfessorController;
@@ -111,11 +111,11 @@ xhr.onload = function() {
           <label for="input-email">E-mail</label>
           <input id="input-email" type="text" value="<?= $professor['email_professor']; ?>" disabled>
 
-          <label for="input-senha">Senha</label>
-          <input id="input-senha" type="password" value="<?= $professor['senha']; ?>" disabled>
+          <label for="input-senha-pessoal">Senha</label>
+          <input id="input-senha-pessoal" type="password" value="<?= $professor['senha']; ?>" disabled>
           <div id="btns">
           <button id="btn-enviar" type="submit">Alterar Email</button>
-          <button id="btn-enviar" type="submit">Redefinir Senha</button>
+          <button onclick="fecharTela()" id="btn-enviar" type="button">Redefinir Senha</button>
         </div>
         </div>
 
@@ -133,25 +133,39 @@ xhr.onload = function() {
   <br><br><br><br><br>
 
 
-<div id="redefinir-senha">
-  <form action="">
+<div class="invisivel" id="redefinir-senha">
+  <form onsubmit="return validarCampos()" action="./controller/professorcontroller.php" method="post">
     <h1>Redefinir Senha</h1>
+    
+    
+    <img id="icon-olho-1" src="./Imagens/icones/visibility_off.svg" alt="">
+    <img id="icon-olho-2" src="./Imagens/icones/visibility_off.svg" alt="">
+    <img id="icon-olho-3" src="./Imagens/icones/visibility_off.svg" alt="">
 
     <label for="input-senha">Digite sua senha atual</label>
-    <input id="input-senha" type="password" value="">
+    <input name="input-senha" id="input-senha" type="password" value="" required>
 
-    <label for="input-senha">Digite sua nova senha</label>
-    <input id="input-senha" type="password" value="">
+    <label for="input-nova-senha">Digite sua nova senha</label>
+    <input name="input-nova-senha" id="input-nova-senha" type="password" value="" required>
 
-    <label for="input-senha">Confirme sua nova senha</label>
-    <input id="input-senha" type="password" value="">
+    <label for="input-confirme-senha">Confirme sua nova senha</label>
+                    
+    <input name="senha" id="input-confirme-senha" type="password" value="" required>
+        <p id="erroSenha">As senhas digitadas não são iguais. Verifique e tente novamente.</p>
+
     <div id="btns-redefinir">
-      <button id="btn-confirmar" type="submit">Cancelar</button>
-      <button id="btn-cancelar" type="button">Redefinir Senha</button>
+
+      <input type="hidden" name="crud" value="alterarSenha">
+      <input name="id" type="hidden" value="<?=$id?>">
+
+      <button onclick="fecharTela()" id="btn-confirmar" type="button">Cancelar</button>
+      <button id="btn-cancelar" type="submit">Redefinir Senha</button>
     </div>
+
   </form>
 
-</div><div id="sombra"></div>
+</div>
+<div class="invisivel" id="sombra"></div>
 </div>
 
 

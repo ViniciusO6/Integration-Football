@@ -146,6 +146,15 @@ class Professor
         return $stmt->execute();
     }
 
+    public function redefinirSenha(){
+        $sql = "UPDATE professores SET `senha` = ? WHERE `id` = ?";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('si', $this->senha, $this->id_professor);
+
+
+        return $stmt->execute();
+    }
+
     public function delete($id)
     {
         $sql = "DELETE FROM professores WHERE id_professor = ?";

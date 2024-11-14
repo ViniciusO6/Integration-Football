@@ -20,8 +20,10 @@ class ProfessorController
                 $this->atualizar();
             } elseif ($_POST['crud'] == "DELETE") {
                 $this->deletar();
+            } elseif ($_POST['crud'] == "alterarSenha") {
+                $this->redefinirSenha();
+                header("Location:" . "../perfilProfessor.php");
             }
-            header("Location:" . "../calendarioProfessor.php"); //Redireciona para outra pagina
         } else {
             $this->listar();
         }
@@ -55,6 +57,13 @@ class ProfessorController
     public function buscarPorId($id)
     {
         return $this->professor->buscarPorId($id);
+    }
+
+    public function redefinirSenha()
+    {
+        $this->professor->setIdProfessor($_POST['id']);
+        $this->professor->setSenha($_POST['senha']);
+        return $this->professor->redefinirSenha();
     }
 
     public function atualizar()
