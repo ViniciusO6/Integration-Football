@@ -31,6 +31,7 @@ $turma = $turmacontroller->buscarPorId($aluno['id_turma']);
 
 $atividadecontroller = new AtividadeController();
 $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
+
 ?>
 
 <style>
@@ -168,6 +169,7 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
       $numeroAtividade = 1;
       foreach ($atividades as $atividade) {
         $numeroAtividade++;
+
       ?>
 
         <div id="tarefa<?= $numeroAtividade ?>" class="tarefa-item">
@@ -213,9 +215,12 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
               </div>
 
               <div class="botoes-atividade">
-                <div class="deletar">
-                  <img src="./Imagens/delete.svg" alt="">
+                <div class="deletar" onclick="deletar(this)">
+                  <img src="./Imagens/delete.svg" id="id-Card" alt="" style="cursor: pointer;">
+
+                  <input type="hidden" class="form-control" name="id" id="id-atividade" value="<?= $atividade['id_atividade'] ?>" disable>
                 </div>
+
                 <button style="cursor: pointer;" id="baixar atividade" type="button" onclick="redirecionar('./download.php?file=exemplo.pdf')">Baixar Arquivos</button>
               </div>
             </div>
@@ -225,13 +230,15 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
       <?php } ?>
 
 
-      <div class="tela-deletar">
-        <p id="titulo-deletar">Deseja mesmo deletar esta atividade?</p>
-        <img src="./Imagens/lixeira.svg" alt="">
+      <div id="tela-deletar" class="invisivel">
+        <p id="titulo-deletar">Tem certeza que deseja deletar a atividade?</p>
+        <img src="./Imagens/Icone-Deletar.svg" alt="">
         <p id="descricao-deletar">Uma vez que confirmar, não será possível restaurar a atividade e suas informações. Deseja mesmo deletar?</p>
-        <form action="" id="formulario-deletar">
+        <form action="./controller/atividadecontroller.php" id="formulario-deletar" method="POST">
           <input type="submit" value="Sim" id="confirmar">
-          <input type="submit" value="Cancelar" id="Sair">
+          <input type="hidden" class="form-control" name="id" id="id" value="" disable>
+          <input type="hidden" class="form-control" name="crud" value="DELETE" disable>
+          <input type="button" value="Cancelar" id="Sair" onclick="ficaInvisivel()">
         </form>
       </div>
 
@@ -240,6 +247,7 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
 
 
   </div>
+  <div id="sombra" class="invisivel"></div>
 </div>
 
 <style>

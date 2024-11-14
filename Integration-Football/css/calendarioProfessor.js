@@ -153,3 +153,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+function ficaInvisivel() {
+  const telaDeletar = document.getElementById("tela-deletar");
+  const sombra = document.getElementById("sombra");
+  const sair = document.getElementById("Sair");
+
+  telaDeletar.classList.toggle("invisivel");
+  sombra.classList.toggle("invisivel");
+
+  // // Bloqueia a rolagem ao mostrar o modal de exclusão
+  // if (!telaDeletar.classList.contains("invisivel")) {
+  //   document.body.style.overflow = "hidden";
+  // } else {
+  //   // Libera a rolagem ao esconder o modal de exclusão
+  //   document.body.style.overflow = "auto";
+  // }
+}
+
+function deletar(element) {
+  ficaInvisivel();
+  const idAtividade = document.getElementById("id");
+  const valorCard = element.children[1].value;
+  let id = valorCard;
+  idAtividade.value = id;
+  console.log(valorCard);
+}
