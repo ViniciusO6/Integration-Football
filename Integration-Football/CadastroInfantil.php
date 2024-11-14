@@ -156,10 +156,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Função para mostrar/ocultar o campo de especificação da deficiência
     document.getElementById('deficiência').addEventListener('change', function() {
         const deficienciaQualField = document.getElementById('deficiencia_qual');
+        const button = document.getElementById('proximo'); // Botão de próximo
+
         if (this.value === 'sim') {
             deficienciaQualField.style.display = 'inline';
+            button.classList.add('button-move-down'); // Mover o botão para baixo
         } else {
             deficienciaQualField.style.display = 'none';
+            button.classList.remove('button-move-down'); // Retirar a margem do botão
         }
     });
 
@@ -190,15 +194,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!validarIdade(dataNascimento)) {
             alert("O inscrito não pode ter 18 anos ou mais.");
             isValid = false;
-        }
-
-        // Validação do CPF do Responsável
-        let cpfResponsavel = document.getElementById('cpf_responsavel').value;
-        if (!validarCPF(cpfResponsavel)) {
-            document.getElementById('cpfRespError').style.display = 'inline';
-            isValid = false;
-        } else {
-            document.getElementById('cpfRespError').style.display = 'none';
         }
 
         // Validação do RG do Responsável
