@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football-main/Integration-Football/model/modalidadeModel.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/model/modalidadeModel.php';
 
 class ModalidadeController
 {
