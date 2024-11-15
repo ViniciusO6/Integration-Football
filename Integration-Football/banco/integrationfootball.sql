@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/11/2024 às 15:53
+-- Tempo de geração: 15/11/2024 às 21:45
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -90,7 +90,21 @@ CREATE TABLE `atividade` (
 --
 
 INSERT INTO `atividade` (`id_atividade`, `titulo_atividade`, `hora_inicio`, `data_entrega`, `caminho_arquivo`, `id_turma`, `id_professor`, `hora_termino`) VALUES
-(2, 'Atividade Pratica - 1° Bimestre', '14:30:00', '2024-11-26', '', 1, 5, '15:30:59');
+(2, 'Atividade Pratica - 1° Bimestre', '14:30:00', '2024-11-26', '', 1, 5, '15:30:59'),
+(5, 'asdasdasd', '03:08:00', '2024-11-26', '0', 1, 5, '03:09:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `aulas`
+--
+
+CREATE TABLE `aulas` (
+  `id_aula` int(10) UNSIGNED NOT NULL,
+  `data_aula` date NOT NULL,
+  `id_turma` int(10) UNSIGNED NOT NULL,
+  `descricao_aula` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -152,6 +166,23 @@ INSERT INTO `instituicao` (`id`, `cnpj_instituicao`, `telefone_instituicao`, `no
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `justificativa_falta`
+--
+
+CREATE TABLE `justificativa_falta` (
+  `id_justificativa` int(10) UNSIGNED NOT NULL,
+  `id_aluno` int(10) UNSIGNED DEFAULT NULL,
+  `id_presenca` int(10) UNSIGNED DEFAULT NULL,
+  `descricao` varchar(255) DEFAULT NULL,
+  `resposta_professor` varchar(255) DEFAULT NULL,
+  `camimho_arquivo` varchar(255) DEFAULT NULL,
+  `aprovado_professor` tinyint(1) DEFAULT NULL,
+  `aprovado_instituicao` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `modalidade`
 --
 
@@ -168,6 +199,20 @@ CREATE TABLE `modalidade` (
 INSERT INTO `modalidade` (`id`, `nome_modalidade`, `descricao`) VALUES
 (1, 'Power Soccer\r\n', ''),
 (2, 'Walking Football', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `presencas`
+--
+
+CREATE TABLE `presencas` (
+  `id_presenca` int(10) UNSIGNED NOT NULL,
+  `id_aluno` int(10) UNSIGNED DEFAULT NULL,
+  `id_aula` int(10) UNSIGNED DEFAULT NULL,
+  `presente` tinyint(1) NOT NULL,
+  `justificado` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -218,7 +263,8 @@ CREATE TABLE `turma` (
 INSERT INTO `turma` (`id_turma`, `nome_turma`, `id_professor`, `id_instituicao`, `id_modalidade`) VALUES
 (1, 'A', 5, 1, 1),
 (2, 'A', 5, 1, 2),
-(3, 'B', 5, 1, 1);
+(3, 'B', 5, 1, 1),
+(4, 'B', 6, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -270,6 +316,13 @@ ALTER TABLE `atividade`
   ADD KEY `id_professor` (`id_professor`);
 
 --
+-- Índices de tabela `aulas`
+--
+ALTER TABLE `aulas`
+  ADD PRIMARY KEY (`id_aula`),
+  ADD KEY `id_turma` (`id_turma`);
+
+--
 -- Índices de tabela `inscricao`
 --
 ALTER TABLE `inscricao`
@@ -282,10 +335,26 @@ ALTER TABLE `instituicao`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices de tabela `justificativa_falta`
+--
+ALTER TABLE `justificativa_falta`
+  ADD PRIMARY KEY (`id_justificativa`),
+  ADD KEY `id_aluno` (`id_aluno`),
+  ADD KEY `id_presenca` (`id_presenca`);
+
+--
 -- Índices de tabela `modalidade`
 --
 ALTER TABLE `modalidade`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `presencas`
+--
+ALTER TABLE `presencas`
+  ADD PRIMARY KEY (`id_presenca`),
+  ADD KEY `id_aluno` (`id_aluno`),
+  ADD KEY `id_aula` (`id_aula`);
 
 --
 -- Índices de tabela `professores`
@@ -322,7 +391,13 @@ ALTER TABLE `alunos`
 -- AUTO_INCREMENT de tabela `atividade`
 --
 ALTER TABLE `atividade`
-  MODIFY `id_atividade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_atividade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `aulas`
+--
+ALTER TABLE `aulas`
+  MODIFY `id_aula` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `inscricao`
@@ -337,10 +412,22 @@ ALTER TABLE `instituicao`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de tabela `justificativa_falta`
+--
+ALTER TABLE `justificativa_falta`
+  MODIFY `id_justificativa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `modalidade`
 --
 ALTER TABLE `modalidade`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `presencas`
+--
+ALTER TABLE `presencas`
+  MODIFY `id_presenca` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `professores`
@@ -352,7 +439,7 @@ ALTER TABLE `professores`
 -- AUTO_INCREMENT de tabela `turma`
 --
 ALTER TABLE `turma`
-  MODIFY `id_turma` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_turma` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `unidade`
@@ -376,6 +463,26 @@ ALTER TABLE `alunos`
 ALTER TABLE `atividade`
   ADD CONSTRAINT `atividade_ibfk_1` FOREIGN KEY (`id_turma`) REFERENCES `turma` (`id_turma`),
   ADD CONSTRAINT `atividade_ibfk_2` FOREIGN KEY (`id_professor`) REFERENCES `professores` (`id`);
+
+--
+-- Restrições para tabelas `aulas`
+--
+ALTER TABLE `aulas`
+  ADD CONSTRAINT `aulas_ibfk_1` FOREIGN KEY (`id_turma`) REFERENCES `turma` (`id_turma`);
+
+--
+-- Restrições para tabelas `justificativa_falta`
+--
+ALTER TABLE `justificativa_falta`
+  ADD CONSTRAINT `justificativa_falta_ibfk_1` FOREIGN KEY (`id_aluno`) REFERENCES `alunos` (`id_aluno`),
+  ADD CONSTRAINT `justificativa_falta_ibfk_2` FOREIGN KEY (`id_presenca`) REFERENCES `presencas` (`id_presenca`);
+
+--
+-- Restrições para tabelas `presencas`
+--
+ALTER TABLE `presencas`
+  ADD CONSTRAINT `presencas_ibfk_1` FOREIGN KEY (`id_aluno`) REFERENCES `alunos` (`id_aluno`),
+  ADD CONSTRAINT `presencas_ibfk_2` FOREIGN KEY (`id_aula`) REFERENCES `aulas` (`id_aula`);
 
 --
 -- Restrições para tabelas `turma`
