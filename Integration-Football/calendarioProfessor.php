@@ -251,13 +251,13 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
 </div>
 
 <style>
-  .tooltip {
+.tooltip {
     position: relative;
     display: inline-block;
     cursor: pointer;
-  }
+}
 
-  .tooltip-text {
+.tooltip-text {
     visibility: hidden;
     font-size: 12px;
     width: 150px;
@@ -268,16 +268,12 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
     padding: 5px;
     position: absolute;
     z-index: 1;
-    top: -5px;
-    left: 110%;
+    bottom: 125%; /* Posiciona o tooltip acima da div */
+    left: 50%;
+    margin-left: -75px; /* Ajusta para centralizar */
     opacity: 0;
     transition: opacity 0.3s;
-  }
-
-  .tooltip:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
-  }
+}
 </style>
 
 
