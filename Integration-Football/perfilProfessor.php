@@ -82,7 +82,7 @@ xhr.onload = function() {
               <select id="input-modalidade" onChange="enviarModalidade()">
               <?php
                 $modalidadecontroller = new modalidadecontroller();
-                $modalidades = $modalidadecontroller->listar();
+                $modalidades = $modalidadecontroller->listarPorIdProfessor($id);
                 echo '<option value="" disabled selected hidden>Modalidade</option>';
                     $i = 0;
                     foreach ($modalidades as $modalidade) {
