@@ -200,7 +200,7 @@ $id_professor = 5;
                 $modalidadecontroller = new modalidadecontroller();
                 $modalidades = $modalidadecontroller->listar();
                 ?>
-                <select require name="modalidade" id="select-modalidade" onChange="enviarModalidade()">
+                <select required name="modalidade" id="select-modalidade" onChange="enviarModalidade()">
                     <option value="" disabled selected hidden>Escolha uma modalidade</option>
                     <?php
                     $i = 0;

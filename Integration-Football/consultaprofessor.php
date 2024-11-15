@@ -1,5 +1,12 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/alunocontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/professorcontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/turmacontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/modalidadecontroller.php';
+
+
+
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
 $imports = [
@@ -16,6 +23,103 @@ include_once('./templetes/headerProfessor.php');
 
 ?>
 
+<script>
+    function enviarModalidade() {
+
+        var modalidade = document.getElementById("select-modalidade").value;
+        let tipo = "buscarTurmas";
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./ajax/ajax.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.send("modalidade=" + modalidade + "&tipo=" + tipo);
+
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                document.getElementById("select-turma").innerHTML = xhr.responseText;
+            }
+        };
+    }
+
+    function filtrar() {
+        let tipo = "filtrar";
+
+        var modalidade = document.getElementById("select-modalidade").value;
+        var turma = document.getElementById("select-turma").value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./ajax/ajax.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // Envia o valor do select (modalidade) para o PHP
+        xhr.send("modalidade=" + modalidade + "&turma=" + turma + "&tipo=" + tipo);
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                document.getElementById("nomes-alunos").innerHTML = xhr.responseText;
+            }
+        };
+
+        setTimeout(function() {
+            tipo = "carregarEmail";
+
+            var modalidade = document.getElementById("select-modalidade").value;
+            var turma = document.getElementById("select-turma").value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "./ajax/ajax.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.send("modalidade=" + modalidade + "&turma=" + turma + "&tipo=" + tipo);
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    document.getElementById("contato-alunos").innerHTML = xhr.responseText;
+                }
+            };
+
+        }, 1)
+
+        setTimeout(function() {
+            let tipo = "carregarNomeTurma";
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "./ajax/ajax.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.send("modalidade=" + modalidade + "&turma=" + turma + "&tipo=" + tipo);
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    document.getElementById("Turma").innerHTML = xhr.responseText;
+                }
+            };
+
+        }, 1)
+
+
+    }
+
+    function carregarNomeTurma() {
+        let tipo = "carregarNomeTurma";
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./ajax/ajax.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("modalidade=" + modalidade + "&turma=" + turma + "&tipo=" + tipo);
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                document.getElementById("Turma").innerHTML = xhr.responseText;
+            }
+        };
+    }
+</script>
+
+
+
 <div class="container">
   <div id="consulta">
 
@@ -29,24 +133,33 @@ include_once('./templetes/headerProfessor.php');
         <div class="Pesquisar">
           <div class="ComboBox">
             <p>Escolha a modalidade:</p>
-            <select id="inserir_dados">
-              <option value="" disabled selected hidden></option>
-              <option>Modalidade 1</option>
-              <option>Modalidade 2</option>
-              <option>Modalidade 3</option>
-              <option>Modalidade 4</option>
-            </select>
+            <?php
+            
+                $modalidadecontroller = new modalidadecontroller();
+                $modalidades = $modalidadecontroller->listar();
+                ?>
+                <select require name="modalidade" id="select-modalidade" onChange="enviarModalidade()">
+                    <option value="" disabled selected hidden>Escolha uma modalidade</option>
+                    <?php
+                    $i = 0;
+                    foreach ($modalidades as $modalidade) {
+                        $i++;
+                        echo "<option id='" . $i . "' value='" . $modalidade['id'] . "'>" . htmlspecialchars($modalidade['nome_modalidade']) . "</option>";
+                    }
+                    ?>
+                </select>
+
+    
+
+                
           </div>
 
           <div class="ComboBox">
             <p>Escolha a turma:</p>
-            <select id="inserir_dados">
-              <option value="" disabled selected hidden></option>
-              <option>Turma 1</option>
-              <option>Turma 2</option>
-              <option>Turma 3</option>
-              <option>Turma 4</option>
-            </select>
+            <select require name="turma" id="select-turma" onChange="">
+                    <option value="0" disabled selected hidden>Escolha uma turma</option>
+
+                </select>
           </div>
         </div>
 

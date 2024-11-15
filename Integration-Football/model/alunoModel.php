@@ -142,11 +142,10 @@ class Aluno
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->execute();
         $result = $stmt->get_result();
-        $alunos = []; // Inicializa o array para armazenar os resultados
+        $alunos = []; 
 
-        // Utilize uma variável auxiliar para armazenar o resultado de fetch_assoc()
         while ($aluno = $result->fetch_assoc()) {
-            $alunos[] = $aluno; // Adiciona cada pessoa ao array
+            $alunos[] = $aluno;
         }
         return $alunos;
     }
