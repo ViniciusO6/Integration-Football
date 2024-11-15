@@ -102,6 +102,27 @@ class Modalidade
         return $modalidades;
     }
 
+    public function listarPorIdProfessor($id)
+    {
+        $sql = "SELECT DISTINCT modalidade.id, modalidade.nome_modalidade
+                FROM modalidade
+                INNER JOIN turma ON modalidade.id = turma.id_modalidade
+                INNER JOIN professores ON professores.id = turma.id_professor
+                WHERE professores.id = ?";
+
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $modalidades = [];
+
+        
+        while ($modalidade = $result->fetch_assoc()) {
+            $modalidades[] = $modalidade;
+        }
+        return $modalidades;
+    }
+
     public function buscarNomeModalidade($idmodalidade)
     {
         $sql = "SELECT nome_modalidade FROM modalidade WHERE id = ?";

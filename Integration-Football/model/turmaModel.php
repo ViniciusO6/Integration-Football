@@ -137,9 +137,15 @@ class Turma
 
     public function buscarPorModalidade($modalidade, $id_professor)
     {
-        $sql = "SELECT nome_turma, id_turma FROM turma WHERE id_modalidade = ? AND id_professor = ?";
+        $sql = "SELECT nome_turma, id_turma
+        FROM turma
+        INNER JOIN modalidade ON modalidade.id = turma.id_modalidade
+        INNER JOIN professores ON turma.id_professor = professores.id
+        WHERE professores.id = ? AND modalidade.id = ?";
+
+                
         $stmt = $this->conexao->getConexao()->prepare($sql);
-        $stmt->bind_param('ii', $modalidade, $id_professor );
+        $stmt->bind_param('ii', $id_professor, $modalidade );
         $stmt->execute();
         $result = $stmt->get_result();
         $turmas = []; // Inicializa o array para armazenar os resultados

@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 include_once('./templetes/headerProfessor.php');
 
-$id_professor = 5;
+$id = 5;
 ?>
 
 
@@ -185,20 +185,15 @@ $id_professor = 5;
                             <div class="separador-horizontal"></div>
                         </div>
                     <?php } ?>
-
-
                 </div>
-
             </div>
-
             <br><br>
-
 
             <h1 id="titulo">ALUNOS</h1>
             <form id="form-filtro">
                 <?php
                 $modalidadecontroller = new modalidadecontroller();
-                $modalidades = $modalidadecontroller->listar();
+                $modalidades = $modalidadecontroller->listarPorIdProfessor($id);
                 ?>
                 <select required name="modalidade" id="select-modalidade" onChange="enviarModalidade()">
                     <option value="" disabled selected hidden>Escolha uma modalidade</option>

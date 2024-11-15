@@ -74,6 +74,11 @@ class ModalidadeController
         return $this->modalidade->buscarNomeModalidade($idmodalidade); // Retorna a modalidade encontrada pelo ID
     }
 
+    public function listarPorIdProfessor($idProfessor)
+    {
+        return $this->modalidade->listarPorIdProfessor($idProfessor); // Retorna a modalidade encontrada pelo ID
+    }
+
     // Método para atualizar os dados de uma modalidade
     public function atualizar()
     {

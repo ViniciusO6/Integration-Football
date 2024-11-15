@@ -21,11 +21,13 @@ $pageJS = ["consultarprofessor.js"];
 
 include_once('./templetes/headerProfessor.php');
 
+$id = 5;
+
 ?>
 
 <script>
     function enviarModalidade() {
-
+        console.log("chamou");
         var modalidade = document.getElementById("select-modalidade").value;
         let tipo = "buscarTurmas";
 
@@ -136,9 +138,9 @@ include_once('./templetes/headerProfessor.php');
             <?php
             
                 $modalidadecontroller = new modalidadecontroller();
-                $modalidades = $modalidadecontroller->listar();
+                $modalidades = $modalidadecontroller->listarPorIdProfessor($id);
                 ?>
-                <select require name="modalidade" id="select-modalidade" onChange="enviarModalidade()">
+                <select required name="modalidade" id="select-modalidade" onChange="enviarModalidade()">
                     <option value="" disabled selected hidden>Escolha uma modalidade</option>
                     <?php
                     $i = 0;
@@ -147,11 +149,7 @@ include_once('./templetes/headerProfessor.php');
                         echo "<option id='" . $i . "' value='" . $modalidade['id'] . "'>" . htmlspecialchars($modalidade['nome_modalidade']) . "</option>";
                     }
                     ?>
-                </select>
-
-    
-
-                
+                </select>    
           </div>
 
           <div class="ComboBox">
