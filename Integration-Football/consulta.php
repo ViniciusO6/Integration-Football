@@ -1,5 +1,9 @@
 <?php 
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/alunocontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/professorcontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/turmacontroller.php';
+
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
   $imports =[
@@ -13,8 +17,10 @@
   $pageJS = ["consulta.js"];
 
   include_once('./templetes/headerAluno.php');
-
+$id = 4;
 ?>
+
+
 
 <div class="container">
   <div id="consulta">
@@ -24,7 +30,22 @@
         <h1 id="titulo">JUSTIFICAR FALTAS</h1>
 
         <p>Escolha o(a) professor(a)</p>
-        <input id="input-professor" type="text">
+
+        <?php
+        $alunocontroller = new AlunoController();
+        $professores = $alunocontroller->buscarProfessores($id);
+        
+        ?>
+        <select required name="professor" id="select-professor" onChange="enviarModalidade()">
+          <option value="" disabled selected hidden>Escolha o(a) professor(a)</option>
+          <?php
+          $i = 0;
+          foreach ($professores as $professor) {
+              $i++;
+              echo "<option id='" . $i . "' value='" . $professor['id'] . "'>" . htmlspecialchars($professor['nome_professor']) . "</option>";
+          }
+          ?>
+        </select>
 
         <p>Defina a data de ausência:</p>
         <input id="input-data" type="date">

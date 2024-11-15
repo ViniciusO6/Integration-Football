@@ -63,6 +63,11 @@ class AlunoController {
         return $this->aluno->listarAlunosPorTurma($id_turma);
     }
 
+    public function buscarProfessores($id_aluno){
+        $this->aluno->setId($id_aluno);
+        return $this->aluno->buscarProfessores();
+    }
+
     public function atualizar(){
         $this->aluno->setId($_POST['id']);
         $this->aluno->setNome($_POST['nome']);

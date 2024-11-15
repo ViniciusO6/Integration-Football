@@ -150,6 +150,25 @@ class Aluno
         return $alunos;
     }
 
+    public function buscarProfessores(){
+        $sql = "SELECT professores.nome_professor, professores.id
+                FROM professores
+                INNER JOIN turma ON professores.id = turma.id_professor
+                INNER JOIN alunos ON turma.id_turma = alunos.id_turma
+                WHERE alunos.id_aluno = ?
+                ORDER BY nome_professor ASC";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $this->id_aluno);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $professores= []; 
+
+        while ($professor = $result->fetch_assoc()) {
+            $professores[] = $professor;
+        }
+        return $professores;
+    }
+
     public function delete($id)
     {
 
