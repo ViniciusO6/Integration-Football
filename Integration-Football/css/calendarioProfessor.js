@@ -122,6 +122,7 @@ document.getElementById("cancelar").addEventListener("click", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const dataEntregaInput = document.getElementById("data_entrega");
+  const publicarBtn = document.getElementById("publicar-atividade");
 
   // Define as datas mínima e máxima
   const hoje = new Date();
@@ -143,20 +144,26 @@ document.addEventListener("DOMContentLoaded", function () {
     return `${dia}/${mes}/${ano}`; // Formato "dd/mm/aaaa"
   };
 
-  // Adiciona o evento de verificação para quando o campo perde o foco
-  dataEntregaInput.addEventListener("blur", function () {
-    const dataSelecionada = this.value; // Obtém o valor como string no formato yyyy-mm-dd
+  publicarBtn.addEventListener("click", function () {
+    const dataSelecionada = dataEntregaInput.value; // Obtém o valor da data
 
-    // Compara as datas diretamente como strings (sem horas, minutos ou segundos)
-    if (dataSelecionada < dataMin || dataSelecionada > dataMax) {
-      TelaData();
-      this.value = ""; // Limpa o campo
-      alert(
-        `Selecione uma data entre hoje (${formatarData(
-          dataMin
-        )}) e o final do ano (${formatarData(dataMax)}).`
-      );
+    if (!dataSelecionada) {
+      TelaData(); // Mostra o modal de erro se a data não estiver preenchida
+      document.getElementById("data-min").innerText = formatarData(dataMin);
+      document.getElementById("data-max").innerText = formatarData(dataMax);
+      return;
     }
+
+    // Verifica se a data está fora do intervalo
+    if (dataSelecionada < dataMin || dataSelecionada > dataMax) {
+      TelaData(); // Mostra o modal de erro
+      document.getElementById("data-min").innerText = formatarData(dataMin);
+      document.getElementById("data-max").innerText = formatarData(dataMax);
+      return;
+    }
+
+    // Se a data for válida, chama a tela de deletar
+    TelaDeletar();
   });
 });
 

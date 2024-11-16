@@ -189,10 +189,8 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
               <div class="data-entrega">
                 <img src="./Imagens/Time-Circle.png" alt="">
                 <p>
-                  <?= $horaInicio = substr($atividade['hora_inicio'], 0, -6); ?>h
-                  <?= $minutosInicio = substr($atividade['hora_inicio'], 3, -3); ?> às
-                  <?= $horaTermino = substr($atividade['hora_termino'], 0, -6); ?>h
-                  <?= $minutosTermino = substr($atividade['hora_termino'], 3, -3); ?>
+                  <?= $horaInicio = substr($atividade['hora_inicio'], 0, -6); ?>h<?= $minutosInicio = substr($atividade['hora_inicio'], 3, -3); ?> às
+                  <?= $horaTermino = substr($atividade['hora_termino'], 0, -6); ?>h<?= $minutosTermino = substr($atividade['hora_termino'], 3, -3); ?>
                 </p>
               </div>
             </div>
@@ -246,7 +244,7 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
       <div id="tela-data" class="invisivel">
         <p id="titulo-data">Data Inválida</p>
         <img src="./Imagens/Icone-Data.svg" alt="">
-        <p id="descricao-data">Você escolheu uma data inválida! Por favor, defina uma data entre (15/11/2024) e (31/11/2024).</p>
+        <p id="descricao-data">Você escolheu uma data inválida! Por favor, defina uma data entre <span id="data-min">15/11/2024</span> e <span id="data-max">31/12/2024</span>.</p>
         <input type="button" value="OK" id="ok" onclick="TelaData()">
       </div>
 
