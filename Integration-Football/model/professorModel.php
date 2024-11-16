@@ -121,6 +121,31 @@ class Professor
         return $professores;
     }
 
+    //Não finalizado, pois não tenho a tabela instituicao 
+    public function listarProfessoresInstituicao()
+    {
+        $sql = "SELECT DISTINCT
+            professores.nome_professor,
+            professores.email_professor
+        FROM professores
+        JOIN turma ON turma.id_professor = professores.id
+        JOIN instituicao ON instituicao.id_instituicao = turma.id_instituicao
+        JOIN alunos ON alunos.id_turma = turma.id_turma
+        WHERE alunos.id_aluno = ?;
+        ORDER BY nome_professor ASC";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $this->id_professor);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $professores = []; // Inicializa o array para armazenar os resultados
+
+        // Utilize uma variável auxiliar para armazenar o resultado de fetch_assoc()
+        while ($professor = $result->fetch_assoc()) {
+            $professores[] = $professor; // Adiciona cada professor ao array
+        }
+        return $professores;
+    }
+
     public function buscarPorId($id)
     {
         $sql = "SELECT * FROM professores WHERE id = ?";
