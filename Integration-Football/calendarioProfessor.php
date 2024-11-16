@@ -163,6 +163,7 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
         </div>
 
       </div>
+
       <h1 id="titulo-tarefas">ATIVIDADES ATRIBUIDAS</h1>
 
       <?php
@@ -238,8 +239,15 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
           <input type="submit" value="Sim" id="confirmar">
           <input type="hidden" class="form-control" name="id" id="id" value="" disable>
           <input type="hidden" class="form-control" name="crud" value="DELETE" disable>
-          <input type="button" value="Cancelar" id="Sair" onclick="ficaInvisivel()">
+          <input type="button" value="Cancelar" id="Sair" onclick="TelaDeletar()">
         </form>
+      </div>
+
+      <div id="tela-data" class="invisivel">
+        <p id="titulo-data">Data Inválida</p>
+        <img src="./Imagens/Icone-Data.svg" alt="">
+        <p id="descricao-data">Você escolheu uma data inválida! Por favor, defina uma data entre (15/11/2024) e (31/11/2024).</p>
+        <input type="button" value="OK" id="ok" onclick="TelaDeletar()">
       </div>
 
     </div> <!-- fim do form -->
@@ -251,13 +259,13 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
 </div>
 
 <style>
-.tooltip {
+  .tooltip {
     position: relative;
     display: inline-block;
     cursor: pointer;
-}
+  }
 
-.tooltip-text {
+  .tooltip-text {
     visibility: hidden;
     font-size: 12px;
     width: 150px;
@@ -268,12 +276,14 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
     padding: 5px;
     position: absolute;
     z-index: 1;
-    bottom: 125%; /* Posiciona o tooltip acima da div */
+    bottom: 125%;
+    /* Posiciona o tooltip acima da div */
     left: 50%;
-    margin-left: -75px; /* Ajusta para centralizar */
+    margin-left: -75px;
+    /* Ajusta para centralizar */
     opacity: 0;
     transition: opacity 0.3s;
-}
+  }
 </style>
 
 

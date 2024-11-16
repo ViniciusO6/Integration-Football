@@ -606,6 +606,61 @@ h3 {
   transform: scale(1.05);
 }
 
+/* Fim Tela-Deletar */
+
+/* Tela Data Inválida*/
+#tela-data {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 600px;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  background-color: rgb(255, 255, 255);
+  left: 50%;
+  top: 50%;
+  border-radius: 30px;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+}
+
+#titulo-data {
+  margin-top: 35px;
+  font-weight: bold;
+  font-size: 28px;
+  width: 85%;
+}
+
+#tela-data img {
+  margin-top: 55px;
+  margin-bottom: 55px;
+}
+
+#descricao-data {
+  margin-bottom: 45px;
+  font-size: 18px;
+  width: 80%;
+}
+
+#ok {
+  background-color: #06db6d;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  width: 350px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+#ok:hover {
+  transform: scale(1.05);
+}
+
 #sombra {
   display: flex;
   width: 10000px;
@@ -644,6 +699,11 @@ h3 {
     justify-content: center;
   }
 
+  #tela-deletar {
+    transform: translate(-50%, -40%) scale(0.75);
+    transform-origin: top;
+  }
+
   #form {
     width: 630px;
     margin-top: 0;
@@ -667,7 +727,17 @@ h3 {
     transform-origin: top;
   }
 
+  #tela-deletar {
+    transform: translate(-50%, -40%) scale(0.8);
+    transform-origin: top;
+  }
+
   #titulo {
+    transform: scale(0.822);
+    transform-origin: top left;
+  }
+
+  #titulo-tarefas {
     transform: scale(0.822);
     transform-origin: top left;
   }
@@ -678,6 +748,14 @@ h3 {
   }
 
   .atividade {
+    width: 566px;
+    height: 120px;
+    transform: scale(0.822);
+    transform-origin: top left;
+    margin-bottom: 0;
+  }
+
+  .tarefa-item {
     width: 566px;
     height: 120px;
     transform: scale(0.822);
@@ -699,7 +777,20 @@ h3 {
     transform-origin: top;
   }
 
+  #tela-deletar {
+    transform: translate(-50%, -40%) scale(0.7);
+    transform-origin: top;
+  }
+
   .atividade {
+    width: 566px;
+    height: 120px;
+    transform: scale(0.636);
+    transform-origin: top left;
+    margin-bottom: -30px;
+  }
+
+  .tarefa-item {
     width: 566px;
     height: 120px;
     transform: scale(0.636);
@@ -713,8 +804,11 @@ h3 {
   }
 
   #titulo {
-    transform: scale(0.636);
-    transform-origin: top left;
+    font-size: 26px;
+  }
+
+  #titulo-tarefas {
+    font-size: 26px;
   }
 
   .atividade-aberto {
@@ -738,14 +832,29 @@ h3 {
     margin-bottom: -40px;
   }
 
+  #tela-deletar {
+    transform: translate(-50%, -30%) scale(0.6);
+    transform-origin: top;
+  }
+
+  .tarefa-item {
+    width: 566px;
+    transform: scale(0.532);
+    transform-origin: top left;
+    margin-bottom: -40px;
+  }
+
   #form {
     width: 300px;
     margin-top: 0;
   }
 
   #titulo {
-    transform: scale(0.532);
-    transform-origin: top left;
+    font-size: 24px;
+  }
+
+  #titulo-tarefas {
+    font-size: 24px;
   }
 
   .atividade-aberto {

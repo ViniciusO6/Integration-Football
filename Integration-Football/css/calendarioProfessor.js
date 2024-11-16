@@ -1,3 +1,4 @@
+//Código do Calendário
 const currentDate = document.querySelector("#mes-ano"),
   daysTag = document.querySelector("#dias"),
   prevNextIcon = document.querySelectorAll("#btns img");
@@ -75,7 +76,9 @@ prevNextIcon.forEach((icon) => {
     renderCalendar();
   });
 });
+//Fim do Calendário
 
+//Abrir Card
 function abrirPrevia(IDAtividade, IDCard) {
   const DivAtividade = document.querySelector("#" + IDAtividade);
   const DivCardArquivo = document.querySelector("#" + IDCard);
@@ -83,6 +86,8 @@ function abrirPrevia(IDAtividade, IDCard) {
   DivAtividade.classList.toggle("atividade-aberto");
   DivCardArquivo.classList.toggle("aberto");
 }
+//Fim Abrir Card
+
 // Inicializa o campo file-text com o texto padrão
 document.getElementById("file-text").value = "";
 
@@ -99,7 +104,7 @@ document.getElementById("files").addEventListener("change", function () {
 
   if (file) {
     fileText.value = file.name; // Exibe o nome do arquivo
-    fileText.style.width = "80%"; // Reduz a largura do campo para 80%
+    fileText.style.width = "100%"; // Reduz a largura do campo para 80%
     cancelarBtn.style.display = "block"; // Exibe o botão "Cancelar"
   }
 });
@@ -154,25 +159,18 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function ficaInvisivel() {
+//Tela de deletar arquivo
+function TelaDeletar() {
   const telaDeletar = document.getElementById("tela-deletar");
   const sombra = document.getElementById("sombra");
   const sair = document.getElementById("Sair");
 
   telaDeletar.classList.toggle("invisivel");
   sombra.classList.toggle("invisivel");
-
-  // // Bloqueia a rolagem ao mostrar o modal de exclusão
-  // if (!telaDeletar.classList.contains("invisivel")) {
-  //   document.body.style.overflow = "hidden";
-  // } else {
-  //   // Libera a rolagem ao esconder o modal de exclusão
-  //   document.body.style.overflow = "auto";
-  // }
 }
 
 function deletar(element) {
-  ficaInvisivel();
+  TelaDeletar();
   const idAtividade = document.getElementById("id");
   const valorCard = element.children[1].value;
   let id = valorCard;
