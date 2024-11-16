@@ -59,6 +59,12 @@ class ProfessorController
         return $this->professor->buscarPorId($id);
     }
 
+    public function listarProfessoresInstituicao($id)
+    {
+        $this->professor->setIdProfessor($id);
+        return $this->professor->listarProfessoresInstituicao();
+    }
+
     public function redefinirSenha()
     {
         $this->professor->setIdProfessor($_POST['id']);

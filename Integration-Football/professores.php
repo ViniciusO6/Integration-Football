@@ -16,7 +16,7 @@ $pageCSS = ["professores.css"];
 $pageJS = ["consulta.js"];
 
 include_once('./templetes/headerAluno.php');
-
+$id = 4;
 ?>
 
 <div class="container">
@@ -44,8 +44,8 @@ include_once('./templetes/headerAluno.php');
             <div id="table">
                 <div id="nomes-professores">
                     <?php
-                    $professorcontroller = new professorcontroller();
-                    $professores = $professorcontroller->listar();
+                    $alunocontroller = new AlunoController();
+                    $professores = $alunocontroller->listarProfessoresInstituicao($id);
                     foreach ($professores as $professor) {
                     ?>
                         <div id="tr-nome">
@@ -97,7 +97,7 @@ include_once('./templetes/headerAluno.php');
 
                     <?php
                     $alunocontroller = new alunocontroller();
-                    $alunos = $alunocontroller->listar();
+                    $alunos = $alunocontroller->listarAlunosTurma($id);
                     foreach ($alunos as $aluno) {
                     ?>
                         <div id="tr-nome">
