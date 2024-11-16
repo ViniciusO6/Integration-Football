@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/11/2024 às 21:45
+-- Tempo de geração: 16/11/2024 às 01:03
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -175,10 +175,21 @@ CREATE TABLE `justificativa_falta` (
   `id_presenca` int(10) UNSIGNED DEFAULT NULL,
   `descricao` varchar(255) DEFAULT NULL,
   `resposta_professor` varchar(255) DEFAULT NULL,
-  `camimho_arquivo` varchar(255) DEFAULT NULL,
+  `caminho_arquivo` varchar(255) DEFAULT NULL,
   `aprovado_professor` tinyint(1) DEFAULT NULL,
   `aprovado_instituicao` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `justificativa_falta`
+--
+
+INSERT INTO `justificativa_falta` (`id_justificativa`, `id_aluno`, `id_presenca`, `descricao`, `resposta_professor`, `caminho_arquivo`, `aprovado_professor`, `aprovado_instituicao`) VALUES
+(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 4, NULL, NULL, NULL, 'false', 0, 0),
+(5, 4, NULL, 'Quebrei meu braço. Não consegui comparecer na aula!', NULL, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -415,7 +426,7 @@ ALTER TABLE `instituicao`
 -- AUTO_INCREMENT de tabela `justificativa_falta`
 --
 ALTER TABLE `justificativa_falta`
-  MODIFY `id_justificativa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_justificativa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `modalidade`
