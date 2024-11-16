@@ -189,11 +189,9 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
               <div class="data-entrega">
                 <img src="./Imagens/Time-Circle.png" alt="">
                 <p>
-                  <?= $horaInicio = substr($atividade['hora_inicio'], 0, -6); ?>h
-                  <?= $minutosInicio = substr($atividade['hora_inicio'], 3, -3); ?> às
-                  <?= $horaTermino = substr($atividade['hora_termino'], 0, -6); ?>h
-                  <?= $minutosTermino = substr($atividade['hora_termino'], 3, -3); ?>
-                </p>
+                  <?= $horaInicio = substr($atividade['hora_inicio'], 0, -6); ?>h<?= $minutosInicio = substr($atividade['hora_inicio'], 3, -3); ?> às
+                  <?= $horaTermino = substr($atividade['hora_termino'], 0, -6); ?>h<?= $minutosTermino = substr($atividade['hora_termino'], 3, -3); ?>
+                </p> 
               </div>
             </div>
 

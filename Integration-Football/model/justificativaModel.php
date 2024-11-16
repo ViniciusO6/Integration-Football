@@ -150,6 +150,28 @@ class Justificativa
     }
 
     // Método para listar todas as justificativas
+    public function listarJustificativasProfessor($id_professor)
+    {
+        $sql = "
+        SELECT *
+        FROM justificativa_falta
+        INNER JOIN alunos ON justificativa_falta.id_aluno = alunos.id_aluno
+        INNER JOIN turma ON turma.id_turma = alunos.id_turma
+        WHERE turma.id_professor = ?
+        ";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $id_professor);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $justificativas = [];
+
+        while ($justificativa = $result->fetch_assoc()) {
+            $justificativas[] = $justificativa;
+        }
+        return $justificativas;
+    }
+
     public function listar()
     {
         $sql = "SELECT * FROM justificativa_falta";

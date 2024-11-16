@@ -55,6 +55,13 @@ class JustificativaController
         return $justificativas; // Retorna o resultado para ser exibido em uma view, se necessário
     }
 
+    public function listarJustificativasProfessor($id_professor)
+    {
+        $justificativas = $this->justificativa->listarJustificativasProfessor($id_professor); // Chama o método listar da classe Justificativa
+        return $justificativas; // Retorna o resultado para ser exibido em uma view, se necessário
+    }
+
+
     // Método para deletar uma justificativa
     public function deletar()
     {
