@@ -14,7 +14,7 @@ class JustificativaController
         if (isset($_POST['crud'])) {
 
             if ($_POST['crud'] == "INSERT") {
-                $this->inserir();
+                $this->inserir($_POST['data_falta']);
             } elseif ($_POST['crud'] == "UPDATE") {
                 $this->atualizar();
             } elseif ($_POST['crud'] == "DELETE") {
@@ -29,7 +29,7 @@ class JustificativaController
     }
 
     // Método para inserir uma nova justificativa
-    public function inserir()
+    public function inserir($data)
     {
         // Define os atributos da justificativa com base nos dados recebidos via POST
         $this->justificativa->setIdAluno($_POST['id_aluno']);
@@ -41,7 +41,7 @@ class JustificativaController
         $this->justificativa->setAprovadoInstituicao($_POST['aprovado_instituicao']);
 
         // Chama o método inserir da classe Justificativa para armazenar os dados no banco de dados
-        if ($this->justificativa->inserir()) {
+        if ($this->justificativa->inserir($data)) {
             echo "Justificativa inserida com sucesso!";
         } else {
             echo "Erro ao inserir a justificativa.";

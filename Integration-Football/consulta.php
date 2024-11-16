@@ -50,7 +50,7 @@ $id = 4;
       </select>
 
       <p>Defina a data de ausência:</p>
-      <input id="input-data" type="date" name="">
+      <input id="input-data" type="date" name="data_falta">
 
       <p>Justificativa:</p>
       <textarea name="descricao" id="input-justificativa" placeholder="Escreva uma justificatica de até 255 caracteres."></textarea>
