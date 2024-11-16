@@ -56,17 +56,25 @@ $id = 4;
       <textarea name="descricao" id="input-justificativa" placeholder="Escreva uma justificatica de até 255 caracteres."></textarea>
 
       <p>Atestado</p>
+
+      <div class="opcoes-arquivos">
+        <input type="text" id="file-text" for="input-arquivo" placeholder="Nenhum arquivo selecionado" disabled>
+
+        <div id="cancelar" class="visibilidade">
+          <img src="Imagens/buttonCancel.svg" alt="" draggable="false">
+        </div>
+      </div>
+
       <div id="btns">
         <button id="input-arquivo" type="button">Escolher arquivo</button>
-        <input id="files" type="file">
+        <input id="files" type="file" name="caminho_arquivo">
         <input type="hidden" name="id_aluno" value=<?= $id ?>>
         <input type="hidden" name="aprovado_professor" value="">
         <input type="hidden" name="aprovado_instituicao" value="">
-        <input type="hidden" name="caminho_arquivo" value="">
         <input type="hidden" class="form-control" name="crud" value="INSERT" disable>
         <button id="btn-enviar" type="submit">Enviar</button>
       </div>
-      <label id="file-text" for="input-arquivo"></label>
+
 
     </form>
 

@@ -1,159 +1,198 @@
-.container{
-    width: 100vw;
-    margin-top: 80px;
-    font-family: 'Poppins', sans-serif;
-  }
-
-#titulo{
-    margin-bottom: 20px;
+.container {
+  width: 100vw;
+  margin-top: 80px;
+  font-family: "Poppins", sans-serif;
 }
 
-input{
-    margin-bottom: 15px;
+#titulo {
+  margin-bottom: 20px;
 }
 
-p{
-    font-weight: bold;
-    font-size: 18px;
+p {
+  font-weight: bold;
+  font-size: 18px;
 }
 
-#consulta{
+#consulta {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  margin-top: 25px;
+}
+
+#select-professor {
+  border: none;
+  border: solid 2px #2092c2;
+  border-radius: 5px;
+  height: 30px;
+  width: 100%;
+  font-size: 18px;
+  padding: 0 5px;
+  margin-bottom: 15px;
+}
+
+#input-data {
+  border: none;
+  border: solid 2px #2092c2;
+  border-radius: 5px;
+  height: 30px;
+  width: 30%;
+  font-size: 18px;
+  padding: 0 5px;
+  margin-bottom: 20px;
+}
+
+#input-justificativa {
+  font-family: "Poppins", sans-serif;
+  resize: none;
+  border: none;
+  border: solid 2px #2092c2;
+  border-radius: 5px;
+  font-size: 18px;
+  height: 200px;
+  width: 98%;
+  padding: 5px 5px;
+  margin-bottom: 15px;
+}
+
+#input-arquivo {
+  cursor: pointer;
+  background-color: #ffffff;
+  border: solid 2px #2092c2;
+  height: 30px;
+  width: 140px;
+  border-radius: 5px;
+}
+
+.opcoes-arquivos {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+#file-text {
+  height: 90%;
+  border: solid 2px #2092c2;
+  border-radius: 5px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  padding-left: 2%;
+  display: flex;
+}
+
+#files {
+  display: none;
+}
+
+/* 
+.visibilidade {
+  display: none;
+} */
+
+#cancelar {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 100%;
+  background-color: #ab0303;
+  margin-left: 5px;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+#cancelar img {
+  width: 100%;
+}
+
+#cancelar:hover {
+  background-color: #750000;
+}
+
+#btn-enviar {
+  cursor: pointer;
+  border: none;
+  border: solid 2px #2092c2;
+  background-color: #2092c2;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px;
+  height: 30px;
+  width: 140px;
+}
+
+#btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 865px) {
+  #consulta {
     width: 100%;
     display: flex;
     justify-content: center;
-}
+  }
 
-#form{
-    display: flex;
-    flex-direction: column;
-    width: 55%;
-    margin-top: 25px;
-}
+  #form {
+    width: 85%;
+    margin-top: 0;
+  }
 
-#select-professor{
+  input {
+    width: 96%;
+  }
+
+  #input-professor {
     border: none;
     border: solid 2px #2092c2;
     border-radius: 5px;
     height: 30px;
-    width: 100%;
+    width: 96%;
     font-size: 18px;
     padding: 0 5px;
-}
+  }
 
-#input-data{
+  #input-data {
     border: none;
     border: solid 2px #2092c2;
     border-radius: 5px;
     height: 30px;
-    width: 30%;
+    width: 135px;
     font-size: 18px;
     padding: 0 5px;
-}
+  }
 
-#input-justificativa{
-    font-family: 'Poppins', sans-serif;
+  #input-justificativa {
+    font-family: "Poppins", sans-serif;
     resize: none;
     border: none;
     border: solid 2px #2092c2;
     border-radius: 5px;
     font-size: 18px;
     height: 200px;
-    width: 100%;
+    width: 96%;
     padding: 5px 5px;
     margin-bottom: 15px;
-}
+  }
 
-#input-arquivo{
-    cursor: pointer;
-    background-color: #ffffff;
-    border: solid 2px #2092c2;
-    height: 30px;
-    width: 140px;
-    border-radius: 5px;
-}
-
-#files{
-    display: none;
-}
-
-#btn-enviar{
-    cursor: pointer;
-    border: none;
-    border: solid 2px #2092c2;
-    background-color: #2092c2;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 5px;
-    height: 30px;
-    width: 140px;
-}
-
-#btns{
-    display: flex;
-    justify-content: space-between;
-}
-
-
-
-@media screen and (max-width: 992px) {
-
-}
-
-@media screen and (max-width: 865px) {
-    #consulta{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    #form{
-        width: 85%;
-        margin-top: 0;
-    }
-
-    input{
-        width: 96%;
-    }
-
-    #input-professor{
-        border: none;
-        border: solid 2px #2092c2;
-        border-radius: 5px;
-        height: 30px;
-        width: 96%;
-        font-size: 18px;
-        padding: 0 5px;
-    }
-    
-    #input-data{
-        border: none;
-        border: solid 2px #2092c2;
-        border-radius: 5px;
-        height: 30px;
-        width: 135px;
-        font-size: 18px;
-        padding: 0 5px;
-    }
-    
-    #input-justificativa{
-        font-family: 'Poppins', sans-serif;
-        resize: none;
-        border: none;
-        border: solid 2px #2092c2;
-        border-radius: 5px;
-        font-size: 18px;
-        height: 200px;
-        width: 96%;
-        padding: 5px 5px;
-        margin-bottom: 15px;
-    }
-
-    #titulo{
-        margin-bottom: 0px;
-    }
+  #titulo {
+    margin-bottom: 0px;
+  }
 }
 
 @media screen and (max-width: 490px) {
-
 }

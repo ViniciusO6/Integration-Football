@@ -149,6 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Compara as datas diretamente como strings (sem horas, minutos ou segundos)
     if (dataSelecionada < dataMin || dataSelecionada > dataMax) {
+      TelaData();
       this.value = ""; // Limpa o campo
       alert(
         `Selecione uma data entre hoje (${formatarData(
@@ -166,6 +167,16 @@ function TelaDeletar() {
   const sair = document.getElementById("Sair");
 
   telaDeletar.classList.toggle("invisivel");
+  sombra.classList.toggle("invisivel");
+}
+
+//Tela de deletar arquivo
+function TelaData() {
+  const telaData = document.getElementById("tela-data");
+  const sombra = document.getElementById("sombra");
+  const sair = document.getElementById("ok");
+
+  telaData.classList.toggle("invisivel");
   sombra.classList.toggle("invisivel");
 }
 

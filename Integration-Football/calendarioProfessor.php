@@ -247,7 +247,7 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
         <p id="titulo-data">Data Inválida</p>
         <img src="./Imagens/Icone-Data.svg" alt="">
         <p id="descricao-data">Você escolheu uma data inválida! Por favor, defina uma data entre (15/11/2024) e (31/11/2024).</p>
-        <input type="button" value="OK" id="ok" onclick="TelaDeletar()">
+        <input type="button" value="OK" id="ok" onclick="TelaData()">
       </div>
 
     </div> <!-- fim do form -->
