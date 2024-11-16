@@ -104,15 +104,30 @@ class Justificativa
     }
 
     // Método para inserir um novo registro na tabela 'justificativa_falta'
-    public function inserir()
+    public function inserir($data)
     {
+        $sql = "
+        SELECT presencas.id_presenca
+        FROM presencas
+        INNER JOIN aulas ON presencas.id_aula = aulas.id_aula
+        WHERE presencas.id_aluno = ?
+        AND aulas.data_aula = ?
+        AND presencas.presente = 0;
+        ";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('is', $this->id_aluno, $data);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $id_presenca = $result;
+
+
         $sql = "INSERT INTO justificativa_falta (`id_aluno`, `id_presenca`, `descricao`, `resposta_professor`, `caminho_arquivo`, `aprovado_professor`, `aprovado_instituicao`) 
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param(
             'iisssii',
             $this->id_aluno,
-            $this->id_presenca,
+            $id_presenca,
             $this->descricao,
             $this->resposta_professor,
             $this->caminho_arquivo,
@@ -135,6 +150,28 @@ class Justificativa
     }
 
     // Método para listar todas as justificativas
+    public function listarJustificativasProfessor($id_professor)
+    {
+        $sql = "
+        SELECT *
+        FROM justificativa_falta
+        INNER JOIN alunos ON justificativa_falta.id_aluno = alunos.id_aluno
+        INNER JOIN turma ON turma.id_turma = alunos.id_turma
+        WHERE turma.id_professor = ?
+        ";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $id_professor);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $justificativas = [];
+
+        while ($justificativa = $result->fetch_assoc()) {
+            $justificativas[] = $justificativa;
+        }
+        return $justificativas;
+    }
+
     public function listar()
     {
         $sql = "SELECT * FROM justificativa_falta";

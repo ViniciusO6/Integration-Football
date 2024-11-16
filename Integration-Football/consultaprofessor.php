@@ -4,6 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Foot
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/professorcontroller.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/turmacontroller.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/modalidadecontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/justificativacontroller.php';
 
 
 
@@ -160,17 +161,25 @@ $id = 5;
                 </select>
           </div>
         </div>
-
-
       </form>
 
+      
+      <?php
+      $justificativacontroller = new JustificativaController();
+      $justificativas = $justificativacontroller->listarJustificativasProfessor($id);
+      $numeroAtividade = 1;
+
+      foreach($justificativas as $justificativa){
+      $numeroAtividade++
+      ?>
       <div class="cards" onclick="AbrirJustificativa(this)">
         <div class="imagem">
           <img src="Imagens/FotoPerfil.svg" alt="" draggable="false">
         </div>
 
+        
         <div class="informacao">
-          <p>Cássio Egipcio Gomes</p>
+          <p><?= $justificativa['descricao'] ?></p>
           <p>26/02/2008</p>
         </div>
 
@@ -211,6 +220,10 @@ $id = 5;
 
         </div>
       </div>
+      <?php } ?>
+
+
+      
     </div>
 
   </div>

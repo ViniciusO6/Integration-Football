@@ -2,10 +2,10 @@
 
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
-require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football-main/Integration-Football-main/Integration-Football/controller/alunocontroller.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football-main/Integration-Football-main/Integration-Football/controller/professorcontroller.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football-main/Integration-Football-main/Integration-Football/controller/turmacontroller.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football-main/Integration-Football-main/Integration-Football/controller/modalidadecontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/controller/alunocontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/controller/professorcontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/controller/turmacontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/controller/modalidadecontroller.php';
 
   $imports =[
     "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap",
