@@ -29,15 +29,44 @@
 .Pesquisar {
   display: flex;
   width: 100%;
-  gap: 10%;
+  gap: 30px;
   margin-top: 20px;
+  align-items: end;
 }
 
 select {
-  width: 90%;
-  height: 60%;
+  height: 30px;
+  width: 100%;
   border: 2px solid #07cb65;
   border-radius: 5px;
+}
+
+.buttons {
+  display: flex;
+  height: 30px;
+  gap: 10px;
+}
+
+#cancelar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 100%;
+  background-color: #ab0303;
+  margin-left: 5px;
+  border-radius: 5px;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+#cancelar img {
+  width: 30px;
+}
+
+#cancelar:hover {
+  background-color: #750000;
+  transform: scale(1.1);
 }
 
 select:focus {
@@ -214,6 +243,27 @@ button img:hover {
 }
 
 /* termina */
+
+.filtrar {
+  width: 150px;
+  height: 100%;
+  background-color: #07cb65;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.filtrar:focus {
+  outline: none;
+}
+
+.filtrar:hover {
+  transform: scale(1.05);
+}
 
 @media screen and (max-width: 992px) {
   .container {
