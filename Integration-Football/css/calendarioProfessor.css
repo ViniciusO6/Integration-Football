@@ -265,7 +265,7 @@ h3 {
   padding-left: 5px;
 }
 
-#id_turma {
+.selects{
   margin-left: 5%;
   height: 26px;
   border: solid 2px black;
