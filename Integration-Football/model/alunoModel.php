@@ -122,7 +122,7 @@ class Aluno
 
     public function listarAlunosPorTurma($id_turma)
     {
-        $sql = "SELECT nome_aluno, email_aluno, id_aluno FROM alunos WHERE id_turma = ? ORDER BY nome_aluno ASC";
+        $sql = "SELECT nome_aluno, email_aluno, id_aluno, id_turma FROM alunos WHERE id_turma = ? ORDER BY nome_aluno ASC";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('i', $id_turma); // Corrigido para usar $id em vez de $this->id
         $stmt->execute();

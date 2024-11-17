@@ -1,5 +1,5 @@
 <?php
-
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/config/globals.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/alunocontroller.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/professorcontroller.php';
@@ -24,8 +24,27 @@ $id = 5
 
 ?>
 
-
 <script>
+
+    function ValidarChamada(){
+        console.log("chamou");
+        var modalidade = document.getElementById("").value;
+        let tipo = "buscarTurmas";
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./ajax/ajax.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.send("modalidade=" + modalidade + "&tipo=" + tipo);
+
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                document.getElementById("select-turma").innerHTML = xhr.responseText;
+            }
+        };
+    }
+
     function enviarModalidade() {
         console.log("chamou");
         var modalidade = document.getElementById("select-modalidade").value;
@@ -132,7 +151,9 @@ $id = 5
     <div id="consulta">
 
         <!-- Form para enviar as informações sobre a aula -->
-        <form id="form" action="">
+        <form onsubmit="" id="form" action="./controller/presencacontroller.php" method="POST">
+            <input name="crud" type="hidden" value="INSERT">
+    
             <h1 id="titulo">PRESENÇA</h1>
 
             <!-- Div que guarda os ComboBox de Modalidade e Professor -->
@@ -167,7 +188,7 @@ $id = 5
                 <!-- Div do ComboBox2  -->
                 <div class="ComboBox">
                     <p class="titulo">Escolha a turma:</p>
-                    <select require name="turma" id="select-turma" onChange="">
+                    <select required name="turma" id="select-turma" onChange="">
                         <option value="0" disabled selected hidden>Escolha uma turma</option>
 
                     </select>
@@ -179,7 +200,7 @@ $id = 5
             <!-- Final Pesquisar-->
 
             <p class="titulo">Defina a data :</p>
-            <input id="input-data" type="date">
+            <input name="data_aula" id="input-data" type="date">
 
             <p class="titulo">Descrição da Aula:</p>
             <textarea name="descricao" id="input-descricao" placeholder="Escreva uma descrição de até 255 caracteres."></textarea>
@@ -192,9 +213,10 @@ $id = 5
                         <p>Nenhuma turma selecionada</p>
 
             </div>
+
             <!-- Fim Tabela de Presença -->
 
-            <div class=" btns">
+            <div class="btns">
                 <button id="btn-enviar" type="submit">Computar</button>
             </div>
 

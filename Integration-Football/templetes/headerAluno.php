@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <?php
+    include_once('templetes/mensagemSessao.php');
     $message = new Message($_SERVER['DOCUMENT_ROOT']);
     $flassMessage = $message->getMessage();
     if(!empty($flassMessage["msg"])) {

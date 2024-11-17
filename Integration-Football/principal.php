@@ -153,10 +153,6 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
                           $data = $atividade['data_entrega'];
                           $data = explode('-', $data);
                           $dataDormatada = $data[2] . '/' . $data[1];
-
-
-
-
                           ?>
                   <?=
                   $dataDormatada;

@@ -1,6 +1,7 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/controller/conexao.php";
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/templetes/mensagemSessao.php");
 
 // Definição da classe Presenca
 class Presenca
@@ -67,13 +68,34 @@ class Presenca
     }
 
     // Método para inserir um novo registro na tabela 'presencas'
-    public function inserir()
+    public function inserir($id_turma, $data_aula)
     {
+        $sql = "
+        SELECT id_aula
+        FROM aulas
+        WHERE id_turma = ? AND data_aula = ?
+        ";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('is', $id_turma, $data_aula);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $id_aula = $result->fetch_assoc();
+        
+        if($id_aula){
         $sql = "INSERT INTO presencas (`id_aluno`, `id_aula`, `presente`, `justificado`) 
                 VALUES (?, ?, ?, NULL)";
         $stmt = $this->conexao->getConexao()->prepare($sql);
-        $stmt->bind_param('iis', $this->id_aluno, $this->id_aula, $this->presente);
+        $stmt->bind_param('iis', $this->id_aluno, $id_aula, $this->presente);
         return $stmt->execute();
+    }else{
+                  
+        $data_aula = explode('-', $data_aula);
+        $dataDormatada = $data_aula[2] . '/' . $data_aula[1] . '/' . $data_aula[0];
+        $dataDormatada;
+        $message = new Message($_SERVER['DOCUMENT_ROOT']);
+        $message->setMessage("Não foi encontrado nenhuma aula no dia ". $dataDormatada, "error", "back");
+    }
     }
 
     // Método para buscar uma presença por ID

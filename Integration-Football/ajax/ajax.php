@@ -69,6 +69,7 @@ if (isset($_POST['tipo']) && $_POST['tipo'] == "filtrar" && isset($_POST['modali
 
     }else{
         echo '
+        
         <div id="th-chamada">
 
             <div id="titulo-nome">
@@ -95,6 +96,7 @@ if (isset($_POST['tipo']) && $_POST['tipo'] == "filtrar" && isset($_POST['modali
         ';
         
         foreach ($alunos as $aluno) {
+            
             $i++;
             echo '
                     <!-- Linha de nome e Checbox presença -->
@@ -107,11 +109,12 @@ if (isset($_POST['tipo']) && $_POST['tipo'] == "filtrar" && isset($_POST['modali
                         <div class="separador-vertical"></div>
 
                         <div id="presenca-select">
-                            <input name="'. $i .'" value="'. $aluno['id_aluno'] .'" type="checkbox" class="input-checkbox" onclick="selectOnlyThis(this, '. $i .')">
+                            <input value="1" name="presenca['. $aluno['id_aluno'].']" value="'. $aluno['id_aluno'] .'" type="checkbox" class="input-checkbox" onclick="selectOnlyThis(this, \'presenca['. $aluno['id_aluno'] .']\')">
 
                             <div class="separador-vertical"></div>
 
-                            <input name="'. $i .'" value="'. $aluno['id_aluno'] .'" type="checkbox" class="input-checkbox" onclick="selectOnlyThis(this, '. $i .')"> 
+                            <input value="0" name="presenca['. $aluno['id_aluno'].']" type="checkbox" class="input-checkbox" onclick="selectOnlyThis(this, \'presenca['. $aluno['id_aluno'] .']\')"> 
+                            <input name="id_turma" type="hidden" value="'. $aluno['id_turma'].'">
                         </div>
                     </div>
             ';
@@ -119,4 +122,12 @@ if (isset($_POST['tipo']) && $_POST['tipo'] == "filtrar" && isset($_POST['modali
 }
 
 
+}else if(isset($_POST['tipo']) && $_POST['tipo'] == "ValidarChamada"){
+    if (isset($_POST['presenca']) && is_array($_POST['presenca'])) {
+        
+    }else{
+        $message = new Message($_SERVER['DOCUMENT_ROOT']);
+        $message->setMessage("Nenhum dado de presença recbido", "error", "back");
+    }
 }
+

@@ -1,7 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/config/globals.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/model/presencaModel.php';
-include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/templetes/mensagemSessao.php");
 
 class PresencaController
 {
@@ -16,6 +15,7 @@ class PresencaController
         if (isset($_POST['crud'])) {
 
             if ($_POST['crud'] == "INSERT") {
+                echo "Rodou Insert";
                 $this->inserir($_POST['id_turma'], $_POST['data_aula']);
             } elseif ($_POST['crud'] == "UPDATE") {
                 $this->atualizar();
@@ -23,6 +23,7 @@ class PresencaController
                 $this->deletar();
             }
 
+            header("Location:" . "../calendarioProfessor.php"); // Redireciona para outra página após a operação
             exit; // Adicionado o exit para garantir que o código pare após o redirecionamento
         } else {
             $this->listar();
@@ -53,8 +54,7 @@ class PresencaController
         // Se tudo foi bem, exibe mensagem de sucesso
         echo "Presenças inseridas com sucesso!";
     } else {
-        $message = new Message($_SERVER['DOCUMENT_ROOT']);
-        $message->setMessage("Nenhum dado de presença recbido", "error", "back");
+        echo "Nenhum dado de presença recebido.";
     }
     }
 

@@ -23,7 +23,6 @@ class JustificativaController
                 $this->deletar();
             } elseif ($_POST['crud'] == "enviarResposta") {
                 $this->respostaprofessor($_POST['id_justificativa'], $_POST['aprovado']);
-                header("Location:" . "../consultaProfessor.php");
             }
             
 
