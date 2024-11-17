@@ -103,8 +103,7 @@ $id = 5
 
 
     }
-
-    </script>
+</script>
 
 <div class="container">
     <div id="consulta">
@@ -120,20 +119,23 @@ $id = 5
                 <div class="ComboBox">
                     <p class="titulo">Escolha a modalidade:</p>
                     <?php
-            
-                $modalidadecontroller = new modalidadecontroller();
-                $modalidades = $modalidadecontroller->listarPorIdProfessor($id);
-                ?>
-                <select required name="modalidade" id="select-modalidade" onChange="enviarModalidade()">
-                    <option value="" disabled selected hidden>Escolha uma modalidade</option>
-                    <?php
-                    $i = 0;
-                    foreach ($modalidades as $modalidade) {
-                        $i++;
-                        echo "<option id='" . $i . "' value='" . $modalidade['id'] . "'>" . htmlspecialchars($modalidade['nome_modalidade']) . "</option>";
-                    }
+
+                    $modalidadecontroller = new modalidadecontroller();
+                    $modalidades = $modalidadecontroller->listarPorIdProfessor($id);
                     ?>
-                </select>   
+                    <select required name="modalidade" id="select-modalidade" onChange="enviarModalidade()">
+                        <option value="" disabled selected hidden>Escolha uma modalidade</option>
+                        <?php
+                        $i = 0;
+                        foreach ($modalidades as $modalidade) {
+                            $i++;
+                            echo "<option id='" . $i . "' value='" . $modalidade['id'] . "'>" . htmlspecialchars($modalidade['nome_modalidade']) . "</option>";
+                        }
+                        ?>
+                    </select>
+
+
+
                 </div>
                 <!-- Final ComboBox1-->
 
@@ -143,11 +145,13 @@ $id = 5
                 <div class="ComboBox">
                     <p class="titulo">Escolha a turma:</p>
                     <select require name="turma" id="select-turma" onChange="">
-                    <option value="0" disabled selected hidden>Escolha uma turma</option>
+                        <option value="0" disabled selected hidden>Escolha uma turma</option>
 
-                </select>
+                    </select>
                 </div>
                 <!-- Final ComboBox2 -->
+
+                <button class="filtrar" onclick="filtrar()" type="button">Filtrar</button>
             </div>
             <!-- Final Pesquisar-->
 

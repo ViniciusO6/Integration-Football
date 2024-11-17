@@ -16,9 +16,10 @@
 
 .Pesquisar {
   display: flex;
-  justify-content: space-between;
+  gap: 30px;
   width: 100%;
   margin-bottom: 20px;
+  align-items: end;
 }
 
 .Form1 {
@@ -27,7 +28,7 @@
 
 select {
   height: 30px;
-  width: 90%;
+  width: 100%;
   border: 2px solid #07cb65;
   border-radius: 5px;
 }
@@ -159,6 +160,10 @@ select:focus {
   font-size: 16px;
 }
 
+.input-checkbox {
+  cursor: pointer;
+}
+
 #input-arquivo {
   cursor: pointer;
   background-color: #ffffff;
@@ -170,6 +175,27 @@ select:focus {
 
 #files {
   display: none;
+}
+
+.filtrar {
+  width: 150px;
+  height: 30px;
+  background-color: #07cb65;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.filtrar:focus {
+  outline: none;
+}
+
+.filtrar:hover {
+  transform: scale(1.05);
 }
 
 #btn-enviar {
