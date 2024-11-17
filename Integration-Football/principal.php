@@ -2,6 +2,10 @@
 require_once './controller/alunocontroller.php';
 require_once './controller/turmacontroller.php';
 require_once './controller/atividadecontroller.php';
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/templetes/mensagemSessao.php");
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/config/globals.php';
+
+
 
 
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )

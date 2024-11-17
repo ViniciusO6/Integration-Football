@@ -1,6 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/controller/conexao.php";
-include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/templetes/menssagemSessao.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/templetes/mensagemSessao.php");
 
 // Definição da classe Justificativa
 class Justificativa

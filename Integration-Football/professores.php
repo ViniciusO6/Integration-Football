@@ -2,6 +2,7 @@
 
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/templetes/mensagemSessao.php");
 require_once './controller/alunocontroller.php';
 require_once './controller/professorcontroller.php';
 

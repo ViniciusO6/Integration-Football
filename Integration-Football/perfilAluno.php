@@ -6,6 +6,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Footba
 require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/controller/professorcontroller.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/controller/turmacontroller.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/controller/modalidadecontroller.php';
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/templetes/mensagemSessao.php");
+
 
   $imports =[
     "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap",
