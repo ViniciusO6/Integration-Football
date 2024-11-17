@@ -25,14 +25,8 @@ $idaluno = 4;
 $professorcontroller = new ProfessorController();
 $professor = $professorcontroller->buscarPorId($idprofessor);
 
-$alunocontroller = new AlunoController();
-$aluno = $alunocontroller->buscarPorId($idaluno);
-
-$turmacontroller = new TurmaController();
-$turma = $turmacontroller->buscarPorId($aluno['id_turma']);
-
 $atividadecontroller = new AtividadeController();
-$atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
+$atividades = $atividadecontroller->listarAtivividadesporProfessor($idprofessor);
 
 ?>
 
@@ -320,6 +314,8 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
                     <?= $horaTermino = substr($atividade['hora_termino'], 0, -6); ?>h<?= $minutosTermino = substr($atividade['hora_termino'], 3, -3); ?>
                   </p>
                 </div>
+
+                <p> <?= $atividade['nome_modalidade'] ?> turma <?= $atividade['nome_turma'] ?></p>
               </div>
 
               <div class="bloco-tres">

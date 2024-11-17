@@ -22,7 +22,7 @@ $pageJS = ["principal.js"];
 
 include_once('./templetes/headerAluno.php');
 
-$id = 12;
+$id = 4;
 
 $alunocontroller = new alunocontroller();
 $aluno = $alunocontroller->buscarPorId($id);

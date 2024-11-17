@@ -55,6 +55,13 @@ class AtividadeController
         return $atividades; // Retorna o resultado para ser exibido em uma view, se necessário
     }
 
+    public function listarAtivividadesporProfessor($id_professor)
+    {
+        $this->atividade->setIdProfessor($id_professor);
+        $atividades = $this->atividade->listarAtivividadesporProfessor(); // Chama o método listar da classe Atividade
+        return $atividades; // Retorna o resultado para ser exibido em uma view, se necessário
+    }
+
     // Método para deletar uma atividade
     public function deletar()
     {

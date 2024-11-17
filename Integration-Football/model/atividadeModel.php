@@ -153,6 +153,28 @@ class Atividade
         return $atividades;
     }
 
+    public function listarAtivividadesporProfessor()
+    {
+        $sql =
+         "SELECT atividade.*, turma.nome_turma, modalidade.nome_modalidade
+        FROM atividade
+        INNER JOIN turma ON atividade.id_turma = turma.id_turma
+        INNER JOIN modalidade ON modalidade.id = turma.id_modalidade
+        WHERE atividade.id_professor = ?;
+        ";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $this->id_professor);
+       
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $atividades = [];
+
+        while ($atividade = $result->fetch_assoc()) {
+            $atividades[] = $atividade;
+        }
+        return $atividades;
+    }
+
     public function buscarAtividades($id_turma)
     {
         $sql = "SELECT * FROM atividade WHERE id_turma = ? ORDER BY data_entrega ASC, hora_inicio ASC";
