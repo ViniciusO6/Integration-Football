@@ -32,7 +32,6 @@ $dados_turmas = $turmaController->buscarProfessor($id);
 
 
 ?>
-
 <script>
   function enviarModalidade() {
 
@@ -51,10 +50,7 @@ xhr.onload = function() {
         document.getElementById("select-turma").innerHTML = xhr.responseText;
     }
 };
-
-
 }
-
 </script>
 
 

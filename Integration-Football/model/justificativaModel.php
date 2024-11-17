@@ -1,6 +1,6 @@
 <?php
-
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/controller/conexao.php";
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/templetes/menssagemSessao.php");
 
 // Definição da classe Justificativa
 class Justificativa
@@ -15,6 +15,7 @@ class Justificativa
     private $aprovado_professor;
     private $aprovado_instituicao;
     private $conexao;
+    
 
     // Construtor da classe Justificativa
     public function __construct()
@@ -112,15 +113,20 @@ class Justificativa
         INNER JOIN aulas ON presencas.id_aula = aulas.id_aula
         WHERE presencas.id_aluno = ?
         AND aulas.data_aula = ?
-        AND presencas.presente = 0;
+        AND presencas.presente = 0
+        AND aulas.data_aula = ?
         ";
         $stmt = $this->conexao->getConexao()->prepare($sql);
-        $stmt->bind_param('is', $this->id_aluno, $data);
+        $stmt->bind_param('iss', $this->id_aluno, $data, $data);
         $stmt->execute();
         $result = $stmt->get_result();
-        $id_presenca = $result;
+        if ($row = $result->fetch_assoc()) {
+            $id_presenca = $row['id_presenca'];
+        
 
-
+        
+        $aprovado_professor = NULL;
+        $aprovado_instituicao = NULL;
         $sql = "INSERT INTO justificativa_falta (`id_aluno`, `id_presenca`, `descricao`, `resposta_professor`, `caminho_arquivo`, `aprovado_professor`, `aprovado_instituicao`) 
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conexao->getConexao()->prepare($sql);
@@ -131,10 +137,15 @@ class Justificativa
             $this->descricao,
             $this->resposta_professor,
             $this->caminho_arquivo,
-            $this->aprovado_professor,
-            $this->aprovado_instituicao
+            $aprovado_professor,
+            $aprovado_instituicao
         );
+        
         return $stmt->execute();
+    }else{
+        $message = new Message($_SERVER['DOCUMENT_ROOT']);
+        $message->setMessage("Insira uma data valida.", "error", "back");
+    }
     }
 
     // Método para buscar uma justificativa por ID
@@ -153,11 +164,13 @@ class Justificativa
     public function listarJustificativasProfessor($id_professor)
     {
         $sql = "
-        SELECT *
+        SELECT justificativa_falta.*, alunos.nome_aluno, aulas.data_aula
         FROM justificativa_falta
         INNER JOIN alunos ON justificativa_falta.id_aluno = alunos.id_aluno
         INNER JOIN turma ON turma.id_turma = alunos.id_turma
-        WHERE turma.id_professor = ?
+        INNER JOIN presencas ON presencas.id_presenca = justificativa_falta.id_presenca
+        INNER JOIN aulas ON aulas.id_aula = presencas.id_aula
+        WHERE turma.id_professor = ?  && justificativa_falta.aprovado_professor IS NULL
         ";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('i', $id_professor);
@@ -207,6 +220,19 @@ class Justificativa
         );
         return $stmt->execute();
     }
+
+    public function respostaprofessor($id_justificativa, $resposta_professor)
+    {
+        $sql = "UPDATE justificativa_falta 
+                SET `aprovado_professor` = ?
+                WHERE `id_justificativa` = ?";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param(
+            'ii',  $resposta_professor, $id_justificativa
+        );
+        return $stmt->execute();
+    }
+    
 
     // Método para excluir uma justificativa
     public function delete($id_justificativa)
