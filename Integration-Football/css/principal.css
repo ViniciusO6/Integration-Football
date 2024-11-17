@@ -1,395 +1,393 @@
-.container{
-    width: 100vw;
-    margin-top: 80px;
-    font-family: 'Poppins', sans-serif;
-  }
-
-#conteudo{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.container {
+  width: 100vw;
+  margin-top: 80px;
+  font-family: "Poppins", sans-serif;
 }
 
-#form{
-    display: flex;
-    flex-direction: column;
-    width: 635px;
-    margin-top: 25px;
+#conteudo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-#dia-semana{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#form {
+  display: flex;
+  flex-direction: column;
+  width: 635px;
+  margin-top: 25px;
 }
 
-#header-calendario{
-    display: flex;
-    justify-content: space-between;
-    width: 585px;
+#dia-semana {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#btns{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+#header-calendario {
+  display: flex;
+  justify-content: space-between;
+  width: 585px;
 }
 
-#btns img{
-    width: 20px;
-    cursor: pointer;
-    user-select: none;
+#btns {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-#semanas{
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    width: 600px;
-    margin-bottom: 13px;
+#btns img {
+  width: 20px;
+  cursor: pointer;
+  user-select: none;
 }
 
-#semanas p{
-    width: calc(600px / 7);
-    user-select: none;
+#semanas {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 600px;
+  margin-bottom: 13px;
 }
 
-#dias{
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    width: 582px;
-    gap: 14px;
+#semanas p {
+  width: calc(600px / 7);
+  user-select: none;
 }
 
-#pricipal-calendario{
-    width: 600px;
-    margin: 0px auto;
-    margin-bottom: 100px;
-    transform: scale(1.09);
+#dias {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 582px;
+  gap: 14px;
 }
 
-#dia{
-    width: calc(400px / 7);
-    height: calc(400px / 7);
-    margin: 5px;
-    margin-bottom: 0px;
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer; 
-    transition: 0.1s;
-    user-select: none;
+#pricipal-calendario {
+  width: 600px;
+  margin: 0px auto;
+  margin-bottom: 100px;
+  transform: scale(1.09);
 }
 
 #dia {
-    outline: none; /* Remove qualquer contorno de foco residual */
-    -webkit-tap-highlight-color: transparent; /* Remove o destaque em dispositivos móveis */
+  width: calc(400px / 7);
+  height: calc(400px / 7);
+  margin: 5px;
+  margin-bottom: 0px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.1s;
+  user-select: none;
 }
 
-#dia:hover{
-    border: 2px solid #2092c2;
+#dia {
+  outline: none; /* Remove qualquer contorno de foco residual */
+  -webkit-tap-highlight-color: transparent; /* Remove o destaque em dispositivos móveis */
 }
 
-
-.inactive{
-    color: #ccc;
+#dia:hover {
+  border: 2px solid #2092c2;
 }
 
-.active{
-    border: 2px solid black !important; 
-    background-color: #2092c2;
-    display: none;
+.inactive {
+  color: #ccc;
 }
 
-.active p{
-    color: rgb(255, 255, 255);
+.active {
+  border: 2px solid black !important;
+  background-color: #2092c2;
+  display: none;
 }
 
+.active p {
+  color: rgb(255, 255, 255);
+}
 
 /* RETIRAR */
 /* #pricipal-calendario {
     display: none;
 } */
 
-.atividade{
-    display: flex;
-    flex-direction: column;
-    height: 14%;
-    transition: 0.5s;
-    margin-bottom: 35px;
-    user-select: none;
-    outline: none; /* Remove qualquer contorno de foco residual */
-    -webkit-tap-highlight-color: transparent; /* Remove o destaque em dispositivos móveis */
+.atividade {
+  display: flex;
+  flex-direction: column;
+  height: 14%;
+  transition: 0.5s;
+  margin-bottom: 35px;
+  user-select: none;
+  outline: none; /* Remove qualquer contorno de foco residual */
+  -webkit-tap-highlight-color: transparent; /* Remove o destaque em dispositivos móveis */
 }
 
-.card-atividade{
-    width: 100%;
-    height: 120px;
-    background-color: #73bad9;
-    display: flex; 
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.5s;
+.card-atividade {
+  width: 100%;
+  height: 120px;
+  background-color: #73bad9;
+  display: flex;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
-.card-atividade:hover{
-    transform: scale(1.02);
+.card-atividade:hover {
+  transform: scale(1.02);
 }
 
-.card-atividade p, h3{
-    color: white;
+.card-atividade p,
+h3 {
+  color: white;
 }
 
-.bloco1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70px;
-    margin-left: 15px;
+.bloco1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  margin-left: 15px;
 }
 
-.bloco2{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 10px;
-
+.bloco2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
 }
 
-.titulo-atividade{
-
+.titulo-atividade {
 }
 
-.data-entrega{
-    display: flex;
-    align-items: center;
+.data-entrega {
+  display: flex;
+  align-items: center;
 }
 
-.data-entrega img{
-    width: 25px;
-    height: 25px;
+.data-entrega img {
+  width: 25px;
+  height: 25px;
 }
 
-.data-entrega p{
-    margin-left: 10px;
+.data-entrega p {
+  margin-left: 10px;
 }
 
-.bloco3{
-    width: 107px;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-content: center;
-    min-width: 107px;
-    margin-right: 15px;
+.bloco3 {
+  width: 107px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  min-width: 107px;
+  margin-right: 15px;
 }
 
-.bloco3 img{
-    width: 40px; 
+.bloco3 img {
+  width: 40px;
 }
 
-.bloco1 img{
-    width: 65%;
+.bloco1 img {
+  width: 65%;
 }
 
-.icone-atividade{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    width: 70px;
-    height: 70px;
-    border-radius: 10px;
-    
+.icone-atividade {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
 }
 
-.card-arquivo{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    transition: 0.5s;
-    height: 0px;
-    overflow: hidden;
+.card-arquivo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  transition: 0.5s;
+  height: 0px;
+  overflow: hidden;
 }
 
-.card-arquivo button{
-    border: solid 1px #2092c2;
-    background-color: transparent;
-    border-radius: 10px;
-    width: 150px;
-    height: 45px;
-    font-weight: bold;
-    float: right;
-    margin-right: 30px;
-    margin-bottom: 15px;
+.card-arquivo button {
+  border: solid 1px #2092c2;
+  background-color: transparent;
+  border-radius: 10px;
+  width: 150px;
+  height: 45px;
+  font-weight: bold;
+  float: right;
+  margin-right: 30px;
+  margin-bottom: 15px;
 }
 
-.arquivo{
-    width: 90%;
-    border: solid 2px rgb(145, 145, 145);
-    border-radius: 0 0 10px 10px;
+.arquivo {
+  width: 90%;
+  border: solid 2px rgb(145, 145, 145);
+  border-radius: 0 0 10px 10px;
 }
 
-.previa-arquivo{
-    display: flex;
-    align-items: center;
-    margin: 15px 15px;
+.previa-arquivo {
+  display: flex;
+  align-items: center;
+  margin: 15px 15px;
 }
 
-.previa-arquivo img{
-    width: 65px;
+.previa-arquivo img {
+  width: 65px;
 }
 
-.previa-arquivo p{
-    margin-left: 8px;
+.previa-arquivo p {
+  margin-left: 8px;
 }
 
-.atividade-aberto{
-    height: 280px !important;
+.atividade-aberto {
+  height: 280px !important;
 }
 
-.aberto{
-    height: 160px;
+.aberto {
+  height: 160px;
 }
 
-
+.vazio {
+  margin-top: 35px;
+  font-size: 20px;
+  color: #7a7a7a;
+}
 
 @media screen and (min-width: 1920px) {
-    #pricipal-calendario{
-        width: 600px;
-        margin: 50px auto;
-        margin-bottom: 150px;
-        transform: scale(1.3);
-    }
+  #pricipal-calendario {
+    width: 600px;
+    margin: 50px auto;
+    margin-bottom: 150px;
+    transform: scale(1.3);
+  }
 
-    #form{
-        display: flex;
-        flex-direction: column;
-        width: 751px;
-        margin-top: 25px;
-    }
+  #form {
+    display: flex;
+    flex-direction: column;
+    width: 751px;
+    margin-top: 25px;
+  }
 }
 
 @media screen and (max-width: 865px) {
-    #consulta{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+  #consulta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-    #form{
-        width: 630px;
-        margin-top: 0;
-    }
+  #form {
+    width: 630px;
+    margin-top: 0;
+  }
 
-    #titulo{
-        margin-bottom: 0px;
-    }
+  #titulo {
+    margin-bottom: 0px;
+  }
 
-    .card-atividade {
-        width: 100%;
-    }
+  .card-atividade {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 710px) {
-    #pricipal-calendario {
-        width: initial;
-        margin:initial;
-        margin-bottom: -50px;
-        transform: scale(0.8);
-        transform-origin: top;
-    }
+  #pricipal-calendario {
+    width: initial;
+    margin: initial;
+    margin-bottom: -50px;
+    transform: scale(0.8);
+    transform-origin: top;
+  }
 
-    #titulo{
-        transform: scale(0.822);
-        transform-origin: top left;
-    }
+  #titulo {
+    transform: scale(0.822);
+    transform-origin: top left;
+  }
 
-    #form{
-        width: 470px;
-        margin-top: 0;
-    }
+  #form {
+    width: 470px;
+    margin-top: 0;
+  }
 
-    .atividade {
-        width: 566px;
-        height: 120px;
-        transform: scale(0.822);
-        transform-origin: top left;
-        margin-bottom: 0;
-    }
+  .atividade {
+    width: 566px;
+    height: 120px;
+    transform: scale(0.822);
+    transform-origin: top left;
+    margin-bottom: 0;
+  }
 
-    .atividade-aberto{ 
-         margin-bottom: -30px;
-    }
+  .atividade-aberto {
+    margin-bottom: -30px;
+  }
 }
 
 @media screen and (max-width: 520px) {
-    #pricipal-calendario {
-        width: initial;
-        margin:initial;
-        margin-bottom: -180px;
-        transform: scale(0.6);
-        transform-origin: top;
-    }
+  #pricipal-calendario {
+    width: initial;
+    margin: initial;
+    margin-bottom: -180px;
+    transform: scale(0.6);
+    transform-origin: top;
+  }
 
-    .atividade {
-        width: 566px;
-        height: 120px;
-        transform: scale(0.636);
-        transform-origin: top left;
-        margin-bottom: -30px;
-    }
+  .atividade {
+    width: 566px;
+    height: 120px;
+    transform: scale(0.636);
+    transform-origin: top left;
+    margin-bottom: -30px;
+  }
 
-    #form{
-        width: 360px;
-        margin-top: 0;
-    }
+  #form {
+    width: 360px;
+    margin-top: 0;
+  }
 
-    #titulo{
-        transform: scale(0.636);
-        transform-origin: top left;
-    }
+  #titulo {
+    transform: scale(0.636);
+    transform-origin: top left;
+  }
 
-    .atividade-aberto{ 
-         margin-bottom: -90px;
-    }
+  .atividade-aberto {
+    margin-bottom: -90px;
+  }
 }
 
-
 @media screen and (max-width: 375px) {
-    #pricipal-calendario {
-        width: initial;
-        margin:initial;
-        margin-bottom: -220px;
-        transform: scale(0.5);
-        transform-origin: top;
-    }
+  #pricipal-calendario {
+    width: initial;
+    margin: initial;
+    margin-bottom: -220px;
+    transform: scale(0.5);
+    transform-origin: top;
+  }
 
-    .atividade {
-        width: 566px;
-        transform: scale(0.532);
-        transform-origin: top left;
-        margin-bottom: -40px;
-    }
+  .atividade {
+    width: 566px;
+    transform: scale(0.532);
+    transform-origin: top left;
+    margin-bottom: -40px;
+  }
 
-    #form{
-        width: 300px;
-        margin-top: 0;
-    }
+  #form {
+    width: 300px;
+    margin-top: 0;
+  }
 
-    #titulo{
-        transform: scale(0.532);
-        transform-origin: top left;
-    }
+  #titulo {
+    transform: scale(0.532);
+    transform-origin: top left;
+  }
 
-     .atividade-aberto{ 
-         margin-bottom: -115px;
-    }
-
+  .atividade-aberto {
+    margin-bottom: -115px;
+  }
 }
