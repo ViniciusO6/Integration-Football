@@ -129,6 +129,7 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
                   <p>Horário de Inicio:</p>
                   <p>Horário de Término:</p>
                   <p>Turma:</p>
+                  <p>Modalidade:</p>
                   <p>Anexar Arquivos:</p>
 
                 </div>
@@ -140,10 +141,10 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
                   <input type="time" name="hora_termino" required>
 
                   <select name="id_turma" id="id_turma">
+                    <option value="1">Turma1</option>
+                  </select>
 
-                    <?php
-
-                    ?>
+                  <select name="id_modalidade" id="id_turma">
                     <option value="1">Turma1</option>
                   </select>
 

@@ -275,6 +275,16 @@ h3 {
   padding-left: 5px;
 }
 
+#id_modalidade {
+  margin-left: 5%;
+  height: 26px;
+  border: solid 2px black;
+  border-radius: 5px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  padding-left: 5px;
+}
+
 #input-arquivo {
   cursor: pointer;
   background-color: #ffffff;
@@ -361,7 +371,7 @@ label {
 }
 
 .aberto {
-  height: 300px;
+  height: 345px;
 }
 
 /* Parte das atividades já postadas */
