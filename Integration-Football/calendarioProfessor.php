@@ -120,7 +120,7 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
 
         <div id="card-arquivo" class="card-arquivo fechado">
           <div class="arquivo">
-            <form action="controller/atividadecontroller.php" method="POST" name="formulario">
+            <form action="controller/atividadecontroller.php" method="POST" name="formulario" id="formulario">
               <div class="previa-arquivo">
 
                 <div class="titulos">
@@ -128,6 +128,7 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
                   <p>Data do Evento:</p>
                   <p>Horário de Inicio:</p>
                   <p>Horário de Término:</p>
+                  <p>Turma:</p>
                   <p>Anexar Arquivos:</p>
 
                 </div>
@@ -137,6 +138,14 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
                   <input type="date" name="data_entrega" id="data_entrega" required>
                   <input type="time" name="hora_inicio" required>
                   <input type="time" name="hora_termino" required>
+
+                  <select name="id_turma" id="id_turma">
+
+                    <?php
+
+                    ?>
+                    <option value="1">Turma1</option>
+                  </select>
 
                   <div class="opcoes-arquivos">
                     <input type="text" id="file-text" for="input-arquivo" placeholder="Nenhum arquivo selecionado" disabled>
@@ -149,7 +158,7 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
                   <input id="files" type="file" name="caminho_arquivo" value="">
 
                   <input type="hidden" name="id_professor" value="5">
-                  <input type="hidden" name="id_turma" value="1">
+                  <!-- <input type="hidden" name="id_turma" value="1"> -->
                   <input type="hidden" class="form-control" name="crud" value="INSERT" disable>
                 </div>
 
@@ -166,67 +175,76 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
 
       <h1 id="titulo-tarefas">ATIVIDADES ATRIBUIDAS</h1>
 
+
       <?php
-      $numeroAtividade = 1;
-      foreach ($atividades as $atividade) {
-        $numeroAtividade++;
+
+      if (empty($atividades)) {
+        echo  '<div class="vazio" id="vazio">
+                <p>Não há nenhuma atividade atribuida ainda!</p>
+              </div>';
+      } else {
+        $numeroAtividade = 1;
+        foreach ($atividades as $atividade) {
+          $numeroAtividade++;
 
       ?>
 
-        <div id="tarefa<?= $numeroAtividade ?>" class="tarefa-item">
-          <div id="cartao-tarefa" class="cartao-tarefa" onclick="abrirPrevia('tarefa<?= $numeroAtividade ?>', 'cartao-arquivo<?= $numeroAtividade ?>')">
-            <div class="bloco-um">
-              <div class="icone-tarefa">
-                <img src="./Imagens/checklist.png" alt="">
-              </div>
-            </div>
-
-            <div class="bloco-dois">
-              <div class="titulo-tarefa">
-                <h3><?= $atividade['titulo_atividade'] ?></h3>
+          <div id="tarefa<?= $numeroAtividade ?>" class="tarefa-item">
+            <div id="cartao-tarefa" class="cartao-tarefa" onclick="abrirPrevia('tarefa<?= $numeroAtividade ?>', 'cartao-arquivo<?= $numeroAtividade ?>')">
+              <div class="bloco-um">
+                <div class="icone-tarefa">
+                  <img src="./Imagens/checklist.png" alt="">
+                </div>
               </div>
 
-              <div class="data-entrega">
-                <img src="./Imagens/Time-Circle.png" alt="">
-                <p>
-                  <?= $horaInicio = substr($atividade['hora_inicio'], 0, -6); ?>h<?= $minutosInicio = substr($atividade['hora_inicio'], 3, -3); ?> às
-                  <?= $horaTermino = substr($atividade['hora_termino'], 0, -6); ?>h<?= $minutosTermino = substr($atividade['hora_termino'], 3, -3); ?>
-                </p>
-              </div>
-            </div>
-
-            <div class="bloco-tres">
-              <img src="./Imagens/arrow.png" alt="">
-              <h3>DATA: <?php
-                        $data = $atividade['data_entrega'];
-                        $data = explode('-', $data);
-                        $dataFormatada = $data[2] . '/' . $data[1];
-                        echo $dataFormatada;
-                        ?></h3>
-            </div>
-          </div>
-
-          <div id="cartao-arquivo<?= $numeroAtividade ?>" class="cartao-arquivo fechado">
-            <div class="arquivo-conteudo">
-              <div class="previa-arquivo">
-                <img src="./Imagens/pdfIcon.png" alt="">
-                <p>Arquivo 1 - "História do Power Soccer"</p>
-              </div>
-
-              <div class="botoes-atividade">
-                <div class="deletar" onclick="deletar(this)">
-                  <img src="./Imagens/delete.svg" id="id-Card" alt="" style="cursor: pointer;">
-
-                  <input type="hidden" class="form-control" name="id" id="id-atividade" value="<?= $atividade['id_atividade'] ?>" disable>
+              <div class="bloco-dois">
+                <div class="titulo-tarefa">
+                  <h3><?= $atividade['titulo_atividade'] ?></h3>
                 </div>
 
-                <button style="cursor: pointer;" id="baixar atividade" type="button" onclick="redirecionar('./download.php?file=exemplo.pdf')">Baixar Arquivos</button>
+                <div class="data-entrega">
+                  <img src="./Imagens/Time-Circle.png" alt="">
+                  <p>
+                    <?= $horaInicio = substr($atividade['hora_inicio'], 0, -6); ?>h<?= $minutosInicio = substr($atividade['hora_inicio'], 3, -3); ?> às
+                    <?= $horaTermino = substr($atividade['hora_termino'], 0, -6); ?>h<?= $minutosTermino = substr($atividade['hora_termino'], 3, -3); ?>
+                  </p>
+                </div>
+              </div>
+
+              <div class="bloco-tres">
+                <img src="./Imagens/arrow.png" alt="">
+                <h3>DATA: <?php
+                          $data = $atividade['data_entrega'];
+                          $data = explode('-', $data);
+                          $dataFormatada = $data[2] . '/' . $data[1];
+                          echo $dataFormatada;
+                          ?></h3>
+              </div>
+            </div>
+
+            <div id="cartao-arquivo<?= $numeroAtividade ?>" class="cartao-arquivo fechado">
+              <div class="arquivo-conteudo">
+                <div class="previa-arquivo">
+                  <img src="./Imagens/pdfIcon.png" alt="">
+                  <p>Arquivo 1 - "História do Power Soccer"</p>
+                </div>
+
+                <div class="botoes-atividade">
+                  <div class="deletar" onclick="deletar(this)">
+                    <img src="./Imagens/delete.svg" id="id-Card" alt="" style="cursor: pointer;">
+
+                    <input type="hidden" class="form-control" name="id" id="id-atividade" value="<?= $atividade['id_atividade'] ?>" disable>
+                  </div>
+
+                  <button style="cursor: pointer;" id="baixar atividade" type="button" onclick="redirecionar('./download.php?file=exemplo.pdf')">Baixar Arquivos</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-      <?php } ?>
+      <?php }
+      }
+      ?>
 
 
       <div id="tela-deletar" class="invisivel">
