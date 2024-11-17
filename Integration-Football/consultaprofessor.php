@@ -179,19 +179,26 @@ $id = 5;
 
         
         <div class="informacao">
-          <p><?= $justificativa['descricao'] ?></p>
-          <p>26/02/2008</p>
+          <p><?= $justificativa['nome_aluno'] ?></p>
+          <p>Aula: <?php
+              $data = $justificativa['data_aula'];
+              $data = explode('-', $data);
+              $dataDormatada = $data[2] . '/' . $data[1] . '/' . $data[0];
+             ?>
+             <?=$dataDormatada;?></p>
         </div>
 
-        <form action="" class="botoes">
+        <form action="./controller/justificativacontroller.php" class="botoes" method="POST">
           <!-- <div class="botoes"> -->
-          <button id="aprovado" onclick="stopPropagationIfActive(event)" type="submit" value="Aprovado">
+          <button name="aprovado" id="aprovado" onclick="stopPropagationIfActive(event)" type="submit" value="1">
             <img src="Imagens/aprovar.svg" alt="" draggable="false">
           </button>
 
-          <button id="reprovado" onclick="stopPropagationIfActive(event)" type="submit" value="Não Aprovado">
+          <button name="aprovado" id="reprovado" onclick="stopPropagationIfActive(event)" type="submit" value="0">
             <img src="Imagens/cancelar.svg" alt="" draggable="false">
           </button>
+          <input name="crud" type="hidden" value="enviarResposta">
+          <input name="id_justificativa" type="hidden" value="<?= $justificativa['id_justificativa'] ?>">
           <!-- </div> -->
         </form>
       </div>
@@ -203,7 +210,7 @@ $id = 5;
           <div class="titulo">
             <p>Justificativa:</p>
           </div>
-          <p name="justiticativa" id="p-justificativa" disabled>"Este é um exemplo de texto que contém exatamente duzentos e cinquenta e cinco caracteres, incluindo espaços e pontuação. Ele foi gerado para demonstrar como atender a requisitos específicos de contagem de caracteres em diferentes contextos, como testes e aplicações educacionais."</p>
+          <p name="justiticativa" id="p-justificativa" disabled><?= $justificativa['descricao'] ?></p>
 
           <br>
 
