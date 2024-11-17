@@ -245,19 +245,29 @@ h3 {
 .titulos {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
   width: 65%;
 }
 
 .inputs input {
   margin-left: 5%;
   height: 22px;
+  border: solid 2px black;
+  border-radius: 5px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  padding-left: 5px;
+}
+
+#id_turma {
+  margin-left: 5%;
+  height: 26px;
   border: solid 2px black;
   border-radius: 5px;
   outline: none;
@@ -283,6 +293,12 @@ h3 {
   transform: scale(1.05);
   background-color: #07cb65;
   color: #ffffff;
+}
+
+.vazio {
+  margin-top: 35px;
+  font-size: 20px;
+  color: #7a7a7a;
 }
 
 .botoes {
@@ -345,7 +361,7 @@ label {
 }
 
 .aberto {
-  height: 260px;
+  height: 300px;
 }
 
 /* Parte das atividades já postadas */

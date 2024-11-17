@@ -122,7 +122,7 @@ document.getElementById("cancelar").addEventListener("click", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const dataEntregaInput = document.getElementById("data_entrega");
-  const publicarBtn = document.getElementById("publicar-atividade");
+  const publicarBtn = document.getElementById("publicar");
 
   // Define as datas mínima e máxima
   const hoje = new Date();
@@ -144,26 +144,35 @@ document.addEventListener("DOMContentLoaded", function () {
     return `${dia}/${mes}/${ano}`; // Formato "dd/mm/aaaa"
   };
 
-  publicarBtn.addEventListener("click", function () {
-    const dataSelecionada = dataEntregaInput.value; // Obtém o valor da data
+  document
+    .getElementById("data_entrega")
+    .addEventListener("invalid", function (event) {
+      event.preventDefault(); // Impede a exibição da mensagem padrão
+    });
 
-    if (!dataSelecionada) {
-      TelaData(); // Mostra o modal de erro se a data não estiver preenchida
-      document.getElementById("data-min").innerText = formatarData(dataMin);
-      document.getElementById("data-max").innerText = formatarData(dataMax);
-      return;
-    }
+  publicarBtn.addEventListener("click", function (event) {
+    const formulario = document.getElementById("formulario"); // Substitua pelo ID do seu formulário
 
-    // Verifica se a data está fora do intervalo
+    // // Verifica primeiro os campos obrigatórios
+    // if (!formulario.checkValidity()) {
+    //   // Se algum campo obrigatório não foi preenchido, interrompe a execução
+    //   formulario.reportValidity(); // Mostra as mensagens padrão do navegador
+    //   return;
+    // }
+
+    // Se todos os campos obrigatórios foram preenchidos, verifica a data
+    const dataSelecionada = dataEntregaInput.value;
+
     if (dataSelecionada < dataMin || dataSelecionada > dataMax) {
-      TelaData(); // Mostra o modal de erro
-      document.getElementById("data-min").innerText = formatarData(dataMin);
-      document.getElementById("data-max").innerText = formatarData(dataMax);
+      // Impede o envio do formulário
+      TelaData();
+      document.getElementById("data-min").innerText = formatarData(dataMin); // Atualiza data mínima
+      document.getElementById("data-max").innerText = formatarData(dataMax); // Atualiza data máxima
+      dataEntregaInput.value = ""; // Limpa o campo de data
       return;
     }
 
-    // Se a data for válida, chama a tela de deletar
-    TelaDeletar();
+    // Se tudo estiver válido, o formulário será enviado normalmente
   });
 });
 

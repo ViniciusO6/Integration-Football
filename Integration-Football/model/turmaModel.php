@@ -143,9 +143,9 @@ class Turma
         INNER JOIN professores ON turma.id_professor = professores.id
         WHERE professores.id = ? AND modalidade.id = ?";
 
-                
+
         $stmt = $this->conexao->getConexao()->prepare($sql);
-        $stmt->bind_param('ii', $id_professor, $modalidade );
+        $stmt->bind_param('ii', $id_professor, $modalidade);
         $stmt->execute();
         $result = $stmt->get_result();
         $turmas = []; // Inicializa o array para armazenar os resultados
