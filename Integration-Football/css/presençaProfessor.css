@@ -65,7 +65,7 @@ select:focus {
 .separador-vertical {
   width: 1px;
   background-color: black;
-  height: 90%;
+  height: 100%;
 }
 
 .separador-horizontal {
@@ -76,6 +76,7 @@ select:focus {
 
 #table {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   border: solid 2px #07cb65;
@@ -85,7 +86,7 @@ select:focus {
 
 #nomes-alunos {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   height: 100%;
 }
@@ -99,16 +100,10 @@ select:focus {
 
 .input-checkbox {
   outline: none;
+  width: 15px;
 }
 
-#tr-nome {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-}
+
 
 #tr-contatos {
   width: 100%;
@@ -158,10 +153,6 @@ select:focus {
   outline: none;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
-}
-
-.input-checkbox {
-  cursor: pointer;
 }
 
 #input-arquivo {
@@ -218,7 +209,63 @@ select:focus {
   width: 100%;
 }
 
+#tr-nome {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+#presenca-select{
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#th-chamada{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px 0 0 0;
+}
+
+#titulo-nome p{
+ margin: 0 30px;
+}
+
+#titulo-nome{
+  width: 100%;
+}
+
+#presente-ausente{
+  width: 40.3%;
+  display: flex;
+  margin-right: 0px;
+  
+}
+
+#presente{
+  width: 90%;
+  text-align: center;
+}
+
+#ausente{
+  width: 90%;
+  text-align: center;
+}
+
+.input-checkbox {
+  cursor: pointer;
+  margin: 0 10px 10px 10px;
+}
+
 @media screen and (max-width: 992px) {
+  #form {
+    width: 75%;
+  }
 }
 
 @media screen and (max-width: 865px) {
@@ -249,7 +296,7 @@ select:focus {
 
   #input-data {
     border: none;
-    border: solid 2px #2092c2;
+    border: solid 2px #07cb65;
     border-radius: 5px;
     height: 30px;
     width: 135px;

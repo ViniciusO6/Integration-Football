@@ -59,4 +59,64 @@ if (isset($_POST['tipo']) && $_POST['tipo'] == "filtrar" && isset($_POST['modali
                     
         ';
     }
+} else if (isset($_POST['tipo']) && $_POST['tipo'] == "carregarChamada") {
+    $modalidade = $_POST['modalidade'];
+    $turma = $_POST['turma'];
+    $i = 0;
+    $alunos = $alunocontroller->listarAlunosPorTurma($turma);
+    if (empty($alunos)){
+    echo 'Nenhuma turma selecionada';
+
+    }else{
+        echo '
+        <div id="th-chamada">
+
+            <div id="titulo-nome">
+                <p>Nome</p>
+            </div>
+            
+            <div id="presente-ausente">
+
+                <div class="separador-vertical"></div>
+
+                <div id="presente">
+                    <p>Presente</p>
+                </div>
+
+                <div class="separador-vertical"></div>
+
+                <div id="ausente">
+                    <p>Ausente</p>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Fim do Cabeçalho da tabela -->
+        ';
+        
+        foreach ($alunos as $aluno) {
+            $i++;
+            echo '
+                    <!-- Linha de nome e Checbox presença -->
+                    <div id="nomes-alunos">
+                        <div id="tr-nome">
+                            <p>'. $aluno['nome_aluno'] .'</p>
+                            <div class="separador-horizontal"></div>
+                        </div>
+
+                        <div class="separador-vertical"></div>
+
+                        <div id="presenca-select">
+                            <input name="'. $i .'" value="'. $aluno['id_aluno'] .'" type="checkbox" class="input-checkbox" onclick="selectOnlyThis(this, '. $i .')">
+
+                            <div class="separador-vertical"></div>
+
+                            <input name="'. $i .'" value="'. $aluno['id_aluno'] .'" type="checkbox" class="input-checkbox" onclick="selectOnlyThis(this, '. $i .')"> 
+                        </div>
+                    </div>
+            ';
+        }
+}
+
+
 }
