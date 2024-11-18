@@ -59,7 +59,7 @@ xhr.onload = function() {
 
 
     <form id="form" action="">
-      <h1 id="titulo">Bem Vindo(a)!</h1>
+      <h1 id="titulo">Meu Perfil</h1>
       <div id="informacoes">
 
 
@@ -110,7 +110,7 @@ xhr.onload = function() {
           <label for="input-senha-pessoal">Senha</label>
           <input id="input-senha-pessoal" type="password" value="<?= $professor['senha']; ?>" disabled>
           <div id="btns">
-          <button id="btn-enviar" type="submit">Alterar Email</button>
+          <!-- <button id="btn-enviar" type="submit">Alterar Email</button> -->
           <button onclick="fecharTela()" id="btn-enviar" type="button">Redefinir Senha</button>
         </div>
         </div>
@@ -147,12 +147,14 @@ xhr.onload = function() {
     <label for="input-confirme-senha">Confirme sua nova senha</label>
                     
     <input name="senha" id="input-confirme-senha" type="password" value="" required>
-        <p id="erroSenha">As senhas digitadas não são iguais. Verifique e tente novamente.</p>
+    <p class="invisivel" id="erroSenha">As senhas digitadas não são iguais. Verifique e tente novamente.</p>
+
 
     <div id="btns-redefinir">
 
       <input type="hidden" name="crud" value="alterarSenha">
       <input name="id" type="hidden" value="<?=$id?>">
+      <input id="senha-atual" name="senha-atual" type="hidden" value="<?= $professor['senha'] ?>">
 
       <button onclick="fecharTela()" id="btn-confirmar" type="button">Cancelar</button>
       <button id="btn-cancelar" type="submit">Redefinir Senha</button>

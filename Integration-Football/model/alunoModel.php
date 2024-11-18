@@ -1,6 +1,7 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/controller/conexao.php";
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/templetes/mensagemSessao.php");
 
 
 // Definição da classe Aluno
@@ -163,6 +164,16 @@ WHERE
             $alunos[] = $aluno; // Adiciona cada pessoa ao array
         }
         return $alunos;
+    }
+
+    public function redefinirSenha(){
+        $sql = "UPDATE alunos SET `senha` = ? WHERE `id_aluno` = ?";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('si', $this->senha, $this->id_aluno);
+        $message = new Message($_SERVER['DOCUMENT_ROOT']);
+        $message->setMessage("Senha redefinida com sucesso!", "success", "back");
+        return $stmt->execute();
+        
     }
 
 

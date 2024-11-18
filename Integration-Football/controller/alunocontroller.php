@@ -2,7 +2,7 @@
 
 // Inclui o arquivo contendo a definição do model Aluno
 require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/model/alunoModel.php';
-
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/config/globals.php';
 
 class AlunoController {
     // Propriedade para armazenar um objeto Aluno
@@ -24,8 +24,9 @@ class AlunoController {
                  $this->atualizar();
             }elseif($_POST['crud']=="DELETE"){
                 $this->deletar();
+            }elseif ($_POST['crud'] == "alterarSenha") {
+                $this->redefinirSenha();
             }
-            header("Location:" . "../principal.php");//Redireciona para outra pagina
         }else{
             $this->listar();
 
@@ -76,6 +77,13 @@ class AlunoController {
     public function listarAlunosTurma($id){
         $this->aluno->setId($id);
         return $this->aluno->listarAlunosTurma();
+    }
+
+    public function redefinirSenha()
+    {
+        $this->aluno->setId($_POST['id']);
+        $this->aluno->setSenha($_POST['senha']);
+        return $this->aluno->redefinirSenha();
     }
 
     public function atualizar(){

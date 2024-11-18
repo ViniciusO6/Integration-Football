@@ -1,6 +1,7 @@
 <?php
-
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/config/globals.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/controller/conexao.php";
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/templetes/mensagemSessao.php");
 
 class Professor
 {
@@ -175,8 +176,8 @@ class Professor
         $sql = "UPDATE professores SET `senha` = ? WHERE `id` = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('si', $this->senha, $this->id_professor);
-
-
+        $message = new Message($_SERVER['DOCUMENT_ROOT']);
+        $message->setMessage("Senha alterada com sucesso", "success", "back");
         return $stmt->execute();
     }
 

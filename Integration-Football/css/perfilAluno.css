@@ -108,7 +108,6 @@ input{
 }
 
 #btn-enviar{
-    margin: 10px auto;
     cursor: pointer;
     border: none;
     border: solid 2px #2092c2;
@@ -120,6 +119,105 @@ input{
     height: 30px;
     width: 140px;
 }
+
+#redefinir-senha{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    height: 300px;
+    padding: 50px;
+    border-radius: 5px;
+    z-index: 11;
+    
+  }
+  
+  #btns-redefinir{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    
+  }
+  
+  #btn-confirmar{
+    cursor: pointer;
+    border: none;
+    border: solid 2px #2092c2;
+    background-color: #2092c2;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    height: 30px;
+    width: 140px;
+    margin-bottom: 15px;
+  }
+  
+  #btn-cancelar{
+    cursor: pointer;
+    border: none;
+    border: solid 2px #2092c2;
+    background-color: #2092c2;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    height: 30px;
+    width: 140px;
+  }
+  
+  #sombra{
+    display: flex;
+    width: 10000px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.397);
+    z-index: 10;
+  }
+  
+  #icon-olho-1{
+    cursor: pointer;
+    position: absolute;
+    top: 128px;
+    left: 315px;
+  
+  }
+  
+  #icon-olho-2{
+    cursor: pointer;
+    position: absolute;
+    top: 200px;
+    left: 316px;
+  
+  }
+  
+  #icon-olho-3{
+    cursor: pointer;
+    position: absolute;
+    top: 276px;
+    left: 316px;
+  }
+  
+  #erroSenha{
+    margin-top: -8px;
+    font-size: 14px;
+    color: red;
+  }
+
+  #erroSenhaAtual{
+    margin-top: -8px;
+    font-size: 14px;
+    color: red;
+  }
+  
+  .invisivel{
+    display: none !important;
+  }
 
 
 

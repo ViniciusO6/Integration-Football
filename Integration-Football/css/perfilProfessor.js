@@ -47,17 +47,29 @@ document.getElementById('icon-olho-1').addEventListener('click', function() {
   }
 
   function validarCampos(){
+    const confirmeSenhaAtual = document.getElementById('input-senha').value;
     const novaSenha = document.getElementById('input-nova-senha').value;
     const confirmeNovaSenha = document.getElementById('input-confirme-senha').value;
-
-    if(novaSenha == confirmeNovaSenha){
-      return true;
-
+    const senhaAtual = document.getElementById('senha-atual').value;
+    if(senhaAtual == confirmeSenhaAtual ){
+      document.getElementById('input-senha').style.border = "solid 2px #07cb65";
+        if(novaSenha == confirmeNovaSenha){
+          document.getElementById('input-confirme-senha').style.border = "solid 2px #07cb65";
+            return true;
+            }else{
+            document.getElementById('erroSenha').innerHTML = "As senhas digitadas não são iguais. Verifique e tente novamente."
+            document.getElementById('erroSenha').classList.remove("invisivel");
+            document.getElementById('redefinir-senha').style.height = 315+'px';
+            document.getElementById('input-confirme-senha').style.border = "solid 2px red";
+            return false;
+            }
     }else{
-      return false;
-    }
-
-    
-
-  }
+        document.getElementById('erroSenha').innerHTML = "Senha incorreta, verifique e tente novamente.";
+        document.getElementById('input-confirme-senha').style.border = "solid 2px #07cb65";
+        document.getElementById('erroSenha').classList.remove("invisivel");
+        document.getElementById('redefinir-senha').style.height = 315+'px';
+        document.getElementById('input-senha').style.border = "solid 2px red";
+        return false;
+    }  
+}
   

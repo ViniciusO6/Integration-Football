@@ -231,19 +231,26 @@ input {
 #icon-olho-3{
   cursor: pointer;
   position: absolute;
-  top: 272px;
+  top: 276px;
   left: 316px;
 }
 
 #erroSenha{
   margin-top: -8px;
-  font-size: 12px;
-  display: none;
+  font-size: 14px;
+  color: red;
+}
+
+#erroSenhaAtual{
+  margin-top: -8px;
+  font-size: 14px;
+  color: red;
 }
 
 .invisivel{
   display: none !important;
 }
+
 
 
 
