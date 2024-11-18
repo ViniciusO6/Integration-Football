@@ -27,6 +27,46 @@ $id = 5;
 ?>
 
 <script>
+
+function CarregarJustificativasSemFiltro(){
+  console.log("chamou");
+    let id_professor = document.getElementById("id_professor").value;
+    let tipo = "JustificativasSemFiltro";
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "./ajax/ajax.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.send("id_professor=" + id_professor  + "&tipo=" + tipo);
+
+
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        document.getElementById("justificativa-card").innerHTML = xhr.responseText;
+      }
+    };
+}
+
+function filtrarJustificativas(){
+  console.log("chamou");
+    let id_turma = document.getElementById("select-turma").value;
+    let tipo = "filtrarJustificativa";
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "./ajax/ajax.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.send("id_turma=" + id_turma  + "&tipo=" + tipo);
+
+
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        document.getElementById("justificativa-card").innerHTML = xhr.responseText;
+      }
+    };
+}
+
+
   function enviarModalidade() {
     console.log("chamou");
     var modalidade = document.getElementById("select-modalidade").value;
@@ -134,7 +174,7 @@ $id = 5;
         <p>Verifique as justificativas de ausência dos alunos da instituição </p>
 
         <div class="Pesquisar">
-
+        <input id="id_professor" value="<?= $id  ?>" type="hidden">
           <!-- Div do ComboBox1  -->
           <div class="ComboBox">
             <p class="titulo">Escolha a modalidade:</p>
@@ -172,17 +212,19 @@ $id = 5;
           <!-- Final ComboBox2 -->
 
           <div class="buttons">
-            <button class="filtrar" type="button">Filtrar</button>
+            <button onclick="filtrarJustificativas()" class="filtrar" type="button">Filtrar</button>
             <div id="cancelar">
-              <img src="Imagens/buttonCancel.svg" alt="" draggable="false">
+              <img onclick="CarregarJustificativasSemFiltro()" src="Imagens/buttonCancel.svg" alt="" draggable="false">
             </div>
           </div>
         </div>
         <!-- Final Pesquisar-->
       </form>
 
-
+       <div id="justificativa-card">      
+         
       <?php
+      echo '';
       $justificativacontroller = new JustificativaController();
       $justificativas = $justificativacontroller->listarJustificativasProfessor($id);
       $numeroAtividade = 1;
@@ -190,6 +232,8 @@ $id = 5;
       foreach ($justificativas as $justificativa) {
         $numeroAtividade++
       ?>
+
+      
         <div class="cards" onclick="AbrirJustificativa(this)">
           <div class="imagem">
             <img src="Imagens/FotoPerfil.svg" alt="" draggable="false">
@@ -245,8 +289,9 @@ $id = 5;
 
           </div>
         </div>
+      
       <?php } ?>
-
+</div>
 
 
     </div>

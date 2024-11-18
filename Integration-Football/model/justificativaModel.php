@@ -185,6 +185,30 @@ class Justificativa
         return $justificativas;
     }
 
+    public function FiltrarPorTurma($id_turma)
+    {
+        $sql = "
+        SELECT justificativa_falta.*, alunos.nome_aluno, aulas.data_aula
+        FROM justificativa_falta
+        INNER JOIN alunos ON justificativa_falta.id_aluno = alunos.id_aluno
+        INNER JOIN turma ON turma.id_turma = alunos.id_turma
+        INNER JOIN presencas ON presencas.id_presenca = justificativa_falta.id_presenca
+        INNER JOIN aulas ON aulas.id_aula = presencas.id_aula
+        WHERE alunos.id_turma = ?  && justificativa_falta.aprovado_professor IS NULL
+        ";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $id_turma);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $justificativas = [];
+
+        while ($justificativa = $result->fetch_assoc()) {
+            $justificativas[] = $justificativa;
+        }
+        return $justificativas;
+    }
+
     public function listar()
     {
         $sql = "SELECT * FROM justificativa_falta";

@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/turmacontroller.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/alunocontroller.php';
-
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/justificativacontroller.php';
 $turmacontroller = new TurmaController();
 $alunocontroller = new AlunoController();
 $id_professor = 5;
@@ -129,5 +129,144 @@ if (isset($_POST['tipo']) && $_POST['tipo'] == "filtrar" && isset($_POST['modali
         $message = new Message($_SERVER['DOCUMENT_ROOT']);
         $message->setMessage("Nenhum dado de presença recbido", "error", "back");
     }
+}else if ((isset($_POST['tipo']) && $_POST['tipo'] == "filtrarJustificativa")){
+
+
+    $justificativacontroller = new JustificativaController();
+    $justificativas = $justificativacontroller->FiltrarPorTurma($_POST['id_turma']);
+    $numeroAtividade = 1;
+    if(!empty($justificativas)){
+
+   
+
+
+
+    foreach ($justificativas as $justificativa) {
+        $numeroAtividade++;
+
+        $data = $justificativa['data_aula'];
+        $data = explode('-', $data);
+        $dataFormatada = $data[2] . '/' . $data[1] . '/' . $data[0];
+
+        echo '
+        <div class="cards" onclick="AbrirJustificativa(this)">
+          <div class="imagem">
+            <img src="Imagens/FotoPerfil.svg" alt="" draggable="false">
+          </div>
+
+          <div class="informacao">
+            <p>' . $justificativa['nome_aluno'] . '</p>
+            <p>Aula: ' . $dataFormatada . '</p>
+          </div>
+
+          <form action="./controller/justificativacontroller.php" class="botoes" method="POST">
+            <button name="aprovado" id="aprovado" onclick="stopPropagationIfActive(event)" type="submit" value="1">
+              <img src="Imagens/aprovar.svg" alt="" draggable="false">
+            </button>
+
+            <button name="aprovado" id="reprovado" onclick="stopPropagationIfActive(event)" type="submit" value="0">
+              <img src="Imagens/cancelar.svg" alt="" draggable="false">
+            </button>
+            <input name="crud" type="hidden" value="enviarResposta">
+            <input name="id_justificativa" type="hidden" value="' . $justificativa['id_justificativa'] . '">
+          </form>
+        </div>
+
+        <div class="justificativa" id="card-justificativa">
+          <div class="conteudo-justificativa" id="content-justificativa">
+            <div class="titulo">
+              <p>Justificativa:</p>
+            </div>
+            <p name="justiticativa" id="p-justificativa" disabled>' . $justificativa['descricao'] . '</p>
+
+            <br>
+
+            <div id="card-arquivo2" class="card-arquivo">
+              <div class="arquivo">
+                <div class="previa-arquivo">
+                  <img src="./Imagens/pdfIcon.png" alt="">
+                  <p>Arquivo 1- "História do Power Soccer"</p>
+                </div>
+                <button>Baixar Arquivos</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        ';
+    }
+     }else{
+        echo "Nenhuma justificativa encontrada nesta turma";
+     }
+
+}else if((isset($_POST['tipo']) && $_POST['tipo'] == "JustificativasSemFiltro")){
+
+    $justificativacontroller = new JustificativaController();
+      $justificativas = $justificativacontroller->listarJustificativasProfessor($_POST['id_professor']);
+    $numeroAtividade = 1;
+    if(!empty($justificativas)){
+
+   
+
+
+
+    foreach ($justificativas as $justificativa) {
+        $numeroAtividade++;
+
+        $data = $justificativa['data_aula'];
+        $data = explode('-', $data);
+        $dataFormatada = $data[2] . '/' . $data[1] . '/' . $data[0];
+
+        echo '
+        <div class="cards" onclick="AbrirJustificativa(this)">
+          <div class="imagem">
+            <img src="Imagens/FotoPerfil.svg" alt="" draggable="false">
+          </div>
+
+          <div class="informacao">
+            <p>' . $justificativa['nome_aluno'] . '</p>
+            <p>Aula: ' . $dataFormatada . '</p>
+          </div>
+
+          <form action="./controller/justificativacontroller.php" class="botoes" method="POST">
+            <button name="aprovado" id="aprovado" onclick="stopPropagationIfActive(event)" type="submit" value="1">
+              <img src="Imagens/aprovar.svg" alt="" draggable="false">
+            </button>
+
+            <button name="aprovado" id="reprovado" onclick="stopPropagationIfActive(event)" type="submit" value="0">
+              <img src="Imagens/cancelar.svg" alt="" draggable="false">
+            </button>
+            <input name="crud" type="hidden" value="enviarResposta">
+            <input name="id_justificativa" type="hidden" value="' . $justificativa['id_justificativa'] . '">
+          </form>
+        </div>
+
+        <div class="justificativa" id="card-justificativa">
+          <div class="conteudo-justificativa" id="content-justificativa">
+            <div class="titulo">
+              <p>Justificativa:</p>
+            </div>
+            <p name="justiticativa" id="p-justificativa" disabled>' . $justificativa['descricao'] . '</p>
+
+            <br>
+
+            <div id="card-arquivo2" class="card-arquivo">
+              <div class="arquivo">
+                <div class="previa-arquivo">
+                  <img src="./Imagens/pdfIcon.png" alt="">
+                  <p>Arquivo 1- "História do Power Soccer"</p>
+                </div>
+                <button>Baixar Arquivos</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        ';
+    }
+     }else{
+        echo "Nenhuma justificativa encontrada nesta turma";
+     }
+
 }
 

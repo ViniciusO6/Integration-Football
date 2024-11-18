@@ -77,6 +77,11 @@ class JustificativaController
         return $this->justificativa->buscarPorId($id); // Retorna a justificativa encontrada pelo ID
     }
 
+    public function FiltrarPorTurma($id_turma)
+    {
+        return $this->justificativa->FiltrarPorTurma($id_turma); // Retorna a justificativa encontrada pelo ID
+    }
+
     public function respostaprofessor($id_justificativa, $resposta)
     {
         return $this->justificativa->respostaprofessor($id_justificativa, $resposta); // Retorna a justificativa encontrada pelo ID
