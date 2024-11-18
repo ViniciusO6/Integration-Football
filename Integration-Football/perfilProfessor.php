@@ -21,7 +21,7 @@ $pageJS = ["perfilProfessor.js"];
 
 include_once('./templetes/headerProfessor.php');
 
-$id = 6;
+$id = 5;
 $idModalidade;
 
 $professorController = new ProfessorController;

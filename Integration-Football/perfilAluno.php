@@ -75,10 +75,10 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Foot
                 <input id="input-professor"  type="text" value="<?= $professor['nome_professor'] ?>"  disabled>
 
                 <label for="input-email">E-mail</label>
-                <input id="input-email" type="text" value="<?= $aluno['email_aluno'] ?>">
+                <input disabled id="input-email" type="text" value="<?= $aluno['email_aluno'] ?>">
 
                 <label for="input-senha">Senha</label>
-                <input id="input-senha" type="text" value="<?= $aluno['senha'] ?>">
+                <input disabled id="input-senha" type="password" value="<?= $aluno['senha'] ?>">
 
                 <button id="btn-enviar" type="submit">Editar Dados</button>
             </div>
