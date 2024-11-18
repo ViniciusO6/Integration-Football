@@ -45,8 +45,8 @@ $id = 4;
             <div id="table">
                 <div id="nomes-professores">
                     <?php
-                    $alunocontroller = new AlunoController();
-                    $professores = $alunocontroller->listarProfessoresInstituicao($id);
+                    $professorcontroller = new ProfessorController();
+                    $professores = $professorcontroller->listar();
                     foreach ($professores as $professor) {
                     ?>
                         <div id="tr-nome">
