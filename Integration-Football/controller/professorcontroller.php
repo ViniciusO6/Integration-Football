@@ -1,7 +1,7 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/config/globals.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/model/professorModel.php';
-include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/templetes/mensagemSessao.php");
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football/config/globals.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football/model/professorModel.php';
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football-main/Integration-Football/templetes/mensagemSessao.php");
 
 class ProfessorController
 {
