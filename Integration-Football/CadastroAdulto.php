@@ -35,13 +35,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <img src="Imagens/Cadastro/cadastroMaior.png" alt="Imagem de Cadastro" class="input-image" />
         <form action="" method="POST" id="cadastroForm"> 
             <div class="input-container">
-                <label for="cpf">CPF : <span id="point">*</span></label>
-                <input type="text" id="cpf" name="cpf_inscrito" required />
+            
+            <label for="cpf">CPF : <span id="point">*</span></label>
+            <input type="text" id="cpf" name="cpf_inscrito" required />
+            <span class="error-message" id="cpf-error"></span>
                 <br /><br />
 
-                <label for="rg">RG:<span id="point">*</span></label>
-                <input type="text" id="rg" name="rg_inscrito" required />
-                <br /><br />
+            <label for="rg">RG:<span id="point">*</span></label>
+            <input type="text" id="rg" name="rg_inscrito" required />
+             <span class="error-message" id="rg-error"></span>
+            <br /><br />
+
 
                 <label for="data_nascimento">Data de Nascimento <span id="point">*</span></label>
                 <input type="date" id="data_nascimento" name="data_nasc" required />
@@ -77,13 +81,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <script>
+
 document.addEventListener('DOMContentLoaded', function() {
+    const cpfInput = document.getElementById('cpf');
+    const cpfError = document.getElementById('cpf-error');
+    const rgInput = document.getElementById('rg');
+    const rgError = document.getElementById('rg-error');
     const deficienciaSelect = document.getElementById('deficiencia');
     const deficienciaQualInput = document.getElementById('deficiencia_qual');
-    const form = document.getElementById('cadastroForm');
     const dataNascimentoInput = document.getElementById('data_nascimento');
     const senhaInput = document.getElementById('senha_inscrito');
+    const form = document.getElementById('cadastroForm');
 
+    // Mostrar/ocultar campo de descrição de deficiência
     deficienciaSelect.addEventListener('change', function () {
         if (this.value === 'sim') {
             deficienciaQualInput.style.display = 'block';
@@ -94,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Validação e formatação do CPF
-    const cpfInput = document.getElementById('cpf');
     cpfInput.addEventListener('input', function() {
         let cpf = cpfInput.value.replace(/\D/g, '');
         if (cpf.length > 11) cpf = cpf.slice(0, 11);
@@ -102,18 +111,19 @@ document.addEventListener('DOMContentLoaded', function() {
         cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
         cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
         cpfInput.value = cpf;
+        cpfError.textContent = ''; // Limpar mensagem ao digitar novamente
     });
 
     cpfInput.addEventListener('blur', function() {
         const cpf = cpfInput.value.replace(/\D/g, '');
         if (cpf.length !== 11) {
-            alert('CPF inválido. Tente de novo.');
-            cpfInput.value = '';
+            cpfError.textContent = 'CPF inválido. Verifique o número.';
+        } else {
+            cpfError.textContent = '';
         }
     });
 
     // Validação e formatação do RG
-    const rgInput = document.getElementById('rg');
     rgInput.addEventListener('input', function() {
         let rg = rgInput.value.replace(/\D/g, '');
         if (rg.length > 9) rg = rg.slice(0, 9);
@@ -121,13 +131,15 @@ document.addEventListener('DOMContentLoaded', function() {
         rg = rg.replace(/(\d{3})(\d)/, '$1.$2');
         rg = rg.replace(/(\d{3})(\d{1})$/, '$1-$2');
         rgInput.value = rg;
+        rgError.textContent = ''; // Limpar mensagem ao digitar novamente
     });
 
     rgInput.addEventListener('blur', function() {
         const rg = rgInput.value.replace(/\D/g, '');
         if (rg.length !== 9) {
-            alert('RG inválido. Tente de novo.');
-            rgInput.value = '';
+            rgError.textContent = 'RG inválido. Verifique o número.';
+        } else {
+            rgError.textContent = '';
         }
     });
 
@@ -151,6 +163,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
 </script>
 
 <?php include_once('./templetes/footer.php'); ?>
