@@ -1,8 +1,8 @@
 <?php
 
 // Inclui o arquivo contendo a definição do model Aluno
-require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football/Integration-Football/model/alunoModel.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/config/globals.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football-main/Integration-Football/model/alunoModel.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football/config/globals.php';
 
 class AlunoController {
     // Propriedade para armazenar um objeto Aluno
