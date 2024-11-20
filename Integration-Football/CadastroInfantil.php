@@ -112,113 +112,121 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div> 
 </div>
 
+
 <script>
-    // Validação de CPF usando expressão regular
-    function validarCPF(cpf) {
-        cpf = cpf.replace(/\D/g, ''); // Remove tudo o que não for número
-        if (cpf.length !== 11 || /(\d)\1{10}/.test(cpf)) return false;
-        
-        let soma = 0;
-        for (let i = 1; i <= 9; i++) soma += parseInt(cpf[i - 1]) * (11 - i);
-        let resto = (soma * 10) % 11;
-        if (resto === 10 || resto === 11) resto = 0;
-        if (resto !== parseInt(cpf[9])) return false;
-        
-        soma = 0;
-        for (let i = 1; i <= 10; i++) soma += parseInt(cpf[i - 1]) * (12 - i);
-        resto = (soma * 10) % 11;
-        if (resto === 10 || resto === 11) resto = 0;
-        return resto === parseInt(cpf[10]);
+
+// Função para validar CPF
+function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g, ''); // Remove qualquer caractere que não seja número
+    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false; // Verifica se o CPF não é composto por números repetidos
+    let soma = 0, resto;
+
+    // Primeiro cálculo do CPF
+    for (let i = 1; i <= 9; i++) soma += parseInt(cpf[i - 1]) * (11 - i);
+    resto = (soma * 10) % 11;
+    if (resto === 10 || resto === 11) resto = 0;
+    if (resto !== parseInt(cpf[9])) return false;
+
+    soma = 0;
+    // Segundo cálculo do CPF
+    for (let i = 1; i <= 10; i++) soma += parseInt(cpf[i - 1]) * (12 - i);
+    resto = (soma * 10) % 11;
+    if (resto === 10 || resto === 11) resto = 0;
+    return resto === parseInt(cpf[10]);
+}
+
+// Função para validar RG
+function validarRG(rg) {
+    return /^[a-zA-Z0-9]{7,15}$/.test(rg.trim()); // Verifica se o RG tem entre 7 e 15 caracteres alfanuméricos
+}
+
+// Função para validar idade (não pode ter 18 anos ou mais)
+function validarIdade(dataNascimento) {
+    const hoje = new Date();
+    const nascimento = new Date(dataNascimento);
+    const idade = hoje.getFullYear() - nascimento.getFullYear();
+    const mes = hoje.getMonth() - nascimento.getMonth();
+    if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) idade--;
+
+    return idade < 18; // Retorna true se a idade for menor que 18
+}
+
+// Função de validação no envio do formulário
+document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+    let isValid = true;
+
+    // Resetando todas as mensagens de erro antes de começar a validação
+    document.getElementById('cpfError').style.display = 'none';
+    document.getElementById('rgError').style.display = 'none';
+    document.getElementById('cpfRespError').style.display = 'none';
+    document.getElementById('rgRespError').style.display = 'none';
+
+    const cpfInscrito = document.getElementById('cpf').value;
+    const rgInscrito = document.getElementById('rg').value;
+    const cpfResponsavel = document.getElementById('cpf_responsavel').value;
+    const rgResponsavel = document.getElementById('rg_responsavel').value;
+    const dataNascimento = document.getElementById('data_nascimento').value;
+    const deficiencia = document.getElementById('deficiência').value;
+    const deficienciaQual = document.getElementById('deficiencia_qual').value.trim();
+
+    // Validação do CPF do inscrito
+    if (!validarCPF(cpfInscrito)) {
+        document.getElementById('cpfError').style.display = 'inline';
+        isValid = false;
     }
 
-    // Validação de RG: entre 7 a 15 caracteres alfanuméricos
-    function validarRG(rg) {
-        return /^[a-zA-Z0-9]{7,15}$/.test(rg);
+    // Validação do RG do inscrito
+    if (!validarRG(rgInscrito)) {
+        document.getElementById('rgError').style.display = 'inline';
+        isValid = false;
     }
 
-    // Validação de Data de Nascimento: Verifica se a idade é 18 anos ou mais
-    function validarIdade(dataNascimento) {
-        const nascimento = new Date(dataNascimento);
-        const hoje = new Date();
-        let idade = hoje.getFullYear() - nascimento.getFullYear();
-        const mesNascimento = nascimento.getMonth();
-        const diaNascimento = nascimento.getDate();
-        const mesAtual = hoje.getMonth();
-        const diaAtual = hoje.getDate();
-        
-        if (mesAtual < mesNascimento || (mesAtual === mesNascimento && diaAtual < diaNascimento)) {
-            idade--;
-        }
-        
-        return idade < 18; // Retorna true se a idade for menor que 18
+    // Validação do CPF do responsável
+    if (!validarCPF(cpfResponsavel)) {
+        document.getElementById('cpfRespError').style.display = 'inline';
+        isValid = false;
     }
 
-    // Função para mostrar/ocultar o campo de especificação da deficiência
-    document.getElementById('deficiência').addEventListener('change', function() {
-        const deficienciaQualField = document.getElementById('deficiencia_qual');
-        const button = document.getElementById('proximo'); // Botão de próximo
+    // Validação do RG do responsável
+    if (!validarRG(rgResponsavel)) {
+        document.getElementById('rgRespError').style.display = 'inline';
+        isValid = false;
+    }
 
-        if (this.value === 'sim') {
-            deficienciaQualField.style.display = 'inline';
-            button.classList.add('button-move-down'); // Mover o botão para baixo
-        } else {
-            deficienciaQualField.style.display = 'none';
-            button.classList.remove('button-move-down'); // Retirar a margem do botão
-        }
-    });
+    // Validação de idade
+    if (!validarIdade(dataNascimento)) {
+        alert("O inscrito não pode ter 18 anos ou mais.");
+        isValid = false;
+    }
 
-    // Validação no envio do formulário
-    document.getElementById('cadastroForm').addEventListener('submit', function(event) {
-        let isValid = true;
+    // Validação de deficiência (se sim, o campo de especificação não pode estar vazio)
+    if (deficiencia === 'sim' && deficienciaQual === '') {
+        alert("Por favor, especifique a deficiência.");
+        isValid = false;
+    }
 
-        // Validação do CPF Inscrito
-        let cpfInscrito = document.getElementById('cpf').value;
-        if (!validarCPF(cpfInscrito)) {
-            document.getElementById('cpfError').style.display = 'inline';
-            isValid = false;
-        } else {
-            document.getElementById('cpfError').style.display = 'none';
-        }
+    // Se a validação falhar, impede o envio do formulário
+    if (!isValid) {
+        event.preventDefault();
+    }
+});
 
-        // Validação do RG Inscrito
-        let rgInscrito = document.getElementById('rg').value;
-        if (!validarRG(rgInscrito)) {
-            document.getElementById('rgError').style.display = 'inline';
-            isValid = false;
-        } else {
-            document.getElementById('rgError').style.display = 'none';
-        }
 
-        // Validação da Idade (Data de Nascimento)
-        let dataNascimento = document.getElementById('data_nascimento').value;
-        if (!validarIdade(dataNascimento)) {
-            alert("O inscrito não pode ter 18 anos ou mais.");
-            isValid = false;
-        }
+// Função para mostrar/ocultar o campo de especificação da deficiência
+document.getElementById('deficiência').addEventListener('change', function() {
+    const deficienciaQualField = document.getElementById('deficiencia_qual');
+    const button = document.getElementById('proximo'); // Botão de próximo
 
-        // Validação do RG do Responsável
-        let rgResponsavel = document.getElementById('rg_responsavel').value;
-        if (!validarRG(rgResponsavel)) {
-            document.getElementById('rgRespError').style.display = 'inline';
-            isValid = false;
-        } else {
-            document.getElementById('rgRespError').style.display = 'none';
-        }
+    if (this.value === 'sim') {
+        deficienciaQualField.style.display = 'inline';
+        button.classList.add('button-move-down'); // Mover o botão para baixo
+    } else {
+        deficienciaQualField.style.display = 'none';
+        button.classList.remove('button-move-down'); // Retirar a margem do botão
+    }
+});
 
-        // Validação da deficiência
-        let deficiencia = document.getElementById('deficiência').value;
-        if (deficiencia === 'sim') {
-            let deficienciaQual = document.getElementById('deficiencia_qual').value.trim();
-            if (deficienciaQual === '') {
-                alert("Por favor, especifique a deficiência.");
-                isValid = false;
-            }
-        }
-
-        if (!isValid) {
-            event.preventDefault(); // Impede o envio do formulário se a validação falhar
-        }
-    });
 </script>
+
 
 <?php include_once('./templetes/footer.php'); ?> 
