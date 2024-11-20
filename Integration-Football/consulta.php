@@ -1,9 +1,9 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/config/globals.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/alunocontroller.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/professorcontroller.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/turmacontroller.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/justificativacontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football/config/globals.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football/controller/alunocontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football/controller/professorcontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football/controller/turmacontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football/controller/justificativacontroller.php';
 
 
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
