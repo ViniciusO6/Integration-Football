@@ -1,0 +1,271 @@
+.container{
+    width: 100vw;
+    margin-top: 80px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+#perfil{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    min-width: 650px;
+    margin-top: 25px;
+}
+
+#titulo{
+    margin-bottom: 30px;
+}
+
+#informacoes{
+    display: flex;
+}
+
+#bloco1{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#bloco2{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+#foto-perfil{
+    position: relative;
+    margin-top: 80px;
+    background-image: url(../Imagens/user.png);   
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+        
+}
+
+#btn-editar-foto{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color:#2092c2;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    top: 165px;
+    right: 15px;
+}
+
+#btn-editar-foto img{
+    width: 22px;
+    height: 22px;
+}
+
+#modalidade-turma{
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#input-modalidade{
+    width: 100%;
+    display: flex;
+}
+
+#modalidade{
+    width: 60%;
+}
+
+#turma{
+    width: 30%;
+}
+
+#input-turma{
+    width: 100%;
+    display: flex;
+}
+
+#input-matricula{
+    width: 30%;
+}
+
+input{
+    border: none;
+    border: solid 2px #2092c2;
+    border-radius: 5px;
+    height: 30px;
+    width: 96%;
+    font-size: 18px;
+    padding: 0 5px;
+    margin-bottom: 15px;
+}
+
+#btn-enviar{
+    cursor: pointer;
+    border: none;
+    border: solid 2px #2092c2;
+    background-color: #2092c2;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    height: 30px;
+    width: 140px;
+}
+
+#redefinir-senha{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    height: 300px;
+    padding: 50px;
+    border-radius: 5px;
+    z-index: 11;
+    
+  }
+  
+  #btns-redefinir{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    
+  }
+  
+  #btn-confirmar{
+    cursor: pointer;
+    border: none;
+    border: solid 2px #2092c2;
+    background-color: #2092c2;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    height: 30px;
+    width: 140px;
+    margin-bottom: 15px;
+  }
+  
+  #btn-cancelar{
+    cursor: pointer;
+    border: none;
+    border: solid 2px #2092c2;
+    background-color: #2092c2;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    height: 30px;
+    width: 140px;
+  }
+  
+  #sombra{
+    display: flex;
+    width: 10000px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.397);
+    z-index: 10;
+  }
+  
+  #icon-olho-1{
+    cursor: pointer;
+    position: absolute;
+    top: 128px;
+    left: 315px;
+  
+  }
+  
+  #icon-olho-2{
+    cursor: pointer;
+    position: absolute;
+    top: 200px;
+    left: 316px;
+  
+  }
+  
+  #icon-olho-3{
+    cursor: pointer;
+    position: absolute;
+    top: 276px;
+    left: 316px;
+  }
+  
+  #erroSenha{
+    margin-top: -8px;
+    font-size: 14px;
+    color: red;
+  }
+
+  #erroSenhaAtual{
+    margin-top: -8px;
+    font-size: 14px;
+    color: red;
+  }
+  
+  .invisivel{
+    display: none !important;
+  }
+
+
+
+
+
+
+@media screen and (max-width: 992px) {
+
+}
+
+@media screen and (max-width: 865px) {
+    #consulta{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #form{
+        width: 85%;
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #consulta{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #informacoes{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #bloco2{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    #foto-perfil{
+        margin-top: 0;
+    }
+
+    #form{
+        width: 85%;
+        min-width: initial;
+        margin-top: 0;
+    }
+
+}
