@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/11/2024 às 01:03
+-- Tempo de geração: 23/11/2024 às 03:15
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -44,7 +44,7 @@ CREATE TABLE `alunos` (
 
 INSERT INTO `alunos` (`id_aluno`, `data_nasc`, `cpf_aluno`, `telefone_aluno`, `nome_aluno`, `email_aluno`, `senha`, `id_turma`) VALUES
 (1, '0000-00-00', 0, 0, 'maria eduarda', 'maria@aluno.sp.gov.br', '1234', 1),
-(4, '2007-06-13', 390111080, 968080107, 'Vinicius Augusto rodrigues', 'vinicius.silva2029@etec.sp.gov.br', 'vinicius123', 1),
+(4, '2007-06-13', 390111080, 968080107, 'Vinicius Augusto Rodrigues', 'vinicius.silva2029@aluno.sp.gov.br', 'vinicius323app', 1),
 (5, '2007-11-14', 11108019, 968080107, 'Arthur Oliveira', 'arthuroliveira@gmail.com', '123', 1),
 (6, '2007-04-20', 390108019, 968080107, 'Joana Silva', 'joanasilva@gmail.com', '1234', 1),
 (8, '2007-01-15', 301111080, 958000101, 'Lucas Martins Souza', 'lucasms@gmail.com', 'lucas123', 3),
@@ -79,6 +79,7 @@ CREATE TABLE `atividade` (
   `titulo_atividade` varchar(80) NOT NULL,
   `hora_inicio` time DEFAULT NULL,
   `data_entrega` date NOT NULL,
+  `nome_arquivo` varchar(255) NOT NULL,
   `caminho_arquivo` varchar(255) NOT NULL,
   `id_turma` int(10) UNSIGNED NOT NULL,
   `id_professor` int(11) NOT NULL,
@@ -89,9 +90,8 @@ CREATE TABLE `atividade` (
 -- Despejando dados para a tabela `atividade`
 --
 
-INSERT INTO `atividade` (`id_atividade`, `titulo_atividade`, `hora_inicio`, `data_entrega`, `caminho_arquivo`, `id_turma`, `id_professor`, `hora_termino`) VALUES
-(2, 'Atividade Pratica - 1° Bimestre', '14:30:00', '2024-11-26', '', 1, 5, '15:30:59'),
-(5, 'asdasdasd', '03:08:00', '2024-11-26', '0', 1, 5, '03:09:00');
+INSERT INTO `atividade` (`id_atividade`, `titulo_atividade`, `hora_inicio`, `data_entrega`, `nome_arquivo`, `caminho_arquivo`, `id_turma`, `id_professor`, `hora_termino`) VALUES
+(31, 'Campeonato Interescolar', '15:30:00', '2024-11-27', 'HistoriaPowerSoccer.pdf', '67411820930a42.19290499.pdf', 1, 5, '18:29:00');
 
 -- --------------------------------------------------------
 
@@ -105,6 +105,15 @@ CREATE TABLE `aulas` (
   `id_turma` int(10) UNSIGNED NOT NULL,
   `descricao_aula` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `aulas`
+--
+
+INSERT INTO `aulas` (`id_aula`, `data_aula`, `id_turma`, `descricao_aula`) VALUES
+(1, '2024-11-15', 1, 'Aula de hoje'),
+(2, '2024-11-18', 1, 'gdhdghdghdh'),
+(3, '2024-11-20', 3, 'cxvzxcvzxcv');
 
 -- --------------------------------------------------------
 
@@ -185,11 +194,7 @@ CREATE TABLE `justificativa_falta` (
 --
 
 INSERT INTO `justificativa_falta` (`id_justificativa`, `id_aluno`, `id_presenca`, `descricao`, `resposta_professor`, `caminho_arquivo`, `aprovado_professor`, `aprovado_instituicao`) VALUES
-(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 4, NULL, NULL, NULL, 'false', 0, 0),
-(5, 4, NULL, 'Quebrei meu braço. Não consegui comparecer na aula!', NULL, '', 0, 0);
+(70, 4, 17, 'Quebrei meu ccoração', NULL, '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -225,6 +230,30 @@ CREATE TABLE `presencas` (
   `justificado` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `presencas`
+--
+
+INSERT INTO `presencas` (`id_presenca`, `id_aluno`, `id_aula`, `presente`, `justificado`) VALUES
+(14, 5, 1, 1, NULL),
+(15, 6, 1, 1, NULL),
+(16, 1, 1, 1, NULL),
+(17, 4, 1, 0, NULL),
+(18, 11, 1, 0, NULL),
+(19, 13, 1, 0, NULL),
+(20, 17, 1, 0, NULL),
+(21, 10, 1, 1, NULL),
+(22, 15, 1, 1, NULL),
+(23, 12, 1, 1, NULL),
+(24, 16, 1, 1, NULL),
+(25, 8, 1, 0, NULL),
+(26, 9, 1, 1, NULL),
+(27, 14, 1, 1, NULL),
+(28, 5, 1, 1, NULL),
+(29, 6, 1, 1, NULL),
+(30, 1, 1, 1, NULL),
+(31, 4, 1, 0, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -248,7 +277,7 @@ CREATE TABLE `professores` (
 
 INSERT INTO `professores` (`id`, `nome_professor`, `cpf_professor`, `data_nasc`, `email_professor`, `senha`, `telefone_professor`, `nome_coordenador`) VALUES
 (1, 'roberto', 0, '0000-00-00', 'roberto@professor.sp.gov.br', '12345', 0, NULL),
-(5, 'Carlos Alberto', 461294790, '1970-11-14', 'carlosalberto@gmail.com', 'carlos1234', 1196808010, 'Danilo Lima'),
+(5, 'Carlos Alberto', 461294790, '1970-11-14', 'carlosalberto@gmail.com', '1234', 1196808010, 'Danilo Lima'),
 (6, 'Maria Silva', 2147483647, '1985-06-23', 'maria.silva@example.com', '123', 2147483647, NULL),
 (7, 'João Pereira', 2147483647, '1992-03-15', 'joao.pereira@example.com', 'joao1234', 2147483647, NULL),
 (8, 'Ana Oliveira', 2147483647, '1978-12-05', 'ana.oliveira@example.com', 'ana1234', 2147483647, NULL);
@@ -402,19 +431,19 @@ ALTER TABLE `alunos`
 -- AUTO_INCREMENT de tabela `atividade`
 --
 ALTER TABLE `atividade`
-  MODIFY `id_atividade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_atividade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `aulas`
 --
 ALTER TABLE `aulas`
-  MODIFY `id_aula` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_aula` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `inscricao`
 --
 ALTER TABLE `inscricao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de tabela `instituicao`
@@ -426,7 +455,7 @@ ALTER TABLE `instituicao`
 -- AUTO_INCREMENT de tabela `justificativa_falta`
 --
 ALTER TABLE `justificativa_falta`
-  MODIFY `id_justificativa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_justificativa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT de tabela `modalidade`
@@ -438,7 +467,7 @@ ALTER TABLE `modalidade`
 -- AUTO_INCREMENT de tabela `presencas`
 --
 ALTER TABLE `presencas`
-  MODIFY `id_presenca` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_presenca` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `professores`
