@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football/config/globals.php';
 
 $imports = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
@@ -74,13 +74,17 @@ include_once('./templetes/menu.php');
             if ($senha === $row->senha) {
                 session_regenerate_id(true); // Regenera ID da sessão
                 $_SESSION["usuario"] = $usuario;
+                
                 // Armazena o nome baseado no tipo de usuário
                 if ($table === 'alunos') {
                     $_SESSION["nome"] = $row->nome_aluno;
+                    $_SESSION["id"] = $row->id_aluno;
                 } else if ($table === 'professores') {
                     $_SESSION["nome"] = $row->nome_professor;
+                    $_SESSION["id"] = $row->id;
                 } else if ($table === 'instituicao') {
                     $_SESSION["nome"] = $row->nome_instituicao;
+                    $_SESSION["id"] = $row->id;
                 }
                 
                 // Debugging: Verifica as variáveis de sessão

@@ -20,7 +20,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football-main/Integration-F
 
   include_once('./templetes/headerAluno.php');
 
-  $id = 4;
+  $id = $_SESSION["id"];
 
   $alunocontroller = new alunocontroller();
   $aluno = $alunocontroller->buscarPorId($id);

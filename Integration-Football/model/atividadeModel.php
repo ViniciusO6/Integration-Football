@@ -11,6 +11,7 @@ class Atividade
     private $hora_inicio;
     private $hora_termino;
     private $data_entrega;
+    private $nome_arquivo;
     private $caminho_arquivo;
     private $id_turma;
     private $id_professor;
@@ -40,6 +41,11 @@ class Atividade
     public function getDataEntrega()
     {
         return $this->data_entrega;
+    }
+
+    public function getNomeArquivo()
+    {
+        return $this->nome_arquivo;
     }
 
     public function getCaminhoArquivo()
@@ -83,6 +89,11 @@ class Atividade
         $this->data_entrega = $data_entrega;
     }
 
+    public function setNomeArquivo($nome_arquivo)
+    {
+        $this->nome_arquivo = $nome_arquivo;
+    }
+
     public function setCaminhoArquivo($caminho_arquivo)
     {
         $this->caminho_arquivo = $caminho_arquivo;
@@ -107,10 +118,10 @@ class Atividade
     // Método para inserir um novo registro na tabela 'atividade'
     public function inserir()
     {
-        $sql = "INSERT INTO atividade (`titulo_atividade`, `hora_inicio`, `hora_termino`, `data_entrega`, `caminho_arquivo`, `id_turma`, `id_professor`) 
-                VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO atividade (`titulo_atividade`, `hora_inicio`, `hora_termino`, `data_entrega`, `nome_arquivo` , `caminho_arquivo`, `id_turma`, `id_professor`) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conexao->getConexao()->prepare($sql);
-        $stmt->bind_param('ssssiii', $this->titulo_atividade, $this->hora_inicio, $this->hora_termino, $this->data_entrega, $this->caminho_arquivo, $this->id_turma, $this->id_professor);
+        $stmt->bind_param('ssssssii', $this->titulo_atividade, $this->hora_inicio, $this->hora_termino, $this->data_entrega, $this->nome_arquivo, $this->caminho_arquivo, $this->id_turma, $this->id_professor);
         return $stmt->execute();
     }
 
