@@ -166,9 +166,9 @@ $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
               <div class="arquivo">
                 <div class="previa-arquivo">
                   <img src="./Imagens/pdfIcon.png" alt="">
-                  <p>Arquivo 1- "Histotia do Power Soccer"</p>
+                  <p><?= $atividade['nome_arquivo'] ?></p>
                 </div>
-                <button style="cursor: pointer;" type="button" onclick="redirecionar('./download.php?file=roblox.png')">Baixar Arquivos</button>
+                <button style="cursor: pointer;" type="button" onclick="redirecionar('./Server_Service/download.php?file=<?= $atividade['caminho_arquivo']?>')">Baixar Arquivos</button>
 
               </div>
             </div>
