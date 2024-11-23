@@ -342,7 +342,7 @@ $atividades = $atividadecontroller->listarAtivividadesporProfessor($idprofessor)
                     <input type="hidden" class="form-control" name="id" id="id-atividade" value="<?= $atividade['id_atividade'] ?>" disable>
                   </div>
 
-                  <button style="cursor: pointer;" id="baixar atividade" type="button" onclick="redirecionar('./Server_Service/download.php?file=<?= $atividade['caminho_arquivo']?>')">Baixar Arquivos</button>
+                  <button style="cursor: pointer;" id="baixar atividade" type="button" onclick="redirecionar('./Server_Service/download.php?file=<?= $atividade['caminho_arquivo']?>&type=atividade')">Baixar Arquivos</button>
                 </div>
               </div>
             </div>
