@@ -128,15 +128,15 @@ select:focus {
   width: 25%;
 }
 
-#aprovado,
-#reprovado {
+.aprovado,
+.reprovado {
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none; /* Evita cliques enquanto invisível */
 }
 
-#aprovado.clicado,
-#reprovado.clicado {
+.aprovado.clicado,
+.reprovado.clicado {
   opacity: 1;
   pointer-events: auto; /* Permite cliques enquanto visível */
 }

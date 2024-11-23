@@ -224,17 +224,16 @@ function filtrarJustificativas(){
        <div id="justificativa-card">      
          
       <?php
-      echo '';
       $justificativacontroller = new JustificativaController();
       $justificativas = $justificativacontroller->listarJustificativasProfessor($id);
-      $numeroAtividade = 1;
+      $numeroJustificativa = 0;
 
       foreach ($justificativas as $justificativa) {
-        $numeroAtividade++
+        $numeroJustificativa++
       ?>
 
       
-        <div class="cards" onclick="AbrirJustificativa(this)">
+        <div class="cards" onclick="AbrirJustificativa(this, 'card-justificativa-<?= $numeroJustificativa ?>', 'content-justificativa-<?= $numeroJustificativa ?>' , 'aprovado-<?= $numeroJustificativa ?>' ,'reprovado-<?= $numeroJustificativa ?>')">
           <div class="imagem">
             <img src="Imagens/FotoPerfil.svg" alt="" draggable="false">
           </div>
@@ -252,11 +251,11 @@ function filtrarJustificativas(){
 
           <form action="./controller/justificativacontroller.php" class="botoes" method="POST">
             <!-- <div class="botoes"> -->
-            <button name="aprovado" id="aprovado" onclick="stopPropagationIfActive(event)" type="submit" value="1">
+            <button name="aprovado" class="aprovado" id="aprovado-<?= $numeroJustificativa ?>" onclick="stopPropagationIfActive(event)" type="submit" value="1">
               <img src="Imagens/aprovar.svg" alt="" draggable="false">
             </button>
 
-            <button name="aprovado" id="reprovado" onclick="stopPropagationIfActive(event)" type="submit" value="0">
+            <button name="aprovado" class="reprovado" id="reprovado-<?= $numeroJustificativa ?>" onclick="stopPropagationIfActive(event)" type="submit" value="0">
               <img src="Imagens/cancelar.svg" alt="" draggable="false">
             </button>
             <input name="crud" type="hidden" value="enviarResposta">
@@ -267,8 +266,8 @@ function filtrarJustificativas(){
 
 
 
-        <div class="justificativa" id="card-justificativa">
-          <div class="conteudo-justificativa" id="content-justificativa">
+        <div class="justificativa" id="card-justificativa-<?= $numeroJustificativa ?>">
+          <div class="conteudo-justificativa" id="content-justificativa-<?= $numeroJustificativa ?>">
             <div class="titulo">
               <p>Justificativa:</p>
             </div>
@@ -280,9 +279,9 @@ function filtrarJustificativas(){
               <div class="arquivo">
                 <div class="previa-arquivo">
                   <img src="./Imagens/pdfIcon.png" alt="">
-                  <p>Arquivo 1- "Histotia do Power Soccer"</p>
+                  <p><?= $justificativa['nome_arquivo'] ?></p>
                 </div>
-                <button>Baixar Arquivos</button>
+                <button onclick="redirecionar('./Server_Service/download.php?file=<?= $justificativa['caminho_arquivo'] ?>&type=justificativa')">Baixar Arquivos</button>
 
               </div>
             </div>

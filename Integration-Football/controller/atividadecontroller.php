@@ -34,37 +34,37 @@ class AtividadeController
         $remoteUrl = "https://tcloud.site/filegator/repository/GrupoIntegrationFootball/Uploads/upload.php";
 
 
-if (isset($_FILES['arquivo_atividade']) && $_FILES['arquivo_atividade']['error'] === 0) {
-    $token = uniqid('', true);
-    $fileName = $_FILES['arquivo_atividade']['name'];
-    $tempFile = $_FILES['arquivo_atividade']['tmp_name'];
-    echo $fileName;
+        if (isset($_FILES['arquivo_atividade']) && $_FILES['arquivo_atividade']['error'] === 0) {
+            $token = uniqid('', true);
+            $fileName = $_FILES['arquivo_atividade']['name'];
+            $tempFile = $_FILES['arquivo_atividade']['tmp_name'];
+            echo $fileName;
 
-    $uniqueFileName = uniqid('', true) . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
-    $curl = curl_init();
+            $uniqueFileName = uniqid('', true) . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
+            $curl = curl_init();
 
-    curl_setopt_array($curl, [
-        CURLOPT_URL => $remoteUrl,
-        CURLOPT_POST => true,
-        CURLOPT_POSTFIELDS => [
-            'arquivo' => new CURLFile($tempFile, mime_content_type($tempFile), $uniqueFileName),
-        ],
-        CURLOPT_RETURNTRANSFER => true,
-    ]);
+            curl_setopt_array($curl, [
+                CURLOPT_URL => $remoteUrl,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => [
+                    'arquivo' => new CURLFile($tempFile, mime_content_type($tempFile), $uniqueFileName),
+                ],
+                CURLOPT_RETURNTRANSFER => true,
+            ]);
 
-    $response = curl_exec($curl);
-    $error = curl_error($curl);
+            $response = curl_exec($curl);
+            $error = curl_error($curl);
 
-    curl_close($curl);
+            curl_close($curl);
 
-    if ($error) {
-        echo "Erro ao enviar o arquivo: $error";
-    } else {
-        echo "Resposta do servidor remoto: $response";
-    }
-} else {
-    echo "Erro no envio do arquivo.";
-}
+            if ($error) {
+                echo "Erro ao enviar o arquivo: $error";
+            } else {
+                echo "Resposta do servidor remoto: $response";
+            }
+        } else {
+            echo "Erro no envio do arquivo.";
+        }
 
         $this->atividade->setTituloAtividade($_POST['titulo_atividade']);
         $this->atividade->setHoraInicio($_POST['hora_inicio']);

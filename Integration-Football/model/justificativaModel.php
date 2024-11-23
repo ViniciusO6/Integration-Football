@@ -11,6 +11,7 @@ class Justificativa
     private $id_presenca;
     private $descricao;
     private $resposta_professor;
+    private $nome_arquivo;
     private $caminho_arquivo;
     private $aprovado_professor;
     private $aprovado_instituicao;
@@ -74,9 +75,19 @@ class Justificativa
         $this->resposta_professor = $resposta_professor;
     }
 
+    public function getNomeArquivo()
+    {
+        return $this->nome_arquivo;
+    }
+
     public function getCaminhoArquivo()
     {
         return $this->caminho_arquivo;
+    }
+
+    public function setNomeArquivo($nome_arquivo)
+    {
+        $this->nome_arquivo = $nome_arquivo;
     }
 
     public function setCaminhoArquivo($caminho_arquivo)
@@ -127,15 +138,16 @@ class Justificativa
         
         $aprovado_professor = NULL;
         $aprovado_instituicao = NULL;
-        $sql = "INSERT INTO justificativa_falta (`id_aluno`, `id_presenca`, `descricao`, `resposta_professor`, `caminho_arquivo`, `aprovado_professor`, `aprovado_instituicao`) 
-                VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO justificativa_falta (`id_aluno`, `id_presenca`, `descricao`, `resposta_professor`, `nome_arquivo`, `caminho_arquivo`, `aprovado_professor`, `aprovado_instituicao`) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param(
-            'iisssii',
+            'iissssii',
             $this->id_aluno,
             $id_presenca,
             $this->descricao,
             $this->resposta_professor,
+            $this->nome_arquivo,
             $this->caminho_arquivo,
             $aprovado_professor,
             $aprovado_instituicao

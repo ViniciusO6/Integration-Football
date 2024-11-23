@@ -116,8 +116,8 @@ xhr.onload = function() {
         </div>
 
         <div id="bloco2">
-          <div id="foto-perfil">
-            <button type="button" onclick="file()" id="btn-editar-foto"> <img src="./Imagens/editar.png" alt=""> </button>
+          <div style="background-image: url(<?= $professor['foto_perfil'];  ?>);" id="foto-perfil">
+            <button type="button" onclick="" id="btn-editar-foto"> <img src="./Imagens/editar.png" alt=""> </button>
             <input id="input-file" style="display: none;" type="file" name="foto">
           </div>
 

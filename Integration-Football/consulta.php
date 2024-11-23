@@ -28,7 +28,7 @@ $id = $_SESSION["id"];
   <div id="consulta">
 
 
-    <form id="form" action="controller/justificativacontroller.php" method="POST">
+    <form id="form" action="controller/justificativacontroller.php" enctype="multipart/form-data" method="POST">
       <h1 id="titulo">JUSTIFICAR FALTAS</h1>
 
       <p>Escolha o(a) professor(a)</p>
@@ -67,7 +67,7 @@ $id = $_SESSION["id"];
 
       <div id="btns">
         <button id="input-arquivo" type="button">Escolher arquivo</button>
-        <input id="files" type="file" name="caminho_arquivo">
+        <input id="files" type="file" name="arquivo_justificativa">
         <input type="hidden" name="id_aluno" value=<?= $id ?>>
         <input type="hidden" name="aprovado_professor" value="">
         <input type="hidden" name="aprovado_instituicao" value="">

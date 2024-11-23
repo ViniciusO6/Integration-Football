@@ -35,10 +35,48 @@ class JustificativaController
     // Método para inserir uma nova justificativa
     public function inserir($data)
     {
+
+
+        $remoteUrl = "https://tcloud.site/filegator/repository/GrupoIntegrationFootball/Uploads/uploadArquivosJustificativa.php";
+
+
+        if (isset($_FILES['arquivo_justificativa']) && $_FILES['arquivo_justificativa']['error'] === 0) {
+            $token = uniqid('', true);
+            $fileName = $_FILES['arquivo_justificativa']['name'];
+            $tempFile = $_FILES['arquivo_justificativa']['tmp_name'];
+            echo $fileName;
+
+            $uniqueFileName = uniqid('', true) . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
+            $curl = curl_init();
+
+            curl_setopt_array($curl, [
+                CURLOPT_URL => $remoteUrl,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => [
+                    'arquivo' => new CURLFile($tempFile, mime_content_type($tempFile), $uniqueFileName),
+                ],
+                CURLOPT_RETURNTRANSFER => true,
+            ]);
+
+            $response = curl_exec($curl);
+            $error = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($error) {
+                echo "Erro ao enviar o arquivo: $error";
+            } else {
+                echo "Resposta do servidor remoto: $response";
+            }
+        } else {
+            echo "Erro no envio do arquivo.";
+        }
+
         // Define os atributos da justificativa com base nos dados recebidos via POST
         $this->justificativa->setIdAluno($_POST['id_aluno']);
         $this->justificativa->setDescricao($_POST['descricao']);
-        $this->justificativa->setCaminhoArquivo($_POST['caminho_arquivo']);
+        $this->justificativa->setNomeArquivo($fileName);
+        $this->justificativa->setCaminhoArquivo($uniqueFileName);
         $this->justificativa->setAprovadoProfessor($_POST['aprovado_professor']);
         $this->justificativa->setAprovadoInstituicao($_POST['aprovado_instituicao']);
         $this->justificativa->inserir($data);

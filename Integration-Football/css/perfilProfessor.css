@@ -44,7 +44,7 @@ body{
 #foto-perfil {
   position: relative;
   margin-top: 80px;
-  background-image: url(../Imagens/user.png);
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -1,8 +1,9 @@
-function AbrirJustificativa(element) {
-  const arquivoDiv = document.getElementById("card-justificativa");
-  const arquivoInterno = document.getElementById("content-justificativa");
-  const Aprov = document.getElementById("aprovado");
-  const Reprov = document.getElementById("reprovado");
+function AbrirJustificativa(element, IDarquivoDiv, IDarquivoInterno, IDaprovado, IDreprovado) {
+  const arquivoDiv = document.querySelector("#"+IDarquivoDiv);
+  const arquivoInterno = document.querySelector("#"+ IDarquivoInterno);
+
+  const Aprov = document.querySelector("#"+IDaprovado);
+  const Reprov = document.querySelector("#"+IDreprovado);
 
   arquivoDiv.classList.toggle("aberto");
   arquivoInterno.classList.toggle("aberto");

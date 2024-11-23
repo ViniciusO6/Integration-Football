@@ -1,6 +1,13 @@
 <?php
+
+$type = $_GET['type'];
 $file = $_GET['file']; 
-$filePath = 'https://tcloud.site/filegator/repository/GrupoIntegrationFootball/Uploads/ArquivosAtividades/' . basename($file);
+
+if($type == "atividade"){
+   $filePath = 'https://tcloud.site/filegator/repository/GrupoIntegrationFootball/Uploads/ArquivosAtividades/' . basename($file);
+}else if($type == "justificativa"){
+    $filePath = 'https://tcloud.site/filegator/repository/GrupoIntegrationFootball/Uploads/ArquivosJustificativa/' . basename($file);
+}
 
 $headers = get_headers($filePath, 1);
 if (strpos($headers[0], '404') !== false) {

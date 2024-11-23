@@ -1,3 +1,28 @@
+
+
+// Ação do botão de trocar foto de perfil
+document.getElementById("file-text").value = "";
+
+document.getElementById("btn-editar-foto").addEventListener("click", function () {
+  console.log("Clicou")
+  document.getElementById("input-file").click();
+});
+
+
+document.getElementById("files").addEventListener("change", function () {
+  var file = document.getElementById("files").files[0];
+  var fileText = document.getElementById("file-text");
+  var cancelarBtn = document.getElementById("cancelar");
+
+  if (file) {
+    fileText.value = file.name;
+    fileText.style.width = "100%";
+    cancelarBtn.style.display = "block";
+  }
+});
+
+// Fim Ação do botão de trocar foto de perfil
+
 document.getElementById('icon-olho-1').addEventListener('click', function() {
     var passwordField = document.getElementById('input-senha');
     var olho = document.getElementById('icon-olho-1');
