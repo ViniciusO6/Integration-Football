@@ -151,28 +151,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   publicarBtn.addEventListener("click", function (event) {
+    event.preventDefault(); // Impede o envio do formulário ao clicar no botão
+
     const formulario = document.getElementById("formulario"); // Substitua pelo ID do seu formulário
 
-    // // Verifica primeiro os campos obrigatórios
-    // if (!formulario.checkValidity()) {
-    //   // Se algum campo obrigatório não foi preenchido, interrompe a execução
-    //   formulario.reportValidity(); // Mostra as mensagens padrão do navegador
-    //   return;
-    // }
+    // Verifica se todos os campos obrigatórios foram preenchidos
+    if (!formulario.checkValidity()) {
+      formulario.reportValidity(); // Exibe mensagens de erro padrão do navegador
+      return; // Impede o prosseguimento até os campos estarem preenchidos
+    }
 
-    // Se todos os campos obrigatórios foram preenchidos, verifica a data
+    // Se os campos obrigatórios estiverem preenchidos, valida a data
     const dataSelecionada = dataEntregaInput.value;
+    const dataSelecionadaDate = new Date(dataSelecionada);
+    const dataMinDate = new Date(dataMin);
+    const dataMaxDate = new Date(dataMax);
 
-    if (dataSelecionada < dataMin || dataSelecionada > dataMax) {
-      // Impede o envio do formulário
-      TelaData();
+    if (
+      dataSelecionadaDate < dataMinDate ||
+      dataSelecionadaDate > dataMaxDate
+    ) {
+      TelaData(); // Exibe a mensagem de data inválida
       document.getElementById("data-min").innerText = formatarData(dataMin); // Atualiza data mínima
       document.getElementById("data-max").innerText = formatarData(dataMax); // Atualiza data máxima
       dataEntregaInput.value = ""; // Limpa o campo de data
-      return;
+      return; // Impede o prosseguimento até a data ser válida
     }
 
-    // Se tudo estiver válido, o formulário será enviado normalmente
+    // Se tudo estiver válido, você pode permitir o envio do formulário
+    formulario.submit(); // Envia o formulário
   });
 });
 
