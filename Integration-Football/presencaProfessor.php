@@ -19,7 +19,7 @@ $pageJS = ["presençaProfessor.js"];
 
 include_once('./templetes/headerProfessor.php');
 
-$id = 5
+$id = $_SESSION["id"];
 
 ?>
 

@@ -19,8 +19,7 @@ $pageJS = ["calendarioProfessor.js"];
 
 include_once('./templetes/headerProfessor.php');
 
-$idprofessor = 5;
-$idaluno = 4;
+$idprofessor = $_SESSION["id"];;
 
 $professorcontroller = new ProfessorController();
 $professor = $professorcontroller->buscarPorId($idprofessor);
@@ -212,7 +211,7 @@ $atividades = $atividadecontroller->listarAtivividadesporProfessor($idprofessor)
 
         <div id="card-arquivo" class="card-arquivo fechado">
           <div class="arquivo">
-            <form action="controller/atividadecontroller.php" method="POST" name="formulario" id="formulario">
+          <form action="controller/atividadecontroller.php" method="POST" enctype="multipart/form-data" name="formulario" id="formulario">
               <div class="previa-arquivo">
 
                 <div class="titulos">
@@ -260,7 +259,7 @@ $atividades = $atividadecontroller->listarAtivividadesporProfessor($idprofessor)
                     </div>
                   </div>
 
-                  <input id="files" type="file" name="caminho_arquivo" value="">
+                  <input id="files" type="file" name="arquivo_atividade" value="">
 
                   <input type="hidden" name="id_professor" value="5">
                   <!-- <input type="hidden" name="id_turma" value="1"> -->
@@ -333,7 +332,7 @@ $atividades = $atividadecontroller->listarAtivividadesporProfessor($idprofessor)
               <div class="arquivo-conteudo">
                 <div class="previa-arquivo">
                   <img src="./Imagens/pdfIcon.png" alt="">
-                  <p>Arquivo 1 - "História do Power Soccer"</p>
+                  <p><?= $atividade['nome_arquivo'] ?></p>
                 </div>
 
                 <div class="botoes-atividade">
@@ -343,7 +342,7 @@ $atividades = $atividadecontroller->listarAtivividadesporProfessor($idprofessor)
                     <input type="hidden" class="form-control" name="id" id="id-atividade" value="<?= $atividade['id_atividade'] ?>" disable>
                   </div>
 
-                  <button style="cursor: pointer;" id="baixar atividade" type="button" onclick="redirecionar('./download.php?file=exemplo.pdf')">Baixar Arquivos</button>
+                  <button style="cursor: pointer;" id="baixar atividade" type="button" onclick="redirecionar('./Server_Service/download.php?file=<?= $atividade['caminho_arquivo']?>')">Baixar Arquivos</button>
                 </div>
               </div>
             </div>

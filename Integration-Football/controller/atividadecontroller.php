@@ -20,27 +20,61 @@ class AtividadeController
             } elseif ($_POST['crud'] == "DELETE") {
                 $this->deletar();
             }
+            header("Location:" . "../calendarioProfessor.php");
 
-            header("Location:" . "../calendarioProfessor.php"); // Redireciona para outra página após a operação
-            exit; // Adicionado o exit para garantir que o código pare após o redirecionamento
+          exit; // Adicionado o exit para garantir que o código pare após o redirecionamento
         } else {
             $this->listar();
         }
     }
 
-    // Método para inserir uma nova atividade
     public function inserir()
     {
-        // Define os atributos da atividade com base nos dados recebidos via POST
+
+        $remoteUrl = "https://tcloud.site/filegator/repository/GrupoIntegrationFootball/Uploads/upload.php";
+
+
+if (isset($_FILES['arquivo_atividade']) && $_FILES['arquivo_atividade']['error'] === 0) {
+    $token = uniqid('', true);
+    $fileName = $_FILES['arquivo_atividade']['name'];
+    $tempFile = $_FILES['arquivo_atividade']['tmp_name'];
+    echo $fileName;
+
+    $uniqueFileName = uniqid('', true) . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
+    $curl = curl_init();
+
+    curl_setopt_array($curl, [
+        CURLOPT_URL => $remoteUrl,
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => [
+            'arquivo' => new CURLFile($tempFile, mime_content_type($tempFile), $uniqueFileName),
+        ],
+        CURLOPT_RETURNTRANSFER => true,
+    ]);
+
+    $response = curl_exec($curl);
+    $error = curl_error($curl);
+
+    curl_close($curl);
+
+    if ($error) {
+        echo "Erro ao enviar o arquivo: $error";
+    } else {
+        echo "Resposta do servidor remoto: $response";
+    }
+} else {
+    echo "Erro no envio do arquivo.";
+}
+
         $this->atividade->setTituloAtividade($_POST['titulo_atividade']);
         $this->atividade->setHoraInicio($_POST['hora_inicio']);
         $this->atividade->setHoraTermino($_POST['hora_termino']);
         $this->atividade->setDataEntrega($_POST['data_entrega']);
-        $this->atividade->setCaminhoArquivo($_POST['caminho_arquivo']);
+        $this->atividade->setNomeArquivo($fileName);
+        $this->atividade->setCaminhoArquivo($uniqueFileName);
         $this->atividade->setIdTurma($_POST['id_turma']);
         $this->atividade->setIdProfessor($_POST['id_professor']);
 
-        // Chama o método inserir da classe Atividade para armazenar os dados no banco de dados
         if ($this->atividade->inserir()) {
             echo "Atividade inserida com sucesso!";
         } else {
@@ -48,7 +82,7 @@ class AtividadeController
         }
     }
 
-    // Método para listar todas as atividades
+
     public function listar()
     {
         $atividades = $this->atividade->listar(); // Chama o método listar da classe Atividade

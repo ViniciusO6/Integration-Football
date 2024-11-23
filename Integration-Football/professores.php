@@ -17,7 +17,7 @@ $pageCSS = ["professores.css"];
 $pageJS = ["consulta.js"];
 
 include_once('./templetes/headerAluno.php');
-$id = 4;
+$id = $_SESSION["id"];
 ?>
 
 <div class="container">

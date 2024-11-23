@@ -5,9 +5,6 @@ require_once './controller/atividadecontroller.php';
 include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football-main/Integration-Football/templetes/mensagemSessao.php");
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football/config/globals.php';
 
-
-
-
 //Os imports subistituem os ( <link rel="stylesheet" href="/meu-projeto/css/styles.css">  )
 //Basta colocar os links
 $imports = [
@@ -22,7 +19,7 @@ $pageJS = ["principal.js"];
 
 include_once('./templetes/headerAluno.php');
 
-$id = 4;
+$id = $_SESSION["id"];
 
 $alunocontroller = new alunocontroller();
 $aluno = $alunocontroller->buscarPorId($id);
