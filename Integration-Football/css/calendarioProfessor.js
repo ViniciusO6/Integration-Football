@@ -154,17 +154,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const formulario = document.getElementById("formulario"); // Substitua pelo ID do seu formulário
 
     // // Verifica primeiro os campos obrigatórios
-    // if (!formulario.checkValidity()) {
-    //   // Se algum campo obrigatório não foi preenchido, interrompe a execução
-    //   formulario.reportValidity(); // Mostra as mensagens padrão do navegador
-    //   return;
-    // }
+    if (!formulario.checkValidity()) {
+      // Se algum campo obrigatório não foi preenchido, interrompe a execução
+      formulario.reportValidity(); // Mostra as mensagens padrão do navegador
+      return;
+    }
 
     // Se todos os campos obrigatórios foram preenchidos, verifica a data
     const dataSelecionada = dataEntregaInput.value;
 
     if (dataSelecionada < dataMin || dataSelecionada > dataMax) {
-      // Impede o envio do formulário
       TelaData();
       document.getElementById("data-min").innerText = formatarData(dataMin); // Atualiza data mínima
       document.getElementById("data-max").innerText = formatarData(dataMax); // Atualiza data máxima

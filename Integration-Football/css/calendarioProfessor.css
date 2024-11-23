@@ -118,7 +118,7 @@
   flex-direction: column;
   height: 14%;
   transition: 0.5s;
-  margin-bottom: 35 px;
+  margin-bottom: 35px;
   user-select: none;
   outline: none; /* Remove qualquer contorno de foco residual */
   -webkit-tap-highlight-color: transparent; /* Remove o destaque em dispositivos móveis */
@@ -245,19 +245,18 @@ h3 {
 .titulos {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 22px;
 }
 
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
   width: 65%;
 }
 
 .inputs input {
   margin-left: 5%;
-  height: 22px;
   border: solid 2px black;
   border-radius: 5px;
   outline: none;
@@ -265,9 +264,8 @@ h3 {
   padding-left: 5px;
 }
 
-.selects{
+.selects {
   margin-left: 5%;
-  height: 26px;
   border: solid 2px black;
   border-radius: 5px;
   outline: none;
@@ -277,7 +275,6 @@ h3 {
 
 #id_modalidade {
   margin-left: 5%;
-  height: 26px;
   border: solid 2px black;
   border-radius: 5px;
   outline: none;
@@ -289,7 +286,6 @@ h3 {
   cursor: pointer;
   background-color: #ffffff;
   border: solid 2px #07cb65;
-  height: 30px;
   width: 140px;
   border-radius: 5px;
   margin-left: 4%;
@@ -371,7 +367,7 @@ label {
 }
 
 .aberto {
-  height: 345px;
+  height: 420px;
 }
 
 /* Parte das atividades já postadas */
@@ -491,6 +487,10 @@ h3 {
 
 .deletar:hover {
   transform: scale(1.15);
+}
+
+.campos {
+  height: 26px;
 }
 
 .cartao-arquivo {
