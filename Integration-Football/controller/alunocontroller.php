@@ -26,11 +26,58 @@ class AlunoController {
                 $this->deletar();
             }elseif ($_POST['crud'] == "alterarSenha") {
                 $this->redefinirSenha();
+            }elseif($_POST['crud'] == "AtualizarFoto"){
+                $this->AtualizarFotoPerfil();
             }
         }else{
             $this->listar();
 
         }
+    }
+
+    public function AtualizarFotoPerfil()
+    {
+        $remoteUrl = "https://tcloud.site/filegator/repository/GrupoIntegrationFootball/Uploads/uploadFotoPerfil.php";
+
+
+        if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] === 0) {
+            $token = uniqid('', true);
+            $fileName = $_FILES['foto_perfil']['name'];
+            $tempFile = $_FILES['foto_perfil']['tmp_name'];
+            echo $fileName;
+
+            $uniqueFileName = uniqid('', true) . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
+            $curl = curl_init();
+
+            curl_setopt_array($curl, [
+                CURLOPT_URL => $remoteUrl,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => [
+                    'arquivo' => new CURLFile($tempFile, mime_content_type($tempFile), $uniqueFileName),
+                ],
+                CURLOPT_RETURNTRANSFER => true,
+            ]);
+
+            $response = curl_exec($curl);
+            $error = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($error) {
+                echo "Erro ao enviar o arquivo: $error";
+            } else {
+                echo "Resposta do servidor remoto: $response";
+            }
+        } else {
+            echo "Erro no envio do arquivo.";
+        }
+
+
+
+
+        $this->aluno->setFotoPerfil("https://tcloud.site/filegator/repository/GrupoIntegrationFootball/Uploads/FotosPerfil/".$uniqueFileName);
+        $this->aluno->setId($_SESSION['id']);
+        return $this->aluno->AtualizarFotoPerfil();
     }
 
     // Método para inserir uma nova pessoa

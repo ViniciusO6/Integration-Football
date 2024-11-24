@@ -18,8 +18,13 @@ $titulo = 'Consulta';
 $pageCSS = ["consulta.css"];
 $pageJS = ["consulta.js"];
 
-include_once('./templetes/headerAluno.php');
+
 $id = $_SESSION["id"];
+
+$alunocontroller = new alunocontroller();
+$aluno = $alunocontroller->buscarPorId($id);
+
+include_once('./templetes/headerAluno.php');
 ?>
 
 

@@ -11,6 +11,7 @@ class Aluno
     private $id_aluno;
     private $nome_aluno;
     private $email_aluno;
+    private $foto_perfil;
     private $senha;
     private $data_nasc;
     private $cpf_aluno;
@@ -30,6 +31,10 @@ class Aluno
     public function getEmail()
     {
         return $this->email_aluno;
+    }
+    public function getFotoPerfil()
+    {
+        return $this->foto_perfil;
     }
     public function getSenha()
     {
@@ -60,6 +65,10 @@ class Aluno
     public function setEmail($email_aluno)
     {
         $this->email_aluno = $email_aluno;
+    }
+    public function setFotoPErfil($foto_perfil)
+    {
+        $this->foto_perfil = $foto_perfil;
     }
     public function setSenha($senha)
     {
@@ -119,6 +128,16 @@ class Aluno
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('ssssis', $this->nome_aluno, $this->email_aluno, $this->senha, $this->data_nasc, $this->cpf_aluno, $this->telefone_aluno); // Corrigido para usar $id em vez de $this->id
         $stmt->execute();
+    }
+
+    public function AtualizarFotoPerfil()
+    {
+        $sql = "UPDATE alunos SET `foto_perfil` = ? WHERE `id_aluno` = ?";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('si', $this->foto_perfil, $this->id_aluno);
+        $message = new Message($_SERVER['DOCUMENT_ROOT']);
+        $message->setMessage("Foto de perfil alterada com sucesso", "success", "back");
+        return $stmt->execute();
     }
 
     public function listarAlunosPorTurma($id_turma)

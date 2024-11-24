@@ -63,6 +63,27 @@
     right: 15px;
 }
 
+#btns-foto-perfil{
+    position: absolute;
+    top: 110%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #btn-salvar-foto {
+    cursor: pointer;
+    border: none;
+    border: solid 2px #2092c2;
+    background-color: #2092c2;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    height: 30px;
+    width: 40%;
+  }
+
 #btn-editar-foto img{
     width: 22px;
     height: 22px;

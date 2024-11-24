@@ -18,7 +18,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football-main/Integration-F
   $pageCSS = ["perfilAluno.css"];
   $pageJS = ["perfilAluno.js"];
 
-  include_once('./templetes/headerAluno.php');
+
 
   $id = $_SESSION["id"];
 
@@ -33,7 +33,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football-main/Integration-F
 
   $modalidadecontroller = new ModalidadeController();
   $modalidade = $modalidadecontroller->buscarPorId($turma['id_modalidade']);
-
+  
+  include_once('./templetes/headerAluno.php');
 
 
 
@@ -43,7 +44,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football-main/Integration-F
   <div id="perfil">
     
 
-    <form id="form" action="">
+    <div id="form">
         <h1 id="titulo">Meu Perfil</h1>
         <div id="informacoes"> 
 
@@ -83,14 +84,20 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football-main/Integration-F
             </div>
 
             <div id="bloco2">
-                <div id="foto-perfil">
-                    <button type="button" onclick="file()" id="btn-editar-foto"> <img src="./Imagens/editar.png" alt=""> </button>
-                    <input id="input-file" style="display: none;" type="file" name="foto">
-                </div>
+          <form action="./controller/alunocontroller.php" method="POST" enctype="multipart/form-data">
+          <div style="background-image: url(<?= $aluno['foto_perfil'];  ?>);" id="foto-perfil">
+            <button type="button" onclick="" id="btn-editar-foto"> <img src="./Imagens/editar.png" alt="" draggable="false"> </button>
+            <input id="input-file" style="display: none;" type="file" name="foto_perfil">
+            <div class="invisivel" id="btns-foto-perfil">
+              <button name="crud" value="AtualizarFoto" id="btn-salvar-foto" type="submit">Salvar</button>
 
             </div>
+            
+          </div>
+          </form>
+        </div>
         </div>    
-    </form>   
+</div>   
   </div>
 
 <br><br><br><br><br>

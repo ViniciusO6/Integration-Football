@@ -17,7 +17,7 @@ $titulo = 'Login';
 $pageCSS = ["principal.css"];
 $pageJS = ["principal.js"];
 
-include_once('./templetes/headerAluno.php');
+
 
 $id = $_SESSION["id"];
 
@@ -29,6 +29,8 @@ $turma = $turmacontroller->buscarPorId($aluno['id_turma']);
 
 $atividadecontroller = new AtividadeController();
 $atividades = $atividadecontroller->buscarAtividades($turma['id_turma']);
+
+include_once('./templetes/headerAluno.php');
 ?>
 
 <style>

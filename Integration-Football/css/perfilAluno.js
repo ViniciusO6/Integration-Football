@@ -1,7 +1,41 @@
-function file(){
-   document.getElementById('input-file').click(); 
+// Ação do botão de trocar foto de perfil
+
+document.getElementById("btn-editar-foto").addEventListener("click", function () {
+  console.log("Clicou")
+  document.getElementById("input-file").click();
+});
+
+
+document.getElementById("input-file").addEventListener("change", function () {
+  let file = document.getElementById("input-file").files[0];
+  let fileText = document.getElementById("file-text");
+  let cancelarBtn = document.getElementById("cancelar");
+  let FotoPerfil = document.getElementById("foto-perfil");
+  let btns = document.getElementById("btns-foto-perfil") ;
+
+  btns.classList.toggle('invisivel');
+  
+
+  if (file) {
+    const reader = new FileReader(); // Cria um leitor de arquivos
+
+    reader.onload = (e) => {
+        FotoPerfil.style.backgroundImage = "url("+ e.target.result +")"; // Define a imagem como a URL gerada
+        FotoPerfil.style.display = 'block'; // Exibe a imagem
+    };
+
+    reader.readAsDataURL(file); // Lê o arquivo como uma URL base64
 }
 
+
+
+  console.log(file)
+  console.log(fileText)
+  console.log(cancelarBtn)
+
+})
+
+// Fim Ação do botão de trocar foto de perfil
 document.getElementById('input-file').addEventListener('change', function() {
     var file = document.getElementById('input-file').files[0];
 
