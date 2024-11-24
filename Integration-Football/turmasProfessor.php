@@ -142,7 +142,7 @@ include_once('./templetes/headerProfessor.php');
     <div id="consulta">
 
 
-        <div id="form" action="">
+        <div id="form">
             <h1 id="titulo">PROFESSORES</h1>
 
 
@@ -240,7 +240,7 @@ include_once('./templetes/headerProfessor.php');
 
             <div id="table">
                 <!-- nome dos alunos -->
-                <div class="nomes-table " id="nomes-alunos">
+                <div class="nomes-alunos-table " id="nomes-alunos">
                     <?php
                     $alunocontroller = new alunocontroller();
                     $alunos = $alunocontroller->listar();
@@ -277,8 +277,8 @@ include_once('./templetes/headerProfessor.php');
 
                 <div class="separador-vertical"></div>
 
-                <div class="contatos" id="contato-alunos">
-                    <div class="nomes-table " id="nomes-alunos">
+                <div class="contatos-alunos" id="contato-alunos">
+                    <div class="nomes-alunos-table " id="nomes-alunos">
                         <?php
                         $alunocontroller = new alunocontroller();
                         $alunos = $alunocontroller->listar();

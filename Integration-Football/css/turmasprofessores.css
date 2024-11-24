@@ -94,7 +94,7 @@ select {
 #th-centro {
   display: flex;
   justify-content: center;
-  width: 55%;
+  width: 30%;
 }
 
 #th-esquerda {
@@ -106,7 +106,7 @@ select {
 .separador-vertical {
   width: 1px;
   background-color: black;
-  height: 90%;
+  height: 95%;
 }
 
 .separador-horizontal {
@@ -129,7 +129,19 @@ select {
   width: 100%;
 }
 
+.nomes-alunos-table{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .contatos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contatos-alunos {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -138,7 +150,7 @@ select {
 #Turma {
   display: flex;
   flex-direction: column;
-  width: 55%;
+  width: 30%;
 }
 
 #tr-nome {
@@ -245,6 +257,7 @@ select {
   #form {
     width: 85%;
     margin-top: 0;
+    min-width: 650px;
   }
 
   input {
@@ -298,16 +311,74 @@ select {
 
   #form {
     width: 85%;
-    min-width: initial;
-    margin-top: 0;
+    min-width: 650px;
+    margin-top: 0px;
+    transform: scale(0.8);
+    transform-origin: top;
   }
 
   #form p {
-    font-size: 13px;
     text-align: center;
   }
 
-  #form h3 {
-    font-size: 13px;
+}
+
+@media screen and (max-width: 560px) {
+  #consulta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
+
+  #form {
+    width: 85%;
+    min-width: 650px;
+    margin-top: 0px;
+    transform: scale(0.67);
+  }
+
+  #form p {
+    text-align: center;
+  }
+
+}
+
+@media screen and (max-width: 470px) {
+  #consulta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #form {
+    width: 85%;
+    min-width: 650px;
+    margin-top: 0px;
+    transform: scale(0.57);
+  }
+
+  #form p {
+    text-align: center;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  #consulta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #form {
+    width: 85%;
+    min-width: 650px;
+    margin-top: -0px;
+    transform: scale(0.5);
+  }
+
+  #form p {
+    text-align: center;
+  }
+
 }
