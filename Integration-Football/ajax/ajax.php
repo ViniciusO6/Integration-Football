@@ -53,7 +53,7 @@ if (isset($_POST['tipo']) && $_POST['tipo'] == "filtrar" && isset($_POST['modali
         echo
         '
         <div id="tr-nome">
-             <p>Turma ' . $turmas['nome_turma'] . '</p>
+             <p>' . $turmas['nome_turma'] . '</p>
             <div class="separador-horizontal"></div>
         </div>
                     

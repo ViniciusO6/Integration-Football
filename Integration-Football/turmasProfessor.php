@@ -296,8 +296,6 @@ include_once('./templetes/headerProfessor.php');
             </form>
         </div>
 
-        <br><br><br><br><br>
-
     </div>
 
 
