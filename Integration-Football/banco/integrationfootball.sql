@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/11/2024 às 03:15
+-- Tempo de geração: 24/11/2024 às 16:27
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alunos` (
   `id_aluno` int(10) UNSIGNED NOT NULL,
+  `foto_perfil` varchar(255) NOT NULL,
   `data_nasc` date NOT NULL,
   `cpf_aluno` int(11) NOT NULL,
   `telefone_aluno` int(11) NOT NULL,
@@ -42,31 +43,31 @@ CREATE TABLE `alunos` (
 -- Despejando dados para a tabela `alunos`
 --
 
-INSERT INTO `alunos` (`id_aluno`, `data_nasc`, `cpf_aluno`, `telefone_aluno`, `nome_aluno`, `email_aluno`, `senha`, `id_turma`) VALUES
-(1, '0000-00-00', 0, 0, 'maria eduarda', 'maria@aluno.sp.gov.br', '1234', 1),
-(4, '2007-06-13', 390111080, 968080107, 'Vinicius Augusto Rodrigues', 'vinicius.silva2029@aluno.sp.gov.br', 'vinicius323app', 1),
-(5, '2007-11-14', 11108019, 968080107, 'Arthur Oliveira', 'arthuroliveira@gmail.com', '123', 1),
-(6, '2007-04-20', 390108019, 968080107, 'Joana Silva', 'joanasilva@gmail.com', '1234', 1),
-(8, '2007-01-15', 301111080, 958000101, 'Lucas Martins Souza', 'lucasms@gmail.com', 'lucas123', 3),
-(9, '2006-05-23', 302222081, 958000102, 'Mariana Alves Pereira', 'marianaap@gmail.com', 'mari123', 3),
-(10, '2008-08-19', 303333082, 958000103, 'Felipe Rocha Silva', 'felipers@gmail.com', 'felipe123', 3),
-(11, '2007-11-30', 304444083, 958000104, 'Ana Paula Costa', 'anapc@gmail.com', 'ana123', 3),
-(12, '2006-07-12', 305555084, 958000105, 'Guilherme Ramos', 'guilhermer@gmail.com', 'gui123', 3),
-(13, '2008-03-25', 306666085, 958000106, 'Bruna Mendes', 'brunam@gmail.com', 'bruna123', 3),
-(14, '2007-09-05', 307777086, 958000107, 'Ricardo Santos', 'ricardos@gmail.com', 'ricardo123', 3),
-(15, '2006-10-14', 308888087, 958000108, 'Fernanda Oliveira', 'fernandao@gmail.com', 'fer123', 3),
-(16, '2008-01-10', 309999088, 958000109, 'João Pedro Lima', 'joaopl@gmail.com', 'joao123', 3),
-(17, '2007-06-21', 310000089, 958000110, 'Camila Souza Andrade', 'camilasa@gmail.com', 'camila123', 3),
-(38, '2008-04-12', 501234567, 958010201, 'Carla Menezes Silva', 'carla.silva@gmail.com', 'carla123', 2),
-(39, '2007-08-17', 502345678, 958010202, 'Renato Borges', 'renato.borges@gmail.com', 'renato123', 2),
-(40, '2006-02-26', 503456789, 958010203, 'Juliana Teixeira', 'juliana.teixeira@gmail.com', 'juliana123', 2),
-(41, '2008-06-22', 504567890, 958010204, 'Pedro Almeida', 'pedro.almeida@gmail.com', 'pedro123', 2),
-(42, '2007-09-11', 505678901, 958010205, 'Larissa Moreira', 'larissa.moreira@gmail.com', 'larissa123', 2),
-(43, '2006-12-05', 506789012, 958010206, 'Thiago Nascimento', 'thiago.nascimento@gmail.com', 'thiago123', 2),
-(44, '2008-11-03', 507890123, 958010207, 'Bianca Ferreira', 'bianca.ferreira@gmail.com', 'bianca123', 2),
-(45, '2007-03-19', 508901234, 958010208, 'Fernando Costa', 'fernando.costa@gmail.com', 'fernando123', 2),
-(46, '2006-10-01', 509012345, 958010209, 'Isabela Souza', 'isabela.souza@gmail.com', 'isabela123', 2),
-(47, '2008-07-30', 510123456, 958010210, 'Gabriel Rodrigues', 'gabriel.rodrigues@gmail.com', 'gabriel123', 2);
+INSERT INTO `alunos` (`id_aluno`, `foto_perfil`, `data_nasc`, `cpf_aluno`, `telefone_aluno`, `nome_aluno`, `email_aluno`, `senha`, `id_turma`) VALUES
+(1, './Imagens/user.png', '0000-00-00', 0, 0, 'maria eduarda', 'maria@aluno.sp.gov.br', '1234', 1),
+(4, 'https://tcloud.site/filegator/repository/GrupoIntegrationFootball/Uploads/FotosPerfil/6742a9f0761de9.90819035.png', '2007-06-13', 390111080, 968080107, 'Vinicius Augusto Rodrigues', 'vinicius.silva2029@aluno.sp.gov.br', 'vinicius323app', 1),
+(5, './Imagens/user.png', '2007-11-14', 11108019, 968080107, 'Arthur Oliveira', 'arthuroliveira@gmail.com', '123', 1),
+(6, './Imagens/user.png', '2007-04-20', 390108019, 968080107, 'Joana Silva', 'joanasilva@gmail.com', '1234', 1),
+(8, './Imagens/user.png', '2007-01-15', 301111080, 958000101, 'Lucas Martins Souza', 'lucasms@gmail.com', 'lucas123', 3),
+(9, './Imagens/user.png', '2006-05-23', 302222081, 958000102, 'Mariana Alves Pereira', 'marianaap@gmail.com', 'mari123', 3),
+(10, './Imagens/user.png', '2008-08-19', 303333082, 958000103, 'Felipe Rocha Silva', 'felipers@gmail.com', 'felipe123', 3),
+(11, './Imagens/user.png', '2007-11-30', 304444083, 958000104, 'Ana Paula Costa', 'anapc@gmail.com', 'ana123', 3),
+(12, './Imagens/user.png', '2006-07-12', 305555084, 958000105, 'Guilherme Ramos', 'guilhermer@gmail.com', 'gui123', 3),
+(13, './Imagens/user.png', '2008-03-25', 306666085, 958000106, 'Bruna Mendes', 'brunam@gmail.com', 'bruna123', 3),
+(14, './Imagens/user.png', '2007-09-05', 307777086, 958000107, 'Ricardo Santos', 'ricardos@gmail.com', 'ricardo123', 3),
+(15, './Imagens/user.png', '2006-10-14', 308888087, 958000108, 'Fernanda Oliveira', 'fernandao@gmail.com', 'fer123', 3),
+(16, './Imagens/user.png', '2008-01-10', 309999088, 958000109, 'João Pedro Lima', 'joaopl@gmail.com', 'joao123', 3),
+(17, './Imagens/user.png', '2007-06-21', 310000089, 958000110, 'Camila Souza Andrade', 'camilasa@gmail.com', 'camila123', 3),
+(38, './Imagens/user.png', '2008-04-12', 501234567, 958010201, 'Carla Menezes Silva', 'carla.silva@gmail.com', 'carla123', 2),
+(39, './Imagens/user.png', '2007-08-17', 502345678, 958010202, 'Renato Borges', 'renato.borges@gmail.com', 'renato123', 2),
+(40, './Imagens/user.png', '2006-02-26', 503456789, 958010203, 'Juliana Teixeira', 'juliana.teixeira@gmail.com', 'juliana123', 2),
+(41, './Imagens/user.png', '2008-06-22', 504567890, 958010204, 'Pedro Almeida', 'pedro.almeida@gmail.com', 'pedro123', 2),
+(42, './Imagens/user.png', '2007-09-11', 505678901, 958010205, 'Larissa Moreira', 'larissa.moreira@gmail.com', 'larissa123', 2),
+(43, './Imagens/user.png', '2006-12-05', 506789012, 958010206, 'Thiago Nascimento', 'thiago.nascimento@gmail.com', 'thiago123', 2),
+(44, './Imagens/user.png', '2008-11-03', 507890123, 958010207, 'Bianca Ferreira', 'bianca.ferreira@gmail.com', 'bianca123', 2),
+(45, './Imagens/user.png', '2007-03-19', 508901234, 958010208, 'Fernando Costa', 'fernando.costa@gmail.com', 'fernando123', 2),
+(46, './Imagens/user.png', '2006-10-01', 509012345, 958010209, 'Isabela Souza', 'isabela.souza@gmail.com', 'isabela123', 2),
+(47, './Imagens/user.png', '2008-07-30', 510123456, 958010210, 'Gabriel Rodrigues', 'gabriel.rodrigues@gmail.com', 'gabriel123', 2);
 
 -- --------------------------------------------------------
 
@@ -184,6 +185,7 @@ CREATE TABLE `justificativa_falta` (
   `id_presenca` int(10) UNSIGNED DEFAULT NULL,
   `descricao` varchar(255) DEFAULT NULL,
   `resposta_professor` varchar(255) DEFAULT NULL,
+  `nome_arquivo` varchar(255) DEFAULT NULL,
   `caminho_arquivo` varchar(255) DEFAULT NULL,
   `aprovado_professor` tinyint(1) DEFAULT NULL,
   `aprovado_instituicao` tinyint(1) DEFAULT NULL
@@ -193,8 +195,8 @@ CREATE TABLE `justificativa_falta` (
 -- Despejando dados para a tabela `justificativa_falta`
 --
 
-INSERT INTO `justificativa_falta` (`id_justificativa`, `id_aluno`, `id_presenca`, `descricao`, `resposta_professor`, `caminho_arquivo`, `aprovado_professor`, `aprovado_instituicao`) VALUES
-(70, 4, 17, 'Quebrei meu ccoração', NULL, '', NULL, NULL);
+INSERT INTO `justificativa_falta` (`id_justificativa`, `id_aluno`, `id_presenca`, `descricao`, `resposta_professor`, `nome_arquivo`, `caminho_arquivo`, `aprovado_professor`, `aprovado_instituicao`) VALUES
+(72, 4, 17, 'Abaixo esta meu atestado', NULL, '67411820930a42.19290499 (2).pdf', '67424039acac79.23503675.pdf', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -263,6 +265,7 @@ INSERT INTO `presencas` (`id_presenca`, `id_aluno`, `id_aula`, `presente`, `just
 CREATE TABLE `professores` (
   `id` int(11) NOT NULL,
   `nome_professor` varchar(255) NOT NULL,
+  `foto_perfil` varchar(255) DEFAULT NULL,
   `cpf_professor` int(11) NOT NULL,
   `data_nasc` date NOT NULL,
   `email_professor` varchar(255) NOT NULL,
@@ -275,12 +278,12 @@ CREATE TABLE `professores` (
 -- Despejando dados para a tabela `professores`
 --
 
-INSERT INTO `professores` (`id`, `nome_professor`, `cpf_professor`, `data_nasc`, `email_professor`, `senha`, `telefone_professor`, `nome_coordenador`) VALUES
-(1, 'roberto', 0, '0000-00-00', 'roberto@professor.sp.gov.br', '12345', 0, NULL),
-(5, 'Carlos Alberto', 461294790, '1970-11-14', 'carlosalberto@gmail.com', '1234', 1196808010, 'Danilo Lima'),
-(6, 'Maria Silva', 2147483647, '1985-06-23', 'maria.silva@example.com', '123', 2147483647, NULL),
-(7, 'João Pereira', 2147483647, '1992-03-15', 'joao.pereira@example.com', 'joao1234', 2147483647, NULL),
-(8, 'Ana Oliveira', 2147483647, '1978-12-05', 'ana.oliveira@example.com', 'ana1234', 2147483647, NULL);
+INSERT INTO `professores` (`id`, `nome_professor`, `foto_perfil`, `cpf_professor`, `data_nasc`, `email_professor`, `senha`, `telefone_professor`, `nome_coordenador`) VALUES
+(1, 'roberto', './Imagens/user.png', 0, '0000-00-00', 'roberto@professor.sp.gov.br', '12345', 0, NULL),
+(5, 'Carlos Alberto', './Imagens/user.png', 461294790, '1970-11-14', 'carlosalberto@professor.com', '1234', 1196808010, 'Danilo Lima'),
+(6, 'Maria Silva', './Imagens/user.png', 2147483647, '1985-06-23', 'maria.silva@example.com', '123', 2147483647, NULL),
+(7, 'João Pereira', './Imagens/user.png', 2147483647, '1992-03-15', 'joao.pereira@example.com', 'joao1234', 2147483647, NULL),
+(8, 'Ana Oliveira', './Imagens/user.png', 2147483647, '1978-12-05', 'ana.oliveira@example.com', 'ana1234', 2147483647, NULL);
 
 -- --------------------------------------------------------
 
@@ -455,7 +458,7 @@ ALTER TABLE `instituicao`
 -- AUTO_INCREMENT de tabela `justificativa_falta`
 --
 ALTER TABLE `justificativa_falta`
-  MODIFY `id_justificativa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id_justificativa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT de tabela `modalidade`
