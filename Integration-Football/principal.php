@@ -39,7 +39,7 @@ include_once('./templetes/headerAluno.php');
     echo "
     
     .dia" . $atividade['data_entrega'] . "{
-        border-color: rgba(217, 162, 42, 1) !important;
+        border-color: #2092c2 !important;
       }
     
     .evento" . $atividade['data_entrega'] . ".tooltip:hover .tooltip-text {

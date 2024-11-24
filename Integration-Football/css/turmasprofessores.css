@@ -258,6 +258,7 @@ select {
     width: 85%;
     margin-top: 0;
     min-width: 650px;
+    height: 1500px;
   }
 
   input {
@@ -376,7 +377,7 @@ select {
   #form {
     width: 85%;
     min-width: 650px;
-    margin-top: -0px;
+    margin-top: 0px;
     transform: scale(0.5);
   }
 

@@ -134,7 +134,6 @@ include_once('./templetes/headerAluno.php');
         </form>
     </div>
 
-    <br><br><br><br><br>
 
 </div>
 

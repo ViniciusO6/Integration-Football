@@ -55,12 +55,12 @@ include_once('./templetes/headerAluno.php');
       </select>
 
       <p>Defina a data de ausência:</p>
-      <input id="input-data" type="date" name="data_falta">
+      <input id="input-data" type="date" name="data_falta" required>
 
       <p>Justificativa:</p>
       <textarea name="descricao" id="input-justificativa" placeholder="Escreva uma justificatica de até 255 caracteres."></textarea>
 
-      <p>Atestado</p>
+      <p>Anexar arquivo</p>
 
       <div class="opcoes-arquivos">
         <input type="text" id="file-text" for="input-arquivo" placeholder="Nenhum arquivo selecionado" disabled>
@@ -72,7 +72,7 @@ include_once('./templetes/headerAluno.php');
 
       <div id="btns">
         <button id="input-arquivo" type="button">Escolher arquivo</button>
-        <input id="files" type="file" name="arquivo_justificativa">
+        <input id="files" type="file" name="arquivo_justificativa" required>
         <input type="hidden" name="id_aluno" value=<?= $id ?>>
         <input type="hidden" name="aprovado_professor" value="">
         <input type="hidden" name="aprovado_instituicao" value="">

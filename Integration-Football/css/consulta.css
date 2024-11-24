@@ -68,6 +68,18 @@ p {
   height: 30px;
   width: 140px;
   border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+#input-arquivo:hover {
+  color: white;
+  cursor: pointer;
+  background-color: #2092c2;
+  border: solid 2px #2092c2;
+  height: 30px;
+  width: 140px;
+  border-radius: 5px;
+  transform: scale(1.05);
 }
 
 .opcoes-arquivos {
@@ -190,7 +202,7 @@ p {
   }
 
   #titulo {
-    margin-bottom: 0px;
+    margin-bottom: 10px;
   }
 }
 

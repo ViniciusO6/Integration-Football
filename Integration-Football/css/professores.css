@@ -172,6 +172,7 @@ input{
 }
 
 @media screen and (max-width: 865px) {
+
     #consulta{
         width: 100%;
         display: flex;
@@ -226,24 +227,98 @@ input{
 }
 
 @media screen and (max-width: 700px) {
+    .container{
+        margin-bottom: -80px;
+    }
+
     #consulta{
         width: 100%;
         display: flex;
         justify-content: center;
+        transform: scale(0.8);
+        transform-origin: top;
     }
 
     #form{
         width: 85%;
-        min-width: initial;
         margin-top: 0;
     }
 
     #form p{
-        font-size: 13px;
         text-align: center;
     }
 
-    #form h3{
-        font-size: 13px;
-    }
 }
+
+@media screen and (max-width: 560px) {
+    .container{
+        margin-bottom: -180px;
+    }
+
+    #consulta{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        transform: scale(0.7);
+        transform-origin: top;
+    }
+
+    #form{
+        width: 85%;
+        margin-top: 0;
+    }
+
+    #form p{
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width: 490px) {
+    .container{
+        margin-bottom: -280px;
+    }
+
+    #consulta{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        transform: scale(0.6);
+        transform-origin: top;
+    }
+
+    #form{
+        width: 85%;
+        margin-top: 0;
+    }
+
+    #form p{
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width: 430px) {
+    .container{
+        margin-bottom: -300px;
+    }
+
+    #consulta{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        transform: scale(0.5);
+        transform-origin: top;
+    }
+
+    #form{
+        width: 85%;
+        margin-top: 0;
+    }
+
+    #form p{
+        text-align: center;
+    }
+
+}
+
