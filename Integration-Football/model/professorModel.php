@@ -7,6 +7,7 @@ class Professor
 {
     private $id_professor;
     private $nome_professor;
+    private $foto_perfil;
     private $cpf_professor;
     private $data_nasc;
     private $email_professor;
@@ -23,6 +24,11 @@ class Professor
     public function getNomeProfessor()
     {
         return $this->nome_professor;
+    }
+
+    public function getFotoPerfil()
+    {
+        return $this->foto_perfil;
     }
 
     public function getCpfProfessor()
@@ -60,6 +66,11 @@ class Professor
     public function setNomeProfessor($nome_professor)
     {
         $this->nome_professor = $nome_professor;
+    }
+
+    public function setFotoPerfil($foto_perfil)
+    {
+        $this->foto_perfil = $foto_perfil;
     }
 
     public function setCpfProfessor($cpf_professor)
@@ -169,6 +180,16 @@ class Professor
         $stmt->bind_param('ssssssi', $this->nome_professor, $this->email_professor, $this->senha, $this->data_nasc, $this->cpf_professor, $this->telefone_professor, $id);
 
         // Executa a SQL
+        return $stmt->execute();
+    }
+
+    public function AtualizarFotoPerfil()
+    {
+        $sql = "UPDATE professores SET `foto_perfil` = ? WHERE `id` = ?";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('si', $this->foto_perfil, $this->id_professor);
+        $message = new Message($_SERVER['DOCUMENT_ROOT']);
+        $message->setMessage("Foto de perfil alterada com sucesso", "success", "back");
         return $stmt->execute();
     }
 

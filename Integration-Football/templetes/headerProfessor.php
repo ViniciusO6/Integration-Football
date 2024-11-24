@@ -73,7 +73,7 @@ include_once('templetes/mensagemSessao.php');
         <div id="part-2">
             <div id="navbar-part-2">
                 <button onclick="" style="cursor: pointer;" id="login"><li><a>Sair</a></li></button>
-                <div onclick="redirecionar('perfilProfessor.php')" id="icone-perfil"></div>
+                <div style="background-image: url(<?= $professor['foto_perfil'];  ?>);" onclick="redirecionar('perfilProfessor.php')" id="icone-perfil"></div>
             </div>
 
         </div>

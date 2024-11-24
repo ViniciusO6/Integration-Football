@@ -17,9 +17,15 @@ $titulo = 'Consulta';
 $pageCSS = ["presençaProfessor.css"];
 $pageJS = ["presençaProfessor.js"];
 
+$id = $_SESSION["id"];
+$idModalidade;
+
+$professorController = new ProfessorController;
+$professor = $professorController->buscarPorId($id);
+
+
 include_once('./templetes/headerProfessor.php');
 
-$id = $_SESSION["id"];
 
 ?>
 

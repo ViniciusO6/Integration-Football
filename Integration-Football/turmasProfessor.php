@@ -23,10 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     print_r($id_modalidade);
 }
 
+$id = $_SESSION["id"];
+$idModalidade;
+
+$professorController = new ProfessorController;
+$professor = $professorController->buscarPorId($id);
 
 include_once('./templetes/headerProfessor.php');
 
-$id = 5;
 ?>
 
 

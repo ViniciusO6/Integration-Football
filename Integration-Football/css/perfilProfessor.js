@@ -1,7 +1,6 @@
 
 
 // Ação do botão de trocar foto de perfil
-document.getElementById("file-text").value = "";
 
 document.getElementById("btn-editar-foto").addEventListener("click", function () {
   console.log("Clicou")
@@ -9,17 +8,34 @@ document.getElementById("btn-editar-foto").addEventListener("click", function ()
 });
 
 
-document.getElementById("files").addEventListener("change", function () {
-  var file = document.getElementById("files").files[0];
-  var fileText = document.getElementById("file-text");
-  var cancelarBtn = document.getElementById("cancelar");
+document.getElementById("input-file").addEventListener("change", function () {
+  let file = document.getElementById("input-file").files[0];
+  let fileText = document.getElementById("file-text");
+  let cancelarBtn = document.getElementById("cancelar");
+  let FotoPerfil = document.getElementById("foto-perfil");
+  let btns = document.getElementById("btns-foto-perfil") ;
+
+  btns.classList.toggle('invisivel');
+  
 
   if (file) {
-    fileText.value = file.name;
-    fileText.style.width = "100%";
-    cancelarBtn.style.display = "block";
-  }
-});
+    const reader = new FileReader(); // Cria um leitor de arquivos
+
+    reader.onload = (e) => {
+        FotoPerfil.style.backgroundImage = "url("+ e.target.result +")"; // Define a imagem como a URL gerada
+        FotoPerfil.style.display = 'block'; // Exibe a imagem
+    };
+
+    reader.readAsDataURL(file); // Lê o arquivo como uma URL base64
+}
+
+
+
+  console.log(file)
+  console.log(fileText)
+  console.log(cancelarBtn)
+
+})
 
 // Fim Ação do botão de trocar foto de perfil
 

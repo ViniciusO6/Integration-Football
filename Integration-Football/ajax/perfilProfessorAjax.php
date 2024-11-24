@@ -1,6 +1,6 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/turmacontroller.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/controller/alunocontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football/controller/turmacontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football/controller/alunocontroller.php';
 
 $turmacontroller = new TurmaController();
 $alunocontroller = new AlunoController();

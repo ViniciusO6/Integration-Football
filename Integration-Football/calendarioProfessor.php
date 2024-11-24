@@ -17,8 +17,6 @@ $titulo = 'Calendário | Professor';
 $pageCSS = ["calendarioProfessor.css"];
 $pageJS = ["calendarioProfessor.js"];
 
-include_once('./templetes/headerProfessor.php');
-
 $idprofessor = $_SESSION["id"];;
 
 $professorcontroller = new ProfessorController();
@@ -27,6 +25,7 @@ $professor = $professorcontroller->buscarPorId($idprofessor);
 $atividadecontroller = new AtividadeController();
 $atividades = $atividadecontroller->listarAtivividadesporProfessor($idprofessor);
 
+include_once('./templetes/headerProfessor.php');
 ?>
 
 <style>

@@ -19,8 +19,6 @@ $titulo = 'Meu Perfil | Professor';
 $pageCSS = ["perfilProfessor.css"];
 $pageJS = ["perfilProfessor.js"];
 
-include_once('./templetes/headerProfessor.php');
-
 $id = $_SESSION["id"];
 $idModalidade;
 
@@ -30,6 +28,7 @@ $professor = $professorController->buscarPorId($id);
 $turmaController = new TurmaController;
 $dados_turmas = $turmaController->buscarProfessor($id);
 
+include_once('./templetes/headerProfessor.php');
 
 ?>
 <script>
@@ -58,7 +57,7 @@ xhr.onload = function() {
   <div id="perfil">
 
 
-    <form id="form" action="">
+    <div id="form">
       <h1 id="titulo">Meu Perfil</h1>
       <div id="informacoes">
 
@@ -110,20 +109,26 @@ xhr.onload = function() {
           <label for="input-senha-pessoal">Senha</label>
           <input id="input-senha-pessoal" type="password" value="<?= $professor['senha']; ?>" disabled>
           <div id="btns">
-          <!-- <button id="btn-enviar" type="submit">Alterar Email</button> -->
+          <button id="btn-enviar" type="button">Alterar Email</button>
           <button onclick="fecharTela()" id="btn-enviar" type="button">Redefinir Senha</button>
         </div>
         </div>
 
         <div id="bloco2">
+          <form action="./controller/professorcontroller.php" method="POST" enctype="multipart/form-data">
           <div style="background-image: url(<?= $professor['foto_perfil'];  ?>);" id="foto-perfil">
-            <button type="button" onclick="" id="btn-editar-foto"> <img src="./Imagens/editar.png" alt=""> </button>
-            <input id="input-file" style="display: none;" type="file" name="foto">
-          </div>
+            <button type="button" onclick="" id="btn-editar-foto"> <img src="./Imagens/editar.png" alt="" draggable="false"> </button>
+            <input id="input-file" style="display: none;" type="file" name="foto_perfil">
+            <div class="invisivel" id="btns-foto-perfil">
+              <button name="crud" value="AtualizarFoto" id="btn-salvar-foto" type="submit">Salvar</button>
 
+            </div>
+            
+          </div>
+          </form>
         </div>
       </div>
-    </form>
+      </div>
   </div>
 
   <br><br><br><br><br>
