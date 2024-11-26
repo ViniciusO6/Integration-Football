@@ -179,7 +179,7 @@ function filtrarJustificativas(){
 
         <p>Verifique as justificativas de ausência dos alunos da instituição </p>
 
-        <div class="Pesquisar">
+        <div id="form-filtro">
         <input id="id_professor" value="<?= $id  ?>" type="hidden">
           <!-- Div do ComboBox1  -->
           <div class="ComboBox">
@@ -224,7 +224,7 @@ function filtrarJustificativas(){
             </div>
           </div>
         </div>
-        <!-- Final Pesquisar-->
+        <!-- Final Form-Filtro-->
       </form>
 
        <div id="justificativa-card">      
@@ -272,7 +272,7 @@ function filtrarJustificativas(){
 
 
 
-        <div class="justificativa" id="card-justificativa-<?= $numeroJustificativa ?>">
+        <div class="justificativa fechado" id="card-justificativa-<?= $numeroJustificativa ?>">
           <div class="conteudo-justificativa" id="content-justificativa-<?= $numeroJustificativa ?>">
             <div class="titulo">
               <p>Justificativa:</p>
