@@ -27,6 +27,7 @@ class JustificativaController
             
 
             exit; // Adicionado para garantir que o código pare após o redirecionamento
+            
         } else {
             $this->listar();
         }
