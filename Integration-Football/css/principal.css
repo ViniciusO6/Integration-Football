@@ -114,7 +114,6 @@
 } */
 
 .atividade {
-  display: flex;
   flex-direction: column;
   height: 14%;
   transition: 0.5s;
@@ -178,7 +177,7 @@ h3 {
 }
 
 .bloco3 {
-  width: 107px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   align-items: end;

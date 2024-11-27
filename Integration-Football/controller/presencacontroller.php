@@ -1,7 +1,7 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/config/globals.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football/Integration-Football/model/presencaModel.php';
-include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football/Integration-Football/templetes/mensagemSessao.php");
+require_once '../config/globals.php';
+require_once '../model/presencaModel.php';
+include_once ("../templetes/mensagemSessao.php");
 
 class PresencaController
 {

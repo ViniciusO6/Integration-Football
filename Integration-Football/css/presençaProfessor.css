@@ -205,7 +205,7 @@ select:focus {
 
 .btns {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   width: 100%;
 }
 

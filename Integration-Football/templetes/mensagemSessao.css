@@ -1,15 +1,18 @@
 .toast {
-    z-index: 999;
+    font-family: 'Poppins', sans-serif;
+    z-index: 9;
     position: fixed; 
-    bottom: 25px;
-    right: 30px; 
+    top: -15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     border-radius: 12px;
     background: #fff;
     padding: 20px 35px 20px 25px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    border-left: 6px solid #30107A;
+    border-left: 6px solid #ab0303;
     overflow: hidden;
-    transform: translateX(calc(120% + 30px)); 
+    /* transform: translateX(calc(120% + 30px));  */
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
     width: 500px;
     box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 4px rgba(0, 0, 0, 0.25), -4px -4px 4px rgba(0, 0, 0, 0.25), 4px -4px 4px rgba(0, 0, 0, 0.25);
@@ -17,7 +20,9 @@
 }
 
 .toast.active {
-    transform: translateX(0%);
+    top: 23%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .toast .toast-content {
@@ -37,10 +42,22 @@
 }
 
 .Sucesso {
-    background-color: #00ad34;
+    background-color: #00a331;
+    background-image: url(../Imagens/icones/iconeSucesso.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .Erro {
     background-color: #ff0202;
+    background-image: url(../Imagens/icones/iconeErro.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.toast.success{
+    border-left: 6px solid #61ae28;
 }
 
 .toast-content .message {
@@ -78,7 +95,7 @@
     left: 0;
     height: 3px;
     width: 100%;
-    background: #ddd;
+    background: #fff;
 }
 
 .toast .progress:before {
@@ -88,7 +105,7 @@
     right: 0;
     height: 100%;
     width: 100%;
-    background-color: #30107A;
+    background-color: #ffffff;
 }
 
 .progress.active:before {
@@ -98,6 +115,14 @@
 @keyframes progress {
     100% {
         right: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .toast.active {
+        top: 18%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 

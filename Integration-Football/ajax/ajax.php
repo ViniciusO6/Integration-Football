@@ -100,7 +100,7 @@ if (isset($_POST['tipo']) && $_POST['tipo'] == "filtrar" && isset($_POST['modali
             $i++;
             echo '
                     <!-- Linha de nome e Checbox presença -->
-                    <div id="nomes-alunos">
+                    <div class="nomes-alunos" id="nomes-alunos">
                         <div id="tr-nome">
                             <p>'. $aluno['nome_aluno'] .'</p>
                             <div class="separador-horizontal"></div>

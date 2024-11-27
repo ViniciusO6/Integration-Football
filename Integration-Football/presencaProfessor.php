@@ -222,7 +222,8 @@ include_once('./templetes/headerProfessor.php');
             <!-- Fim Tabela de Presença -->
 
             <div class="btns">
-                <button id="btn-enviar" type="submit">Computar</button>
+                <p style="color: red">Preencha a chamada de todos os alunos!</p>
+                <button onclick="validarChamada()" id="btn-enviar" type="button">Computar</button>
             </div>
 
         </form>

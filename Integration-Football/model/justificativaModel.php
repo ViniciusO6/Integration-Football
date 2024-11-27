@@ -127,32 +127,67 @@ class Justificativa
         AND presencas.presente = 0
         AND aulas.data_aula = ?
         ";
+
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('iss', $this->id_aluno, $data, $data);
         $stmt->execute();
         $result = $stmt->get_result();
         if ($row = $result->fetch_assoc()) {
             $id_presenca = $row['id_presenca'];
-        
 
-        
-        $aprovado_professor = NULL;
-        $aprovado_instituicao = NULL;
-        $sql = "INSERT INTO justificativa_falta (`id_aluno`, `id_presenca`, `descricao`, `resposta_professor`, `nome_arquivo`, `caminho_arquivo`, `aprovado_professor`, `aprovado_instituicao`) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $this->conexao->getConexao()->prepare($sql);
-        $stmt->bind_param(
-            'iissssii',
-            $this->id_aluno,
-            $id_presenca,
-            $this->descricao,
-            $this->resposta_professor,
-            $this->nome_arquivo,
-            $this->caminho_arquivo,
-            $aprovado_professor,
-            $aprovado_instituicao
+            $remoteUrl = "https://tcloud.site/filegator/repository/GrupoIntegrationFootball/Uploads/uploadArquivosJustificativa.php";
+
+
+        if (isset($_FILES['arquivo_justificativa']) && $_FILES['arquivo_justificativa']['error'] === 0) {
+            $token = uniqid('', true);
+            $fileName = $_FILES['arquivo_justificativa']['name'];
+            $tempFile = $_FILES['arquivo_justificativa']['tmp_name'];
+            echo $fileName;
+
+            $uniqueFileName = uniqid('', true) . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
+            $curl = curl_init();
+
+            curl_setopt_array($curl, [
+                CURLOPT_URL => $remoteUrl,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => [
+                    'arquivo' => new CURLFile($tempFile, mime_content_type($tempFile), $uniqueFileName),
+                ],
+                CURLOPT_RETURNTRANSFER => true,
+            ]);
+
+            $response = curl_exec($curl);
+            $error = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($error) {
+                echo "Erro ao enviar o arquivo: $error";
+            } else {
+                echo "Resposta do servidor remoto: $response";
+            }
+        } else {
+            echo "Erro no envio do arquivo.";
+        }
+
+            $aprovado_professor = NULL;
+            $aprovado_instituicao = NULL;
+            $sql = "INSERT INTO justificativa_falta (`id_aluno`, `id_presenca`, `descricao`, `resposta_professor`, `nome_arquivo`, `caminho_arquivo`, `aprovado_professor`, `aprovado_instituicao`) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $this->conexao->getConexao()->prepare($sql);
+            $stmt->bind_param(
+                'iissssii',
+                $this->id_aluno,
+                $id_presenca,
+                $this->descricao,
+                $this->resposta_professor,
+                $fileName,
+                $uniqueFileName,
+                $aprovado_professor,
+                $aprovado_instituicao
         );
-        
+        $message = new Message($_SERVER['DOCUMENT_ROOT']);
+        $message->setMessage("Justificativa enviada com sucesso!", "success", "back");
         return $stmt->execute();
     }else{
         $message = new Message($_SERVER['DOCUMENT_ROOT']);
@@ -266,6 +301,8 @@ class Justificativa
         $stmt->bind_param(
             'ii',  $resposta_professor, $id_justificativa
         );
+        $message = new Message($_SERVER['DOCUMENT_ROOT']);
+        $message->setMessage("Resposta enviada com sucesso!", "success", "back");
         return $stmt->execute();
     }
     

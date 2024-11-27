@@ -116,9 +116,9 @@ else{
 ?>
 
 
-<div class="toast active">
+<div class="toast active <?= $flassMessage["type"] ?>">
 <div class="toast-content ">
-    <i class="fas fa-check check <?= $type ?>"></i>
+    <i class="check <?= $type ?>"></i>
     <div class="message">
         <span class="text text-1"><?= $type ?></span>
         <span class="text text-2"><?= $flassMessage["msg"]; ?></span>

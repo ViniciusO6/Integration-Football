@@ -47,3 +47,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+function validarChamada(){
+    const linhas = document.querySelectorAll('.nomes-alunos');
+    let valido = true;
+    console.log("validar");
+
+    linhas.forEach((linha, index) => {
+        const checkboxes = linha.querySelectorAll('input[type="checkbox"]');
+        const algumMarcado = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+        if (!algumMarcado) {
+            valido = false;
+            alert(`Selecione Presente ou Ausente para o aluno na linha ${index + 1}.`);
+        }
+    });
+
+    if (!valido) {
+      console.log("Erro");
+        e.preventDefault(); 
+    }
+}
+
+
