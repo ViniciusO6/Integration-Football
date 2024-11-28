@@ -1,38 +1,37 @@
-/* Aplicando a fonte 'Barlow Condensed' a todos os elementos */
+/* Estilos gerais */
 body {
     font-family: 'Barlow Condensed', sans-serif;
-    margin: 0; /* Remover margens padrão */
-    padding: 0; /* Remover paddings padrão */
+    margin: 0;
+    padding: 0;
 }
 
-/* Estilo básico para o título */
 h1 {
     text-align: center;
-    margin-top: 100px; /* Posição padrão para telas grandes */
+    margin-top: 100px;
     font-size: 2em;
 }
 
-/* Menu */
+/* Menu fixo */
 nav {
     height: 50px;
-    background-color: rgb(221, 161, 50); /* Exemplo de cor do menu */
+    background-color: rgb(221, 161, 50);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
 }
 
-/* Estilo básico da tabela */
+/* Tabela padrão */
 table {
-    width: 100%;
+    width: 90%; /* Reduzir largura para permitir margens laterais */
+    margin: 5px auto; /* Centralizar a tabela e adicionar margens acima e abaixo */
     border-collapse: collapse;
-    margin-top: 20px;
     border: 5px solid rgb(221, 161, 50);
     border-radius: 10px;
     overflow: hidden;
 }
 
-/* Cabeçalho da tabela */
+
 table thead tr {
     background-color: rgb(221, 161, 50);
     color: white;
@@ -45,7 +44,6 @@ table thead th {
     border-right: 1px solid #ddd;
 }
 
-/* Linhas alternadas (listradas) */
 table tbody tr:nth-child(odd) {
     background-color: #f9f9f9;
 }
@@ -54,60 +52,53 @@ table tbody tr:nth-child(even) {
     background-color: #f1f1f1;
 }
 
-/* Efeito de hover para as linhas */
 table tbody tr:hover {
     background-color: #e0e0e0;
 }
 
-/* Células da tabela */
 table td, table th {
     padding: 12px 15px;
     border-right: 1px solid #ddd;
+    text-align: left;
 }
 
-/* Remover a borda direita da última célula de cada linha */
 table tbody tr td:last-child, table thead tr th:last-child {
     border-right: none;
 }
 
-/* Última linha sem borda inferior */
 table tbody tr:last-child td {
     border-bottom: none;
 }
 
-/* Borda inferior para o cabeçalho */
 table thead tr th:last-child {
     border-bottom: 1px solid #ddd;
 }
 
 /* Responsividade para telas menores */
 @media screen and (max-width: 768px) {
-    /* Centralizar e reposicionar o título */
     h1 {
-        margin-top: 100px; /* Espaçamento dinâmico abaixo do menu */
+        margin-top: 80px; /* Ajustar o título */
+        font-size: 1.5em;
+        padding: 10px;
     }
 
-    /* Manter o layout da tabela normal */
+    /* Permitir rolagem horizontal para tabelas */
     table {
-        border: 5px solid rgb(221, 161, 50); /* Garantir bordas externas */
+        display: block;
+        overflow-x: auto; /* Habilitar barra de rolagem horizontal */
+        white-space: nowrap; /* Impedir quebra de linhas dentro das células */
     }
 
-    table thead {
-        display: table-header-group; /* Mostrar o cabeçalho */
+    table thead tr {
+        display: table-row; /* Manter o cabeçalho visível */
     }
 
     table tbody tr {
-        display: table-row; /* Manter linhas normais */
-        margin-bottom: 0; /* Remover espaçamento entre os "cards" */
+        display: table-row; /* Garantir a estrutura original da tabela */
     }
 
-    table tbody tr td {
-        display: table-cell; /* Garantir que as células fiquem normais */
-        padding: 12px 15px; /* Restaurar padding */
-        border: 1px solid #ddd; /* Garantir borda */
-    }
-
-    table tbody tr td::before {
-        content: none; /* Remover rótulos em dispositivos menores */
+    table td, table th {
+        text-align: left;
+        font-size: 0.9em; /* Ajustar fonte para telas menores */
     }
 }
