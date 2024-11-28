@@ -1,38 +1,108 @@
+/* Estilo do container */
 .container {
-    margin: 130px auto;
+    margin: 100px auto;
     max-width: 800px;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background: #f9f9f9;
+    border: 5px solid rgb(221, 161, 50); /* Cor laranja para a borda */
+    border-radius: 10px; /* Borda arredondada */
+    background: transparent; /* Fundo transparente */
     font-family: Barlow Condensed, sans-serif;
 }
+
+/* Estilo do título */
+h1 {
+    margin-bottom: 20px; /* Adiciona um espaçamento de 20px abaixo do título */
+    font-size: 24px; /* Ajusta o tamanho da fonte do título (opcional) */
+    color: #333; /* Cor do título */
+    text-align: center;
+    font-size: 35px;
+}
+
+/* Estilo da tabela */
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate; /* As bordas das células são separadas para aplicar arredondamento */
+    border-spacing: 0; /* Elimina qualquer espaçamento entre as células */
     margin-bottom: 20px;
+    background-color: transparent; /* Fundo transparente */
+    border-radius: 10px; /* Arredondar as bordas externas da tabela */
+    overflow: hidden; /* Garante que as bordas arredondadas sejam aplicadas corretamente */
 }
+
+/* Estilo das células */
 table th, table td {
-    border: 1px solid #ccc;
     padding: 10px;
     text-align: left;
+    color: #333; /* Cor do texto nas células */
+    border: 1px solid rgb(221, 161, 50); /* Borda laranja */
+    border-radius: 5px; /* Arredondar as bordas internas das células */
 }
+
+/* Estilo da célula de cabeçalho */
+table th {
+    background-color: rgb(255, 255, 255); /* Cor de fundo branca no cabeçalho */
+    color: black; /* Cor do texto no cabeçalho */
+    font-weight: bold; /* Deixa o texto do cabeçalho em negrito */
+}
+
+/* Estilo das linhas alternadas (striped) */
+table tr:nth-child(even) {
+    background-color: rgb(245, 245, 245); /* Fundo cinza claro para as linhas pares */
+}
+
+table tr:hover {
+    background-color: rgb(221, 161, 50); /* Cor de fundo laranja quando o mouse passar sobre a linha */
+    color: white; /* Altera a cor do texto para branco */
+}
+
+/* Estilo das células quando a linha é "hovered" */
+table tr:hover th, table tr:hover td {
+    border-color: #fff; /* Torna as bordas brancas ao passar o mouse */
+}
+
+/* Estilo da seção de ações (botões) */
 .actions {
     text-align: center;
 }
+
+/* Estilo do botão Aceitar */
 button.accept {
-    background-color: green;
-    color: white;
+    background-color: transparent; /* Fundo transparente */
+    color: rgb(5, 204, 5); /* Cor inicial verde */
     padding: 10px 15px;
-    border: none;
+    border: 2px solid  rgb(5, 204, 5); /* Borda verde */
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
 }
-button.reject {
-    background-color: red;
+
+button.accept:hover {
+    background-color:  rgb(5, 204, 5); /* Fundo verde ao passar o mouse */
+    color: white; /* Cor do texto muda para branco */
+}
+
+button.accept:active {
+    background-color: darkgreen; /* Fundo verde escuro ao clicar */
     color: white;
+}
+
+/* Estilo do botão Rejeitar */
+button.reject {
+    background-color: transparent; /* Fundo transparente */
+    color: red; /* Cor inicial vermelha */
     padding: 10px 15px;
-    border: none;
+    border: 2px solid red; /* Borda vermelha */
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+}
+
+button.reject:hover {
+    background-color: red; /* Fundo vermelho ao passar o mouse */
+    color: white; /* Cor do texto muda para branco */
+}
+
+button.reject:active {
+    background-color: darkred; /* Fundo vermelho escuro ao clicar */
+    color: white;
 }
