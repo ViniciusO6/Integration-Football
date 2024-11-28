@@ -1,0 +1,57 @@
+/* Aplicando a fonte 'Barlow Condensed' a todos os elementos */
+body {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Faz com que as bordas se unam e criem um traço contínuo */
+    margin-top: 20px;
+    border: 5px solid rgb(221, 161, 50); /* Borda de 5px com a cor especificada */
+    border-radius: 10px; /* Bordas arredondadas */
+    overflow: hidden; /* Garante o arredondamento nos cantos */
+}
+
+/* Cabeçalho da tabela */
+table thead tr {
+    background-color: rgb(221, 161, 50); /* Cor de fundo do cabeçalho */
+    color: white;
+    text-align: left;
+}
+
+table thead th {
+    padding: 15px;
+    font-weight: bold;
+    border-right: 1px solid #ddd; /* Borda separando as células no cabeçalho */
+}
+
+/* Linhas da tabela */
+table tbody tr {
+    background-color: #f9f9f9;
+    transition: background-color 0.2s ease; /* Animação ao passar o mouse */
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1; /* Cor ao passar o mouse */
+}
+
+/* Células da tabela */
+table td, table th {
+    padding: 12px 15px;
+    border-right: 1px solid #ddd; /* Borda separando as células em cada linha */
+}
+
+/* Remover a borda direita da última célula de cada linha (para não repetir a borda) */
+table tbody tr td:last-child, table thead tr th:last-child {
+    border-right: none;
+}
+
+/* Última linha (sem borda inferior) */
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Borda de baixo para a última linha do cabeçalho */
+table thead tr th:last-child {
+    border-bottom: 1px solid #ddd;
+}

@@ -94,8 +94,8 @@ class Presenca
         $dataDormatada = $data_aula[2] . '/' . $data_aula[1] . '/' . $data_aula[0];
         $dataDormatada;
         $message = new Message($_SERVER['DOCUMENT_ROOT']);
-        $message->setMessage("Não foi encontrado nenhuma aula no dia ". $dataDormatada, "error", "back");
-    }
+        $message->setMessage("Nenhuma aula encontrada no dia ". trim($dataDormatada), "error", "back");
+    }                         
     }
 
     // Método para buscar uma presença por ID

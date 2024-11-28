@@ -156,7 +156,7 @@ include_once('./templetes/headerProfessor.php');
     <div id="consulta">
 
         <!-- Form para enviar as informações sobre a aula -->
-        <form onsubmit="" id="form" action="./controller/presencacontroller.php" method="POST">
+        <form onsubmit="return validarChamada()" id="form" action="./controller/presencacontroller.php" method="POST">
             <input name="crud" type="hidden" value="INSERT">
     
             <h1 id="titulo">PRESENÇA</h1>
@@ -205,7 +205,7 @@ include_once('./templetes/headerProfessor.php');
             <!-- Final Pesquisar-->
 
             <p class="titulo">Defina a data :</p>
-            <input name="data_aula" id="input-data" type="date">
+            <input name="data_aula" id="input-data" type="date" required>
 
             <p class="titulo">Descrição da Aula:</p>
             <textarea name="descricao" id="input-descricao" placeholder="Escreva uma descrição de até 255 caracteres."></textarea>
@@ -222,8 +222,8 @@ include_once('./templetes/headerProfessor.php');
             <!-- Fim Tabela de Presença -->
 
             <div class="btns">
-                <p style="color: red">Preencha a chamada de todos os alunos!</p>
-                <button onclick="validarChamada()" id="btn-enviar" type="button">Computar</button>
+                <p id="erro-chamada" style="color: red">Preencha a chamada de todos os alunos!</p>
+                <button id="btn-enviar" type="submit">Computar</button>
             </div>
 
         </form>

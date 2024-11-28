@@ -209,6 +209,10 @@ select:focus {
   width: 100%;
 }
 
+#erro-chamada{
+  opacity: 0;
+}
+
 #tr-nome {
   margin-top: 15px;
   margin-bottom: 15px;

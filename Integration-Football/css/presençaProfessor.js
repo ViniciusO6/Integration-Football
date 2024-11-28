@@ -59,14 +59,17 @@ function validarChamada(){
 
         if (!algumMarcado) {
             valido = false;
-            alert(`Selecione Presente ou Ausente para o aluno na linha ${index + 1}.`);
         }
     });
 
     if (!valido) {
       console.log("Erro");
-        e.preventDefault(); 
+      document.getElementById("erro-chamada").style.opacity = "1"
+      return false;
+    }else{
+      return true;
     }
+
 }
 
 

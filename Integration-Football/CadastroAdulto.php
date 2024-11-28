@@ -19,10 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['genero_inscrito'] = $_POST['genero_inscrito'] ?? '';
     $_SESSION['deficiencia'] = $_POST['deficiencia'] ?? '';
     $_SESSION['deficiencia_qual'] = $_POST['deficiencia_qual'] ?? '';
+    $_SESSION['senha_inscrito'] = $_POST['senha_inscrito'];
 
-    if (!empty($_POST['senha_inscrito'])) {
-        $_SESSION['senha_inscrito'] = password_hash($_POST['senha_inscrito'], PASSWORD_DEFAULT);
-    }
 
     header("Location: CadastroUnidades.php");
     exit;

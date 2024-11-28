@@ -19,6 +19,7 @@ include_once('./templetes/menu.php');
         <form id="loginForm" method="POST" action="Login.php" autocomplete="off">
             <div class="form-group">
                 <label for="username">Usuário:</label>
+                
                 <input type="text" name="usuario" id="username" required autocomplete="off">
                 <span class="error" id="errorUsername" style="color:red; font-size: 12px;"></span>
             </div>
@@ -49,21 +50,32 @@ include_once('./templetes/menu.php');
         $senha = $_POST["senha"]; // Captura a senha do formulário
 
         // Determina o tipo de acesso com base no domínio do usuário
-        if (strpos($usuario, '@aluno') !== false) {
-            $table = 'alunos';
-            $emailField = 'email_aluno';
-        } else if (strpos($usuario, '@professor') !== false) {
-            $table = 'professores';
-            $emailField = 'email_professor';
-        } else if (strpos($usuario, '@football') !== false) {
-            $table = 'instituicao';
-            $emailField = 'email_instituicao';
-        } else {
-            echo "<script>alert('Domínio do usuário inválido.');</script>";
-            exit;
-        }
+        // if (strpos($usuario, '@aluno') !== false) {
+            
+        // } else if (strpos($usuario, '@professor') !== false) {
+        //     $table = 'professores';
+        //     $emailField = 'email_professor';
+        // } else if (strpos($usuario, '@football') !== false) {
+        //     $table = 'instituicao';
+        //     $emailField = 'email_instituicao';
+        // } else {
+        //     echo "<script>alert('Domínio do usuário inválido.');</script>";
+        //     exit;
+        // }
 
         // Prepara uma consulta SQL para evitar injeção de SQL
+        for ($i=0; $i < 3; $i++) { 
+            if($i == 0){
+                $table = 'alunos';
+                $emailField = 'email_aluno';
+            }else if($i == 1){
+                $table = 'professores';
+                $emailField = 'email_professor';
+            }else if($i == 2){
+                $table = 'instituicao';
+                $emailField = 'email_instituicao';
+            }
+        
         $stmt = $conn->prepare("SELECT * FROM $table WHERE $emailField = ?");
         $stmt->bind_param("s", $usuario);
         $stmt->execute();
@@ -71,7 +83,7 @@ include_once('./templetes/menu.php');
         if ($res->num_rows > 0) {
             $row = $res->fetch_object();
             // Verifica a senha com hashing
-            if ($senha === $row->senha) {
+            if (md5($senha) === $row->senha) {
                 session_regenerate_id(true); // Regenera ID da sessão
                 $_SESSION["usuario"] = $usuario;
                 
@@ -96,19 +108,22 @@ include_once('./templetes/menu.php');
                 } else if ($table === 'professores') {
                     echo "<script>location.href='perfilProfessor.php';</script>";
                 } else if ($table === 'instituicao') {
-                    echo "<script>location.href='instituicao.php';</script>";
+                    echo "<script>location.href='visualizarInscricoes.php';</script>";
                 }
-            } else {
-                // Senha incorreta
-                echo "<script>alert('Usuário e/ou senha incorreta(s)');</script>";
-                echo "<script>location.href='Login.php';</script>";
+        //     } else {
+        //         // Senha incorreta
+        //         echo "<script>alert('Usuário e/ou senha incorreta(s)');</script>";
+        //         echo "<script>location.href='Login.php';</script>";
+        //     }
+        // }else {
+        //     // Usuário não encontrado
+        //     echo "<script>alert('Usuário e/ou senha incorreta(s)');</script>";
+        //     echo "<script>location.href='Login.php';</script>";
             }
-        } else {
-            // Usuário não encontrado
-            echo "<script>alert('Usuário e/ou senha incorreta(s)');</script>";
-            echo "<script>location.href='Login.php';</script>";
         }
     }
+}
+
 ?>
 
 <script>

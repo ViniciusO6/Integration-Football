@@ -1,0 +1,112 @@
+/* Contêiner principal */
+.container {
+    margin: 130px auto;
+    max-width: 800px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Barlow Condensed, sans-serif;
+}
+
+/* Título */
+h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Labels dos campos */
+label {
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Campos de entrada */
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+    border-color: #5cb85c;
+    outline: none;
+}
+
+/* Botões */
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Ajuste para o contêiner dos botões */
+form .buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Estilos de foco para inputs */
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+    border-color: #007bff;
+}
+
+/* Ajustes para os botões de Aceitar e Rejeitar */
+button.accept {
+    background-color: #28a745;
+}
+
+button.accept:hover {
+    background-color: #218838;
+}
+
+button.reject {
+    background-color: #dc3545;
+}
+
+button.reject:hover {
+    background-color: #c82333;
+}
+
+/* Para garantir que o conteúdo do formulário não quebre */
+input, button {
+    box-sizing: border-box;
+}
+
+/* Estilo para mensagens de erro ou sucesso */
+.alert {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 20px;
+}

@@ -41,35 +41,56 @@ class AlunoController {
 
 
         if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] === 0) {
-            $token = uniqid('', true);
             $fileName = $_FILES['foto_perfil']['name'];
             $tempFile = $_FILES['foto_perfil']['tmp_name'];
-            echo $fileName;
+            $allowedExtensions = ['png', 'jpg', 'jpeg']; 
+            $maxFileSize = 50 * 1024 * 1024;
+            $fileSize = $_FILES['foto_perfil']['size'];
+        
+            $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+            if (!in_array($fileExtension, $allowedExtensions)) {
+                $message = new Message($_SERVER['DOCUMENT_ROOT']);
+                $message->setMessage("Tipo de arquivo não permitido.", "error", "back");
+                die("Apenas PNG e JPG são aceitos.");
+           }
+        
+            if ($fileSize > $maxFileSize) {
+                die("Arquivo excede o tamanho máximo permitido de 2 MB.");
+     
+            }
+        
+            $uniqueFileName = uniqid('', true) . '.' . $fileExtension;
+        
+            $mimeType = mime_content_type($tempFile);
+            $allowedMimeTypes = ['image/png', 'image/jpg', 'image/jpeg'];
+            if (!in_array($mimeType, $allowedMimeTypes)) {
 
-            $uniqueFileName = uniqid('', true) . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
+                die("O tipo MIME do arquivo é inválido.");
+            }
+        
             $curl = curl_init();
-
+        
             curl_setopt_array($curl, [
                 CURLOPT_URL => $remoteUrl,
                 CURLOPT_POST => true,
                 CURLOPT_POSTFIELDS => [
-                    'arquivo' => new CURLFile($tempFile, mime_content_type($tempFile), $uniqueFileName),
+                    'arquivo' => new CURLFile($tempFile, $mimeType, $uniqueFileName),
                 ],
                 CURLOPT_RETURNTRANSFER => true,
             ]);
-
+        
             $response = curl_exec($curl);
             $error = curl_error($curl);
-
+        
             curl_close($curl);
-
+        
             if ($error) {
                 echo "Erro ao enviar o arquivo: $error";
             } else {
                 echo "Resposta do servidor remoto: $response";
             }
         } else {
-            echo "Erro no envio do arquivo.";
+            echo "Nenhum arquivo foi enviado.";
         }
 
 

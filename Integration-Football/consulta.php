@@ -60,7 +60,7 @@ include_once('./templetes/headerAluno.php');
       <p>Justificativa:</p>
       <textarea name="descricao" id="input-justificativa" placeholder="Escreva uma justificatica de até 255 caracteres."></textarea>
 
-      <p>Anexar arquivo</p>
+      <p>Anexar arquivo <span>(.pdf, .png, .jpeg, .jpg)</span></p>
 
       <div class="opcoes-arquivos">
         <input type="text" id="file-text" for="input-arquivo" placeholder="Nenhum arquivo selecionado" disabled>
@@ -72,7 +72,7 @@ include_once('./templetes/headerAluno.php');
 
       <div id="btns">
         <button id="input-arquivo" type="button">Escolher arquivo</button>
-        <input id="files" type="file" name="arquivo_justificativa" required>
+        <input id="files" type="file" name="arquivo_justificativa" required accept=".png,.jpg,.jpeg,.pdf">
         <input type="hidden" name="id_aluno" value=<?= $id ?>>
         <input type="hidden" name="aprovado_professor" value="">
         <input type="hidden" name="aprovado_instituicao" value="">

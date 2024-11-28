@@ -52,9 +52,11 @@ $email_responsavel = $_SESSION['emailResponsavel'] ?? '0'; // Continua vazio se 
 $telefoneresponsavel = $_SESSION['telResponsavel'] ?? '0'; // Continua vazio se não definido
 $modalidadeInscrito = $_SESSION['modalidadeInscrito'] ?? ''; // Continua vazio se não definido
 $unidade = $_SESSION['unidadeInscrito'] ?? ''; // Continua vazio se não definido
-
+$senha_inscrito = $_SESSION['senha_inscrito']; // Continua vazio se não definido
+echo $senha_inscrito;
 
 var_dump($_POST);
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proximo'])) {
     // Verifica se a modalidade foi escolhida
@@ -62,11 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proximo'])) {
         echo "Por favor, escolha uma modalidade antes de continuar.";
     } else {
         // Captura a senha e a hasheia
-        $senha_inscrito = $_POST['senha_inscrito'] ?? ''; // Captura a senha do formulário
-        $senha_hash = password_hash($senha_inscrito, PASSWORD_DEFAULT); // Hasheia a senha
+        $senha_hash = md5($senha_inscrito); // Hasheia a senha
 
         // Prepara a instrução SQL para inserir os dados no banco
-        $stmt = $conn->prepare("INSERT INTO inscricao (nome_inscrito, telefone_inscrito, email_inscrito, senha_inscrito, Cpf_inscrito, RG_inscrito, data_nasc, genero_inscrito, deficiencia, nomeResponsavel, CpfResponsavel, RgReponsavel, emailResponsavel, telResponsavel, modalidadeInscrito, unidadeInscrito) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO inscricao (nome_inscrito, telefone_inscrito, email_inscrito, senha_inscrito, Cpf_inscrito, RG_inscrito, data_nasc, genero_inscrito, deficiencia, nomeResponsavel, CpfResponsavel, RgReponsavel, emailResponsavel, telResponsavel, modalidadeInscrito, unidadeInscrito, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         if (!$stmt) {
             die("Erro ao preparar a declaração: " . $conn->error);
         }
@@ -88,7 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proximo'])) {
             $email_responsavel,
             $telefoneresponsavel,
             $modalidadeInscrito,
-            $unidade
+            $unidade,
+            'pendente'
         ];
         $types = str_repeat('s', count($params)); // Cria uma string de tipos 's' para cada parâmetro
 

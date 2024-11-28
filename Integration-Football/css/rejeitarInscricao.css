@@ -1,0 +1,10 @@
+/* Estilo para inscrições inativas */
+.inativa {
+    background-color: #d3d3d3; /* Cor cinza para indicar inatividade */
+    color: #808080; /* Texto cinza */
+    pointer-events: none; /* Desabilita interações */
+}
+
+.inativa td, .inativa th {
+    cursor: not-allowed; /* Cursor para indicar que a linha não é interativa */
+}

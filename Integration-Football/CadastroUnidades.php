@@ -1,6 +1,6 @@
 <?php
 session_start(); // Inicie a sessão
-
+echo $_SESSION['senha_inscrito'];
 // Verifica se a unidade foi escolhida via AJAX
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nome_unidade'])) {
     $_SESSION['unidadeInscrito'] = $_POST['nome_unidade']; // Armazena a unidade na sessão
@@ -35,6 +35,10 @@ $erroMensagem = ''; // Inicializa a variável de erro
 $mapUrl = ''; // Inicializa a URL do mapa
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo 'asdddddddddddddddddddd';
+    echo 'asdddddddddddddddddddd';
+    echo 'asdddddddddddddddddddd';
+    
     // Verifica se o botão "Buscar" foi clicado
     if (isset($_POST['Buscar'])) {
         if (empty($_POST['pesquisa'])) {
@@ -82,6 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Insere no banco de dados ao clicar no botão "Próximo"
         if (isset($_SESSION['unidadeInscrito'])) {
             $nomeUnidade = $_SESSION['unidadeInscrito'];
+            $_SESSION['senha_inscrito'] = $_POST['senha_inscrito'] ?? '';
             $sqlInscricao = "INSERT INTO inscricao (unidadeInscrito) VALUES ('$nomeUnidade')";
             
             if ($conn->query($sqlInscricao) === TRUE) {

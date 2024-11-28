@@ -118,7 +118,7 @@ xhr.onload = function() {
           <form action="./controller/professorcontroller.php" method="POST" enctype="multipart/form-data">
           <div style="background-image: url(<?= $professor['foto_perfil'];  ?>);" id="foto-perfil">
             <button type="button" onclick="" id="btn-editar-foto"> <img src="./Imagens/editar.png" alt="" draggable="false"> </button>
-            <input id="input-file" style="display: none;" type="file" name="foto_perfil">
+            <input id="input-file" style="display: none;" type="file" name="foto_perfil" accept=".png, .jpg, .pdf">
             <div class="invisivel" id="btns-foto-perfil">
               <button name="crud" value="AtualizarFoto" id="btn-salvar-foto" type="submit">Salvar</button>
 
