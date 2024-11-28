@@ -25,14 +25,18 @@ table thead th {
     border-right: 1px solid #ddd; /* Borda separando as células no cabeçalho */
 }
 
-/* Linhas da tabela */
-table tbody tr {
-    background-color: #f9f9f9;
-    transition: background-color 0.2s ease; /* Animação ao passar o mouse */
+/* Linhas alternadas (listradas) */
+table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Cor de fundo para as linhas ímpares */
 }
 
+table tbody tr:nth-child(even) {
+    background-color: #f1f1f1; /* Cor de fundo para as linhas pares */
+}
+
+/* Efeito de hover para as linhas */
 table tbody tr:hover {
-    background-color: #f1f1f1; /* Cor ao passar o mouse */
+    background-color: #e0e0e0; /* Cor ao passar o mouse */
 }
 
 /* Células da tabela */
