@@ -37,6 +37,7 @@ $mapUrl = ''; // Inicializa a URL do mapa
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo 'asdddddddddddddddddddd';
     echo 'asdddddddddddddddddddd';
+    echo $_SESSION['senha_inscrito'];
     echo 'asdddddddddddddddddddd';
     
     // Verifica se o botão "Buscar" foi clicado

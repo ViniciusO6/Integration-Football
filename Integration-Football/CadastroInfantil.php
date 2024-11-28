@@ -28,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['RgReponsavel'] = $_POST['rg_responsavel'] ?? ''; 
     $_SESSION['emailResponsavel'] = $_POST['email_responsavel'] ?? ''; 
     $_SESSION['telResponsavel'] = $_POST['telefone_responsavel'] ?? '';
-    $_SESSION['senha_inscrito'] = $_POST['senha_inscrito'];
 
     // Redireciona para a próxima página
     header("Location: cadastroUnidades.php");

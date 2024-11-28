@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['genero_inscrito'] = $_POST['genero_inscrito'] ?? '';
     $_SESSION['deficiencia'] = $_POST['deficiencia'] ?? '';
     $_SESSION['deficiencia_qual'] = $_POST['deficiencia_qual'] ?? '';
-    $_SESSION['senha_inscrito'] = $_POST['senha_inscrito'];
+    // $_SESSION['senha_inscrito'] = $_POST['senha_inscrito'];
 
 
     header("Location: CadastroUnidades.php");
@@ -67,8 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="text" id="deficiencia_qual" name="deficiencia_qual" placeholder="Especifique" style="display:none;" />
                 <br /><br />
 
-                <label for="senha_inscrito">Senha:<span id="point">*</span></label>
-                <input type="password" id="senha_inscrito" name="senha_inscrito" required />
             </div>
 
             <div class="button-container">

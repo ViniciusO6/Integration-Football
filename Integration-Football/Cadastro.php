@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $_SESSION['nome_inscrito'] = $_POST['nome_inscrito'];
     $_SESSION['email_inscrito'] = $_POST['email_inscrito'];
+    $_SESSION['senha_inscrito'] = $_POST['senha_inscrito'];
     $_SESSION['telefone_inscrito'] = $telefone; // Armazena o telefone sem a máscara
     $_SESSION['idade'] = $_POST['idade'];
 
@@ -43,6 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <label for="email">E-mail para contato <span id="point">*</span></label>
                         <input type="email" name="email_inscrito" required />
+                        <br /><br />
+
+                        <label for="senha_inscrito">Digite uma senha <span id="point">*</span></label>
+                        <input type="password" name="senha_inscrito" required />
                         <br /><br />
 
                         <label for="telefone">Telefone para contato <span id="point">*</span></label>
