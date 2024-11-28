@@ -3,6 +3,14 @@
 <head>
 
 <?php
+// Verifica se o logout foi solicitado
+if (isset($_GET['logout'])) {
+    // Destrói a sessão e redireciona para a página de login
+    session_unset();  // Remove todas as variáveis de sessão
+    session_destroy();  // Destroi a sessão
+    header("Location: login.php");  // Redireciona para a página de login
+    exit();
+}
 include_once('templetes/mensagemSessao.php');
     $message = new Message($_SERVER['DOCUMENT_ROOT']);
     $flassMessage = $message->getMessage();
