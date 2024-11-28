@@ -1,20 +1,40 @@
 /* Aplicando a fonte 'Barlow Condensed' a todos os elementos */
 body {
     font-family: 'Barlow Condensed', sans-serif;
+    margin: 0; /* Remover margens padrão */
+    padding: 0; /* Remover paddings padrão */
 }
 
+/* Estilo básico para o título */
+h1 {
+    text-align: center;
+    margin-top: 100px; /* Posição padrão para telas grandes */
+    font-size: 2em;
+}
+
+/* Menu */
+nav {
+    height: 50px;
+    background-color: rgb(221, 161, 50); /* Exemplo de cor do menu */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Estilo básico da tabela */
 table {
     width: 100%;
-    border-collapse: collapse; /* Faz com que as bordas se unam e criem um traço contínuo */
+    border-collapse: collapse;
     margin-top: 20px;
-    border: 5px solid rgb(221, 161, 50); /* Borda de 5px com a cor especificada */
-    border-radius: 10px; /* Bordas arredondadas */
-    overflow: hidden; /* Garante o arredondamento nos cantos */
+    border: 5px solid rgb(221, 161, 50);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 /* Cabeçalho da tabela */
 table thead tr {
-    background-color: rgb(221, 161, 50); /* Cor de fundo do cabeçalho */
+    background-color: rgb(221, 161, 50);
     color: white;
     text-align: left;
 }
@@ -22,36 +42,72 @@ table thead tr {
 table thead th {
     padding: 15px;
     font-weight: bold;
-    border-right: 1px solid #ddd; /* Borda separando as células no cabeçalho */
+    border-right: 1px solid #ddd;
 }
 
-/* Linhas da tabela */
-table tbody tr {
+/* Linhas alternadas (listradas) */
+table tbody tr:nth-child(odd) {
     background-color: #f9f9f9;
-    transition: background-color 0.2s ease; /* Animação ao passar o mouse */
 }
 
+table tbody tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+/* Efeito de hover para as linhas */
 table tbody tr:hover {
-    background-color: #f1f1f1; /* Cor ao passar o mouse */
+    background-color: #e0e0e0;
 }
 
 /* Células da tabela */
 table td, table th {
     padding: 12px 15px;
-    border-right: 1px solid #ddd; /* Borda separando as células em cada linha */
+    border-right: 1px solid #ddd;
 }
 
-/* Remover a borda direita da última célula de cada linha (para não repetir a borda) */
+/* Remover a borda direita da última célula de cada linha */
 table tbody tr td:last-child, table thead tr th:last-child {
     border-right: none;
 }
 
-/* Última linha (sem borda inferior) */
+/* Última linha sem borda inferior */
 table tbody tr:last-child td {
     border-bottom: none;
 }
 
-/* Borda de baixo para a última linha do cabeçalho */
+/* Borda inferior para o cabeçalho */
 table thead tr th:last-child {
     border-bottom: 1px solid #ddd;
+}
+
+/* Responsividade para telas menores */
+@media screen and (max-width: 768px) {
+    /* Centralizar e reposicionar o título */
+    h1 {
+        margin-top: 100px; /* Espaçamento dinâmico abaixo do menu */
+    }
+
+    /* Manter o layout da tabela normal */
+    table {
+        border: 5px solid rgb(221, 161, 50); /* Garantir bordas externas */
+    }
+
+    table thead {
+        display: table-header-group; /* Mostrar o cabeçalho */
+    }
+
+    table tbody tr {
+        display: table-row; /* Manter linhas normais */
+        margin-bottom: 0; /* Remover espaçamento entre os "cards" */
+    }
+
+    table tbody tr td {
+        display: table-cell; /* Garantir que as células fiquem normais */
+        padding: 12px 15px; /* Restaurar padding */
+        border: 1px solid #ddd; /* Garantir borda */
+    }
+
+    table tbody tr td::before {
+        content: none; /* Remover rótulos em dispositivos menores */
+    }
 }

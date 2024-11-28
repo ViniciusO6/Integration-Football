@@ -13,7 +13,7 @@ $imports = [
   "https://fonts.gstatic.com/",
   "https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap"
 ];
-$titulo = 'Login';
+$titulo = 'Tela do Aluno';
 $pageCSS = ["principal.css"];
 $pageJS = ["principal.js"];
 

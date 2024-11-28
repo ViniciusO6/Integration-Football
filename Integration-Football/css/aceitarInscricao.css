@@ -1,13 +1,17 @@
+/* Fonte principal */
+body {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
 /* Contêiner principal */
 .container {
     margin: 130px auto;
     max-width: 800px;
     padding: 30px;
-    border: 1px solid #ccc;
+    border: 2px solid rgb(221, 161, 50); /* Borda laranja */
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: transparent; /* Fundo transparente */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-family: Barlow Condensed, sans-serif;
 }
 
 /* Título */
@@ -15,7 +19,8 @@ h1 {
     font-size: 24px;
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: black;
+    font-size: 35px;
 }
 
 /* Estilo do formulário */
@@ -35,37 +40,42 @@ label {
 /* Campos de entrada */
 input[type="email"],
 input[type="password"],
-input[type="text"] {
+input[type="text"],
+select {
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid rgb(221, 161, 50); /* Borda laranja */
+    border-radius: 5px; /* Arredondamento das bordas */
     width: 100%;
     box-sizing: border-box;
 }
 
+/* Estilo de foco nos inputs e select */
 input[type="email"]:focus,
 input[type="password"]:focus,
-input[type="text"]:focus {
-    border-color: #5cb85c;
+input[type="text"]:focus,
+select:focus {
+    border-color: gray; /* Verde claro ao focar */
     outline: none;
 }
 
 /* Botões */
 button {
-    padding: 12px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
+    padding: 8px 15px;  /* Reduzido para menor tamanho */
+    font-size: 14px;  /* Tamanho da fonte menor */
+    color: rgb(221, 161, 50);
+    background-color: white;  /* Cor de fundo verde, igual ao botão "Aceitar" */
+    border:  solid rgb(221, 161, 50);
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
+    width: auto;  /* O botão não ocupará toda a largura */
     transition: background-color 0.3s ease;
+    font-family: 'Barlow Condensed', sans-serif;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color:rgb(221, 161, 50);  /* Cor de fundo mais escura ao passar o mouse */
+    color: white;
 }
 
 /* Ajuste para o contêiner dos botões */
@@ -73,6 +83,12 @@ form .buttons {
     display: flex;
     justify-content: space-between;
     gap: 10px;
+}
+
+.resposta{
+    width: 350px;
+    text-align: center;
+    margin-left: 25% ;
 }
 
 /* Estilos de foco para inputs */
