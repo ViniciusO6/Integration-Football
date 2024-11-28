@@ -189,7 +189,7 @@ button img:hover {
   transition: height 0.5s ease;
 }
 
-.conteudo-justificativa.aberto {
+.conteudo-justificativa.fechado {
   transition: height 0.5s ease;
   /* height: 95%; */
 }
@@ -310,6 +310,10 @@ button img:hover {
     margin-bottom: 0px;
   }
 
+  #justificativa-card {
+    width: 100%;
+  }
+
   select {
     width: 100%;
     height: 30px;
@@ -407,13 +411,12 @@ button img:hover {
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 0;
     overflow: hidden;
     transition: height 0.5s ease;
   }
-
-  .justificativa.aberto {
-    height: 500px;
+  .justificativa.fechado {
+    transition: height 0.5s ease;
+    height: 0px;
   }
 
   .conteudo-justificativa {
@@ -422,16 +425,12 @@ button img:hover {
     align-items: center;
     margin-top: 10px;
     overflow: hidden;
-    height: 0;
     transition: height 0.5s ease;
     width: 85%;
     border: 3px, solid, #07cb65;
     border-radius: 10px;
   }
 
-  .conteudo-justificativa.aberto {
-    height: 65%;
-  }
   .titulo {
     display: flex;
     width: 100%;
@@ -502,7 +501,15 @@ button img:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 150px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .Form1 p {
+    text-align: center;
   }
 
   #conteudo {
@@ -510,19 +517,17 @@ button img:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 95%;
+    width: 80%;
     margin-top: 25px;
   }
 
   .ComboBox {
-    width: 50%;
+    width: 100%;
   }
 
   .ComboBox p {
-    font-size: 80%;
     font-weight: bold;
     text-align: start;
-    margin-left: 10px;
   }
 
   .Pesquisar {
@@ -534,8 +539,8 @@ button img:hover {
   }
 
   select {
-    width: 90%;
-    height: 60%;
+    width: 100%;
+    height: 30px;
     border: 2px solid #07cb65;
     border-radius: 5px;
   }
@@ -547,8 +552,8 @@ button img:hover {
 
   .cards {
     display: flex;
-    background-color: #84c88880;
-    width: 85%;
+    background-color: #c1e3c3;
+    width: 100%;
     height: 100px;
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -635,6 +640,11 @@ button img:hover {
 
   .justificativa.aberto {
     height: 500px;
+  }
+
+  #form-filtro {
+    display: flex;
+    flex-direction: column;
   }
 
   .conteudo-justificativa {
@@ -724,7 +734,7 @@ button img:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 250px;
+    height: 200px;
   }
 
   .Form1 p {
@@ -736,7 +746,7 @@ button img:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 85%;
     margin-top: 25px;
   }
 
@@ -745,13 +755,11 @@ button img:hover {
     flex-direction: column;
     width: 100%;
     align-items: center;
-    height: 80%;
   }
 
   .ComboBox p {
     width: 100%;
     text-align: start;
-    margin-left: 10%;
     font-weight: bold;
   }
 
@@ -764,8 +772,8 @@ button img:hover {
   }
 
   select {
-    width: 90%;
-    height: 80%;
+    width: 100%;
+    height: 30px;
     border: 2px solid #07cb65;
     border-radius: 5px;
   }
@@ -777,8 +785,8 @@ button img:hover {
 
   .cards {
     display: flex;
-    background-color: #84c88880;
-    width: 90%;
+    background-color: #c1e3c3;
+    width: 100%;
     height: 90px;
     border-radius: 10px;
     transition: transform 0.3s ease;
