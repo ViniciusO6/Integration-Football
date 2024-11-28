@@ -186,11 +186,30 @@ WHERE
     }
 
     public function redefinirSenha(){
+        $sql = "SELECT senha FROM alunos WHERE id_aluno = ?";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $this->id_aluno); // Corrigido para usar $id em vez de $this->id
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $aluno = $result->fetch_assoc(); // Obtém apenas um único registro
+        echo 'senha atual'.md5($this->senha). '<br>';
+        echo 'senha nova' . $aluno['senha']. '<br>';
+
+        if(md5($aluno['senha']) == md5($this->senha)){
+            echo 'true';
+        }else{
+            echo 'false';
+        }
+       
+        
+        
+
         $sql = "UPDATE alunos SET `senha` = ? WHERE `id_aluno` = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
-        $stmt->bind_param('si', $this->senha, $this->id_aluno);
+        $stmt->bind_param('si', md5($this->senha), $this->id_aluno);
         $message = new Message($_SERVER['DOCUMENT_ROOT']);
-        $message->setMessage("Senha redefinida com sucesso!", "success", "back");
+        // $message->setMessage("Senha redefinida com sucesso!", "success", "back");
         return $stmt->execute();
         
     }

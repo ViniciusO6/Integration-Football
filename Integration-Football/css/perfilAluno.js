@@ -98,7 +98,7 @@ document.getElementById('icon-olho-1').addEventListener('click', function() {
     const novaSenha = document.getElementById('input-nova-senha').value;
     const confirmeNovaSenha = document.getElementById('input-confirme-senha').value;
     const senhaAtual = document.getElementById('senha-atual').value;
-    if(senhaAtual == confirmeSenhaAtual ){
+    if(senhaAtual){
         document.getElementById('input-senha').style.border = "solid 2px #2092c2";
         if(novaSenha == confirmeNovaSenha){
             return true;

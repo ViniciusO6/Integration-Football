@@ -70,8 +70,14 @@ class Presenca
     // Método para inserir um novo registro na tabela 'presencas'
     public function inserir($id_turma, $data_aula)
     {
+
+        //cadastrando a aula
+
+        
+
+
         $sql = "
-        SELECT id_aula
+        SELECT id_aula  
         FROM aulas
         WHERE id_turma = ? AND data_aula = ?
         ";
