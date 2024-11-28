@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24/11/2024 às 16:27
+-- Tempo de geração: 28/11/2024 às 12:23
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -45,7 +45,7 @@ CREATE TABLE `alunos` (
 
 INSERT INTO `alunos` (`id_aluno`, `foto_perfil`, `data_nasc`, `cpf_aluno`, `telefone_aluno`, `nome_aluno`, `email_aluno`, `senha`, `id_turma`) VALUES
 (1, './Imagens/user.png', '0000-00-00', 0, 0, 'maria eduarda', 'maria@aluno.sp.gov.br', '1234', 1),
-(4, 'https://tcloud.site/filegator/repository/GrupoIntegrationFootball/Uploads/FotosPerfil/6742a9f0761de9.90819035.png', '2007-06-13', 390111080, 968080107, 'Vinicius Augusto Rodrigues', 'vinicius.silva2029@aluno.sp.gov.br', 'vinicius323app', 1),
+(4, 'https://tcloud.site/filegator/repository/GrupoIntegrationFootball/Uploads/FotosPerfil/67479529c0dbb1.95637143.png', '2007-06-13', 390111080, 968080107, 'Vinicius Augusto Rodrigues', 'vinicius.silva2029@aluno.sp.gov.br', '202cb962ac59075b964b07152d234b70', 1),
 (5, './Imagens/user.png', '2007-11-14', 11108019, 968080107, 'Arthur Oliveira', 'arthuroliveira@gmail.com', '123', 1),
 (6, './Imagens/user.png', '2007-04-20', 390108019, 968080107, 'Joana Silva', 'joanasilva@gmail.com', '1234', 1),
 (8, './Imagens/user.png', '2007-01-15', 301111080, 958000101, 'Lucas Martins Souza', 'lucasms@gmail.com', 'lucas123', 3),
@@ -67,7 +67,10 @@ INSERT INTO `alunos` (`id_aluno`, `foto_perfil`, `data_nasc`, `cpf_aluno`, `tele
 (44, './Imagens/user.png', '2008-11-03', 507890123, 958010207, 'Bianca Ferreira', 'bianca.ferreira@gmail.com', 'bianca123', 2),
 (45, './Imagens/user.png', '2007-03-19', 508901234, 958010208, 'Fernando Costa', 'fernando.costa@gmail.com', 'fernando123', 2),
 (46, './Imagens/user.png', '2006-10-01', 509012345, 958010209, 'Isabela Souza', 'isabela.souza@gmail.com', 'isabela123', 2),
-(47, './Imagens/user.png', '2008-07-30', 510123456, 958010210, 'Gabriel Rodrigues', 'gabriel.rodrigues@gmail.com', 'gabriel123', 2);
+(47, './Imagens/user.png', '2008-07-30', 510123456, 958010210, 'Gabriel Rodrigues', 'gabriel.rodrigues@gmail.com', 'gabriel123', 2),
+(48, '', '0000-00-00', 123312, 2147483647, 'Vinicius Augusto Rodrigues da Silva', 'viniciusnini@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 1),
+(49, '', '0000-00-00', 123312, 2147483647, 'Teste da Silva', 'testesilva@gmail.com', '25d55ad283aa400af464c76d713c07ad', 3),
+(53, './Imagens/user.png', '2000-07-13', 123312, 2147483647, 'Joana Mendes', 'joana@gmail.com', 'c689de85871d8325aca2ddef8de173cd', 1);
 
 -- --------------------------------------------------------
 
@@ -92,7 +95,8 @@ CREATE TABLE `atividade` (
 --
 
 INSERT INTO `atividade` (`id_atividade`, `titulo_atividade`, `hora_inicio`, `data_entrega`, `nome_arquivo`, `caminho_arquivo`, `id_turma`, `id_professor`, `hora_termino`) VALUES
-(31, 'Campeonato Interescolar', '15:30:00', '2024-11-27', 'HistoriaPowerSoccer.pdf', '67411820930a42.19290499.pdf', 1, 5, '18:29:00');
+(31, 'Campeonato Interescolar', '15:30:00', '2024-11-27', 'HistoriaPowerSoccer.pdf', '67411820930a42.19290499.pdf', 1, 5, '18:29:00'),
+(33, 'Tesate arquivo1234qasdas', '21:30:00', '2024-11-27', '6743bcfc362285.91518921.jpg', '6747b94a4cd613.92924869.jpg', 1, 5, '21:29:00');
 
 -- --------------------------------------------------------
 
@@ -139,16 +143,33 @@ CREATE TABLE `inscricao` (
   `unidadeInscrito` varchar(55) NOT NULL,
   `modalidadeInscrito` varchar(55) NOT NULL,
   `email_inscrito` varchar(55) NOT NULL,
-  `senha_inscrito` varchar(255) NOT NULL
+  `senha_inscrito` varchar(255) NOT NULL,
+  `status` enum('ativa','inativa','pendente') DEFAULT 'pendente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `inscricao`
 --
 
-INSERT INTO `inscricao` (`id`, `nome_inscrito`, `telefone_inscrito`, `Cpf_inscrito`, `RG_inscrito`, `data_nasc`, `genero_inscrito`, `deficiencia`, `nomeResponsavel`, `CpfResponsavel`, `RgReponsavel`, `emailResponsavel`, `telResponsavel`, `unidadeInscrito`, `modalidadeInscrito`, `email_inscrito`, `senha_inscrito`) VALUES
-(18, 'duda', 1197755, '444444', '444444444', '0444-04-04', 'masculino', 'nao', '4444444444', '4333333333', '21323', 'leiva@gmail.com', '454', '', '', 'monetriop@xn--gmail-1ra.com', ''),
-(28, 'dudinha', 2147483647, '52781908800', '8769107832', '2006-02-14', 'feminino', 'sim', 'antonia', '87681078315', '4218808800', 'leiva@gmail.com', '11960132488', 'Santana', 'FUTEBOL DE 5', 'dudinha@gmail.com', '');
+INSERT INTO `inscricao` (`id`, `nome_inscrito`, `telefone_inscrito`, `Cpf_inscrito`, `RG_inscrito`, `data_nasc`, `genero_inscrito`, `deficiencia`, `nomeResponsavel`, `CpfResponsavel`, `RgReponsavel`, `emailResponsavel`, `telResponsavel`, `unidadeInscrito`, `modalidadeInscrito`, `email_inscrito`, `senha_inscrito`, `status`) VALUES
+(18, 'duda', 1197755, '444444', '444444444', '0444-04-04', 'masculino', 'nao', '4444444444', '4333333333', '21323', 'leiva@gmail.com', '454', '', '', 'monetriop@xn--gmail-1ra.com', '', 'inativa'),
+(28, 'dudinha', 2147483647, '52781908800', '8769107832', '2006-02-14', 'feminino', 'sim', 'antonia', '87681078315', '4218808800', 'leiva@gmail.com', '11960132488', 'Santana', 'FUTEBOL DE 5', 'dudinha@gmail.com', '', 'inativa'),
+(38, 'Karinne Angelo', 2147483647, '431.758.460-90', '34.567.890-9', '2004-09-23', 'feminino', '', '0', '0', '0', '0', '0', 'Santana', 'WALKING FOOTBALL', 'karinne.ventura@etec.sp.gov.br', '$2y$10$pJpjtQdV4khnKpW/7Oaf0.7w2Ei9cLUdZSFKRqhcxi9f5h2xbjiXW', 'inativa'),
+(39, 'Vinicu', 2147483647, '234.567.898-76', '23.456.789-8', '2003-09-23', 'outro', 'Cadeirante', '0', '0', '0', '0', '0', 'Santana', 'FUTEBOL DE 5', 'vinicu@gmail.com', '$2y$10$ZBPK8UjRI1XPRM6wBA8jHeIRQWdvuNO4uLOGNm7oD3QZEKVYlc3eS', 'inativa'),
+(40, 'Jose Pinheiros', 2147483647, '234.567.898-76', '34.567.898-7', '2005-02-23', 'feminino', '', '0', '0', '0', '0', '0', 'Santana', 'WALKING FOOTBALL', 'josepinheiros@gmail.com', '$2y$10$tXNMPgK/hijPkOPcuoU3Ve5wnPDMdbGNS0smTTdUEDx8iyKzYem1S', 'inativa'),
+(41, 'jesus', 2147483647, '345.790.986-45', '34.579.086-4', '2003-03-23', 'outro', '', '0', '0', '0', '0', '0', 'Santana', 'FUTEBOL DE 5', 'jesus@gmail.com', '$2y$10$p/fjrgSYp/eqv9jchTPIyO6hW5aPtxdFj9Gm1U22Sdxwk9DDGwOau', ''),
+(42, 'jesus', 2147483647, '345.790.986-45', '34.579.086-4', '2004-02-23', 'outro', '', '0', '0', '0', '0', '0', 'Santana', 'WALKING FOOTBALL', 'jesus@gmail.com', '$2y$10$eskTf41QIwE6demwV72LkOY38xkKAFJo6WIFyZjzWmpDUTUsCnL6O', 'ativa'),
+(43, 'CARLOS', 2147483647, '345.678.908-66', '09.876.543-2', '2004-03-12', 'outro', 'Demencia', '0', '0', '0', '0', '0', 'Santana', 'POWER SOCCER', 'jesus@gmail.com', '$2y$10$nW2A/sM5D.KKPjOyC95vW.zQkFwPQM8Q73j8iK5oc9GRo82slg.kG', 'ativa'),
+(44, 'CARLOS', 2147483647, '234.567.898-76', '23.456.789-8', '2006-04-23', 'outro', 'Demencia', '0', '0', '0', '0', '0', 'Santana', 'WALKING FOOTBALL', 'jesus@gmail.com', '$2y$10$P.T3M22VMnTDNlD/0BKoku9iwXWFgVBtLnN9g6w7pi7CKzO4.z7t6', 'ativa'),
+(45, 'CARLOS', 2147483647, '234.567.898-76', '23.456.789-8', '2004-04-23', 'outro', '', '0', '0', '0', '0', '0', 'Santana', 'WALKING FOOTBALL', 'jesus@gmail.com', '$2y$10$3n594.28Zk8IRZUMfsanbeiTM/rw4gDwQZ1x71S1VGb3diB/GCRPS', ''),
+(46, 'CARLOS', 2147483647, '234.567.898-76', '23.456.789-8', '2006-04-23', 'outro', '', '0', '0', '0', '0', '0', 'Santana', 'POWER SOCCER', 'jesus@gmail.com', '$2y$10$uI4DQNuMaybFL47EULxzkuwipuMYuPoCjKY5CopIYAECQ7G2Z32ey', ''),
+(47, 'CARLOS', 2147483647, '234.567.898-76', '23.456.789-8', '2003-02-23', 'outro', '', '0', '0', '0', '0', '0', 'Santana', 'WALKING FOOTBALL', 'jesus@gmail.com', '$2y$10$VrQxQIkY/b8Xid18vjHHOuKvkSaIAFSuCHSg/uHn6Y67nla53IUfa', 'ativa'),
+(48, 'teste', 2147483647, '345.678.998-76', '23.678.965-5', '2003-03-23', 'outro', '', '0', '0', '0', '0', '0', 'Santana', 'WALKING FOOTBALL', 'teste@gmail.com', '$2y$10$pTH7uvSkW3Hq3Rc7Xab74ucVOYx8EaXXfkk92JJx4T7HgYHx0Zq1C', 'ativa'),
+(49, 'ANDREIA ANGELO DOS SANTOS VENTURA', 2147483647, '345.678.998-76', '23.678.965-5', '2006-09-22', 'feminino', '', '0', '0', '0', '0', '0', 'Santana', 'POWER SOCCER', 'andreia.angelo@sme.prefeitura.sp.gov.br', '$2y$10$0pymDgFMnMwx3pZs25o17eB1rD5Ut5aAHE47fCxRRpWb0.EPMGLDq', 'ativa'),
+(50, 'teste', 2147483647, '431.758.460-90', '23.678.965-5', '2005-02-25', 'outro', '', '0', '0', '0', '0', '0', 'Santana', 'WALKING FOOTBALL', 'teste@gmail.com', '$2y$10$129I/jHEaruLlLFYGJ0D4OTtv5ATrEiE3RPW0ubddDbJIMZD17dOe', 'ativa'),
+(51, 'Vinicius Augusto Rodrigues da Silva', 2147483647, '123.312.332-12', '12.312.312-3', '2000-06-13', 'masculino', '', '0', '0', '0', '0', '0', 'Santana', 'POWER SOCCER', 'viniciusnini@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'ativa'),
+(52, 'Teste da Silva', 2147483647, '123.312.332-12', '12.312.312-3', '2000-06-13', 'masculino', '', '0', '0', '0', '0', '0', 'Santana', 'POWER SOCCER', 'testesilva@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'ativa'),
+(53, 'Joana Mendes', 2147483647, '123.312.332-12', '12.312.312-3', '2000-07-13', 'masculino', '', '0', '0', '0', '0', '0', 'Santana', 'POWER SOCCER', 'joana@gmail.com', 'c689de85871d8325aca2ddef8de173cd', 'ativa');
 
 -- --------------------------------------------------------
 
@@ -170,8 +191,8 @@ CREATE TABLE `instituicao` (
 --
 
 INSERT INTO `instituicao` (`id`, `cnpj_instituicao`, `telefone_instituicao`, `nome_instituicao`, `email_instituicao`, `senha`) VALUES
-(1, 0, 0, 'Integration Football', 'integration@football.sp.gov.br', '1234'),
-(3, 0, 0, 'Itaim bibi', 'integrationitaimbibi@football.sp.gov.br', '12345');
+(1, 0, 0, 'Integration Football', 'integration@football.sp.gov.br', '202cb962ac59075b964b07152d234b70'),
+(3, 0, 0, 'Itaim bibi', 'integrationitaimbibi@football.sp.gov.br', '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 
@@ -196,7 +217,11 @@ CREATE TABLE `justificativa_falta` (
 --
 
 INSERT INTO `justificativa_falta` (`id_justificativa`, `id_aluno`, `id_presenca`, `descricao`, `resposta_professor`, `nome_arquivo`, `caminho_arquivo`, `aprovado_professor`, `aprovado_instituicao`) VALUES
-(72, 4, 17, 'Abaixo esta meu atestado', NULL, '67411820930a42.19290499 (2).pdf', '67424039acac79.23503675.pdf', NULL, NULL);
+(72, 4, 17, 'Abaixo esta meu atestado', NULL, '67411820930a42.19290499 (2).pdf', '67424039acac79.23503675.pdf', 1, NULL),
+(73, 4, 17, 'Me machuquei', NULL, '674114fb058c88.43484949.png', '674753db0cd845.72312195.png', 0, NULL),
+(74, 4, 17, 'Quebrei minha perna', NULL, 'aNovo-Regimento-Comum-das-Etecs-2022.pdf', '6747565211ad37.85993244.pdf', 1, NULL),
+(75, 4, 17, '', NULL, '6747565211ad37.85993244.pdf', '67479f448445f0.43741728.pdf', NULL, NULL),
+(76, 4, 17, '', NULL, '674753db0cd845.72312195.png', '6747acbcebfcf2.60774211.png', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -280,7 +305,7 @@ CREATE TABLE `professores` (
 
 INSERT INTO `professores` (`id`, `nome_professor`, `foto_perfil`, `cpf_professor`, `data_nasc`, `email_professor`, `senha`, `telefone_professor`, `nome_coordenador`) VALUES
 (1, 'roberto', './Imagens/user.png', 0, '0000-00-00', 'roberto@professor.sp.gov.br', '12345', 0, NULL),
-(5, 'Carlos Alberto', './Imagens/user.png', 461294790, '1970-11-14', 'carlosalberto@professor.com', '1234', 1196808010, 'Danilo Lima'),
+(5, 'Carlos Alberto', 'https://tcloud.site/filegator/repository/GrupoIntegrationFootball/Uploads/FotosPerfil/6747b15b11d229.56765994.jpg', 461294790, '1970-11-14', 'carlosalberto@professor.com', '202cb962ac59075b964b07152d234b70', 1196808010, 'Danilo Lima'),
 (6, 'Maria Silva', './Imagens/user.png', 2147483647, '1985-06-23', 'maria.silva@example.com', '123', 2147483647, NULL),
 (7, 'João Pereira', './Imagens/user.png', 2147483647, '1992-03-15', 'joao.pereira@example.com', 'joao1234', 2147483647, NULL),
 (8, 'Ana Oliveira', './Imagens/user.png', 2147483647, '1978-12-05', 'ana.oliveira@example.com', 'ana1234', 2147483647, NULL);
@@ -428,13 +453,13 @@ ALTER TABLE `unidade`
 -- AUTO_INCREMENT de tabela `alunos`
 --
 ALTER TABLE `alunos`
-  MODIFY `id_aluno` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_aluno` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `atividade`
 --
 ALTER TABLE `atividade`
-  MODIFY `id_atividade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_atividade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de tabela `aulas`
@@ -446,7 +471,7 @@ ALTER TABLE `aulas`
 -- AUTO_INCREMENT de tabela `inscricao`
 --
 ALTER TABLE `inscricao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `instituicao`
@@ -458,7 +483,7 @@ ALTER TABLE `instituicao`
 -- AUTO_INCREMENT de tabela `justificativa_falta`
 --
 ALTER TABLE `justificativa_falta`
-  MODIFY `id_justificativa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id_justificativa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT de tabela `modalidade`
