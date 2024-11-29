@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Imports dos estilos e definições do cabeçalho
 $imports = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
@@ -7,6 +9,30 @@ $imports = [
 ];
 $titulo = 'Visualizar Inscrições';
 
+include_once('./config.php');
+if (!isset($_SESSION['id'])) {
+    echo "Você precisa estar logado para acessar esta página.";
+    exit;
+}
+// Recupera o ID da instituição a partir da sessão
+$id_instituicao = $_SESSION['id'];
+
+// Consulta SQL para pegar as informações da tabela instituicao
+$sql = "SELECT * FROM instituicao WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id_instituicao); // Bind do parâmetro do tipo inteiro
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Verificando se a consulta retornou algum resultado
+if ($result->num_rows > 0) {
+    // Pega os dados da instituição
+    $instituicao = $result->fetch_assoc();
+} else {
+    // Se não encontrar nenhum resultado
+    echo "Instituição não encontrada!";
+    exit;
+}
 // Inclui o cabeçalho com base no padrão da instituição
 include_once('./templetes/headerInstituicao.php');
 
@@ -18,7 +44,7 @@ if (!isset($_SESSION['usuario']) || strpos($_SESSION['usuario'], '@football') ==
 }
 
 // Inclui a conexão com o banco de dados
-include_once('./config.php');
+
 
 // Consulta para recuperar as inscrições com status 'pendente' (não 'inativa' ou 'aceita')
 $sql = "SELECT id, nome_inscrito, cpf_inscrito, email_inscrito, modalidadeInscrito, unidadeInscrito, telefone_inscrito, genero_inscrito, deficiencia 
@@ -34,6 +60,7 @@ if (!$result) {
     echo "<script>alert('Erro ao buscar as inscrições.');</script>";
     exit;
 }
+
 ?>
 
 <link rel="stylesheet" href="css/visualizarInscricoes.css">

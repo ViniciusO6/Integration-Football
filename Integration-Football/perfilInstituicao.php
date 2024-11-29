@@ -1,5 +1,5 @@
 <?php 
-session_start();
+  session_start();
   $imports =[
 
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
@@ -11,13 +11,14 @@ session_start();
   $pageCSS = ["perfilInstituicao.css"];
   $pageJS = ["perfilInstituicao.js"];
 
-    include_once('config.php'); // Incluindo o arquivo de conexão com o banco
+   include_once('config.php'); // Incluindo o arquivo de conexão com o banco
   
   // Verifica se o ID da instituição está armazenado na sessão
   if (!isset($_SESSION['id'])) {
       echo "Você precisa estar logado para acessar esta página.";
       exit;
   }
+
   // Recupera o ID da instituição a partir da sessão
   $id_instituicao = $_SESSION['id'];
 
@@ -37,12 +38,11 @@ session_start();
       echo "Instituição não encontrada!";
       exit;
   }
+
   include_once('./templetes/headerInstituicao.php');
   
  
-
-
-
+ 
 ?>
 
 <div class="container">

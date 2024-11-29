@@ -1,6 +1,10 @@
 <?php
 // Inicia a sessão
-session_start();  // Coloque esta linha no início do arquivo, antes de qualquer saída HTML
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+
 
 // Verifica se o logout foi solicitado
 if (isset($_GET['logout'])) {
