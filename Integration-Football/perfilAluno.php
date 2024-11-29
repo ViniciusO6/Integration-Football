@@ -128,7 +128,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Integration-Football-main/Integration-F
 
       <input type="hidden" name="crud" value="alterarSenha">
       <input name="id" type="hidden" value="<?= $id ?>">
-      <input id="senha-atual" name="senha-atual" type="hidden" value="<?= $aluno['senha'] ?>">
+      <input id="senha-atual" name="senha-atual" type="hidden" value="<?=  str_repeat("#", strlen($aluno['senha'] )) ?>">
 
       <button onclick="fecharTela()" id="btn-confirmar" type="button">Cancelar</button>
       <button id="btn-cancelar" type="submit">Redefinir Senha</button>

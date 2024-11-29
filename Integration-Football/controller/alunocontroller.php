@@ -151,7 +151,7 @@ class AlunoController {
     {
         $this->aluno->setId($_POST['id']);
         $this->aluno->setSenha($_POST['senha']);
-        return $this->aluno->redefinirSenha();
+        return $this->aluno->redefinirSenha($_POST['input-senha']);
     }
 
     public function atualizar(){
