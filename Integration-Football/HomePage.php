@@ -29,17 +29,17 @@
 
     <div class="carrosel-box primary ">
       <img class="img-desktop" src="Imagens/HomePage/Carrossel/Slide-1.jpg" alt="Slide 1">
-      <img class="img-mobile" src="Imagens/HomePage/Carrossel/Slide-Mobile-1.jpg" alt="Slide 1">
+      <img class="img-mobile" src="Imagens/HomePage/Carrossel/Slide1-Mobile.jpg" alt="Slide 1">
     </div>
 
     <div class="carrosel-box ">
       <img class="img-desktop" src="Imagens/HomePage/Carrossel/Slide-2.jpg" alt="Slide 1">
-      <img class="img-mobile" src="Imagens/HomePage/Carrossel/Slide-Mobile-2.jpg" alt="Slide 1">
+      <img class="img-mobile" src="Imagens/HomePage/Carrossel/Slide2-Mobile.jpg" alt="Slide 1">
     </div>
 
     <div class="carrosel-box ">
       <img class="img-desktop" src="Imagens/HomePage/Carrossel/Slide-3.jpg" alt="Slide 1">
-      <img class="img-mobile" src="Imagens/HomePage/Carrossel/Slide-Mobile-3.jpg" alt="Slide 1">
+      <img class="img-mobile" src="Imagens/HomePage/Carrossel/Slide3-Mobile.jpg" alt="Slide 1">
     </div>
   
     <div class="nav-auto">
