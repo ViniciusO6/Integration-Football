@@ -3,6 +3,13 @@
     margin: 0;
 }
 
+
+.swal-custom-btn, .swal-custom-btn button {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 600; /* Para garantir que o texto fique mais forte */
+}
+
+
 body{
     overflow-x: hidden;
     margin-top: 40px;
