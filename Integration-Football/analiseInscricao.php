@@ -81,7 +81,7 @@ $row = $result->fetch_assoc();
     <div class="actions">
         <form id="acceptForm" action="aceitarInscricao.php" method="POST" style="display:inline;">
             <input type="hidden" name="id" value="<?= $row['id'] ?>">
-            <input type="text" name="senha" value="<?= $row['senha_inscrito'] ?>">
+            <input type="hidden" name="senha" value="<?= $row['senha_inscrito'] ?>">
             <button type="submit" class="accept" name="action" value="aceitar">Aceitar</button>
         </form>
         <!-- O form de rejeição agora chama o SweetAlert -->
