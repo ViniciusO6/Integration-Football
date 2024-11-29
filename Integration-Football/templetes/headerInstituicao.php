@@ -85,7 +85,7 @@ if (!empty($flassMessage["msg"])) {
                <button onclick="confirmarSair()" style="cursor: pointer;" id="login">
                     <li><a>Sair</a></li>
                 </button>
-                <div style="background-image: url(<?= $professor['foto_perfil'];  ?>);" onclick="redirecionar('perfilProfessor.php')" id="icone-perfil"></div>
+                <div style="background-image: url(<?= $instituicao['foto_perfil']  ?>);" onclick="redirecionar('perfilInstituicao.php')" id="icone-perfil"></div>
             </div>
 
         </div>

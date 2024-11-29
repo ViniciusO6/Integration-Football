@@ -54,7 +54,6 @@ h1 {
 
 #foto-perfil {
     position: relative;
-    background-image: url(../Imagens/user.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -62,6 +61,7 @@ h1 {
     width: 200px;
     height: 200px;
     margin-top: 30px; /* Ajuste para garantir que a imagem fique centralizada */
+    margin-bottom: 60px;
 }
 
 #btn-editar-foto {

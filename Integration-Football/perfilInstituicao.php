@@ -1,4 +1,5 @@
 <?php 
+session_start();
   $imports =[
 
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
@@ -9,21 +10,19 @@
   $titulo = 'Perfil da Instituição';
   $pageCSS = ["perfilInstituicao.css"];
   $pageJS = ["perfilInstituicao.js"];
-  include_once('./templetes/headerInstituicao.php');
- 
-  include_once('config.php'); // Incluindo o arquivo de conexão com o banco
+
+    include_once('config.php'); // Incluindo o arquivo de conexão com o banco
   
   // Verifica se o ID da instituição está armazenado na sessão
   if (!isset($_SESSION['id'])) {
       echo "Você precisa estar logado para acessar esta página.";
       exit;
   }
-
   // Recupera o ID da instituição a partir da sessão
   $id_instituicao = $_SESSION['id'];
 
   // Consulta SQL para pegar as informações da tabela instituicao
-  $sql = "SELECT id, cnpj_instituicao, telefone_instituicao, nome_instituicao, email_instituicao, senha FROM instituicao WHERE id = ?";
+  $sql = "SELECT * FROM instituicao WHERE id = ?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("i", $id_instituicao); // Bind do parâmetro do tipo inteiro
   $stmt->execute();
@@ -38,13 +37,18 @@
       echo "Instituição não encontrada!";
       exit;
   }
+  include_once('./templetes/headerInstituicao.php');
+  
+ 
+
+
 
 ?>
 
 <div class="container">
 <h1 id="titulo">VISUALIZAR PERFIL</h1>
   <div id="perfil">
-    <form id="form" action="">
+    <div id="form">
         
         <div id="informacoes"> 
             <div id="bloco1">
@@ -68,14 +72,20 @@
         </div>
 
         <div id="bloco2">
-            <div id="foto-perfil">
-                <button type="button" onclick="file()" id="btn-editar-foto"> 
+        <form action="./controller/instituicaocontroller.php" method="POST" enctype="multipart/form-data">
+            <div style="background-image: url(<?= $instituicao['foto_perfil'];  ?>);" id="foto-perfil">
+                <button type="button" id="btn-editar-foto"> 
                     <img src="./Imagens/editar.png" alt=""> 
                 </button>
-                <input id="input-file" style="display: none;" type="file" name="foto">
+                <input id="input-file" style="display: none;" type="file" name="foto_perfil" accept=".png, .jpg, .jpeg">
+                <div class="invisivel" id="btns-foto-perfil">
+                <input name="id" type="hidden" value="<?= $id_instituicao ?>">
+                <button name="crud" value="AtualizarFoto" id="btn-salvar-foto" type="submit">Salvar</button>
+            </form>
+            </div>
             </div>
         </div>
-    </form>   
+</div>   
   </div>
 
   <br><br><br><br><br>
@@ -147,6 +157,18 @@
 
   <div class="invisivel" id="sombra"></div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
 // Inclui o arquivo do rodapé (footer.php)
 include_once('./templetes/footer.php');
