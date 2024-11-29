@@ -1,0 +1,220 @@
+.container {
+    width: 80%; /* Largura como 80% da tela */
+    max-width: 700px; /* Largura máxima para a tabela */
+    margin: 80px auto; /* Centraliza a tabela na tela */
+    font-family: "Barlow Condensed", sans-serif;
+}
+
+#titulo {
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.table-block {
+    margin-top: 20px;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(221, 161, 50);
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-transform: uppercase; /* Deixa os títulos em maiúsculo */
+}
+
+.table-cell {
+    width: 48%; /* Garante que as células tenham largura fixa de 48% */
+    text-align: center;
+    padding: 10px;
+    border-right: 2px solid #ddd; /* Linha divisória entre as colunas */
+}
+
+#table {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: transparent; /* Fundo transparente */
+    width: 100%; /* Faz a tabela ocupar 100% da largura da `.container` */
+}
+
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent; /* Fundo transparente nas linhas */
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease; /* Transição suave para o efeito hover */
+}
+
+.table-row:nth-child(even) {
+    background-color: #f7f7f7; /* Cor de fundo alternada */
+}
+
+.table-row:hover {
+    background-color: #e0e0e0; /* Efeito de hover (cinza) */
+}
+
+.table-row .table-cell:last-child {
+    border-right: none; /* Remove a borda da última célula */
+}
+
+#form-filtro {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+select {
+    width: 48%;
+    padding: 6px 10px; /* Menor altura e mais estreito */
+    border-radius: 5px;
+    border: 2px solid rgb(221, 161, 50);
+    font-size: 14px; /* Fonte menor */
+    height: 35px; /* Altura reduzida */
+}
+
+select:focus {
+    outline: none;
+    border: 2px solid rgb(221, 161, 50);
+}
+
+input {
+    width: 48%;
+    padding: 6px 10px; /* Menor altura e mais estreito */
+    border-radius: 5px;
+    border: 2px solid rgb(221, 161, 50);
+    font-size: 14px; /* Fonte menor */
+    height: 35px; /* Altura reduzida */
+}
+
+/* Media Queries para responsividade */
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 90%; /* Aumenta a largura da tabela em telas médias */
+    }
+
+    .table-header {
+        flex-direction: row; /* Títulos em linha para telas médias */
+    }
+
+    .table-cell {
+        width: 48%; /* Ajusta o tamanho das células */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%; /* Ocupa 100% da largura da tela em dispositivos móveis */
+    }
+
+    .table-cell {
+        width: 48%; /* Mantém as células com largura fixa de 48% */
+        text-align: left; /* Alinha o texto à esquerda para telas menores */
+    }
+
+    #table {
+        flex-direction: column; /* Empilha as linhas da tabela */
+    }
+
+    .table-header {
+        flex-direction: column; /* Títulos em coluna para telas pequenas */
+    }
+
+    select,
+    input {
+        width: 100%; /* Inputs e selects ocupam 100% da largura */
+        margin-bottom: 10px; /* Espaçamento entre os inputs */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 95%; /* Reduz a largura para telas muito pequenas */
+    }
+
+    #titulo {
+        font-size: 1.5em; /* Diminui o tamanho do título */
+    }
+
+    .table-cell {
+        padding: 8px; /* Reduz o padding das células da tabela */
+    }
+
+    select,
+    input {
+        padding: 5px 8px; /* Reduz o padding dos campos */
+        height: 30px; /* Reduz a altura dos inputs e selects */
+    }
+
+    .table-header {
+        padding: 8px; /* Diminui o padding dos cabeçalhos */
+    }
+}
+@media screen and (max-width: 684px) {
+    .container {
+        width: 90%; /* Reduz a largura da tabela */
+        margin: 50px auto; /* Ajusta o espaçamento */
+    }
+
+    #titulo {
+        font-size: 1.8em; /* Ajusta o tamanho do título */
+        text-align: center; /* Centraliza o título */
+    }
+
+    .table-block {
+        margin-top: 15px;
+    }
+
+    .table-header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 8px;
+    }
+
+    .table-cell {
+        width: 48%; /* Mantém a largura das células estável */
+        padding: 8px;
+    }
+
+    #table {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .table-row {
+        padding: 8px;
+    }
+
+    /* Responsividade para telas ainda menores */
+    @media screen and (max-width: 480px) {
+        .container {
+            width: 95%; /* Ajuste extra para telas menores */
+        }
+
+        .table-header {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .table-cell {
+            width: 100%; /* As células se ajustam à largura total da tela */
+            padding: 10px;
+        }
+
+        #form-filtro {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        select, input {
+            width: 100%; /* Campos de filtro ocupam 100% da largura */
+        }
+    }
+}
