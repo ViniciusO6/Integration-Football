@@ -74,35 +74,40 @@ footer {
     color: #f0f0f0; /* Muda a cor ao passar o mouse */
 }
 
+/* Estilo para o formulário de inscrição */
 .form-sub {
     display: flex; /* Permite que o input e o botão fiquem na mesma linha */
     flex-direction: column; /* Mantém a estrutura vertical */
 }
 
+/* Input de email */
 #emailInput {
-   padding: 10px 0px; /* Adiciona padding interno */
+    padding: 10px; /* Adiciona padding interno */
     border: 1px solid #000000; /* Borda leve */
     border-radius: 5px; /* Borda arredondada */
     font-family: 'Barlow Condensed', sans-serif; /* Fonte utilizada */
     font-size: 16px; /* Tamanho da fonte */
     margin-bottom: 10px; /* Margem inferior para espaçamento com o botão */
-    width: 100%;
-    margin-left: 0px;
+    width: 100%; /* Ajusta a largura para 100% */
+    height: 40px; /* Define a altura do input para que seja igual ao botão */
+    box-sizing: border-box; /* Garante que o padding e border não aumentem a largura */
 }
 
-#subscribeButton{
+/* Botão de inscrição */
+#subscribeButton {
     width: 100%; /* Faz o botão ocupar toda a largura do container */
-    padding: 10px 0; /* Adiciona padding interno */
+    padding: 10px; /* Adiciona padding interno */
     background-color: #005f99; /* Cor de fundo do botão */
     color: white; /* Cor do texto do botão */
     border: none; /* Remove borda */
     cursor: pointer; /* Muda o cursor para pointer */
     font-family: 'Barlow Condensed', sans-serif; /* Fonte utilizada */
     font-size: 16px; /* Tamanho da fonte */
+    height: 40px; /* Define a altura do botão para ser igual ao input */
     transition: background-color 0.3s; /* Transição na cor de fundo */
 }
 
-#subscribeButton:hover  {
+#subscribeButton:hover {
     background-color: #007bbf; /* Cor do botão ao passar o mouse */
 }
 
@@ -134,3 +139,4 @@ footer {
         padding: 30px 0; /* Reduz o padding do rodapé */
     }
 }
+
