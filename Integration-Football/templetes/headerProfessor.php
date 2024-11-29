@@ -80,7 +80,7 @@ include_once('templetes/mensagemSessao.php');
 
         <div id="part-2">
             <div id="navbar-part-2">
-                <<!-- Alterado o onclick para chamar a função confirmarSair() -->
+                <!-- Alterado o onclick para chamar a função confirmarSair() -->
                 <button onclick="confirmarSair()" style="cursor: pointer;" id="login"><li><a>Sair</a></li></button>
                 <div style="background-image: url(<?= $professor['foto_perfil'];  ?>);" onclick="redirecionar('perfilProfessor.php')" id="icone-perfil"></div>
             </div>
