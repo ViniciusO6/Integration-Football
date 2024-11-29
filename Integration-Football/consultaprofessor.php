@@ -70,6 +70,7 @@ function filtrarJustificativas(){
         document.getElementById("justificativa-card").innerHTML = xhr.responseText;
       }
     };
+    
 }
 
 
@@ -219,9 +220,7 @@ function filtrarJustificativas(){
 
           <div class="buttons">
             <button onclick="filtrarJustificativas()" class="filtrar" type="button">Filtrar</button>
-            <div id="cancelar" onclick="Limpar()">
-              <img onclick="CarregarJustificativasSemFiltro()" src="Imagens/buttonCancel.svg" alt="" draggable="false">
-            </div>
+           
           </div>
         </div>
         <!-- Final Form-Filtro-->

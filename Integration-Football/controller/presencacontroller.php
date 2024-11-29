@@ -52,6 +52,8 @@ class PresencaController
 
         // Se tudo foi bem, exibe mensagem de sucesso
         echo "Presenças inseridas com sucesso!";
+        
+   
     } else {
         $message = new Message($_SERVER['DOCUMENT_ROOT']);
         $message->setMessage("Nenhum dado de presença recbido", "error", "back");

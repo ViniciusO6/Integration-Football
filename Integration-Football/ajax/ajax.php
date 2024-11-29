@@ -73,6 +73,7 @@ if (isset($_POST['tipo']) && $_POST['tipo'] == "filtrar" && isset($_POST['modali
         <div id="th-chamada">
 
             <div id="titulo-nome">
+
             </div>
             
             <div id="presente-ausente">
@@ -217,8 +218,7 @@ if (isset($_POST['tipo']) && $_POST['tipo'] == "filtrar" && isset($_POST['modali
         $dataFormatada = $data[2] . '/' . $data[1] . '/' . $data[0];
 
         echo '
-        <div class="cards" onclick="AbrirJustificativa(this)">
-          <div class="imagem">
+        <div class="imagem">
             <img src="Imagens/FotoPerfil.svg" alt="" draggable="false">
           </div>
 
