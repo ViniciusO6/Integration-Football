@@ -2,14 +2,14 @@
 <html lang="pt-br">
 <head>
     <?php
-// Verifica se o logout foi solicitado
-if (isset($_GET['logout'])) {
-    // Destrói a sessão e redireciona para a página de login
-    session_unset();  // Remove todas as variáveis de sessão
-    session_destroy();  // Destroi a sessão
-    header("Location: login.php");  // Redireciona para a página de login
-    exit();
-}
+    // Verifica se o logout foi solicitado
+    if (isset($_GET['logout'])) {
+        // Destrói a sessão e redireciona para a página de login
+        session_unset();  // Remove todas as variáveis de sessão
+        session_destroy();  // Destroi a sessão
+        header("Location: login.php");  // Redireciona para a página de login
+        exit();
+    }
     include_once('templetes/mensagemSessao.php');
     $message = new Message($_SERVER['DOCUMENT_ROOT']);
     $flassMessage = $message->getMessage();
@@ -54,7 +54,6 @@ if (isset($_GET['logout'])) {
     }
 
     ?>
-
     
 </head>
 <body>
@@ -76,7 +75,6 @@ if (isset($_GET['logout'])) {
                         echo 'ERRO MUITO FEIO PROCURAE VIUNICIUS AUSGUSTI';
                     }
 
-
                     ?>
                     <li><a href="professores.php">Professores</a></li>
 
@@ -86,7 +84,8 @@ if (isset($_GET['logout'])) {
 
         <div id="part-2">
             <div id="navbar-part-2">
-                <button onclick="" style="cursor: pointer;" id="login"><li><a>Sair</a></li></button>
+                <!-- Alterado o onclick para chamar a função confirmarSair() -->
+                <button onclick="confirmarSair()" style="cursor: pointer;" id="login"><li><a>Sair</a></li></button>
                 <div style="background-image: url(<?= $aluno['foto_perfil'];  ?>);" onclick="redirecionar('perfilAluno.php')" id="icone-perfil"></div>
             </div>
 
@@ -143,8 +142,49 @@ else{
 <?php $message->clearMessage(); // Limpa a mensagem após exibir ?>
 <?php endif; ?>
 
+<!-- Script SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function confirmarSair() {
+        Swal.fire({
+            title: 'Tem certeza que deseja sair?',
+            text: "Você será redirecionado para a página principal.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sim, sair!',
+            cancelButtonText: 'Não, continuar',
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            iconColor: '#FFC107', // Cor amarela para o ícone
+            customClass: {
+                popup: 'swal-custom-btn',  // Classe personalizada para o alerta
+                confirmButton: 'swal-custom-btn', // Classe personalizada para o botão de confirmação
+                cancelButton: 'swal-custom-btn'  // Classe personalizada para o botão de cancelamento
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Se o usuário confirmar, redireciona para a página de logout
+                window.location.href = 'HomePage.php?logout=true';  // Altere para o URL de logout ou página inicial
+            } else {
+                // Se o usuário cancelar, exibe a mensagem "Você não foi desconectado."
+                Swal.fire({
+                    title: 'Continua na página!',
+                    text: 'Você não foi desconectado.',
+                    icon: 'info',
+                    customClass: {
+                        popup: 'swal-custom-btn', // Classe personalizada para o pop-up
+                        title: 'swal-custom-btn', // Classe personalizada para o título
+                        content: 'swal-custom-btn', // Classe personalizada para o conteúdo
+                        confirmButton: 'swal-custom-btn'  // Classe personalizada para o botão de confirmação
+                    }
+                });
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
 
 
-
-
-    
