@@ -11,6 +11,11 @@ $titulo = 'Visualizar Inscrições';
 include_once('./templetes/headerInstituicao.php');
 
 // Inicia a sessão e verifica autenticação do usuário
+if (!isset($_SESSION['usuario']) || strpos($_SESSION['usuario'], '@football') === false) {
+    echo "<script>alert('Acesso não autorizado!');</script>";
+    echo "<script>location.href='Login.php';</script>";
+    exit;
+}
 
 // Inclui a conexão com o banco de dados
 include_once('./config.php');
@@ -50,28 +55,30 @@ if (!$result) {
             </tr>
         </thead>
         <tbody>
-          <?php
-          if ($result->num_rows > 0) {
-              while ($row = $result->fetch_assoc()) {
-                  // Sanitiza a variável 'id' para evitar injeções de código
-                  $id = htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8');
-                  echo "<tr onclick=\"location.href='analiseInscricao.php?id={$id}'\" style='cursor: pointer;'>
-                        <td>{$row['id']}</td>
-                        <td>{$row['nome_inscrito']}</td>
-                        <td>{$row['cpf_inscrito']}</td>
-                        <td>{$row['email_inscrito']}</td>
-                        <td>{$row['modalidadeInscrito']}</td>
-                        <td>{$row['unidadeInscrito']}</td>
-                        <td>{$row['telefone_inscrito']}</td>
-                        <td>{$row['genero_inscrito']}</td>
-                        <td>{$row['deficiencia']}</td>
-                      </tr>";
-              }
-          } else {
-              echo "<tr><td colspan='10'>Nenhuma inscrição pendente encontrada.</td></tr>";
-          }
-          ?>
-      </tbody>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $id = htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8');
+                    echo "<tr onclick=\"location.href='analiseInscricao.php?id={$id}'\" style='cursor: pointer;'>
+                            <td>{$row['id']}</td>
+                            <td>{$row['nome_inscrito']}</td>
+                            <td>{$row['cpf_inscrito']}</td>
+                            <td>{$row['email_inscrito']}</td>
+                            <td>{$row['modalidadeInscrito']}</td>
+                            <td>{$row['unidadeInscrito']}</td>
+                            <td>{$row['telefone_inscrito']}</td>
+                            <td>{$row['genero_inscrito']}</td>
+                            <td>{$row['deficiencia']}</td>
+                        </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='9'>Nenhuma inscrição pendente encontrada.</td></tr>";
+            }
+            ?>
+</tbody>
+
+        
+
     </table>
 </div>
 
