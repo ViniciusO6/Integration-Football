@@ -80,19 +80,19 @@ footer {
 }
 
 #emailInput {
-   padding: 10px; /* Adiciona padding interno */
+   padding: 10px 0px; /* Adiciona padding interno */
     border: 1px solid #000000; /* Borda leve */
     border-radius: 5px; /* Borda arredondada */
     font-family: 'Barlow Condensed', sans-serif; /* Fonte utilizada */
     font-size: 16px; /* Tamanho da fonte */
     margin-bottom: 10px; /* Margem inferior para espaçamento com o botão */
-    width: 270px;
+    width: 100%;
     margin-left: 0px;
 }
 
 #subscribeButton{
     width: 100%; /* Faz o botão ocupar toda a largura do container */
-    padding: 10px; /* Adiciona padding interno */
+    padding: 10px 0; /* Adiciona padding interno */
     background-color: #005f99; /* Cor de fundo do botão */
     color: white; /* Cor do texto do botão */
     border: none; /* Remove borda */
