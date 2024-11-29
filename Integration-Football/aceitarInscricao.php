@@ -1,5 +1,23 @@
 <?php
+// Imports dos estilos e definições do cabeçalho
+$imports = [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+    "https://fonts.gstatic.com/",
+    "https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+];
+$titulo = 'Aceitar Inscrição';
+
+// Inclui o cabeçalho com base no padrão da instituição
+include_once('./templetes/headerInstituicao.php');
+
+// Verifica se a sessão já foi iniciada, se não, inicia a sessão
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 include_once('./config.php');
+
+$sucessoCadastro = false; // Variável para controle de sucesso
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitização e recebimento do ID da inscrição
@@ -10,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Buscar os dados da inscrição
-    $stmt = $conn->prepare("SELECT * FROM inscricao WHERE id = ?");
+    $stmt = $conn->prepare("SELECT nome_inscrito, email_inscrito, unidadeInscrito, modalidadeInscrito, data_nasc, telefone_inscrito, Cpf_inscrito FROM inscricao WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -38,25 +56,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $turmaData = $resultTurma->fetch_assoc();
         $idTurma = $turmaData['id_turma']; // ID da turma escolhida
-        $foto_perfil = './Imagens/user.png';
+
+        // Ajustes para garantir que CPF e telefone sejam armazenados corretamente
+        $cpf = str_pad($inscricao['Cpf_inscrito'], 11, '0', STR_PAD_LEFT); // Garantir CPF com 11 dígitos
+        $telefone = preg_replace('/\D/', '', $inscricao['telefone_inscrito']);
+        if (strlen($telefone) == 10) {
+            $telefone = '0' . $telefone; // Adiciona DDD se necessário
+        }
+
         // Inserir os dados na tabela 'alunos'
-        $senha = $_POST['senha'];
-        echo $senha;
+        $senha = password_hash($_POST['senha'], PASSWORD_BCRYPT); // Criptografar a senha
         $stmtAluno = $conn->prepare("
-            INSERT INTO alunos (nome_aluno, email_aluno, id_turma, senha, data_nasc, cpf_aluno, telefone_aluno, foto_perfil) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO alunos (nome_aluno, cpf_aluno, email_aluno, telefone_aluno, senha, id_turma, data_nasc) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)
         ");
         $stmtAluno->bind_param(
-            "ssisssss", 
+            "ssssssi", 
             $inscricao['nome_inscrito'], 
-            $inscricao['email_inscrito'],
-            $idTurma,
-            $senha,
-            $inscricao['data_nasc'],
-            $inscricao['Cpf_inscrito'],  
-            $inscricao['telefone_inscrito'], 
-            $foto_perfil
-
+            $cpf, 
+            $inscricao['email_inscrito'], 
+            $telefone, 
+            $senha, 
+            $idTurma, // Atribuindo o ID da turma escolhida
+            $inscricao['data_nasc']
         );
 
         if ($stmtAluno->execute()) {
@@ -65,9 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmtUpdate->bind_param("i", $id);
 
             if ($stmtUpdate->execute()) {
-                echo "Aluno cadastrado com sucesso e inscrição ativada!";
-                header("Location: visualizarInscricoes.php");
-                exit;
+                $sucessoCadastro = true; // Indica que o cadastro foi bem-sucedido
             } else {
                 echo "Erro ao atualizar o status da inscrição.";
             }
@@ -87,13 +107,18 @@ while ($row = $resultTurmas->fetch_assoc()) {
 }
 ?>
 
-<!-- Exibir o formulário de aceitação da inscrição -->
-<link rel="stylesheet" href="css/aceitarInscricao.css">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/aceitarInscricao.css">
+    <!-- Adicionando o link para a biblioteca SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
 <div class="container">
-    <h1>Cadastro do Aluno</h1>
+    <h1>CADASTRAR ALUNO </h1>
     <form action="aceitarInscricao.php" method="POST">
         <input type="hidden" name="id" value="<?= htmlspecialchars($id, ENT_QUOTES) ?>"> <!-- ID seguro -->
-        <input type="hidden" name="senha" value="<?= ($inscricao['senha_inscrito']) ?>">
+
         <label for="nome">Nome do Aluno:</label>
         <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($inscricao['nome_inscrito'], ENT_QUOTES) ?>" readonly>
 
@@ -113,6 +138,29 @@ while ($row = $resultTurmas->fetch_assoc()) {
             <?php endforeach; ?>
         </select>
 
-        <button type="submit">Salvar</button>
+        <button class="resposta" type="submit">Salvar</button>
     </form>
 </div>
+
+<script>
+    <?php if ($sucessoCadastro): ?>
+        Swal.fire({
+            icon: 'success',
+            title: 'Aluno cadastrado com sucesso!',
+            text: 'A inscrição foi ativada e o aluno foi registrado.',
+            iconColor: ' rgb(221, 161, 50)',
+            confirmButtonText: 'OK',
+            confirmButtonColor:' rgb(221, 161, 50)',
+            customClass: {
+                confirmButton: 'swal-custom-btn' // Classe personalizada para o botão
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'visualizarInscricoes.php';
+            
+        });
+    <?php endif; ?>
+</script>
+
+
+
