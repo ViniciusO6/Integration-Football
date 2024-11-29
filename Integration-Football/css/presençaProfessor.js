@@ -22,8 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const dataMin = `${anoAtual}-${mes}-${dia}`; // dataMin no formato yyyy-mm-dd
   const dataMax = `${anoAtual}-12-31`; // dataMax no formato yyyy-mm-dd
 
-  dataEntregaInput.value = dataMin;
-
   // Aplica os valores de limite no campo de data
   dataEntregaInput.min = dataMin;
   dataEntregaInput.max = dataMax;
@@ -74,3 +72,8 @@ function validarChamada() {
     return true;
   }
 }
+
+// function teste(){
+//   document.getElementById("input-data");
+//   alert
+// }

@@ -437,6 +437,17 @@ button img:hover {
   #form-filtro {
     display: flex;
     flex-direction: column;
+    margin-bottom: 0px;
+  }
+
+  .filtrar {
+    height: 30px;
+    width: 120px;
+  }
+
+  #cancelar {
+    width: 30px;
+    height: 30px;
   }
 
   .cards p {
@@ -673,6 +684,17 @@ button img:hover {
   #form-filtro {
     display: flex;
     flex-direction: column;
+    margin-bottom: 0px;
+  }
+
+  .filtrar {
+    height: 32px;
+    width: 120px;
+  }
+
+  #cancelar {
+    width: 32px;
+    height: 32px;
   }
 
   .cards p {
@@ -978,6 +1000,20 @@ button img:hover {
   .previa-arquivo p {
     margin-left: 8px;
   }
+
+  #form-filtro {
+    margin-bottom: 0px;
+  }
+
+  .filtrar {
+    height: 32px;
+    width: 120px;
+  }
+
+  #cancelar {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 /* Smartphones */
@@ -992,6 +1028,20 @@ button img:hover {
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+
+  #form-filtro {
+    margin-bottom: 0px;
+  }
+
+  .filtrar {
+    height: 30px;
+    width: 100px;
+  }
+
+  #cancelar {
+    width: 30px;
+    height: 30px;
   }
 
   .Form1 {

@@ -193,7 +193,7 @@ include_once('./templetes/headerProfessor.php');
                 <!-- Div do ComboBox2  -->
                 <div class="ComboBox">
                     <p class="titulo">Escolha a turma:</p>
-                    <select required name="turma" id="select-turma" onChange="">
+                    <select required name="turma" id="select-turma" onChange=""  onclick="teste()" >
                         <option value="0" disabled selected hidden>Escolha uma turma</option>
 
                     </select>
@@ -205,7 +205,7 @@ include_once('./templetes/headerProfessor.php');
             <!-- Final Pesquisar-->
 
             <p class="titulo">Defina a data :</p>
-            <input name="data_aula" id="input-data" type="date" disabled required>
+            <input name="data_aula" id="input-data" type="date" value="" required>
 
             <p class="titulo">Descrição da Aula:</p>
             <textarea name="descricao" id="input-descricao" placeholder="Escreva uma descrição de até 255 caracteres."></textarea>
