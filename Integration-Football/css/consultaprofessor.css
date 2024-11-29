@@ -4,16 +4,16 @@
   font-family: "Poppins", sans-serif;
 }
 
-#consulta {
+#conteudos {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-#conteudo {
+#form {
   display: flex;
   flex-direction: column;
-  width: 55%;
+  width: 635px;
   margin-top: 25px;
 }
 
@@ -74,10 +74,6 @@ select {
 select:focus {
   outline: none; /* Remove a borda de foco padrão */
   border: 2px solid #07cb65; /* Mantém a borda verde ao focar */
-}
-
-.Form1 {
-  height: 150px;
 }
 
 .cards {
@@ -241,9 +237,8 @@ button img:hover {
   margin: 15px 15px;
 }
 
-#justificativa-card{
-  width: 100%;
-  height: 125px;
+#justificativa-card {
+  width: 635px;
 }
 
 .previa-arquivo img {
@@ -277,21 +272,40 @@ button img:hover {
   transform: scale(1.05);
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 865px) {
+  .container {
+    width: 100vw;
+    margin-top: 80px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  #conteudos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   .Form1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
-    width: 100%;
+    margin-bottom: 0px;
   }
 
-  #conteudo {
+  h1 {
+    font-size: 28px;
+  }
+
+  .Form1 p {
+    text-align: center;
+  }
+
+  #form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 630px;
     margin-top: 25px;
   }
 
@@ -312,16 +326,6 @@ button img:hover {
     height: 70px;
   }
 
-  #form-filtro {
-    margin-bottom: 0px;
-  }
-
-  #justificativa-card {
-    width: 566px;
-    height: 120px;
-    transform: scale(0.822);  
-  }
-
   select {
     width: 100%;
     height: 30px;
@@ -329,21 +333,19 @@ button img:hover {
     border-radius: 5px;
   }
 
-  .filtrar {
-    height: 30px;
+  select:focus {
+    outline: none; /* Remove a borda de foco padrão */
+    border: 2px solid #07cb65; /* Mantém a borda verde ao focar */
   }
 
   .cards {
-    margin-top: 25px;
-  }
-
-  #cancelar {
-    width: 30px;
-    height: 30px;
-  }
-
-  #cancelar img {
-    width: 30px;
+    display: flex;
+    background-color: #c1e3c3;
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
   }
 
   .cards:hover {
@@ -356,6 +358,11 @@ button img:hover {
 
   .imagem img {
     height: 50%;
+  }
+
+  #justificativa-card {
+    width: 566px;
+    transform: scale(0.93);
   }
 
   .imagem {
@@ -422,9 +429,18 @@ button img:hover {
     overflow: hidden;
     transition: height 0.5s ease;
   }
+
   .justificativa.fechado {
-    transition: height 0.5s ease;
     height: 0px;
+  }
+
+  #form-filtro {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cards p {
+    font-size: 14px;
   }
 
   .conteudo-justificativa {
@@ -492,14 +508,14 @@ button img:hover {
   }
 }
 
-@media screen and (max-width: 865px) {
+@media screen and (max-width: 710px) {
   .container {
     width: 100vw;
     margin-top: 80px;
     font-family: "Poppins", sans-serif;
   }
 
-  #consulta {
+  #conteudos {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -509,7 +525,7 @@ button img:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 150px;
+    margin-bottom: 0px;
   }
 
   h1 {
@@ -520,12 +536,12 @@ button img:hover {
     text-align: center;
   }
 
-  #conteudo {
+  #form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 470px;
     margin-top: 25px;
   }
 
@@ -580,9 +596,9 @@ button img:hover {
     height: 50%;
   }
 
-  
   #justificativa-card {
-    /* transform: scale(0.9); */
+    width: 566px;
+    transform: scale(0.84);
   }
 
   .imagem {
@@ -657,6 +673,246 @@ button img:hover {
   #form-filtro {
     display: flex;
     flex-direction: column;
+  }
+
+  .cards p {
+    font-size: 16px;
+  }
+
+  .conteudo-justificativa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    overflow: hidden;
+    transition: height 0.5s ease;
+    width: 85%;
+    border: 3px, solid, #07cb65;
+    border-radius: 10px;
+  }
+
+  .titulo {
+    display: flex;
+    width: 100%;
+  }
+
+  .titulo p {
+    margin-left: 05%;
+    font-weight: bold;
+  }
+
+  .card-arquivo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    transition: 0.5s;
+    height: 160px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .card-arquivo button {
+    border: solid 1px #07cb65;
+    background-color: transparent;
+    border-radius: 10px;
+    width: 140px;
+    height: 45px;
+    font-weight: bold;
+    float: right;
+    margin-right: 30px;
+    margin-bottom: 15px;
+  }
+
+  .arquivo {
+    width: 90%;
+    border: solid 2px rgb(145, 145, 145);
+    border-radius: 10px;
+  }
+
+  .previa-arquivo {
+    display: flex;
+    align-items: center;
+    margin: 15px 15px;
+  }
+
+  .previa-arquivo img {
+    width: 55px;
+  }
+
+  .previa-arquivo p {
+    margin-left: 8px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .container {
+    width: 100vw;
+    margin-top: 80px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  #conteudos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .Form1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .Form1 p {
+    text-align: center;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 360px;
+    margin-top: 25px;
+  }
+
+  .ComboBox {
+    width: 100%;
+  }
+
+  .ComboBox p {
+    font-weight: bold;
+    text-align: start;
+  }
+
+  .Pesquisar {
+    display: flex;
+    width: 100%;
+    gap: 10%;
+    margin-top: 20px;
+    height: 70px;
+  }
+
+  select {
+    width: 100%;
+    height: 30px;
+    border: 2px solid #07cb65;
+    border-radius: 5px;
+  }
+
+  select:focus {
+    outline: none; /* Remove a borda de foco padrão */
+    border: 2px solid #07cb65; /* Mantém a borda verde ao focar */
+  }
+
+  .cards {
+    display: flex;
+    background-color: #c1e3c3;
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .cards:hover {
+    transform: scale(1);
+  }
+
+  .cards.ativo {
+    transform: scale(1.05);
+  }
+
+  .imagem img {
+    height: 50%;
+  }
+
+  #justificativa-card {
+    width: 566px;
+    transform: scale(0.645);
+  }
+
+  .imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+  }
+
+  .informacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 55%;
+  }
+
+  .informacao p {
+    font-size: 14px;
+    margin-left: 5%;
+    font-weight: bold;
+  }
+
+  .botoes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 25%;
+  }
+
+  #aprovado,
+  #reprovado {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  #aprovado.clicado,
+  #reprovado.clicado {
+    opacity: 100%;
+  }
+
+  #p-justificativa {
+    padding: 5px;
+    width: 90%;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  button img:hover {
+    transition: transform 0.3s ease;
+    transform: scale(1);
+  }
+
+  .justificativa {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    transition: height 0.5s ease;
+  }
+
+  .justificativa.fechado {
+    height: 0px;
+  }
+
+  #form-filtro {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cards p {
+    font-size: 16px;
   }
 
   .conteudo-justificativa {
@@ -732,7 +988,7 @@ button img:hover {
     font-family: "Poppins", sans-serif;
   }
 
-  #consulta {
+  #conteudos {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -742,19 +998,19 @@ button img:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 200px;
+    margin-bottom: 0px;
   }
 
   .Form1 p {
     text-align: center;
   }
 
-  #conteudo {
+  #form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 85%;
+    width: 300px;
     margin-top: 25px;
   }
 
@@ -765,10 +1021,13 @@ button img:hover {
     align-items: center;
   }
 
-  #justificativa-card{
+  #justificativa-card {
+    width: 566px;
+    transform: scale(0.54);
+  }
 
-    transform: scale(0.822);
-
+  .conteudo-justificativa p {
+    font-size: 18px;
   }
 
   .ComboBox p {
@@ -801,7 +1060,7 @@ button img:hover {
     display: flex;
     background-color: #c1e3c3;
     width: 100%;
-    height: 90px;
+    height: 120px;
     border-radius: 10px;
     transition: transform 0.3s ease;
     margin-top: 20px;
@@ -836,7 +1095,7 @@ button img:hover {
   }
 
   .informacao p {
-    font-size: 14px;
+    font-size: 18px;
     margin-left: 5%;
     font-weight: bold;
   }
@@ -886,7 +1145,7 @@ button img:hover {
   }
 
   .justificativa.fechado {
-    height: 0px; 
+    height: 0px;
   }
 
   .conteudo-justificativa {
@@ -931,6 +1190,10 @@ button img:hover {
     float: right;
     margin-right: 30px;
     margin-bottom: 15px;
+  }
+
+  .informacao p {
+    font-size: 20px;
   }
 
   .arquivo {
