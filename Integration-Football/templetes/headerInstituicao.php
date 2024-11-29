@@ -114,27 +114,28 @@ if (!empty($flassMessage["msg"])) {
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
     
-    <?php if (!empty($flassMessage["msg"])): 
-        if ($flassMessage["type"] == "success") {
-            $type = "Sucesso";
-        } else {
-            $type = "Erro";
-        }
-    ?>
+    <?php if(!empty($flassMessage["msg"])): 
 
-    <div class="toast active">
-        <div class="toast-content ">
-            <i class="fas fa-check check <?= $type ?>"></i>
-            <div class="message">
-                <span class="text text-1"><?= $type ?></span>
-                <span class="text text-2"><?= $flassMessage["msg"]; ?></span>
-            </div>
-        </div>
-        <div class="close">&times;</div>
-        <div class="progress active"></div>
+if($flassMessage["type"] == "success") {
+    $type = "Sucesso";
+}
+else{
+    $type = "Erro";
+}
+?>
+
+
+<div class="toast active <?= $flassMessage["type"] ?>">
+<div class="toast-content ">
+    <i class="check <?= $type ?>"></i>
+    <div class="message">
+        <span class="text text-1"><?= $type ?></span>
+        <span class="text text-2"><?= $flassMessage["msg"]; ?></span>
     </div>
-    <?php $message->clearMessage(); // Limpa a mensagem após exibir ?>
-    <?php endif; ?>
+</div>
+<div class="close">&times;</div>
+<div class="progress active"></div>
+</div>
+<?php $message->clearMessage(); // Limpa a mensagem após exibir ?>
+<?php endif; ?>
 
-</body>
-</html>
