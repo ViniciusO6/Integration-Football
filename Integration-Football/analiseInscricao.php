@@ -34,6 +34,8 @@ $row = $result->fetch_assoc();
 <link rel="stylesheet" href="css/analiseInscricao.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div class="container">
     <h1>DETALHES DA INSCRIÇÃO</h1>
@@ -77,14 +79,49 @@ $row = $result->fetch_assoc();
         </div>
     </form>
     <div class="actions">
-        <form action="aceitarInscricao.php" method="POST" style="display:inline;">
+        <form id="acceptForm" action="aceitarInscricao.php" method="POST" style="display:inline;">
             <input type="hidden" name="id" value="<?= $row['id'] ?>">
             <button type="submit" class="accept" name="action" value="aceitar">Aceitar</button>
         </form>
-        <form action="rejeitarInscricao.php" method="POST" style="display:inline;">
+        <!-- O form de rejeição agora chama o SweetAlert -->
+        <form id="rejectForm" action="rejeitarInscricao.php" method="POST" style="display:inline;">
             <input type="hidden" name="id" value="<?= $row['id'] ?>">
-            <button type="submit" class="reject" name="action" value="rejeitar">Rejeitar</button>
+            <button type="button" class="reject" id="rejectBtn">Rejeitar</button>
         </form>
     </div>
 </div>
 
+<script>
+document.getElementById('rejectBtn').addEventListener('click', function(event) {
+    event.preventDefault(); // Evita o envio imediato do formulário
+    
+    // Exibe o SweetAlert com fonte Barlow Condensed e ícone amarelo
+    Swal.fire({
+        title: 'Tem certeza?',
+        text: "Você não poderá reverter essa ação!",
+        icon: 'warning',
+        iconColor: '#FFC107', // Cor amarela para o ícone
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Sim, rejeitar!',
+        cancelButtonText: 'Cancelar',
+        customClass: {
+            popup: 'swal-popup' // Classe customizada para aplicar o estilo
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Se o usuário confirmar, submete o formulário de rejeição
+            document.getElementById('rejectForm').submit();
+        }
+    });
+});
+</script>
+
+<!-- Estilos customizados para o SweetAlert -->
+<style>
+/* Aplica a fonte Barlow Condensed no SweetAlert */
+.swal-popup, .swal-popup button {
+    font-family: 'Barlow Condensed', sans-serif !important;
+}
+</style>
