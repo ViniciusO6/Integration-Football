@@ -1,61 +1,74 @@
-.container{
+.container {
     width: 100vw;
     margin-top: 80px;
-    font-family: 'Poppins', sans-serif;
-  }
+    font-family: 'Barlow Condensed', sans-serif; /* Definindo a fonte padrão */
+}
 
-#perfil{
+h1 {
+    font-size: 35px;
+    margin-top: 30px;
+    text-align: center; /* Centralizando o título */
+}
+
+#perfil {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-#form{
+#form {
     display: flex;
-    flex-direction: column;
-    width: 55%;
+    flex-direction: column; /* Mudança: alinhamento em coluna para telas menores */
+    width: 80%;
     min-width: 650px;
-    margin-top: 25px;
+    align-items: center; /* Centraliza o conteúdo */
 }
 
-#titulo{
-    margin-bottom: 30px;
+#titulo {
+    font-size: 30px; /* Ajustando o tamanho da fonte */
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center; /* Centralizando o título */
 }
 
-#informacoes{
+#informacoes {
     display: flex;
+    flex-direction: column;
+    width: 70%; /* Ajuste para dar mais espaço aos inputs */
 }
 
-#bloco1{
+#bloco1 {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-#bloco2{
-    width: 70%;
+#bloco2 {
+    width: 30%; /* Mudança aqui: o bloco da imagem ocupará 30% */
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    order: -1; /* Garante que o bloco da imagem de perfil fique acima dos outros */
 }
 
-#foto-perfil{
+#foto-perfil {
     position: relative;
-    margin-top: 80px;
-    background-image: url(../Imagens/user.png);   
+    background-image: url(../Imagens/user.png);
     background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 50%;
     width: 200px;
     height: 200px;
-        
+    margin-top: 30px; /* Ajuste para garantir que a imagem fique centralizada */
 }
 
-#btn-editar-foto{
+#btn-editar-foto {
     cursor: pointer;
     width: 40px;
     height: 40px;
-    background-color:#2092c2;
+    background-color: rgb(221, 161, 50);
     border: 2px solid white;
     border-radius: 50%;
     position: absolute;
@@ -63,113 +76,113 @@
     right: 15px;
 }
 
-#btn-editar-foto img{
+#btn-editar-foto img {
     width: 22px;
     height: 22px;
 }
 
-#modalidade-turma{
-    width: 96%;
-    display: flex;
-    justify-content: space-between;
-}
-
-#input-modalidade{
+#btns-foto-perfil {
+    position: absolute;
+    top: 110%;
     width: 100%;
     display: flex;
+    justify-content: center;
 }
 
-#modalidade{
-    width: 60%;
-}
-
-#turma{
-    width: 30%;
-}
-
-#input-turma{
-    width: 100%;
-    display: flex;
-}
-
-#input-matricula{
-    width: 30%;
-}
-
-input{
+#btn-salvar-foto {
+    cursor: pointer;
     border: none;
-    border: solid 2px #2092c2;
+    border: solid 2px rgb(221, 161, 50);
+    background-color: rgb(221, 161, 50);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    height: 30px;
+    width: 40%;
+}
+
+input {
+    border: none;
+    border: solid 2px rgb(221, 161, 50);
     border-radius: 5px;
     height: 30px;
     width: 96%;
     font-size: 18px;
     padding: 0 5px;
     margin-bottom: 15px;
+    font-family: 'Barlow Condensed', sans-serif; /* Font para os inputs */
 }
 
-#btn-enviar{
+#btn-enviar {
     cursor: pointer;
     border: none;
-    border: solid 2px #2092c2;
-    background-color: #2092c2;
+    border: solid 2px rgb(221, 161, 50);
+    background-color: rgb(221, 161, 50);
     color: white;
     font-weight: bold;
     font-size: 16px;
     border-radius: 5px;
     height: 30px;
     width: 140px;
+    font-family: 'Barlow Condensed', sans-serif; /* Font para os botões */
 }
 
-#redefinir-senha{
+#redefinir-senha {
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     background-color: rgb(255, 255, 255);
-    width: 300px;
-    height: 300px;
+    width: 350px; /* Ajustei a largura do bloco */
+    height: 400px; /* Ajustei a altura do bloco */
     padding: 50px;
     border-radius: 5px;
     z-index: 11;
-    
-  }
-  
-  #btns-redefinir{
+    flex-direction: column; /* Garantindo que o conteúdo fique em coluna */
+    justify-content: center;
+    text-align: center; /* Centralizando o conteúdo */
+}
+
+#btns-redefinir {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
-    
-  }
-  
-  #btn-confirmar{
+}
+
+#btn-confirmar, #btn-cancelar {
     cursor: pointer;
     border: none;
-    border: solid 2px #2092c2;
-    background-color: #2092c2;
+    border: solid 2px rgb(221, 161, 50);
+    background-color: rgb(221, 161, 50);
     color: white;
     font-weight: bold;
     font-size: 16px;
     border-radius: 5px;
     height: 30px;
     width: 140px;
-    margin-bottom: 15px;
-  }
-  
-  #btn-cancelar{
-    cursor: pointer;
-    border: none;
-    border: solid 2px #2092c2;
-    background-color: #2092c2;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 5px;
-    height: 30px;
-    width: 140px;
-  }
-  
-  #sombra{
+    font-family: 'Barlow Condensed', sans-serif; /* Font para os botões */
+    margin-top: 10px;
+}
+
+#erroSenha {
+    margin-top: -8px;
+    font-size: 14px;
+    color: red;
+}
+
+#erroSenhaAtual {
+    margin-top: -8px;
+    font-size: 14px;
+    color: red;
+}
+
+.invisivel {
+    display: none !important;
+}
+
+#sombra {
     display: flex;
     width: 10000px;
     height: 100vh;
@@ -178,94 +191,60 @@ input{
     left: 0;
     background-color: rgba(0, 0, 0, 0.397);
     z-index: 10;
-  }
-  
-  #icon-olho-1{
-    cursor: pointer;
-    position: absolute;
-    top: 128px;
-    left: 315px;
-  
-  }
-  
-  #icon-olho-2{
-    cursor: pointer;
-    position: absolute;
-    top: 200px;
-    left: 316px;
-  
-  }
-  
-  #icon-olho-3{
-    cursor: pointer;
-    position: absolute;
-    top: 276px;
-    left: 316px;
-  }
-  
-  #erroSenha{
-    margin-top: -8px;
-    font-size: 14px;
-    color: red;
-  }
-
-  #erroSenhaAtual{
-    margin-top: -8px;
-    font-size: 14px;
-    color: red;
-  }
-  
-  .invisivel{
-    display: none !important;
-  }
-
-
-
-
-
-
-@media screen and (max-width: 992px) {
-
 }
 
-@media screen and (max-width: 865px) {
-    #consulta{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    #form{
-        width: 85%;
-        margin-top: 0;
-    }
+/* Icones de visualização de senha */
+#icon-olho-1, #icon-olho-2, #icon-olho-3 {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
 }
 
 @media screen and (max-width: 700px) {
-    #consulta{
+    #form {
+        flex-direction: column; /* Mudança para empilhar os itens em telas pequenas */
+        width: 90%;
+    }
+
+    #titulo {
+        font-size: 28px;
+        margin-top: 20px;
+    }
+
+    #foto-perfil {
+        width: 150px;
+        height: 150px;
+    }
+
+    #btn-editar-foto {
+        top: 125px;
+        right: 10px;
+    }
+
+    input {
         width: 100%;
-        display: flex;
-        justify-content: center;
     }
 
-    #informacoes{
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    #bloco2{
+    #btn-enviar {
         width: 100%;
-        margin-bottom: 30px;
     }
 
-    #foto-perfil{
-        margin-top: 0;
+    #redefinir-senha {
+        width: 80%;
+        height: auto;
+        padding: 20px;
     }
 
-    #form{
-        width: 85%;
-        min-width: initial;
-        margin-top: 0;
+    #btn-salvar-foto {
+        width: 50%;
     }
 
+    #btns-redefinir {
+        flex-direction: column;
+    }
+
+    #btn-confirmar, #btn-cancelar {
+        width: 100%;
+        margin-top: 10px;
+    }
 }
