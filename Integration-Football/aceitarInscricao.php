@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Buscar os dados da inscrição
-    $stmt = $conn->prepare("SELECT nome_inscrito, email_inscrito, unidadeInscrito, modalidadeInscrito, data_nasc, telefone_inscrito, Cpf_inscrito FROM inscricao WHERE id = ?");
+    $stmt = $conn->prepare("SELECT * FROM inscricao WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -56,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $turmaData = $resultTurma->fetch_assoc();
         $idTurma = $turmaData['id_turma']; // ID da turma escolhida
+        $foto_perfil = './Imagens/user.png';
 
         // Ajustes para garantir que CPF e telefone sejam armazenados corretamente
         $cpf = str_pad($inscricao['Cpf_inscrito'], 11, '0', STR_PAD_LEFT); // Garantir CPF com 11 dígitos
@@ -65,20 +66,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Inserir os dados na tabela 'alunos'
-        $senha = password_hash($_POST['senha'], PASSWORD_BCRYPT); // Criptografar a senha
+        $senha = $_POST['senha'];
+        echo $senha;
         $stmtAluno = $conn->prepare("
-            INSERT INTO alunos (nome_aluno, cpf_aluno, email_aluno, telefone_aluno, senha, id_turma, data_nasc) 
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO alunos (nome_aluno, email_aluno, id_turma, senha, data_nasc, cpf_aluno, telefone_aluno, foto_perfil) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ");
         $stmtAluno->bind_param(
-            "ssssssi", 
+            "ssisssss", 
             $inscricao['nome_inscrito'], 
-            $cpf, 
-            $inscricao['email_inscrito'], 
-            $telefone, 
-            $senha, 
-            $idTurma, // Atribuindo o ID da turma escolhida
-            $inscricao['data_nasc']
+            $inscricao['email_inscrito'],
+            $idTurma,
+            $senha,
+            $inscricao['data_nasc'],
+            $inscricao['Cpf_inscrito'],  
+            $inscricao['telefone_inscrito'], 
+            $foto_perfil
         );
 
         if ($stmtAluno->execute()) {
@@ -130,7 +133,7 @@ while ($row = $resultTurmas->fetch_assoc()) {
 
         <label for="modalidade">Modalidade:</label>
         <input type="text" name="modalidade" id="modalidade" value="<?= htmlspecialchars($inscricao['modalidadeInscrito'], ENT_QUOTES) ?>" readonly>
-
+        <input type="hidden" name="senha" id="modalidade" value="<?= htmlspecialchars($inscricao['senha_inscrito'], ENT_QUOTES) ?>" readonly>
         <label for="turma">Turma:</label>
         <select name="turma" id="turma" required>
             <?php foreach ($turmas as $turma): ?>
@@ -156,8 +159,9 @@ while ($row = $resultTurmas->fetch_assoc()) {
             }
         }).then((result) => {
             if (result.isConfirmed) {
+                // Redireciona para a página de visualização de inscrições
                 window.location.href = 'visualizarInscricoes.php';
-            
+            }
         });
     <?php endif; ?>
 </script>
