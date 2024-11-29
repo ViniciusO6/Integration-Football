@@ -73,7 +73,6 @@ if (isset($_POST['tipo']) && $_POST['tipo'] == "filtrar" && isset($_POST['modali
         <div id="th-chamada">
 
             <div id="titulo-nome">
-                <p>Nome</p>
             </div>
             
             <div id="presente-ausente">

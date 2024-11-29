@@ -17,3 +17,11 @@ function AbrirJustificativa(
   Reprov.classList.toggle("clicado");
   element.classList.toggle("ativo");
 }
+
+function Limpar() {
+  const Modalidade = document.getElementById("select-modalidade");
+  const Turma = document.getElementById("select-turma");
+
+  Modalidade.selectedIndex = 0;
+  Turma.selectedIndex = 0;
+}

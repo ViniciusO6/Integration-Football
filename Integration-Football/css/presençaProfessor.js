@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const dataMin = `${anoAtual}-${mes}-${dia}`; // dataMin no formato yyyy-mm-dd
   const dataMax = `${anoAtual}-12-31`; // dataMax no formato yyyy-mm-dd
 
+  dataEntregaInput.value = dataMin;
+
   // Aplica os valores de limite no campo de data
   dataEntregaInput.min = dataMin;
   dataEntregaInput.max = dataMax;
@@ -48,28 +50,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function validarChamada(){
-    const linhas = document.querySelectorAll('.nomes-alunos');
-    let valido = true;
-    console.log("validar");
+function validarChamada() {
+  const linhas = document.querySelectorAll(".nomes-alunos");
+  let valido = true;
+  console.log("validar");
 
-    linhas.forEach((linha, index) => {
-        const checkboxes = linha.querySelectorAll('input[type="checkbox"]');
-        const algumMarcado = Array.from(checkboxes).some(checkbox => checkbox.checked);
+  linhas.forEach((linha, index) => {
+    const checkboxes = linha.querySelectorAll('input[type="checkbox"]');
+    const algumMarcado = Array.from(checkboxes).some(
+      (checkbox) => checkbox.checked
+    );
 
-        if (!algumMarcado) {
-            valido = false;
-        }
-    });
-
-    if (!valido) {
-      console.log("Erro");
-      document.getElementById("erro-chamada").style.opacity = "1"
-      return false;
-    }else{
-      return true;
+    if (!algumMarcado) {
+      valido = false;
     }
+  });
 
+  if (!valido) {
+    console.log("Erro");
+    document.getElementById("erro-chamada").style.opacity = "1";
+    return false;
+  } else {
+    return true;
+  }
 }
-
-

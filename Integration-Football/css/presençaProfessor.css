@@ -25,12 +25,12 @@
 .Form1 {
   text-align: center;
 }
-
 select {
-  height: 30px;
-  width: 100%;
   border: 2px solid #07cb65;
   border-radius: 5px;
+  width: 100%;
+  height: 38px;
+  font-size: 16px;
 }
 
 select:focus {
@@ -103,8 +103,6 @@ select:focus {
   width: 15px;
 }
 
-
-
 #tr-contatos {
   width: 100%;
 }
@@ -137,7 +135,7 @@ select:focus {
   border: solid 2px #07cb65;
   border-radius: 5px;
   height: 30px;
-  width: 30%;
+  width: 22%;
   font-size: 18px;
   padding: 0 5px;
   margin-bottom: 20px;
@@ -170,7 +168,7 @@ select:focus {
 
 .filtrar {
   width: 150px;
-  height: 30px;
+  height: 38px;
   background-color: #07cb65;
   border: none;
   border-radius: 5px;
@@ -209,7 +207,7 @@ select:focus {
   width: 100%;
 }
 
-#erro-chamada{
+#erro-chamada {
   opacity: 0;
 }
 
@@ -222,41 +220,40 @@ select:focus {
   align-items: center;
 }
 
-#presenca-select{
+#presenca-select {
   width: 40%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-#th-chamada{
+#th-chamada {
   display: flex;
   flex-direction: row;
   width: 100%;
   padding: 10px 0 0 0;
 }
 
-#titulo-nome p{
- margin: 0 30px;
+#titulo-nome p {
+  margin: 0 30px;
 }
 
-#titulo-nome{
+#titulo-nome {
   width: 100%;
 }
 
-#presente-ausente{
+#presente-ausente {
   width: 40.3%;
   display: flex;
   margin-right: 0px;
-  
 }
 
-#presente{
+#presente {
   width: 90%;
   text-align: center;
 }
 
-#ausente{
+#ausente {
   width: 90%;
   text-align: center;
 }

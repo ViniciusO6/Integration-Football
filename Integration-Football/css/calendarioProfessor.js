@@ -122,7 +122,6 @@ document.getElementById("cancelar").addEventListener("click", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const dataEntregaInput = document.getElementById("data_entrega");
-  const publicarBtn = document.getElementById("publicar");
 
   // Define as datas mínima e máxima
   const hoje = new Date();
@@ -143,14 +142,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const [ano, mes, dia] = data.split("-");
     return `${dia}/${mes}/${ano}`; // Formato "dd/mm/aaaa"
   };
-
-  document
-    .getElementById("data_entrega")
-    .addEventListener("invalid", function (event) {
-      event.preventDefault(); // Impede a exibição da mensagem padrão
-    });
-
-  
 });
 
 //Tela de deletar arquivo
@@ -164,14 +155,6 @@ function TelaDeletar() {
 }
 
 //Tela de deletar arquivo
-function TelaData() {
-  const telaData = document.getElementById("tela-data");
-  const sombra = document.getElementById("sombra");
-  const sair = document.getElementById("ok");
-
-  telaData.classList.toggle("invisivel");
-  sombra.classList.toggle("invisivel");
-}
 
 function deletar(element) {
   TelaDeletar();

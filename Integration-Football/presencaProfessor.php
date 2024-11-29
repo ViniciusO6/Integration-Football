@@ -205,7 +205,7 @@ include_once('./templetes/headerProfessor.php');
             <!-- Final Pesquisar-->
 
             <p class="titulo">Defina a data :</p>
-            <input name="data_aula" id="input-data" type="date" required>
+            <input name="data_aula" id="input-data" type="date" disabled required>
 
             <p class="titulo">Descrição da Aula:</p>
             <textarea name="descricao" id="input-descricao" placeholder="Escreva uma descrição de até 255 caracteres."></textarea>
