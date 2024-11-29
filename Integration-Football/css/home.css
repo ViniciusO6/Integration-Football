@@ -272,6 +272,9 @@
     height: 150px;
     border-radius: 10px;
     margin-right: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .content {

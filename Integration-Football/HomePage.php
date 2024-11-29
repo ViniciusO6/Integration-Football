@@ -82,7 +82,7 @@
   <div id="blocos">
 
   <div id="bloco1" class="bloco" onclick="window.location.href='Power_Soccer.php'">
-  <img class="image-placeholder" src="Imagens/HomePage/Modalidades/power-soccer.png">
+  <div class="image-placeholder" style="background-image: url('Imagens/HomePage/Modalidades/power-soccer.png');"></div>
     <div class="vertical-line"></div>
     <div class="content">
         <h2>Power Soccer <img id="icon-card" src="Imagens/HomePage/Modalidades/icon-player.png" alt="">   </h2>
@@ -92,7 +92,7 @@
   </div>
 
   <div id="bloco2" class="bloco" onclick="window.location.href='Futebol_5.php'">
-  <img class="image-placeholder" src="Imagens/HomePage/Modalidades//futebol-de-5.jpeg">
+  <img class="image-placeholder" style="background-image: url('Imagens/HomePage/Modalidades/futebol-de-5.jpeg');">
     <div class="vertical-line"></div>
     <div class="content">
         <h2>Futebol de 5 <img id="icon-card" src="Imagens/HomePage/Modalidades/icon-mask.png" alt="">   </h2>
@@ -102,7 +102,7 @@
   </div>
 
   <div id="bloco3" class="bloco" onclick="window.location.href='Walking_Football.php'">
-  <img class="image-placeholder" src="Imagens/HomePage/Modalidades/walking-football.jpg">
+  <img class="image-placeholder" style="background-image: url('Imagens/HomePage/Modalidades/walking-football.jpg');">
     <div class="vertical-line"></div>
     <div class="content">
         <h2>Walking Football <img id="icon-card" src="Imagens/HomePage/Modalidades/icon-person.png" alt="">   </h2>
