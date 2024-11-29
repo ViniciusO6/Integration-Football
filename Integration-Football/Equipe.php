@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 $imports = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
@@ -7,9 +9,36 @@ $imports = [
 ];
 $titulo = 'Verificar Equipe';
 $pageCSS = ["equipe.css"];
+
+include_once('./config.php');
+if (!isset($_SESSION['id'])) {
+    echo "Você precisa estar logado para acessar esta página.";
+    exit;
+}
+// Recupera o ID da instituição a partir da sessão
+$id_instituicao = $_SESSION['id'];
+
+// Consulta SQL para pegar as informações da tabela instituicao
+$sql = "SELECT * FROM instituicao WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id_instituicao); // Bind do parâmetro do tipo inteiro
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Verificando se a consulta retornou algum resultado
+if ($result->num_rows > 0) {
+    // Pega os dados da instituição
+    $instituicao = $result->fetch_assoc();
+} else {
+    // Se não encontrar nenhum resultado
+    echo "Instituição não encontrada!";
+    exit;
+}
+
+
 include_once('./templetes/headerInstituicao.php');
 
-require_once './config.php'; // Conexão com o banco de dados
+
 
 // Consultar os professores
 $queryProfessores = "SELECT id, nome_professor, email_professor FROM professores";
