@@ -5,6 +5,7 @@ require_once './controller/alunocontroller.php';
 require_once './controller/turmacontroller.php';
 require_once './controller/atividadecontroller.php';
 require_once './controller/modalidadecontroller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Integration-Football-main/Integration-Football/config/globals.php';
 
 
 $imports = [

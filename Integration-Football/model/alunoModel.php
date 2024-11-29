@@ -185,35 +185,33 @@ WHERE
         return $alunos;
     }
 
-    public function redefinirSenha(){
+    public function redefinirSenha($ComfirmeSenha){
         $sql = "SELECT senha FROM alunos WHERE id_aluno = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('i', $this->id_aluno); // Corrigido para usar $id em vez de $this->id
         $stmt->execute();
 
         $result = $stmt->get_result();
+
         $aluno = $result->fetch_assoc(); // Obtém apenas um único registro
-        echo 'senha atual'.md5($this->senha). '<br>';
-        echo 'senha nova' . $aluno['senha']. '<br>';
+        $SenhaAtual= $aluno['senha'];
+        $novaSenha =  md5($this->senha);
 
-        if(md5($aluno['senha']) == md5($this->senha)){
-            echo 'true';
+
+        if($SenhaAtual ==  md5($ComfirmeSenha)){
+            $sql = "UPDATE alunos SET `senha` = ? WHERE `id_aluno` = ?";
+            $stmt = $this->conexao->getConexao()->prepare($sql);
+            $stmt->bind_param('si', $novaSenha, $this->id_aluno);
+            $message = new Message($_SERVER['DOCUMENT_ROOT']);  
+            $stmt->execute();
+            $message->setMessage("Senha redefinida com sucesso!", "success", "back");      
         }else{
-            echo 'false';
+            $message = new Message($_SERVER['DOCUMENT_ROOT']);  
+            $message->setMessage("Senha inválida, tente novamente", "error", "back");   
         }
-       
-        
-        
 
-        $sql = "UPDATE alunos SET `senha` = ? WHERE `id_aluno` = ?";
-        $stmt = $this->conexao->getConexao()->prepare($sql);
-        $stmt->bind_param('si', md5($this->senha), $this->id_aluno);
-        $message = new Message($_SERVER['DOCUMENT_ROOT']);
-        // $message->setMessage("Senha redefinida com sucesso!", "success", "back");
-        return $stmt->execute();
         
     }
-
 
 
     public function listar()

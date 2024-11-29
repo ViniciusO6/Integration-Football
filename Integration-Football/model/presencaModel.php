@@ -93,7 +93,9 @@ class Presenca
                 VALUES (?, ?, ?, NULL)";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('iis', $this->id_aluno, $id_aula, $this->presente);
-        return $stmt->execute();
+        $stmt->execute();
+        $message = new Message($_SERVER['DOCUMENT_ROOT']);
+        $message->setMessage("Chamada realizada com sucesso", "success", "back");
     }else{
                   
         $data_aula = explode('-', $data_aula);

@@ -1,6 +1,7 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Integration-Football-main/Integration-Football/controller/conexao.php";
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Integration-Football-main/Integration-Football/templetes/mensagemSessao.php");
 
 // Definição da classe Atividade
 class Atividade
@@ -122,7 +123,9 @@ class Atividade
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('ssssssii', $this->titulo_atividade, $this->hora_inicio, $this->hora_termino, $this->data_entrega, $this->nome_arquivo, $this->caminho_arquivo, $this->id_turma, $this->id_professor);
-        return $stmt->execute();
+        $stmt->execute();
+        $message = new Message($_SERVER['DOCUMENT_ROOT']);  
+        $message->setMessage("Atividade envia com sucesso", "success", "back");  
     }
 
     // Método para buscar uma atividade por ID
