@@ -106,7 +106,7 @@ include_once('./templetes/menu.php');
                 if ($table === 'alunos') {
                     echo "<script>location.href='principal.php';</script>";
                 } else if ($table === 'professores') {
-                    echo "<script>location.href='perfilProfessor.php';</script>";
+                    echo "<script>location.href='calendarioProfessor.php';</script>";
                 } else if ($table === 'instituicao') {
                     echo "<script>location.href='visualizarInscricoes.php';</script>";
                 }

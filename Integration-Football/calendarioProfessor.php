@@ -186,7 +186,7 @@ include_once('./templetes/headerProfessor.php');
         </div>
       </div>
 
-      <h1 id="titulo">ATRIBUIR ATIVIDADE</h1>
+      <h1 id="titulo">ADICONAR EVENTO</h1>
 
       <div id="atividade" class="atividade">
         <div id="card-atividade" class="card-atividade" onclick="abrirPrevia('atividade', 'card-arquivo')">
@@ -199,7 +199,7 @@ include_once('./templetes/headerProfessor.php');
 
           <div class="bloco2">
             <div class="titulo-atividade">
-              <h3>ADICIONAR ATIVIDADE</h3>
+              <h3>ADICONAR EVENTO</h3>
             </div>
 
             <div class="data-entrega">
@@ -269,7 +269,7 @@ include_once('./templetes/headerProfessor.php');
               </div>
               <div class="botoes">
                 <button id="input-arquivo" type="button" required>Escolher arquivo</button>
-                <button type="submit" id="publicar">Publicar Evento</button>
+                <button style="cursor: pointer;" type="submit" id="publicar">Publicar Evento</button>
               </div>
             </form>
           </div>
@@ -277,7 +277,7 @@ include_once('./templetes/headerProfessor.php');
 
       </div>
 
-      <h1 id="titulo-tarefas">ATIVIDADES ATRIBUIDAS</h1>
+      <h1 id="titulo-tarefas">EVENTOS MARCADOS</h1>
 
 
       <?php

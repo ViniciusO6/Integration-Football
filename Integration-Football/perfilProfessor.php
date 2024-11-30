@@ -109,7 +109,7 @@ xhr.onload = function() {
           <label for="input-senha-pessoal">Senha</label>
           <input id="input-senha-pessoal" type="password" value="<?= $professor['senha']; ?>" disabled>
           <div id="btns">
-          <button id="btn-enviar" type="button">Alterar Email</button>
+          <!-- <button id="btn-enviar" type="button">Alterar Email</button> -->
           <button onclick="fecharTela()" id="btn-enviar" type="button">Redefinir Senha</button>
         </div>
         </div>

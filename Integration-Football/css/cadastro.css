@@ -71,15 +71,16 @@ label {
   display: flex;
   align-items: center;
   margin: auto 20px;
+  width: 100%;
 }
 
 /* Estilo da imagem dentro do input */
 .input-image {
-  margin-right: 40px;
   height: auto;
   max-height: 270px;
   width: 60%;
   max-width: 35%;
+  margin-bottom: 90px;
 }
 
 /* #radio-buttons{
@@ -124,7 +125,7 @@ label {
 .button-container {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 /* Estilo do botão */
@@ -145,6 +146,14 @@ label {
 
 #proximo:hover {
   transform: scale(1.05);
+}
+
+#radio-buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+  margin-top: 15px;
 }
 
 
@@ -210,6 +219,14 @@ label {
   }}
 
   @media (max-width: 935px) {
+    #radio-buttons{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 0px;
+    }
+    
+
   .card {
     
     width: 60%;

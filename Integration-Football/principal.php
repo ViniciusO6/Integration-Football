@@ -109,7 +109,7 @@ include_once('./templetes/headerAluno.php');
 
 
 
-      <h1 id="titulo">ATIVIDADES</h1>
+      <h1 id="titulo">EVENTOS</h1>
 
 
       <?php

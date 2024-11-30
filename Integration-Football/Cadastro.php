@@ -52,20 +52,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <label for="telefone">Telefone para contato <span id="point">*</span></label>
                         <input type="tel" id="telefone_inscrito" name="telefone_inscrito" required />
+                        <br>
+                        <div id="radio-buttons">
+                        <div class="option">
+                        <input class="form-check-input" type="radio" value="maior" id="maior" name="idade" required>
+                        <label class="form-check-label" for="maior">Sou maior de idade (maior de 18)</label>
+                    </div>
+                
+                    <div class="option">
+                        <input class="form-check-input" type="radio" value="menor" id="menor" name="idade" required>
+                        <label class="form-check-label" for="menor">Sou menor de idade (menor de 18)    </label>
+                    </div>
+                </div>
                         </div>
                 </div>
 
                 <br /><br />
-
-                <div class="option">
-                    <input class="form-check-input" type="radio" value="maior" id="maior" name="idade" required>
-                    <label class="form-check-label" for="maior">Sou maior de idade (menor de 18)</label>
-                </div>
-               
-                <div class="option">
-                    <input class="form-check-input" type="radio" value="menor" id="menor" name="idade" required>
-                    <label class="form-check-label" for="menor">Sou menor de idade (menor de 18)    </label>
-                </div>
 
                 <div class="button-container">
                     <button type="submit" id="proximo">Próximo</button>
