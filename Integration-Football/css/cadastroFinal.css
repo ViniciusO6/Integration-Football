@@ -107,7 +107,7 @@ input, select {
     display: flex; /* Ativa o Flexbox no contêiner da imagem */
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
-    width: 50%; /* Garante que ocupe toda a largura do card */
+    width: 35%; /* Garante que ocupe toda a largura do card */
     height: auto; /* Deixa a altura ajustada ao conteúdo */
     margin-top: 20px; /* Adiciona espaço acima */
 }

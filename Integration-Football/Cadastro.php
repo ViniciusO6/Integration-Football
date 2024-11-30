@@ -39,11 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <img src="Imagens/Cadastro/cadastro1.png" alt="Imagem de Cadastro" class="input-image" />
                     <div class="input">
                         <label for="nome">Nome completo <span id="point">*</span></label>
-                        <input type="text" name="nome_inscrito" required />
+                        <input type="text" name="nome_inscrito" required autocomplete="off" />
                         <br /><br />
 
                         <label for="email">E-mail para contato <span id="point">*</span></label>
-                        <input type="email" name="email_inscrito" required />
+                        <input type="email" name="email_inscrito" required autocomplete="off"/>
                         <br /><br />
 
                         <label for="senha_inscrito">Digite uma senha <span id="point">*</span></label>

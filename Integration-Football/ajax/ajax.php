@@ -109,7 +109,7 @@ if (isset($_POST['tipo']) && $_POST['tipo'] == "filtrar" && isset($_POST['modali
                         <div class="separador-vertical"></div>
 
                         <div id="presenca-select">
-                            <input value="1" name="presenca['. $aluno['id_aluno'].']" value="'. $aluno['id_aluno'] .'" type="checkbox" class="input-checkbox" onclick="selectOnlyThis(this, \'presenca['. $aluno['id_aluno'] .']\')">
+                            <input checked value="1" name="presenca['. $aluno['id_aluno'].']" value="'. $aluno['id_aluno'] .'" type="checkbox" class="input-checkbox" onclick="selectOnlyThis(this, \'presenca['. $aluno['id_aluno'] .']\')">
 
                             <div class="separador-vertical"></div>
 

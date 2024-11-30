@@ -170,7 +170,7 @@ include_once('./templetes/headerAluno.php');
                   <img src="./Imagens/pdfIcon.png" alt="">
                   <p><?= $atividade['nome_arquivo'] ?></p>
                 </div>
-                <button style="cursor: pointer;" type="button" onclick="redirecionar('./Server_Service/download.php?file=<?= $atividade['caminho_arquivo']?>')">Baixar Arquivos</button>
+                <button style="cursor: pointer;" type="button" onclick="redirecionar('./Server_Service/download.php?file=<?= $atividade['caminho_arquivo']?>&type=atividade')">Baixar Arquivos</button>
 
               </div>
             </div>
