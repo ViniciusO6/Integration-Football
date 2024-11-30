@@ -16,9 +16,9 @@
             <div class="footer-col">
                 <h4>FALE CONOSCO</h4>
                 <ul>
-                    <li><a href="#">(11) 94349-4679</a></li>
-                    <li><a href="#">(11) 4002-8922</a></li>
-                    <li><a href="#">integrationfootball@gmail.com</a></li>
+                    <li><a href="./redirecionar.php?pessoa=aluno">(11) 94349-4679</a></li>
+                    <li><a href="./redirecionar.php?pessoa=professor">(11) 4002-8922</a></li>
+                    <li><a href="./redirecionar.php?pessoa=instituicao">integrationfootball@gmail.com</a></li>
                 </ul>
             </div>
             <!-- end footer col -->
